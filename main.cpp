@@ -1,6 +1,9 @@
-#include <iostream>
+#include "read_csv.cpp"
 
-int main() {
-    std::cout << "Hello, World!" << std::endl;
+using namespace std;
+
+int main()
+{
+    read_csv("classes.csv");
     return 0;
 }

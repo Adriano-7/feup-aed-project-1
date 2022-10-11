@@ -78,30 +78,6 @@ build CMakeFiles/trabalho.dir/main.cpp.o: CXX_COMPILER__trabalho_Debug /Users/fp
   OBJECT_DIR = CMakeFiles/trabalho.dir
   OBJECT_FILE_DIR = CMakeFiles/trabalho.dir
 
-build CMakeFiles/trabalho.dir/classes/Student.cpp.o: CXX_COMPILER__trabalho_Debug /Users/fpana/Desktop/material-aulas/AED/trabalho/classes/Student.cpp || cmake_object_order_depends_target_trabalho
-  DEP_FILE = CMakeFiles/trabalho.dir/classes/Student.cpp.o.d
-  FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk -std=gnu++14
-  OBJECT_DIR = CMakeFiles/trabalho.dir
-  OBJECT_FILE_DIR = CMakeFiles/trabalho.dir/classes
-
-build CMakeFiles/trabalho.dir/classes/Schedule.cpp.o: CXX_COMPILER__trabalho_Debug /Users/fpana/Desktop/material-aulas/AED/trabalho/classes/Schedule.cpp || cmake_object_order_depends_target_trabalho
-  DEP_FILE = CMakeFiles/trabalho.dir/classes/Schedule.cpp.o.d
-  FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk -std=gnu++14
-  OBJECT_DIR = CMakeFiles/trabalho.dir
-  OBJECT_FILE_DIR = CMakeFiles/trabalho.dir/classes
-
-build CMakeFiles/trabalho.dir/classes/Lesson.cpp.o: CXX_COMPILER__trabalho_Debug /Users/fpana/Desktop/material-aulas/AED/trabalho/classes/Lesson.cpp || cmake_object_order_depends_target_trabalho
-  DEP_FILE = CMakeFiles/trabalho.dir/classes/Lesson.cpp.o.d
-  FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk -std=gnu++14
-  OBJECT_DIR = CMakeFiles/trabalho.dir
-  OBJECT_FILE_DIR = CMakeFiles/trabalho.dir/classes
-
-build CMakeFiles/trabalho.dir/classes/Class.cpp.o: CXX_COMPILER__trabalho_Debug /Users/fpana/Desktop/material-aulas/AED/trabalho/classes/Class.cpp || cmake_object_order_depends_target_trabalho
-  DEP_FILE = CMakeFiles/trabalho.dir/classes/Class.cpp.o.d
-  FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk -std=gnu++14
-  OBJECT_DIR = CMakeFiles/trabalho.dir
-  OBJECT_FILE_DIR = CMakeFiles/trabalho.dir/classes
-
 
 # =============================================================================
 # Link build statements for EXECUTABLE target trabalho
@@ -110,7 +86,7 @@ build CMakeFiles/trabalho.dir/classes/Class.cpp.o: CXX_COMPILER__trabalho_Debug 
 #############################################
 # Link the executable trabalho
 
-build trabalho: CXX_EXECUTABLE_LINKER__trabalho_Debug CMakeFiles/trabalho.dir/main.cpp.o CMakeFiles/trabalho.dir/classes/Student.cpp.o CMakeFiles/trabalho.dir/classes/Schedule.cpp.o CMakeFiles/trabalho.dir/classes/Lesson.cpp.o CMakeFiles/trabalho.dir/classes/Class.cpp.o
+build trabalho: CXX_EXECUTABLE_LINKER__trabalho_Debug CMakeFiles/trabalho.dir/main.cpp.o
   FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk
   OBJECT_DIR = CMakeFiles/trabalho.dir
   POST_BUILD = :
