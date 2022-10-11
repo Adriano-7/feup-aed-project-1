@@ -1,0 +1,27 @@
+int Cap
+
+class Student{
+    Schedule schedule
+    String id
+    String name
+}
+
+class Schedule{
+    Set<Lesson> lessons
+}
+
+class Lesson{
+    String UcCode
+    () weekday
+    () begin
+    () duration
+    String type
+    Class class
+}
+
+class Class{
+    String classCode
+    Schedule schedule
+    BinaryTree<Student> students
+    int occupation = students.size()
+}
