@@ -4,7 +4,7 @@
 
 using namespace std;
 
-Student::Student(string id, string name, Schedule schedule) {
+Student::Student(string id, string name, Schedule schedule, double d) {
     this->id = id;
     this->name = name;
     this->schedule = schedule;

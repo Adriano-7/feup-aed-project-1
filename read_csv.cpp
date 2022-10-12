@@ -8,7 +8,7 @@
 using namespace std;
 
 void read_csv(string filename){
-    string cp = string(std::__fs::filesystem::current_path());
+    string cp = string(__fs::filesystem::current_path());
     string fname =  cp + "/../schedule/" + filename;
 
     vector<vector<string>> content;

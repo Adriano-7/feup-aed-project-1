@@ -8,7 +8,7 @@ using namespace std;
 
 class Student {
     public:
-        Student(string id, string name, Schedule schedule);
+        Student(string id, string name, Schedule schedule, double d);
         string getId() const;
         void setId(string id);
         string getName() const;
