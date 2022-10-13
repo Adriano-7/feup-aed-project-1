@@ -4,7 +4,7 @@
 
 using namespace std;
 
-Lesson::Lesson(string UCCode, string weekday, float beginTime, float duration, string type) {
+Lesson::Lesson(string class_no, string UCCode, string weekday, float beginTime, float duration, string type) {
     this->UCCode = UCCode;
     this->weekday = weekday;
     this->beginTime = beginTime;

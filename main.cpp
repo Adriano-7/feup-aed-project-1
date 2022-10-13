@@ -9,6 +9,7 @@ int main()
 {
     Schedule schedule;
     Student francisco = Student("202108762", "Francisco", schedule, 70.0);
-    read_csv("classes.csv");
+    vector<Lesson> lessons = read_csv_lesson();
+    cout << (lessons[0].getUCCode());
     return 0;
 }

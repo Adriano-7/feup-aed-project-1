@@ -6,7 +6,7 @@ using namespace std;
 
 class Lesson {
     public:
-        Lesson(string UCCode, string weekday, float beginTime, float duration, string type);
+        Lesson(string class_no, string UCCode, string weekday, float beginTime, float duration, string type);
         string getUCCode() const;
         void setUCCode(string UCCode);
         string getWeekday() const;
