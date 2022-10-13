@@ -15,6 +15,8 @@ class Student {
         void setName(string name);
         Schedule getSchedule() const;
         void setSchedule(Schedule schedule);
+        bool operator < (const Student student);
+        bool operator == (const Student &student1);
     private:
         string id;
         string name;

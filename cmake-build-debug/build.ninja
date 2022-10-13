@@ -39,13 +39,13 @@ include CMakeFiles/rules.ninja
 #############################################
 # Logical path to working directory; prefix for absolute paths.
 
-cmake_ninja_workdir = /Users/fpana/Desktop/material-aulas/AED/trabalho/cmake-build-debug/
+cmake_ninja_workdir = /home/andre/Desktop/C++/trabalho_AED/cmake-build-debug/
 
 #############################################
 # Utility command for rebuild_cache
 
 build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /Users/fpana/Desktop/material-aulas/AED/trabalho/cmake-build-debug && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake --regenerate-during-build -S/Users/fpana/Desktop/material-aulas/AED/trabalho -B/Users/fpana/Desktop/material-aulas/AED/trabalho/cmake-build-debug
+  COMMAND = cd /home/andre/Desktop/C++/trabalho_AED/cmake-build-debug && /opt/clion-2021.3.3/bin/cmake/linux/bin/cmake --regenerate-during-build -S/home/andre/Desktop/C++/trabalho_AED -B/home/andre/Desktop/C++/trabalho_AED/cmake-build-debug
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -57,7 +57,7 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 # Utility command for edit_cache
 
 build CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /Users/fpana/Desktop/material-aulas/AED/trabalho/cmake-build-debug && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  COMMAND = cd /home/andre/Desktop/C++/trabalho_AED/cmake-build-debug && /opt/clion-2021.3.3/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
   DESC = No interactive CMake dialog available...
   restat = 1
 
@@ -72,9 +72,33 @@ build edit_cache: phony CMakeFiles/edit_cache.util
 
 build cmake_object_order_depends_target_trabalho: phony || CMakeFiles/trabalho.dir
 
-build CMakeFiles/trabalho.dir/main.cpp.o: CXX_COMPILER__trabalho_Debug /Users/fpana/Desktop/material-aulas/AED/trabalho/main.cpp || cmake_object_order_depends_target_trabalho
+build CMakeFiles/trabalho.dir/main.cpp.o: CXX_COMPILER__trabalho_Debug /home/andre/Desktop/C++/trabalho_AED/main.cpp || cmake_object_order_depends_target_trabalho
   DEP_FILE = CMakeFiles/trabalho.dir/main.cpp.o.d
-  FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk -std=gnu++14
+  FLAGS = -g -std=gnu++14
+  OBJECT_DIR = CMakeFiles/trabalho.dir
+  OBJECT_FILE_DIR = CMakeFiles/trabalho.dir
+
+build CMakeFiles/trabalho.dir/Student.cpp.o: CXX_COMPILER__trabalho_Debug /home/andre/Desktop/C++/trabalho_AED/Student.cpp || cmake_object_order_depends_target_trabalho
+  DEP_FILE = CMakeFiles/trabalho.dir/Student.cpp.o.d
+  FLAGS = -g -std=gnu++14
+  OBJECT_DIR = CMakeFiles/trabalho.dir
+  OBJECT_FILE_DIR = CMakeFiles/trabalho.dir
+
+build CMakeFiles/trabalho.dir/Schedule.cpp.o: CXX_COMPILER__trabalho_Debug /home/andre/Desktop/C++/trabalho_AED/Schedule.cpp || cmake_object_order_depends_target_trabalho
+  DEP_FILE = CMakeFiles/trabalho.dir/Schedule.cpp.o.d
+  FLAGS = -g -std=gnu++14
+  OBJECT_DIR = CMakeFiles/trabalho.dir
+  OBJECT_FILE_DIR = CMakeFiles/trabalho.dir
+
+build CMakeFiles/trabalho.dir/Lesson.cpp.o: CXX_COMPILER__trabalho_Debug /home/andre/Desktop/C++/trabalho_AED/Lesson.cpp || cmake_object_order_depends_target_trabalho
+  DEP_FILE = CMakeFiles/trabalho.dir/Lesson.cpp.o.d
+  FLAGS = -g -std=gnu++14
+  OBJECT_DIR = CMakeFiles/trabalho.dir
+  OBJECT_FILE_DIR = CMakeFiles/trabalho.dir
+
+build CMakeFiles/trabalho.dir/Class.cpp.o: CXX_COMPILER__trabalho_Debug /home/andre/Desktop/C++/trabalho_AED/Class.cpp || cmake_object_order_depends_target_trabalho
+  DEP_FILE = CMakeFiles/trabalho.dir/Class.cpp.o.d
+  FLAGS = -g -std=gnu++14
   OBJECT_DIR = CMakeFiles/trabalho.dir
   OBJECT_FILE_DIR = CMakeFiles/trabalho.dir
 
@@ -86,8 +110,8 @@ build CMakeFiles/trabalho.dir/main.cpp.o: CXX_COMPILER__trabalho_Debug /Users/fp
 #############################################
 # Link the executable trabalho
 
-build trabalho: CXX_EXECUTABLE_LINKER__trabalho_Debug CMakeFiles/trabalho.dir/main.cpp.o
-  FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk
+build trabalho: CXX_EXECUTABLE_LINKER__trabalho_Debug CMakeFiles/trabalho.dir/main.cpp.o CMakeFiles/trabalho.dir/Student.cpp.o CMakeFiles/trabalho.dir/Schedule.cpp.o CMakeFiles/trabalho.dir/Lesson.cpp.o CMakeFiles/trabalho.dir/Class.cpp.o
+  FLAGS = -g
   OBJECT_DIR = CMakeFiles/trabalho.dir
   POST_BUILD = :
   PRE_LINK = :
@@ -103,7 +127,7 @@ build trabalho: CXX_EXECUTABLE_LINKER__trabalho_Debug CMakeFiles/trabalho.dir/ma
 # =============================================================================
 
 #############################################
-# Folder: /Users/fpana/Desktop/material-aulas/AED/trabalho/cmake-build-debug
+# Folder: /home/andre/Desktop/C++/trabalho_AED/cmake-build-debug
 
 build all: phony trabalho
 
@@ -114,14 +138,14 @@ build all: phony trabalho
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | ../CMakeLists.txt /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.21/Modules/CMakeCInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.21/Modules/CMakeCXXInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.21/Modules/CMakeCommonLanguageInclude.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.21/Modules/CMakeGenericSystem.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.21/Modules/CMakeInitializeConfigs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.21/Modules/CMakeLanguageInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.21/Modules/CMakeSystemSpecificInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.21/Modules/CMakeSystemSpecificInitialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.21/Modules/Compiler/AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.21/Modules/Compiler/AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.21/Modules/Compiler/CMakeCommonCompilerMacros.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.21/Modules/Compiler/Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.21/Modules/Compiler/GNU.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.21/Modules/Platform/Apple-AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.21/Modules/Platform/Apple-AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.21/Modules/Platform/Apple-Clang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.21/Modules/Platform/Apple-Clang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.21/Modules/Platform/Apple-Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.21/Modules/Platform/Darwin-Initialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.21/Modules/Platform/Darwin.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.21/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.21.1/CMakeCCompiler.cmake CMakeFiles/3.21.1/CMakeCXXCompiler.cmake CMakeFiles/3.21.1/CMakeSystem.cmake
+build build.ninja: RERUN_CMAKE | ../CMakeLists.txt /opt/clion-2021.3.3/bin/cmake/linux/share/cmake-3.21/Modules/CMakeCInformation.cmake /opt/clion-2021.3.3/bin/cmake/linux/share/cmake-3.21/Modules/CMakeCXXInformation.cmake /opt/clion-2021.3.3/bin/cmake/linux/share/cmake-3.21/Modules/CMakeCommonLanguageInclude.cmake /opt/clion-2021.3.3/bin/cmake/linux/share/cmake-3.21/Modules/CMakeGenericSystem.cmake /opt/clion-2021.3.3/bin/cmake/linux/share/cmake-3.21/Modules/CMakeInitializeConfigs.cmake /opt/clion-2021.3.3/bin/cmake/linux/share/cmake-3.21/Modules/CMakeLanguageInformation.cmake /opt/clion-2021.3.3/bin/cmake/linux/share/cmake-3.21/Modules/CMakeSystemSpecificInformation.cmake /opt/clion-2021.3.3/bin/cmake/linux/share/cmake-3.21/Modules/CMakeSystemSpecificInitialize.cmake /opt/clion-2021.3.3/bin/cmake/linux/share/cmake-3.21/Modules/Compiler/CMakeCommonCompilerMacros.cmake /opt/clion-2021.3.3/bin/cmake/linux/share/cmake-3.21/Modules/Compiler/GNU-C.cmake /opt/clion-2021.3.3/bin/cmake/linux/share/cmake-3.21/Modules/Compiler/GNU-CXX.cmake /opt/clion-2021.3.3/bin/cmake/linux/share/cmake-3.21/Modules/Compiler/GNU.cmake /opt/clion-2021.3.3/bin/cmake/linux/share/cmake-3.21/Modules/Platform/Linux-GNU-C.cmake /opt/clion-2021.3.3/bin/cmake/linux/share/cmake-3.21/Modules/Platform/Linux-GNU-CXX.cmake /opt/clion-2021.3.3/bin/cmake/linux/share/cmake-3.21/Modules/Platform/Linux-GNU.cmake /opt/clion-2021.3.3/bin/cmake/linux/share/cmake-3.21/Modules/Platform/Linux.cmake /opt/clion-2021.3.3/bin/cmake/linux/share/cmake-3.21/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.21.1/CMakeCCompiler.cmake CMakeFiles/3.21.1/CMakeCXXCompiler.cmake CMakeFiles/3.21.1/CMakeSystem.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build ../CMakeLists.txt /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.21/Modules/CMakeCInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.21/Modules/CMakeCXXInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.21/Modules/CMakeCommonLanguageInclude.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.21/Modules/CMakeGenericSystem.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.21/Modules/CMakeInitializeConfigs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.21/Modules/CMakeLanguageInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.21/Modules/CMakeSystemSpecificInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.21/Modules/CMakeSystemSpecificInitialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.21/Modules/Compiler/AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.21/Modules/Compiler/AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.21/Modules/Compiler/CMakeCommonCompilerMacros.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.21/Modules/Compiler/Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.21/Modules/Compiler/GNU.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.21/Modules/Platform/Apple-AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.21/Modules/Platform/Apple-AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.21/Modules/Platform/Apple-Clang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.21/Modules/Platform/Apple-Clang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.21/Modules/Platform/Apple-Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.21/Modules/Platform/Darwin-Initialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.21/Modules/Platform/Darwin.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.21/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.21.1/CMakeCCompiler.cmake CMakeFiles/3.21.1/CMakeCXXCompiler.cmake CMakeFiles/3.21.1/CMakeSystem.cmake: phony
+build ../CMakeLists.txt /opt/clion-2021.3.3/bin/cmake/linux/share/cmake-3.21/Modules/CMakeCInformation.cmake /opt/clion-2021.3.3/bin/cmake/linux/share/cmake-3.21/Modules/CMakeCXXInformation.cmake /opt/clion-2021.3.3/bin/cmake/linux/share/cmake-3.21/Modules/CMakeCommonLanguageInclude.cmake /opt/clion-2021.3.3/bin/cmake/linux/share/cmake-3.21/Modules/CMakeGenericSystem.cmake /opt/clion-2021.3.3/bin/cmake/linux/share/cmake-3.21/Modules/CMakeInitializeConfigs.cmake /opt/clion-2021.3.3/bin/cmake/linux/share/cmake-3.21/Modules/CMakeLanguageInformation.cmake /opt/clion-2021.3.3/bin/cmake/linux/share/cmake-3.21/Modules/CMakeSystemSpecificInformation.cmake /opt/clion-2021.3.3/bin/cmake/linux/share/cmake-3.21/Modules/CMakeSystemSpecificInitialize.cmake /opt/clion-2021.3.3/bin/cmake/linux/share/cmake-3.21/Modules/Compiler/CMakeCommonCompilerMacros.cmake /opt/clion-2021.3.3/bin/cmake/linux/share/cmake-3.21/Modules/Compiler/GNU-C.cmake /opt/clion-2021.3.3/bin/cmake/linux/share/cmake-3.21/Modules/Compiler/GNU-CXX.cmake /opt/clion-2021.3.3/bin/cmake/linux/share/cmake-3.21/Modules/Compiler/GNU.cmake /opt/clion-2021.3.3/bin/cmake/linux/share/cmake-3.21/Modules/Platform/Linux-GNU-C.cmake /opt/clion-2021.3.3/bin/cmake/linux/share/cmake-3.21/Modules/Platform/Linux-GNU-CXX.cmake /opt/clion-2021.3.3/bin/cmake/linux/share/cmake-3.21/Modules/Platform/Linux-GNU.cmake /opt/clion-2021.3.3/bin/cmake/linux/share/cmake-3.21/Modules/Platform/Linux.cmake /opt/clion-2021.3.3/bin/cmake/linux/share/cmake-3.21/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.21.1/CMakeCCompiler.cmake CMakeFiles/3.21.1/CMakeCXXCompiler.cmake CMakeFiles/3.21.1/CMakeSystem.cmake: phony
 
 
 #############################################

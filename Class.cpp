@@ -1,11 +1,9 @@
 #include "Class.h"
-#include <string>
-#include "Schedule.h"
-#include <set>
+
 
 using namespace std;
 
-Class::Class(string id, Schedule schedule, set<Student> students) {
+Class::Class(string id, Schedule schedule, vector<Student> students) {
     this->id = id;
     this->schedule = schedule;
     this->students = students;
@@ -19,7 +17,7 @@ Schedule Class::getSchedule() const {
     return schedule;
 }
 
-set<Student> Class::getStudents() const {
+vector<Student> Class::getStudents() const {
     return students;
 }
 
@@ -31,14 +29,16 @@ void Class::setSchedule(Schedule schedule) {
     this->schedule = schedule;
 }
 
-void Class::setStudents(set<Student> students) {
+void Class::setStudents(vector<Student> students) {
     this->students = students;
 }
 
 void Class::addStudent(Student student) {
-    students.insert(student);
+    students.push_back(student);
 }
 
 void Class::removeStudent(Student student) {
-    students.erase(student);
+    students.erase(find(students.begin(),students.end(),student));
 }
+
+

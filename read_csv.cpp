@@ -3,13 +3,15 @@
 #include <string>
 #include <vector>
 #include <sstream>
-#include <filesystem>
+
 
 using namespace std;
 
+
 void read_csv(string filename){
-    string cp = string(__fs::filesystem::current_path());
-    string fname =  cp + "/../schedule/" + filename;
+
+
+    string fname =  "../schedule/" + filename;
 
     vector<vector<string>> content;
     vector<string> row;

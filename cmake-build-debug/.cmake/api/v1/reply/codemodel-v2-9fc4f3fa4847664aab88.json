@@ -39,7 +39,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "trabalho::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-trabalho-Debug-5f9508fe818b000f6d66.json",
+					"jsonFile" : "target-trabalho-Debug-c80932532f0ebf74eebb.json",
 					"name" : "trabalho",
 					"projectIndex" : 0
 				}
@@ -49,12 +49,12 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "/Users/fpana/Desktop/material-aulas/AED/trabalho/cmake-build-debug",
-		"source" : "/Users/fpana/Desktop/material-aulas/AED/trabalho"
+		"build" : "/home/evans24/Desktop/trabalho_AED/cmake-build-debug",
+		"source" : "/home/evans24/Desktop/trabalho_AED"
 	},
 	"version" : 
 	{
 		"major" : 2,
-		"minor" : 3
+		"minor" : 4
 	}
 }

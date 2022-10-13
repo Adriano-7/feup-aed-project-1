@@ -1,16 +1,15 @@
 #include "Lesson.h"
 #include <string>
-#include "Class.h"
+
 
 using namespace std;
 
-Lesson::Lesson(string UCCode, string weekday, float beginTime, float duration, string type, Class _class) {
+Lesson::Lesson(string UCCode, string weekday, float beginTime, float duration, string type) {
     this->UCCode = UCCode;
     this->weekday = weekday;
     this->beginTime = beginTime;
     this->duration = duration;
     this->type = type;
-    this->_class = _class;
 }
 
 string Lesson::getUCCode() const {
@@ -33,9 +32,7 @@ string Lesson::getType() const {
     return type;
 }
 
-Class Lesson::getClass() const {
-    return _class;
-}
+
 
 void Lesson::setUCCode(string UCCode) {
     this->UCCode = UCCode;
@@ -57,6 +54,11 @@ void Lesson::setType(string type) {
     this->type = type;
 }
 
-void Lesson::setClass(Class _class) {
-    this->_class = _class;
+bool Lesson::operator<(const Lesson lesson)  {
+    return this->beginTime > lesson.beginTime;
 }
+
+bool Lesson::operator==(Lesson lesson) {
+    return UCCode == lesson.UCCode;
+}
+

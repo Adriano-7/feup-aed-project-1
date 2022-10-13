@@ -1,6 +1,6 @@
 #include "Student.h"
 #include <string>
-#include "Schedule.h"
+
 
 using namespace std;
 
@@ -27,4 +27,12 @@ void Student::setName(string name) {
 }
 void Student::setSchedule(Schedule schedule) {
     this->schedule = schedule;
+}
+
+bool Student::operator<(const Student student) {
+    return name < student.name;
+}
+
+bool Student::operator==(const Student &student) {
+    return this->id == student.getId();
 }

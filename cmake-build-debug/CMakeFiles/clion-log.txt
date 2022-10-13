@@ -1,4 +1,4 @@
-/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/Applications/CLion.app/Contents/bin/ninja/mac/ninja -G Ninja /Users/fpana/Desktop/material-aulas/AED/trabalho
+/opt/clion-2021.3.3/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/opt/clion-2021.3.3/bin/ninja/linux/ninja -G Ninja /home/andre/Desktop/C++/trabalho_AED
 -- Configuring done
 -- Generating done
--- Build files have been written to: /Users/fpana/Desktop/material-aulas/AED/trabalho/cmake-build-debug
+-- Build files have been written to: /home/andre/Desktop/C++/trabalho_AED/cmake-build-debug

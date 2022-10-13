@@ -2,12 +2,11 @@
 #define TRABALHO_LESSON_H
 
 #include <string>
-#include "Class.h"
 using namespace std;
 
 class Lesson {
     public:
-        Lesson(string UCCode, string weekday, float beginTime, float duration, string type, Class _class);
+        Lesson(string UCCode, string weekday, float beginTime, float duration, string type);
         string getUCCode() const;
         void setUCCode(string UCCode);
         string getWeekday() const;
@@ -18,15 +17,15 @@ class Lesson {
         void setDuration(float duration);
         string getType() const;
         void setType(string type);
-        Class getClass() const;
-        void setClass(Class _class);
+        bool operator < (const Lesson lesson);
+        bool operator == (Lesson lesson);
     private:
         string UCCode;
         string weekday;
         float beginTime;
         float duration;
         string type;
-        Class _class;
+
 };
 
 

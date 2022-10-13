@@ -1,21 +1,21 @@
 #include "Schedule.h"
-#include <set>
-#include "Lesson.h"
+
+
 
 using namespace std;
 
 Schedule::Schedule() {
 }
-set<Lesson> Schedule::getLessons() const {
+vector<Lesson> Schedule::getLessons() const {
     return lessons;
 }
-void Schedule::setLessons(set<Lesson> lessons) {
+void Schedule::setLessons(vector<Lesson> lessons) {
     this->lessons = lessons;
 }
 void Schedule::addLesson(Lesson lesson) {
-    lessons.insert(lesson);
+    lessons.push_back(lesson);
 }
 void Schedule::removeLesson(Lesson lesson) {
-    lessons.erase(lesson);
+    lessons.erase(find(lessons.begin(),lessons.end(),lesson));
 }
 

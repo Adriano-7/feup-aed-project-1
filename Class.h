@@ -2,27 +2,27 @@
 #define TRABALHO_CLASS_H
 
 #include <string>
-#include <set>
-#include "Schedule.h"
+#include <vector>
 #include "Student.h"
 
 using namespace std;
 
 class Class {
     public:
-        Class(string id, Schedule schedule, set<Student> students);
+        Class(string id, Schedule schedule, vector<Student> students);
         string getId() const;
         void setId(string id);
         Schedule getSchedule() const;
         void setSchedule(Schedule schedule);
-        set<Student> getStudents() const;
-        void setStudents(set<Student> students);
+        vector<Student> getStudents() const;
+        void setStudents(vector<Student> students);
         void addStudent(Student student);
         void removeStudent(Student student);
+
     private:
         string id;
         Schedule schedule;
-        set<Student> students;
+        vector<Student> students;
         int occupation;
 };
 

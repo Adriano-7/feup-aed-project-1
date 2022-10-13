@@ -1,7 +1,7 @@
 #include "read_csv.cpp"
 
-#include "classes/Student.h"
-#include "classes/Schedule.h"
+#include "Student.h"
+
 
 using namespace std;
 
