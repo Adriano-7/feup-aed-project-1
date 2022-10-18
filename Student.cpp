@@ -4,10 +4,10 @@
 
 using namespace std;
 
-Student::Student(string id, string name, Schedule schedule, double d) {
+Student::Student(string id, string name, vector <UcClass> classes){
     this->id = id;
     this->name = name;
-    this->schedule = schedule;
+    this->classes = classes;
 }
 
 string Student::getId() const {
@@ -16,17 +16,8 @@ string Student::getId() const {
 string Student::getName() const {
     return name;
 }
-Schedule Student::getSchedule() const {
-    return schedule;
-}
-void Student::setId(string id) {
-    this->id = id;
-}
-void Student::setName(string name) {
-    this->name = name;
-}
-void Student::setSchedule(Schedule schedule) {
-    this->schedule = schedule;
+vector <UcClass> Student::getClasses() const {
+    return classes;
 }
 
 bool Student::operator<(const Student student) {
@@ -35,4 +26,8 @@ bool Student::operator<(const Student student) {
 
 bool Student::operator==(const Student &student) {
     return this->id == student.getId();
+}
+
+void Student::addUcClass(UcClass ucClass) {
+    classes.push_back(ucClass);
 }

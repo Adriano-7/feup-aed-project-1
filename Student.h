@@ -2,25 +2,25 @@
 #define TRABALHO_STUDENT_H
 
 #include <string>
-#include "Schedule.h"
+#include <vector>
+#include "UcClass.h"
 
 using namespace std;
 
 class Student {
     public:
-        Student(string id, string name, Schedule schedule, double d);
+        Student(string id, string name, vector<UcClass> classes);
         string getId() const;
-        void setId(string id);
         string getName() const;
-        void setName(string name);
-        Schedule getSchedule() const;
-        void setSchedule(Schedule schedule);
+        vector<UcClass> getClasses() const;
+        void addUcClass (UcClass ucClass);
         bool operator < (const Student student);
         bool operator == (const Student &student1);
     private:
         string id;
         string name;
-        Schedule schedule;
+        vector <UcClass> classes;
+
 };
 
 
