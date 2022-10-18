@@ -20,12 +20,9 @@ vector <UcClass> Student::getClasses() const {
     return classes;
 }
 
-bool Student::operator<(const Student student) {
-    return name < student.name;
-}
 
-bool Student::operator==(const Student &student) {
-    return this->id == student.getId();
+bool Student::operator==(const Student &other) {
+    return this->id == other.getId();
 }
 
 void Student::addUcClass(UcClass ucClass) {

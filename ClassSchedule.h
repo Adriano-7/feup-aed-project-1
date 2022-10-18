@@ -8,6 +8,7 @@
 class ClassSchedule {
     public:
         ClassSchedule(UcClass ucClass);
+        UcClass getUcClass() const;
         void addSlot(Slot slot);
 
     private:

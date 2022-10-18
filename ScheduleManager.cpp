@@ -19,7 +19,7 @@ void ScheduleManager::create_schedules(){
     }
 }
 
-void setSchedules(){
+void ScheduleManager::setSchedules(){
     ifstream file("../data/classes.csv");
     string line;
     while (getline(file, line)) {
@@ -28,10 +28,14 @@ void setSchedules(){
         iss >> classCode >> ucCode >> weekday >> startTime >> duration >> type;
         UcClass ucClass(classCode, ucCode);
         Slot slot(weekday,stoi(startTime),stoi(duration), type);
+        for (ClassSchedule &cs : schedules) {
+            if(cs.getUcClass() == ucClass){
+                cs.addSlot(slot);
+            }
+        }
         // schedules[ucCLass].addSlot(slot);
         // procurar no schedules o elemento com o ucclass lido na linha
         // adicionar o slot lido na linha ao vector de slots do schedules para aquela ucclass
-
     }
 }
 

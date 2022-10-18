@@ -16,6 +16,5 @@ class UcClass{
     private:
         string ucId;
         string classId;
-
 };
 #endif //TRABALHO_UCCLASS_H

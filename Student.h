@@ -14,13 +14,11 @@ class Student {
         string getName() const;
         vector<UcClass> getClasses() const;
         void addUcClass (UcClass ucClass);
-        bool operator < (const Student student);
-        bool operator == (const Student &student1);
+        bool operator == (const Student &other);
     private:
         string id;
         string name;
-        vector <UcClass> classes;
-
+        vector<UcClass> classes;
 };
 
 

@@ -13,10 +13,6 @@ class Slot {
         float getBeginTime() const;
         float getDuration() const;
         string getType() const;
-        bool operator < (const Slot lesson);
-        bool operator == (Slot lesson);
-        friend ostream& operator<< (ostream& out, const Slot& lesson);
-        //vector lesson_filter_number(const vector<Slot>, string class);
 
     private:
         string weekday;
