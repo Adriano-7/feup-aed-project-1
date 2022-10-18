@@ -11,7 +11,7 @@
 class ScheduleManager {
     public:
         void readFiles();
-        void create_schedules();
+        void createSchedules();
         void setSchedules();
 
     private:
