@@ -13,10 +13,11 @@ class ScheduleManager {
         void readFiles();
         void createSchedules();
         void setSchedules();
+        void createStudents();
 
-    private:
-        set<Student> students;
-        vector<ClassSchedule> schedules;
+    set<Student> students;
+private:
+    vector<ClassSchedule> schedules;
         queue<Request> requests;
 };
 
