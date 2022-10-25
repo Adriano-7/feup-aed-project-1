@@ -65,7 +65,6 @@ void ScheduleManager::setSchedules(){
             vector<UcClass> classes;
             classes.push_back((newClass));
             Student student = Student(row[0],row[1], classes);
-
         }
     }
 
@@ -86,7 +85,7 @@ void ScheduleManager::printSchedules() const {
 }
 
 ScheduleManager::ScheduleManager() {
-    this->students = set<Student>();
+    this->students = vector<Student>();
     this->schedules = vector<ClassSchedule>();
     this->requests = queue<Request>();
 }
