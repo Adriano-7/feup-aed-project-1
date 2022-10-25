@@ -11,6 +11,8 @@ void ScheduleManager::createSchedules(){
     vector<string> row;
     string line, word;
     while (getline(file, line)) {
+        if(line[line.size()-1] == '\r')
+            line.resize(line.size()-1);
         row.clear();
         stringstream str(line);
         while(getline(str, word, ','))
@@ -28,20 +30,19 @@ void ScheduleManager::setSchedules(){
     string line, word;
     while (getline(file, line)) {
         row.clear();
+        if(line[line.size()-1] == '\r')
+            line.resize(line.size()-1);
         stringstream str(line);
         while(getline(str, word, ','))
             row.push_back(word);
         string classCode = row[0], ucCode = row[1], weekDay = row[2], startTime = row[3], duration = row[4], type = row[5];
-
-        cout << "startTime: " << startTime << endl;
-
-        UcClass ucClass(classCode, ucCode);
+        UcClass ucClass(ucCode, classCode);
         Slot slot(weekDay,stof(startTime),stof(duration), type);
 
         // Algoritmo de pesquisa inefiicente (deve ser trocado)
-        for (ClassSchedule &cs : schedules) {
-            if(cs.getUcClass() == ucClass){
-                cs.addSlot(slot);
+        for (ClassSchedule &schedule : schedules) {
+            if(ucClass == schedule.getUcClass()){
+                schedule.addSlot(slot);
             }
         }
 
@@ -54,4 +55,20 @@ void ScheduleManager::setSchedules(){
 void ScheduleManager::readFiles() {
     createSchedules();
     setSchedules();
+}
+
+void ScheduleManager::printSchedules() const {
+    for (const ClassSchedule &cs : schedules) {
+        UcClass ucClass = cs.getUcClass();
+        cout << ucClass.getUcId() << " " << ucClass.getClassId() << " ";
+        for (const Slot &s : cs.getSlots()) {
+            cout << s.getWeekday() << " " << s.getBeginTime() << " " << s.getDuration() << " " << s.getType() << endl;
+        }
+    }
+}
+
+ScheduleManager::ScheduleManager() {
+    this->students = set<Student>();
+    this->schedules = vector<ClassSchedule>();
+    this->requests = queue<Request>();
 }

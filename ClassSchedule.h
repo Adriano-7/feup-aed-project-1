@@ -10,8 +10,9 @@ class ClassSchedule {
         ClassSchedule(UcClass ucClass);
         UcClass getUcClass() const;
         void addSlot(Slot slot);
+        const vector<Slot> &getSlots() const;
 
-    private:
+private:
         UcClass ucClass;
         vector<Slot> slots = vector<Slot>();
 };

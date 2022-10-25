@@ -1,4 +1,5 @@
 #include "UcClass.h"
+#include <iostream>
 
 UcClass::UcClass() {
 
@@ -18,5 +19,6 @@ string UcClass::getClassId() const {
 }
 
 bool UcClass::operator ==(const UcClass &other) const {
-    return ucId == other.ucId && classId == other.classId;
+    return this->ucId == other.ucId && this->classId == other.classId;
 }
+

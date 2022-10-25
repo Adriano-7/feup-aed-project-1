@@ -11,3 +11,7 @@ void ClassSchedule::addSlot(Slot slot) {
 UcClass ClassSchedule::getUcClass() const {
     return ucClass;
 }
+
+const vector<Slot> &ClassSchedule::getSlots() const {
+    return slots;
+}

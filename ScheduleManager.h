@@ -10,9 +10,11 @@
 
 class ScheduleManager {
     public:
+        ScheduleManager();
         void readFiles();
         void createSchedules();
         void setSchedules();
+        void printSchedules() const;
 
     private:
         set<Student> students;

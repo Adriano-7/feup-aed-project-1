@@ -10,9 +10,10 @@ class Slot {
     public:
         Slot(string weekday, float beginTime, float duration, string type);
         string getWeekday() const;
+        string getType() const;
         float getBeginTime() const;
         float getDuration() const;
-        string getType() const;
+
 
     private:
         string weekday;
