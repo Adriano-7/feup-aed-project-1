@@ -18,7 +18,7 @@ class ScheduleManager {
         void createStudents();
 
     private:
-        set<Student> students;
+        vector<Student> students;
         vector<ClassSchedule> schedules;
         queue<Request> requests;
 };

@@ -1,3 +1,0 @@
-/home/evans24/Desktop/trabalho_AED/cmake-build-debug/CMakeFiles/trabalho.dir
-/home/evans24/Desktop/trabalho_AED/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/evans24/Desktop/trabalho_AED/cmake-build-debug/CMakeFiles/rebuild_cache.dir
