@@ -1,5 +1,4 @@
 #include "UcClass.h"
-#include <iostream>
 
 UcClass::UcClass() {
 
