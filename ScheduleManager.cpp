@@ -65,7 +65,7 @@ void ScheduleManager::setSchedules(){
             vector<UcClass> classes;
             classes.push_back((newClass));
             Student student = Student(row[0],row[1], classes);
-            students.insert(student);
+
         }
     }
 
