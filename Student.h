@@ -15,6 +15,9 @@ class Student {
         vector<UcClass> getClasses() const;
         void addUcClass (UcClass ucClass);
         bool operator == (const Student &other);
+        void printStudent();
+
+
     private:
         string id;
         string name;

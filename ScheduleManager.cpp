@@ -51,10 +51,28 @@ void ScheduleManager::setSchedules(){
         // adicionar o slot lido na linha ao vector de slots do schedules para aquela ucclass
     }
 }
+    void ScheduleManager::createStudents() {
+        fstream file("../data/students_classes.csv");
+        file.ignore(1000, '\n');
+        vector<string> row;
+        string line, word;
+        while (getline(file, line)) {
+            row.clear();
+            stringstream str(line);
+            while (getline(str, word, ','))
+                row.push_back(word);
+            UcClass newClass = UcClass(row[2], row[3]);
+            vector<UcClass> classes;
+            classes.push_back((newClass));
+            Student student = Student(row[0],row[1], classes);
+            students.insert(student);
+        }
+    }
 
 void ScheduleManager::readFiles() {
     createSchedules();
     setSchedules();
+    createStudents();
 }
 
 void ScheduleManager::printSchedules() const {
@@ -72,3 +90,4 @@ ScheduleManager::ScheduleManager() {
     this->schedules = vector<ClassSchedule>();
     this->requests = queue<Request>();
 }
+

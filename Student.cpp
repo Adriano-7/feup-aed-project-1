@@ -1,5 +1,6 @@
 #include "Student.h"
 #include <string>
+#include <iostream>
 
 
 using namespace std;
@@ -27,4 +28,12 @@ bool Student::operator==(const Student &other) {
 
 void Student::addUcClass(UcClass ucClass) {
     classes.push_back(ucClass);
+}
+
+void Student::printStudent() {
+    cout << "Student: " << name << " (" << id << ")" << endl;
+    cout << "Classes: " << endl;
+    for (int i = 0; i < classes.size(); i++) {
+        cout << classes[i].getUcId() << " " << classes[i].getClassId() << endl;
+    }
 }

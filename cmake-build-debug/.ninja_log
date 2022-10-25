@@ -1,4 +1,5 @@
 # ninja log v5
+<<<<<<< HEAD
 3	691	1666101054889006845	CMakeFiles/trabalho.dir/Slot.cpp.o	f232fa2f44ff9d7b
 4	558	1666101054743864157	CMakeFiles/trabalho.dir/ClassSchedule.cpp.o	d4871818635e4ab8
 87	123	1666100644806580188	CMakeFiles/trabalho.dir/Request.cpp.o	62cdd4251174e99c
@@ -68,3 +69,31 @@
 926	983	1666704907785091357	trabalho	eb8e075a74099f15
 3	593	1666705096964503183	CMakeFiles/trabalho.dir/ScheduleManager.cpp.o	68be2d9f19fca4c9
 593	646	1666705097020535391	trabalho	eb8e075a74099f15
+=======
+524	570	1665503221415554554	../trabalho	b880de4ac8d0c7ca
+3	691	1666101054889006845	CMakeFiles/trabalho.dir/Slot.cpp.o	f232fa2f44ff9d7b
+3	590	1666101054784089058	CMakeFiles/trabalho.dir/Student.cpp.o	dc055c58b7319a85
+4	558	1666101054743864157	CMakeFiles/trabalho.dir/ClassSchedule.cpp.o	d4871818635e4ab8
+1	90	1666696312384023283	build.ninja	387055fb0e733662
+3	532	1666102186361433269	CMakeFiles/trabalho.dir/ScheduleManager.cpp.o	68be2d9f19fca4c9
+3	355	1666101442881678909	CMakeFiles/trabalho.dir/main.cpp.o	480188c2adf300e0
+532	578	1666102186410068796	trabalho	eb8e075a74099f15
+4	462	1666101054656213351	CMakeFiles/trabalho.dir/UcClass.cpp.o	45e0415fd223e6ea
+87	123	1666100644806580188	CMakeFiles/trabalho.dir/Request.cpp.o	62cdd4251174e99c
+2	387	1666696321175571260	CMakeFiles/trabalho.dir/Slot.cpp.o	46ef71a01ca563a7
+1	627	1666696321411559115	CMakeFiles/trabalho.dir/Student.cpp.o	43638f31cc96c848
+1	722	1666696321507554176	CMakeFiles/trabalho.dir/main.cpp.o	aafcbc7619e79969
+722	1076	1666696321863535855	CMakeFiles/trabalho.dir/UcClass.cpp.o	9d9ee651247df0e0
+627	1107	1666696321891534415	CMakeFiles/trabalho.dir/ClassSchedule.cpp.o	e95a6519ae6a8221
+4	49	1666696360845523470	CMakeFiles/trabalho.dir/Request.cpp.o	f5f4a624245a611b
+3	939	1666696361737477309	CMakeFiles/trabalho.dir/ScheduleManager.cpp.o	103cfa0aeb7ea21f
+1	618	1666696402159381786	CMakeFiles/trabalho.dir/ScheduleManager.cpp.o	103cfa0aeb7ea21f
+618	723	1666696402263376388	trabalho	2d26b74a7fc8dc18
+2	713	1666697340058542238	CMakeFiles/trabalho.dir/main.cpp.o	aafcbc7619e79969
+2	1208	1666697340554516405	CMakeFiles/trabalho.dir/ScheduleManager.cpp.o	103cfa0aeb7ea21f
+1208	1378	1666697340722507655	trabalho	2d26b74a7fc8dc18
+2	794	1666703831984646255	CMakeFiles/trabalho.dir/main.cpp.o	aafcbc7619e79969
+2	965	1666703832156637297	CMakeFiles/trabalho.dir/Student.cpp.o	43638f31cc96c848
+3	1227	1666703832416623756	CMakeFiles/trabalho.dir/ScheduleManager.cpp.o	103cfa0aeb7ea21f
+1227	1324	1666703832516618547	trabalho	2d26b74a7fc8dc18
+>>>>>>> 243e09ba6897d8ef2438ffb6a5e1df71d13a81af
