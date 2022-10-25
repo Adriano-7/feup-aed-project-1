@@ -39,7 +39,7 @@ void ScheduleManager::setSchedules(){
         UcClass ucClass(ucCode, classCode);
         Slot slot(weekDay,stof(startTime),stof(duration), type);
 
-        // Algoritmo de pesquisa inefiicente (deve ser trocado)
+        // Algoritmo de pesquisa ineficiente (deve ser trocado)
         for (ClassSchedule &schedule : schedules) {
             if(ucClass == schedule.getUcClass()){
                 schedule.addSlot(slot);
@@ -76,12 +76,13 @@ void ScheduleManager::readFiles() {
 }
 
 void ScheduleManager::printSchedules() const {
-    for (const ClassSchedule &cs : schedules) {
-        UcClass ucClass = cs.getUcClass();
-        cout << ucClass.getUcId() << " " << ucClass.getClassId() << " ";
-        for (const Slot &s : cs.getSlots()) {
-            cout << s.getWeekday() << " " << s.getBeginTime() << " " << s.getDuration() << " " << s.getType() << endl;
+    for (const ClassSchedule &schedule : schedules) {
+        UcClass ucClass = schedule.getUcClass();
+        cout << "UCClass: "<< ucClass.getUcId() << " " << ucClass.getClassId() << endl;
+        for (const Slot &slot : schedule.getSlots()) {
+            cout << "Slot: "<< slot.getWeekday() << " " << slot.getBeginTime() << " " << slot.getDuration() << " " << slot.getType() << endl;
         }
+        cout << endl;
     }
 }
 
