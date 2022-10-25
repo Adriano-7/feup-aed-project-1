@@ -12,6 +12,7 @@ class UcClass{
         string getUcId() const;
         string getClassId() const;
         bool operator ==(const UcClass &other) const;
+        bool operator < (const UcClass &other) const;
 
     private:
         string ucId;

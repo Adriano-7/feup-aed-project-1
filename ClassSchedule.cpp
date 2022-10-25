@@ -1,5 +1,8 @@
 #include "ClassSchedule.h"
 
+ClassSchedule::ClassSchedule() {
+}
+
 ClassSchedule::ClassSchedule(UcClass ucClass) {
     this->ucClass = ucClass;
 }

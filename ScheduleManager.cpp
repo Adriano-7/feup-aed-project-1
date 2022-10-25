@@ -5,6 +5,26 @@
 
 #include "ScheduleManager.h"
 
+int ScheduleManager::BSearchSchedules(UcClass desiredUcCLass){
+    int left = 0;
+    int right = schedules.size() - 1;
+    int middle = (left + right) / 2;
+
+    while(left <= right){
+        if(schedules[middle].getUcClass() == desiredUcCLass){
+            return middle;
+        }
+        else if(schedules[middle].getUcClass() < desiredUcCLass){
+            left = middle + 1;
+        }
+        else{
+            right = middle - 1;
+        }
+        middle = (left + right) / 2;
+    }
+    return -1;
+}
+
 void ScheduleManager::createSchedules(){
     fstream file("../data/classes_per_uc.csv");
     file.ignore(1000, '\n');
@@ -35,20 +55,13 @@ void ScheduleManager::setSchedules(){
         stringstream str(line);
         while(getline(str, word, ','))
             row.push_back(word);
+
         string classCode = row[0], ucCode = row[1], weekDay = row[2], startTime = row[3], duration = row[4], type = row[5];
         UcClass ucClass(ucCode, classCode);
         Slot slot(weekDay,stof(startTime),stof(duration), type);
 
-        // Algoritmo de pesquisa ineficiente (deve ser trocado)
-        for (ClassSchedule &schedule : schedules) {
-            if(ucClass == schedule.getUcClass()){
-                schedule.addSlot(slot);
-            }
-        }
-
-        // schedules[ucCLass].addSlot(slot);
-        // procurar no schedules o elemento com o ucclass lido na linha
-        // adicionar o slot lido na linha ao vector de slots do schedules para aquela ucclass
+        int scheduleIndex = BSearchSchedules(ucClass);
+        schedules[scheduleIndex].addSlot(slot);
     }
 }
     void ScheduleManager::createStudents() {
@@ -78,9 +91,9 @@ void ScheduleManager::readFiles() {
 void ScheduleManager::printSchedules() const {
     for (const ClassSchedule &schedule : schedules) {
         UcClass ucClass = schedule.getUcClass();
-        cout << "UCClass: "<< ucClass.getUcId() << " " << ucClass.getClassId() << endl;
+        cout << "UCClass:   "<< ucClass.getUcId() << "    " << ucClass.getClassId() << endl;
         for (const Slot &slot : schedule.getSlots()) {
-            cout << "Slot: "<< slot.getWeekday() << " " << slot.getBeginTime() << " " << slot.getDuration() << " " << slot.getType() << endl;
+            cout << "Slot:      "<< slot.getWeekday() << "   " << slot.getBeginTime() << "   " << slot.getDuration() << "   " << slot.getType() << endl;
         }
         cout << endl;
     }

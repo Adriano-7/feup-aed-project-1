@@ -16,6 +16,7 @@ class ScheduleManager {
         void setSchedules();
         void printSchedules() const;
         void createStudents();
+        int BSearchSchedules(UcClass desiredUcCLass);
 
     private:
         vector<Student> students;
