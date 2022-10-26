@@ -12,7 +12,7 @@ class Slot {
         string getWeekday() const;
         string getType() const;
         float getBeginTime() const;
-        float getDuration() const;
+        float getEndTime() const;
 
 
     private:

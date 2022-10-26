@@ -21,9 +21,16 @@ vector <UcClass> Student::getClasses() const {
     return classes;
 }
 
-
 bool Student::operator==(const Student &other) {
     return this->id == other.getId();
+}
+
+bool Student::operator<(const Student &other) {
+    return this->id < other.getId();
+}
+
+bool Student::operator>(const Student &other) {
+    return this->id > other.getId();
 }
 
 void Student::addUcClass(UcClass ucClass) {

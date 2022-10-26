@@ -5,6 +5,15 @@
 
 #include "ScheduleManager.h"
 
+// i want to create a binary search tree of students
+set<Student> ScheduleManager::BSTfromStudents() {
+    set<Student> studentsBST;
+    for (int i = 0; i < students.size(); i++) {
+        studentsBST.insert(students[i]);
+    }
+    return studentsBST;
+}
+
 int ScheduleManager::BSearchSchedules(UcClass desiredUcCLass){
     int left = 0;
     int right = schedules.size() - 1;

@@ -24,6 +24,6 @@ string Slot::getType() const {
     return type;
 }
 
-float Slot::getDuration() const {
-    return endTime - beginTime;
+float Slot::getEndTime() const {
+    return endTime;
 }
