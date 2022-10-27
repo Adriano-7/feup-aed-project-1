@@ -52,19 +52,26 @@ void ScheduleManager::setSchedules(){
     }
 }
     void ScheduleManager::createStudents() {
-        fstream file("../data/students_classes.csv");
+        fstream file("../data/students.csv");
         file.ignore(1000, '\n');
         vector<string> row;
         string line, word;
         while (getline(file, line)) {
             row.clear();
+            if (line[line.size() - 1] == '\r')
+                line.resize(line.size() - 1);
             stringstream str(line);
             while (getline(str, word, ','))
                 row.push_back(word);
-            UcClass newClass = UcClass(row[2], row[3]);
-            vector<UcClass> classes;
-            classes.push_back((newClass));
-            Student student = Student(row[0],row[1], classes);
+            string id = row[0], name = row[1];
+            UcClass newUcClass = UcClass(row[2], row[3]);
+            Student student(id, name);
+            if (students.find(student) == students.end()) {
+                student.addUcClass(newUcClass);
+                students.insert(student);
+            } else {
+                cout << "HELLO" << endl;
+            }
         }
     }
 
@@ -85,7 +92,7 @@ void ScheduleManager::printSchedules() const {
 }
 
 ScheduleManager::ScheduleManager() {
-    this->students = vector<Student>();
+    this->students = set<Student>();
     this->schedules = vector<ClassSchedule>();
     this->requests = queue<Request>();
 }

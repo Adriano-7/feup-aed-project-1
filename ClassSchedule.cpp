@@ -15,3 +15,4 @@ UcClass ClassSchedule::getUcClass() const {
 const vector<Slot> &ClassSchedule::getSlots() const {
     return slots;
 }
+

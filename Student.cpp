@@ -37,3 +37,17 @@ void Student::printStudent() {
         cout << classes[i].getUcId() << " " << classes[i].getClassId() << endl;
     }
 }
+
+Student::Student(string id, string name) {
+    this->id = id;
+    this->name = name;
+    this-> classes = vector<UcClass>();
+}
+
+bool Student::operator<(const Student &other) const {
+    return this->id < other.getId();
+}
+
+void Student::addClass(UcClass newclass) {
+    this->classes.push_back(newclass);
+    }
