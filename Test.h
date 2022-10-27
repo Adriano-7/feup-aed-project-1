@@ -9,7 +9,6 @@ class Test {
         void printSchedules(ScheduleManager manager) const;
         void printStudents(ScheduleManager manager) const;
         void testScheduleCollisions(ScheduleManager manager) const;
-        void t
 };
 
 #endif //TRABALHO_TEST_H
