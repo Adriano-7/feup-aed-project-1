@@ -11,6 +11,8 @@ class UcClass{
         UcClass(string ucId, string classId);
         string getUcId() const;
         string getClassId() const;
+        int getNumStudents() const;
+        void setNumStudents(int numStudents);
         bool operator ==(const UcClass &other) const;
         bool operator < (const UcClass &other) const;
         bool operator > (const UcClass &other) const;
@@ -19,6 +21,7 @@ class UcClass{
     private:
         string ucId;
         string classId;
+        int numStudents;
 };
 
 #endif //TRABALHO_UCCLASS_H

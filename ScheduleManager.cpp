@@ -80,16 +80,20 @@ void ScheduleManager::createStudents() {
         while (getline(str, word, ','))
             row.push_back(word);
         string id = row[0], name = row[1];
+
         UcClass newUcClass = UcClass(row[2], row[3]);
+        int i = BSearchSchedules(newUcClass);
+        this->schedules[i].incrementNumStudents();
+
         Student student(id, name);
         if (students.find(student) == students.end()) {
-            student.addClass(newUcClass);
+            student.addClass(this->schedules[i].getUcClass());
             students.insert(student);
         } else {
             auto loc = students.find(student);
             Student modStudent = *loc;
             students.erase(loc);
-            modStudent.addClass(newUcClass);
+            modStudent.addClass(this->schedules[i].getUcClass());
             students.insert(modStudent);
         }
     }
