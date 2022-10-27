@@ -17,7 +17,7 @@ class Student {
         bool operator == (const Student &other);
         bool operator < (const Student &other);
         bool operator > (const Student &other);
-        void printStudent();
+
 
     private:
         string id;

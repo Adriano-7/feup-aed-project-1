@@ -5,15 +5,6 @@
 
 #include "ScheduleManager.h"
 
-// i want to create a binary search tree of students
-set<Student> ScheduleManager::BSTfromStudents() {
-    set<Student> studentsBST;
-    for (int i = 0; i < students.size(); i++) {
-        studentsBST.insert(students[i]);
-    }
-    return studentsBST;
-}
-
 int ScheduleManager::BSearchSchedules(UcClass desiredUcCLass){
     int left = 0;
     int right = schedules.size() - 1;
@@ -97,20 +88,16 @@ void ScheduleManager::readFiles() {
     createStudents();
 }
 
-void ScheduleManager::printSchedules() const {
-    for (const ClassSchedule &schedule : schedules) {
-        UcClass ucClass = schedule.getUcClass();
-        cout << "UCClass:   "<< ucClass.getUcId() << "    " << ucClass.getClassId() << endl;
-        for (const Slot &slot : schedule.getSlots()) {
-            cout << "Slot:      "<< slot.getWeekday() << "   " << slot.getBeginTime() << "   " << slot.getDuration() << "   " << slot.getType() << endl;
-        }
-        cout << endl;
-    }
-}
-
 ScheduleManager::ScheduleManager() {
     this->students = vector<Student>();
     this->schedules = vector<ClassSchedule>();
     this->requests = queue<Request>();
 }
 
+const vector<ClassSchedule> &ScheduleManager::getSchedules() const {
+    return schedules;
+}
+
+const vector<Student> &ScheduleManager::getStudents() const {
+    return students;
+}

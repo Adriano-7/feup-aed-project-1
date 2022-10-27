@@ -14,13 +14,12 @@ class ScheduleManager {
         void readFiles();
         void createSchedules();
         void setSchedules();
-        void printSchedules() const;
+        const vector<ClassSchedule> &getSchedules() const;
         void createStudents();
+        const vector<Student> &getStudents() const;
         int BSearchSchedules(UcClass desiredUcCLass);
-        set<Student> BSTfromStudents();
 
     private:
-
         vector<Student> students;
         vector<ClassSchedule> schedules;
         queue<Request> requests;
