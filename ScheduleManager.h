@@ -14,9 +14,10 @@ class ScheduleManager {
         void readFiles();
         void createSchedules();
         void setSchedules();
-        void printSchedules() const;
+        const vector<ClassSchedule> &getSchedules() const;
         void createStudents();
-        void printStudents() const;
+        const set<Student> &getStudents() const;
+        int BSearchSchedules(UcClass desiredUcCLass);
 
     private:
         set <Student> students;

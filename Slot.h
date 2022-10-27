@@ -12,8 +12,8 @@ class Slot {
         string getWeekday() const;
         string getType() const;
         float getBeginTime() const;
+        float getEndTime() const;
         float getDuration() const;
-
 
     private:
         string weekday;

@@ -21,13 +21,12 @@ vector <UcClass> Student::getClasses() const {
     return classes;
 }
 
-
-bool Student::operator==(const Student &other) {
+bool Student::operator==(const Student &other) const{
     return this->id == other.getId();
 }
 
-void Student::addUcClass(UcClass ucClass) {
-    classes.push_back(ucClass);
+bool Student::operator<(const Student &other) const {
+    return this->id < other.getId();
 }
 
 void Student::printStudent() {
@@ -44,10 +43,13 @@ Student::Student(string id, string name) {
     this-> classes = vector<UcClass>();
 }
 
-bool Student::operator<(const Student &other) const {
-    return this->id < other.getId();
-}
-
 void Student::addClass(UcClass newClass) {
     classes.push_back(newClass);
-    }
+}
+bool Student::operator>(const Student &other) const {
+    return this->id > other.getId();
+}
+
+void Student::addUcClass(UcClass ucClass) {
+    classes.push_back(ucClass);
+}
