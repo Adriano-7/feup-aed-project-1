@@ -48,6 +48,6 @@ bool Student::operator<(const Student &other) const {
     return this->id < other.getId();
 }
 
-void Student::addClass(UcClass newclass) {
-    this->classes.push_back(newclass);
+void Student::addClass(UcClass newClass) {
+    classes.push_back(newClass);
     }

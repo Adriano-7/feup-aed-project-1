@@ -70,7 +70,11 @@ void ScheduleManager::setSchedules(){
                 student.addUcClass(newUcClass);
                 students.insert(student);
             } else {
-                cout << "HELLO" << endl;
+                auto loc = students.find(student);
+                Student modStudent = *loc;
+                students.erase(loc);
+                modStudent.addClass(newUcClass);
+                students.insert(modStudent);
             }
         }
     }

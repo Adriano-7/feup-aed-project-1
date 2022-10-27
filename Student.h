@@ -18,7 +18,7 @@ class Student {
         bool operator == (const Student &other);
         bool operator < (const Student &other) const;
         void printStudent();
-        void addClass(UcClass newclass);
+        void addClass(UcClass newClass);
 
 
 
