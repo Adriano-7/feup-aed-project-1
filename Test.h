@@ -3,7 +3,7 @@
 
 #include "ScheduleManager.h"
 
-class Test : public ScheduleManager {
+class Test{
     public:
         Test();
         void testSortingSchedules() const;

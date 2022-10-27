@@ -18,8 +18,9 @@ class ScheduleManager {
         void createStudents();
         const set<Student> &getStudents() const;
         int BSearchSchedules(UcClass desiredUcCLass);
-        bool studentClassCollides(Student student, UcClass newClass);
+        bool requestHasCollision(Request request);
         bool classesCollide(UcClass c1, UcClass c2);
+        void addRequest(Request request);
 
     private:
         set <Student> students;

@@ -5,6 +5,16 @@
 
 #include "ScheduleManager.h"
 
+ScheduleManager::ScheduleManager() {
+    this->students = set<Student>();
+    this->schedules = vector<ClassSchedule>();
+    this->requests = queue<Request>();
+}
+
+void ScheduleManager::addRequest(Request request) {
+    requests.push(request);
+}
+
 int ScheduleManager::BSearchSchedules(UcClass desiredUcCLass){
     int left = 0;
     int right = schedules.size() - 1;
@@ -101,13 +111,6 @@ void ScheduleManager::readFiles() {
     createStudents();
 }
 
-ScheduleManager::ScheduleManager() {
-    this->students = set<Student>();
-    this->schedules = vector<ClassSchedule>();
-    this->requests = queue<Request>();
-}
-
-
 bool ScheduleManager::classesCollide(UcClass c1, UcClass c2) {
     if(c1.sameUC(c2)) return false;
     ClassSchedule cs1 = schedules[BSearchSchedules(c1)];
@@ -120,10 +123,12 @@ bool ScheduleManager::classesCollide(UcClass c1, UcClass c2) {
     return false;
 }
 
-bool ScheduleManager::studentClassCollides(Student student, UcClass newClass){
+bool ScheduleManager::requestHasCollision(Request request){
+    Student student = request.getStudent();
+    UcClass desiredClass = request.getDesiredClass();
     vector<UcClass> studentClasses = student.getClasses();
     for(UcClass ucClass : studentClasses){
-        if(classesCollide(ucClass, newClass)) return true;
+        if(classesCollide(ucClass, desiredClass)) return true;
     }
     return false;
 }
