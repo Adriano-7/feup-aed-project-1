@@ -44,25 +44,26 @@ void ScheduleManager::createSchedules(){
     }
 }
 
-void ScheduleManager::setSchedules(){
+void ScheduleManager::setSchedules() {
     fstream file("../data/classes.csv");
     file.ignore(1000, '\n');
     vector<string> row;
     string line, word;
     while (getline(file, line)) {
         row.clear();
-        if(line[line.size()-1] == '\r')
-            line.resize(line.size()-1);
+        if (line[line.size() - 1] == '\r')
+            line.resize(line.size() - 1);
         stringstream str(line);
-        while(getline(str, word, ','))
+        while (getline(str, word, ','))
             row.push_back(word);
 
         string classCode = row[0], ucCode = row[1], weekDay = row[2], startTime = row[3], duration = row[4], type = row[5];
         UcClass ucClass(ucCode, classCode);
-        Slot slot(weekDay,stof(startTime),stof(duration), type);
-
+        Slot slot(weekDay, stof(startTime), stof(duration), type);
         int scheduleIndex = BSearchSchedules(ucClass);
-        schedules[scheduleIndex].addSlot(slot);
+        if (scheduleIndex != -1) {
+            schedules[scheduleIndex].addSlot(slot);
+        }
     }
 }
 
