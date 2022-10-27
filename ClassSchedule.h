@@ -11,8 +11,9 @@ class ClassSchedule {
         ClassSchedule(string ucId, string classId);
         UcClass getUcClass() const;
         void addSlot(Slot slot);
-        void incrementNumStudents();
         const vector<Slot> &getSlots() const;
+        void incrementNumStudents();
+        void decrementNumStudents();
         bool sameUC(ClassSchedule other) const;
         bool operator < (const ClassSchedule &other) const;
         bool operator == (const ClassSchedule &other) const;

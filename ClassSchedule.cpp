@@ -29,8 +29,13 @@ void ClassSchedule::print() const {
 void ClassSchedule::addSlot(Slot slot) {
     slots.push_back(slot);
 }
-void ClassSchedule::incrementNumStudents(){
-    this->ucClass.setNumStudents(this->ucClass.getNumStudents() + 1);
+
+void ClassSchedule::incrementNumStudents() {
+    ucClass.incrementNumStudents();
+}
+
+void ClassSchedule::decrementNumStudents() {
+    ucClass.decrementNumStudents();
 }
 
 UcClass ClassSchedule::getUcClass() const {

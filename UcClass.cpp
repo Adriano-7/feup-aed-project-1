@@ -12,9 +12,14 @@ UcClass::UcClass(string ucId, string classId) {
     this->numStudents=0;
 }
 
-void UcClass::setNumStudents(int numStudents){
-    this->numStudents=numStudents;
+void UcClass::incrementNumStudents() {
+    numStudents++;
 }
+
+void UcClass::decrementNumStudents(){
+    numStudents--;
+}
+
 int UcClass::getNumStudents() const{
     return this->numStudents;
 }
