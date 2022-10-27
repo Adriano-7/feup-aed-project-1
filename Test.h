@@ -11,5 +11,4 @@ class Test {
         void printStudents(ScheduleManager manager) const;
 };
 
-
 #endif //TRABALHO_TEST_H

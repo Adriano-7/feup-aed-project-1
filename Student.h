@@ -21,8 +21,6 @@ class Student {
         void printStudent();
         void addClass(UcClass newClass);
 
-
-
 private:
         string id;
         string name;
