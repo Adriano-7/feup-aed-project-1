@@ -9,6 +9,7 @@ using namespace std;
 
 class Student {
     public:
+        Student();
         Student(string id, string name);
         string getId() const;
         string getName() const;

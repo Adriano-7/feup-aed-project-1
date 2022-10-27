@@ -2,8 +2,9 @@
 #include <string>
 #include <iostream>
 
-
 using namespace std;
+
+Student::Student() {}
 
 Student::Student(string id, string name) {
     this->id = id;
