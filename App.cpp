@@ -11,11 +11,15 @@
 using namespace std;
 
 string decimalToHours(int decimal){
-    double time = 10.5;
+    double time = decimal;
     int time_mins = (int)floor( time * 60.0 );
     int hours = time_mins / 60;
     int minutes = time_mins % 60;
-    return (to_string(hours) + ":" + to_string(minutes));
+    string hours_str = to_string(hours);
+    string minutes_str = to_string(minutes);
+    if (hours < 10) hours_str = "0" + hours_str;
+    if (minutes < 10) minutes_str = "0" + minutes_str;
+    return hours_str+ ":" + minutes_str;
 }
 
 App::App(ScheduleManager manager) {
