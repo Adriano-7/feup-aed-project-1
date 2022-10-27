@@ -13,6 +13,7 @@ class Slot {
         string getType() const;
         float getBeginTime() const;
         float getEndTime() const;
+        float getDuration() const;
 
 
     private:
