@@ -22,7 +22,7 @@ ClassSchedule::ClassSchedule(string ucId, string classId) {
 void ClassSchedule::print() const {
     cout << ucClass.getUcId() << " " << ucClass.getClassId() << " | Num Students: " << ucClass.getNumStudents()<< endl;
     for (const auto &slot : slots) {
-        cout << slot.getWeekday() << " " << slot.getBeginTime() << " " << slot.getEndTime() << " " << slot.getType() << endl;
+        cout << slot.getWeekday() << " " << slot.getBeginTime() << " - " << slot.getEndTime() << " " << slot.getType() << endl;
     }
 }
 

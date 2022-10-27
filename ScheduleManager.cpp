@@ -15,7 +15,7 @@ void ScheduleManager::addRequest(Request request) {
     requests.push(request);
 }
 
-int ScheduleManager::BSearchSchedules(UcClass desiredUcCLass){
+int ScheduleManager::binarySearchSchedules(UcClass desiredUcCLass){
     int left = 0;
     int right = schedules.size() - 1;
     int middle = (left + right) / 2;
@@ -70,7 +70,7 @@ void ScheduleManager::setSchedules() {
         string classCode = row[0], ucCode = row[1], weekDay = row[2], startTime = row[3], duration = row[4], type = row[5];
         UcClass ucClass(ucCode, classCode);
         Slot slot(weekDay, stof(startTime), stof(duration), type);
-        int scheduleIndex = BSearchSchedules(ucClass);
+        int scheduleIndex = binarySearchSchedules(ucClass);
         if (scheduleIndex != -1) {
             schedules[scheduleIndex].addSlot(slot);
         }
@@ -92,7 +92,7 @@ void ScheduleManager::createStudents() {
         string id = row[0], name = row[1];
 
         UcClass newUcClass = UcClass(row[2], row[3]);
-        int i = BSearchSchedules(newUcClass);
+        int i = binarySearchSchedules(newUcClass);
         this->schedules[i].incrementNumStudents();
 
         Student student(id, name);
@@ -117,8 +117,8 @@ void ScheduleManager::readFiles() {
 
 bool ScheduleManager::classesCollide(UcClass c1, UcClass c2) {
     if(c1.sameUC(c2)) return false;
-    ClassSchedule cs1 = schedules[BSearchSchedules(c1)];
-    ClassSchedule cs2 = schedules[BSearchSchedules(c2)];
+    ClassSchedule cs1 = schedules[binarySearchSchedules(c1)];
+    ClassSchedule cs2 = schedules[binarySearchSchedules(c2)];
     for(Slot slot1 : cs1.getSlots()){
         for(Slot slot2 : cs2.getSlots()){
             if(slot1.collides(slot2)) return true;
