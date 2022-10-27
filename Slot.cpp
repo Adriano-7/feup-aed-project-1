@@ -12,7 +12,7 @@ Slot::Slot(string weekday, float beginTime, float duration, string type) {
     this->type = type;
 }
 
-string Slot::getWeekday() const {
+string Slot::getWeekDay() const {
     return weekday;
 }
 
@@ -29,7 +29,7 @@ float Slot::getEndTime() const {
 }
 
 bool Slot::collides(Slot other) const {
-    if (this->weekday != other.getWeekday()) {
+    if (this->weekday != other.getWeekDay()) {
         return false;
     }
     if (this->beginTime >= other.getEndTime() || this->endTime <= other.getBeginTime()) {

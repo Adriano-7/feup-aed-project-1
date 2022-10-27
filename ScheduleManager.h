@@ -14,12 +14,14 @@ class ScheduleManager {
         void readFiles();
         void createSchedules();
         void setSchedules();
+
         const vector<ClassSchedule> &getSchedules() const;
         void createStudents();
         const set<Student> &getStudents() const;
         int BSearchSchedules(UcClass desiredUcCLass);
         bool studentClassCollides(Student student, UcClass newClass);
         bool classesCollide(UcClass c1, UcClass c2);
+        void printStudentSchedule(string studentId);
 
     private:
         set <Student> students;

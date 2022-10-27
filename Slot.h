@@ -9,7 +9,7 @@ using namespace std;
 class Slot {
     public:
         Slot(string weekday, float beginTime, float duration, string type);
-        string getWeekday() const;
+        string getWeekDay() const;
         string getType() const;
         float getBeginTime() const;
         float getEndTime() const;

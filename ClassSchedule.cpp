@@ -20,10 +20,13 @@ ClassSchedule::ClassSchedule(string ucId, string classId) {
 }
 
 void ClassSchedule::print() const {
-    cout << ucClass.getUcId() << " " << ucClass.getClassId() << endl;
-    for (const auto &slot : slots) {
-        cout << slot.getWeekday() << " " << slot.getBeginTime() << " " << slot.getEndTime() << " " << slot.getType() << endl;
+    cout << "UCID - " << this->ucClass.getUcId() << endl;
+    cout << "ClassID - " << this->ucClass.getClassId() << endl << endl;
+    cout << "Timetable: " << endl;
+    for (Slot slot : this->slots) {
+          cout << slot.getWeekDay() << " | " << slot.getBeginTime() << " | " << slot.getEndTime() << endl;
     }
+    cout << endl;
 }
 
 void ClassSchedule::addSlot(Slot slot) {

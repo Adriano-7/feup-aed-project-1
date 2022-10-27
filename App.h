@@ -13,7 +13,7 @@ private:
     ScheduleManager manager;
 public:
     App(ScheduleManager manager);
-    void run();
+    int run();
 };
 
 
