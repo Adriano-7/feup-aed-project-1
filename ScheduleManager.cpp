@@ -25,6 +25,7 @@ int ScheduleManager::BSearchSchedules(UcClass desiredUcCLass){
     return -1;
 }
 
+
 void ScheduleManager::createSchedules(){
     fstream file("../data/classes_per_uc.csv");
     file.ignore(1000, '\n');
@@ -64,33 +65,34 @@ void ScheduleManager::setSchedules(){
         schedules[scheduleIndex].addSlot(slot);
     }
 }
-    void ScheduleManager::createStudents() {
-        fstream file("../data/students_classes.csv");
-        file.ignore(1000, '\n');
-        vector<string> row;
-        string line, word;
-        while (getline(file, line)) {
-            row.clear();
-            if (line[line.size() - 1] == '\r')
-                line.resize(line.size() - 1);
-            stringstream str(line);
-            while (getline(str, word, ','))
-                row.push_back(word);
-            string id = row[0], name = row[1];
-            UcClass newUcClass = UcClass(row[2], row[3]);
-            Student student(id, name);
-            if (students.find(student) == students.end()) {
-                student.addUcClass(newUcClass);
-                students.insert(student);
-            } else {
-                auto loc = students.find(student);
-                Student modStudent = *loc;
-                students.erase(loc);
-                modStudent.addClass(newUcClass);
-                students.insert(modStudent);
-            }
+
+void ScheduleManager::createStudents() {
+    fstream file("../data/students_classes.csv");
+    file.ignore(1000, '\n');
+    vector<string> row;
+    string line, word;
+    while (getline(file, line)) {
+        row.clear();
+        if (line[line.size() - 1] == '\r')
+            line.resize(line.size() - 1);
+        stringstream str(line);
+        while (getline(str, word, ','))
+            row.push_back(word);
+        string id = row[0], name = row[1];
+        UcClass newUcClass = UcClass(row[2], row[3]);
+        Student student(id, name);
+        if (students.find(student) == students.end()) {
+            student.addClass(newUcClass);
+            students.insert(student);
+        } else {
+            auto loc = students.find(student);
+            Student modStudent = *loc;
+            students.erase(loc);
+            modStudent.addClass(newUcClass);
+            students.insert(modStudent);
         }
     }
+}
 
 void ScheduleManager::readFiles() {
     createSchedules();
@@ -102,6 +104,27 @@ ScheduleManager::ScheduleManager() {
     this->students = set<Student>();
     this->schedules = vector<ClassSchedule>();
     this->requests = queue<Request>();
+}
+
+
+bool ScheduleManager::classesCollide(UcClass c1, UcClass c2) {
+    if(c1.sameUC(c2)) return false;
+    ClassSchedule cs1 = schedules[BSearchSchedules(c1)];
+    ClassSchedule cs2 = schedules[BSearchSchedules(c2)];
+    for(Slot slot1 : cs1.getSlots()){
+        for(Slot slot2 : cs2.getSlots()){
+            if(slot1.collides(slot2)) return true;
+        }
+    }
+    return false;
+}
+
+bool ScheduleManager::studentClassCollides(Student student, UcClass newClass){
+    vector<UcClass> studentClasses = student.getClasses();
+    for(UcClass ucClass : studentClasses){
+        if(classesCollide(ucClass, newClass)) return true;
+    }
+    return false;
 }
 
 const vector<ClassSchedule> &ScheduleManager::getSchedules() const {

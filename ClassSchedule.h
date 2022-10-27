@@ -12,8 +12,10 @@ class ClassSchedule {
         UcClass getUcClass() const;
         void addSlot(Slot slot);
         const vector<Slot> &getSlots() const;
+        bool sameUC(ClassSchedule other) const;
+        void print() const;
 
-private:
+    private:
         UcClass ucClass;
         vector<Slot> slots;
 };

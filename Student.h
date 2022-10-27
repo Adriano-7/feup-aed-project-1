@@ -9,7 +9,6 @@ using namespace std;
 
 class Student {
     public:
-        Student(string id, string name, vector<UcClass> classes);
         Student(string id, string name);
         string getId() const;
         string getName() const;
@@ -18,10 +17,10 @@ class Student {
         bool operator == (const Student &other) const;
         bool operator < (const Student &other) const;
         bool operator > (const Student &other) const;
-        void printStudent();
+        void print();
         void addClass(UcClass newClass);
 
-private:
+    private:
         string id;
         string name;
         vector<UcClass> classes;

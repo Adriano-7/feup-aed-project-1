@@ -5,18 +5,32 @@
 
 using namespace std;
 
-Student::Student(string id, string name, vector <UcClass> classes){
+Student::Student(string id, string name) {
     this->id = id;
     this->name = name;
-    this->classes = classes;
+    this-> classes = vector<UcClass>();
+}
+
+void Student::print() {
+    cout << "Student: " << name << " (" << id << ")" << endl;
+    cout << "Classes: " << endl;
+    for (int i = 0; i < classes.size(); i++) {
+        cout << classes[i].getUcId() << " " << classes[i].getClassId() << endl;
+    }
+}
+
+void Student::addClass(UcClass newClass) {
+    classes.push_back(newClass);
 }
 
 string Student::getId() const {
     return id;
 }
+
 string Student::getName() const {
     return name;
 }
+
 vector <UcClass> Student::getClasses() const {
     return classes;
 }
@@ -29,27 +43,6 @@ bool Student::operator<(const Student &other) const {
     return this->id < other.getId();
 }
 
-void Student::printStudent() {
-    cout << "Student: " << name << " (" << id << ")" << endl;
-    cout << "Classes: " << endl;
-    for (int i = 0; i < classes.size(); i++) {
-        cout << classes[i].getUcId() << " " << classes[i].getClassId() << endl;
-    }
-}
-
-Student::Student(string id, string name) {
-    this->id = id;
-    this->name = name;
-    this-> classes = vector<UcClass>();
-}
-
-void Student::addClass(UcClass newClass) {
-    classes.push_back(newClass);
-}
 bool Student::operator>(const Student &other) const {
     return this->id > other.getId();
-}
-
-void Student::addUcClass(UcClass ucClass) {
-    classes.push_back(ucClass);
 }

@@ -28,6 +28,12 @@ float Slot::getEndTime() const {
     return endTime;
 }
 
-float Slot::getDuration() const {
-    return endTime - beginTime;
+bool Slot::collides(Slot other) const {
+    if (this->weekday != other.getWeekday()) {
+        return false;
+    }
+    if (this->beginTime >= other.getEndTime() || this->endTime <= other.getBeginTime()) {
+        return false;
+    }
+    return true;
 }

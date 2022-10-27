@@ -1,4 +1,7 @@
 #include "ClassSchedule.h"
+#include <iostream>
+
+using namespace std;
 
 ClassSchedule::ClassSchedule() {
     this->ucClass = UcClass();
@@ -16,6 +19,13 @@ ClassSchedule::ClassSchedule(string ucId, string classId) {
     this->slots = vector<Slot>();
 }
 
+void ClassSchedule::print() const {
+    cout << ucClass.getUcId() << " " << ucClass.getClassId() << endl;
+    for (const auto &slot : slots) {
+        cout << slot.getWeekday() << " " << slot.getBeginTime() << " " << slot.getEndTime() << " " << slot.getType() << endl;
+    }
+}
+
 void ClassSchedule::addSlot(Slot slot) {
     slots.push_back(slot);
 }
@@ -26,5 +36,9 @@ UcClass ClassSchedule::getUcClass() const {
 
 const vector<Slot> &ClassSchedule::getSlots() const {
     return slots;
+}
+
+bool ClassSchedule::sameUC(ClassSchedule other) const {
+    return ucClass.sameUC(other.getUcClass());
 }
 
