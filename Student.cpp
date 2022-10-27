@@ -8,7 +8,7 @@ using namespace std;
 Student::Student(string id, string name) {
     this->id = id;
     this->name = name;
-    this-> classes = vector<UcClass>();
+    this->classes = vector<UcClass>();
 }
 
 void Student::print() {
