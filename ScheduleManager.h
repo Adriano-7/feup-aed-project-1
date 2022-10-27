@@ -16,6 +16,7 @@ class ScheduleManager {
         void setSchedules();
         void printSchedules() const;
         void createStudents();
+        void printStudents() const;
 
     private:
         set <Student> students;

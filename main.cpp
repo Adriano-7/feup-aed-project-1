@@ -6,6 +6,7 @@ int main()
 {
     ScheduleManager manager;
     manager.readFiles();
-    manager.printSchedules();
+    // manager.printSchedules();
+    manager.printStudents();
     return 0;
 }

@@ -52,7 +52,7 @@ void ScheduleManager::setSchedules(){
     }
 }
     void ScheduleManager::createStudents() {
-        fstream file("../data/students.csv");
+        fstream file("../data/students_classes.csv");
         file.ignore(1000, '\n');
         vector<string> row;
         string line, word;
@@ -97,3 +97,8 @@ ScheduleManager::ScheduleManager() {
     this->requests = queue<Request>();
 }
 
+void ScheduleManager::printStudents() const {
+    for (Student s : students) {
+        s.printStudent();
+    }
+}
