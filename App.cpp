@@ -6,8 +6,17 @@
 #include "Test.h"
 #include <iostream>
 #include <utility>
+#include <cmath>
 
 using namespace std;
+
+string decimalToHours(int decimal){
+    double time = 10.5;
+    int time_mins = (int)floor( time * 60.0 );
+    int hours = time_mins / 60;
+    int minutes = time_mins % 60;
+    return (to_string(hours) + ":" + to_string(minutes));
+}
 
 App::App(ScheduleManager manager) {
     this->manager = manager;
@@ -75,8 +84,8 @@ int App::run() {
                 for (int i = 0; i < weekdays.size(); i++) {
                     cout << weekdaysNames[i] << ": " << endl;
                     for (pair<string, Slot> slot: weekdays[i]) {
-                        cout << slot.first << " " << slot.second.getBeginTime() << " " << slot.second.getEndTime()
-                             << " " << slot.second.getType() << endl;
+                        cout << slot.first << " " << decimalToHours(slot.second.getBeginTime()) << " to " << decimalToHours(slot.second.getEndTime())
+                        << " " << slot.second.getType() << endl;
                     }
                 }
                 cout << "Press q to go back to the menu" << endl;
