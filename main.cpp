@@ -8,7 +8,6 @@ int main()
     ScheduleManager manager;
     Test tester;
     manager.readFiles();
-    tester.printSchedules(manager);
-    tester.printStudents(manager);
+    tester.testSortingSchedules();
     return 0;
 }

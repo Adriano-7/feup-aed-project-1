@@ -5,10 +5,11 @@
 
 class Test {
     public:
-        Test();
-        void testSortingSchedules();
+        void testSortingSchedules() const;
         void printSchedules(ScheduleManager manager) const;
         void printStudents(ScheduleManager manager) const;
+        void testScheduleCollisions(ScheduleManager manager) const;
+        void t
 };
 
 #endif //TRABALHO_TEST_H

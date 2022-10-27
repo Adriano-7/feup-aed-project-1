@@ -42,3 +42,10 @@ bool ClassSchedule::sameUC(ClassSchedule other) const {
     return ucClass.sameUC(other.getUcClass());
 }
 
+bool ClassSchedule::operator < (const ClassSchedule &other) const {
+    return this->ucClass < other.getUcClass();
+}
+
+bool ClassSchedule::operator == (const ClassSchedule &other) const {
+    return this->ucClass == other.getUcClass();
+}

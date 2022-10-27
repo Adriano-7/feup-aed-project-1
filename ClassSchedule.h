@@ -13,6 +13,8 @@ class ClassSchedule {
         void addSlot(Slot slot);
         const vector<Slot> &getSlots() const;
         bool sameUC(ClassSchedule other) const;
+        bool operator < (const ClassSchedule &other) const;
+        bool operator == (const ClassSchedule &other) const;
         void print() const;
 
     private:
