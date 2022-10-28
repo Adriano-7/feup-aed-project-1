@@ -12,7 +12,7 @@ App::App(ScheduleManager manager) {
 
 void App::waitForInput() {
     string q;
-    cout << endl << "Insert any key to go back to the menu: "; cin >> q; cout << endl;
+    cout << endl << "Insert any key to go back to the menu: "; cin >> q;cout << endl;system("clear");
 }
 
 string decimalToHours(int decimal){
@@ -28,7 +28,6 @@ string decimalToHours(int decimal){
 }
 
 int App::optionsMenu() {
-    system("clear");
     int option;
     cout    << endl << "------------ OPTIONS ------------" << endl
             << "1 Check the schedule of a student" << endl
@@ -57,6 +56,7 @@ void App::option1() {
     Student student = Student(upNumber, "");
     auto loc = manager.getStudents().find(student);
     if (loc == manager.getStudents().end()) {
+        system("clear");
         cout << ">> Student not found" << endl;
         return;
     }
@@ -106,6 +106,7 @@ void App::option1() {
 }
 
 void App::option2(){
+    system("clear");
     cout << ">> This feature is not available yet" << endl;
 }
 
@@ -125,13 +126,16 @@ void App::option3(){
 }
 
 void App::option4(){
+    system("clear");
     cout << ">> This feature is not available yet" << endl;
 }
 void App::option5(){
+    system("clear");
     cout << ">> This feature is not available yet" << endl;
 }
 int App::run() {
     manager.readFiles();
+    system("clear");
 
     while (true) {
         int option = optionsMenu();
@@ -159,6 +163,7 @@ int App::run() {
             case 6:
                 return 0;
             default:
+                system("clear");
                 cout << ">> Please choose a valid option" << endl;
                 break;
             }
