@@ -26,7 +26,7 @@ void ClassSchedule::printHeader() const {
 void ClassSchedule::printSlots() const {
     cout << ">> Slots:" << endl;
     for (const auto &slot : slots) {
-        cout << "   " <<  slot.getWeekDay() << "   " << slot.getBeginTime() << " - " << slot.getEndTime() << "   " << slot.getType() << endl;
+        cout << "   " << slot.getWeekDay() << "   " << slot.getStartTime() << " - " << slot.getEndTime() << "   " << slot.getType() << endl;
     }
 }
 
