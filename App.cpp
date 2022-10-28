@@ -36,7 +36,7 @@ int App::optionsMenu() {
             << "3 Check the students in class " << endl
             << "4 Check the schedule of a subject "<< endl
             << "5 Make a changing request" << endl
-            << "8 Exit" << endl
+            << "6 Exit" << endl
             << "What would you like to do next? " ;
     cin >> option;
     cout << endl;
@@ -130,13 +130,6 @@ void App::option4(){
 void App::option5(){
     cout << ">> This feature is not available yet" << endl;
 }
-void App::option6(){
-    cout << ">> This feature is not available yet" << endl;
-}
-void App::option7(){
-    cout << ">> This feature is not available yet" << endl;
-}
-
 int App::run() {
     manager.readFiles();
 
@@ -163,15 +156,7 @@ int App::run() {
                 option5();
                 break;
             }
-            case 6:{
-                option6();
-                break;
-            }
-            case 7:{
-                option7();
-                break;
-            }
-            case 8:
+            case 6:
                 return 0;
             default:
                 cout << ">> Please choose a valid option" << endl;
