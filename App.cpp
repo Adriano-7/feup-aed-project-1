@@ -32,6 +32,7 @@ string decimalToHours(int decimal){
 }
 
 int App::optionsMenu() {
+    system("clear");
     int option;
     cout    << endl << "------------ OPTIONS ------------" << endl
             << "1 Check the schedule of a student" << endl
@@ -135,7 +136,6 @@ int App::run() {
 
     while (true) {
         int option = optionsMenu();
-
         switch (option) {
             case 1:{
                 option1();
@@ -172,4 +172,5 @@ int App::run() {
                 break;
             }
     }
+
 }
