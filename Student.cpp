@@ -20,7 +20,6 @@ void Student::print() {
     }
     cout << endl;
 }
-
 void Student::addClass(UcClass newClass) {
     classes.push_back(newClass);
 }
