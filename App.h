@@ -9,11 +9,11 @@
 #include "ScheduleManager.h"
 
 class App {
-private:
-    ScheduleManager manager;
-public:
-    App(ScheduleManager manager);
-    int run();
+    private:
+        ScheduleManager manager;
+    public:
+        App(ScheduleManager manager);
+        int run();
 };
 
 

@@ -20,9 +20,14 @@ ClassSchedule::ClassSchedule(string ucId, string classId) {
 }
 
 void ClassSchedule::print() const {
-    cout << ucClass.getUcId() << " " << ucClass.getClassId() << " | Num Students: " << ucClass.getNumStudents()<< endl;
+    cout << ucClass.getUcId() << " " << ucClass.getClassId() << " | Num Students: " << getNumStudents() << endl;
+    cout << ">> Slots: " << endl;
     for (const auto &slot : slots) {
-        cout << slot.getWeekDay() << " " << slot.getBeginTime() << " - " << slot.getEndTime() << " " << slot.getType() << endl;
+        cout << "   " <<  slot.getWeekDay() << "   " << slot.getBeginTime() << " - " << slot.getEndTime() << "   " << slot.getType() << endl;
+    }
+    cout << ">> Students:" << endl;
+    for(Student student: students){
+        cout << "   " << student.getName() << " - " << student.getId() << endl;
     }
     cout << endl;
 }
@@ -31,16 +36,16 @@ void ClassSchedule::addSlot(Slot slot) {
     slots.push_back(slot);
 }
 
-void ClassSchedule::incrementNumStudents() {
-    ucClass.incrementNumStudents();
-}
-
-void ClassSchedule::decrementNumStudents() {
-    ucClass.decrementNumStudents();
-}
-
 UcClass ClassSchedule::getUcClass() const {
     return ucClass;
+}
+
+void ClassSchedule::addStudent(Student student) {
+    students.insert(student);
+}
+
+int ClassSchedule::getNumStudents() const {
+    return students.size();
 }
 
 const vector<Slot> &ClassSchedule::getSlots() const {

@@ -93,9 +93,9 @@ void ScheduleManager::createStudents() {
 
         UcClass newUcClass = UcClass(row[2], row[3]);
         int i = binarySearchSchedules(newUcClass);
-        this->schedules[i].incrementNumStudents();
-
         Student student(id, name);
+        this->schedules[i].addStudent(student);
+
         if (students.find(student) == students.end()) {
             student.addClass(this->schedules[i].getUcClass());
             students.insert(student);
