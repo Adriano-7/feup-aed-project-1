@@ -4,12 +4,20 @@
 
 #include "ScheduleManager.h"
 
-class Test {
+class Test{
     public:
+        Test();
         void testSortingSchedules() const;
         void printSchedules(ScheduleManager manager) const;
         void printStudents(ScheduleManager manager) const;
         void testScheduleCollisions(ScheduleManager manager) const;
+        int testBSearchSchedules(UcClass desiredUcCLass) const;
+        bool testClassesCollide(UcClass c1, UcClass c2);
+        bool testStudentClassCollides(Student student, UcClass newClass);
+        void testScheduleCollisions();
+
+    private:
+        vector<ClassSchedule> schedulesTest;
 };
 
 #endif //TRABALHO_TEST_H

@@ -18,10 +18,11 @@ class ScheduleManager {
         const vector<ClassSchedule> &getSchedules() const;
         void createStudents();
         const set<Student> &getStudents() const;
-        int BSearchSchedules(UcClass desiredUcCLass);
-        bool studentClassCollides(Student student, UcClass newClass);
+        int binarySearchSchedules(UcClass desiredUcCLass);
+        bool requestHasCollision(Request request);
         bool classesCollide(UcClass c1, UcClass c2);
         void printStudentSchedule(string studentId);
+        void addRequest(Request request);
 
     private:
         set <Student> students;

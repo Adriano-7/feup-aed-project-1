@@ -35,5 +35,8 @@ bool Slot::collides(Slot other) const {
     if (this->beginTime >= other.getEndTime() || this->endTime <= other.getBeginTime()) {
         return false;
     }
+    if(this->type == "T" || other.getType() == "T") {
+        return false;
+    }
     return true;
 }

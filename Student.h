@@ -9,16 +9,16 @@ using namespace std;
 
 class Student {
     public:
+        Student();
         Student(string id, string name);
         string getId() const;
         string getName() const;
         vector<UcClass> getClasses() const;
-        void addUcClass (UcClass ucClass);
+        void addClass(UcClass newClass);
         bool operator == (const Student &other) const;
         bool operator < (const Student &other) const;
         bool operator > (const Student &other) const;
         void print();
-        void addClass(UcClass newClass);
 
     private:
         string id;
