@@ -2,6 +2,7 @@
 #include <iostream>
 #include <utility>
 #include <cmath>
+#include <algorithm>
 
 using namespace std;
 
@@ -96,9 +97,13 @@ void App::option1() {
 
     cout << endl << ">> The student's schedule is:" << endl;
     for (int i = 0; i < weekdays.size(); i++) {
+        sort(weekdays[i].begin(), weekdays[i].end(), [](pair<string, Slot> a, pair<string, Slot> b) {
+            return a.second.getStartTime() < b.second.getStartTime();
+        });
         cout << "   >> "<< weekdaysNames[i] << ": " << endl;
+
         for (pair<string, Slot> slot: weekdays[i]) {
-            cout << "       "<<slot.first << "   " << decimalToHours(slot.second.getBeginTime()) << " to " << decimalToHours(slot.second.getEndTime())
+            cout << "       " << slot.first << "   " << decimalToHours(slot.second.getStartTime()) << " to " << decimalToHours(slot.second.getEndTime())
                  << "   " << slot.second.getType() << endl;
         }
     }

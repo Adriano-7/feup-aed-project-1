@@ -11,13 +11,13 @@ class Slot {
         Slot(string weekday, float beginTime, float duration, string type);
         string getWeekDay() const;
         string getType() const;
-        float getBeginTime() const;
+        float getStartTime() const;
         float getEndTime() const;
         bool collides(Slot other) const;
 
     private:
         string weekday;
-        float beginTime;
+        float startTime;
         float endTime;
         string type;
 };
