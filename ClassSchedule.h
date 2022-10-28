@@ -20,6 +20,9 @@ class ClassSchedule {
         bool sameUC(ClassSchedule other) const;
         bool operator < (const ClassSchedule &other) const;
         bool operator == (const ClassSchedule &other) const;
+        void printHeader() const;
+        void printSlots() const;
+        void printStudents() const;
         void print() const;
 
     private:

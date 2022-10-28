@@ -19,16 +19,29 @@ ClassSchedule::ClassSchedule(string ucId, string classId) {
     this->slots = vector<Slot>();
 }
 
-void ClassSchedule::print() const {
-    cout << ucClass.getUcId() << " " << ucClass.getClassId() << " | Num Students: " << getNumStudents() << endl;
-    cout << ">> Slots: " << endl;
+void ClassSchedule::printHeader() const {
+    cout << ">> UC:" << ucClass.getUcId() << " " << ucClass.getClassId() << endl;
+}
+
+void ClassSchedule::printSlots() const {
+    cout << ">> Slots:" << endl;
     for (const auto &slot : slots) {
         cout << "   " <<  slot.getWeekDay() << "   " << slot.getBeginTime() << " - " << slot.getEndTime() << "   " << slot.getType() << endl;
     }
+}
+
+void ClassSchedule::printStudents() const {
+    cout << ">> Number of students: " << students.size() << endl;
     cout << ">> Students:" << endl;
     for(Student student: students){
         cout << "   " << student.getName() << " - " << student.getId() << endl;
     }
+}
+
+void ClassSchedule::print() const {
+    printHeader();
+    printSlots();
+    printStudents();
     cout << endl;
 }
 

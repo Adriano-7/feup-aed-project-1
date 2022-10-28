@@ -9,11 +9,21 @@
 #include "ScheduleManager.h"
 
 class App {
-    private:
-        ScheduleManager manager;
     public:
         App(ScheduleManager manager);
         int run();
+        int optionsMenu();
+        void option1();
+        void option2();
+        void option3();
+        void option4();
+        void option5();
+        void option6();
+        void option7();
+        void waitForInput();
+
+    private:
+        ScheduleManager manager;
 };
 
 
