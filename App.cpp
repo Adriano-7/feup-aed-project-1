@@ -12,7 +12,7 @@ App::App(ScheduleManager manager) {
 
 void App::waitForInput() {
     string q;
-    cout << "Insert any key to go back to the menu: "; cin >> q; cout << endl;
+    cout << endl << "Insert any key to go back to the menu: "; cin >> q; cout << endl;
 }
 
 string decimalToHours(int decimal){
@@ -39,6 +39,7 @@ int App::optionsMenu() {
             << "8 Exit" << endl
             << "What would you like to do next? " ;
     cin >> option;
+    cout << endl;
     if (cin.fail()) {
         throw invalid_argument(">> Please choose a valid number");
     }
@@ -64,10 +65,10 @@ void App::option1() {
     vector<UcClass> studentClasses = modStudent.getClasses();
     vector<vector<pair<string, Slot>>> weekdays = vector<vector<pair<string, Slot>>>(5);
     vector<string> weekdaysNames = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday"};
-    cout << endl <<  "The student " << modStudent.getName() << " with UP number " << modStudent.getId()
+    cout << endl <<  ">> The student " << modStudent.getName() << " with UP number " << modStudent.getId()
          << " is enrolled in the following classes:" << endl;
     for (UcClass classs: studentClasses) {
-        cout << classs.getUcId() << " " << classs.getClassId() << "  |  ";
+        cout << "   " << classs.getUcId() << " " << classs.getClassId() << "  |  ";
     }
     cout << endl;
 
@@ -93,11 +94,11 @@ void App::option1() {
         }
     }
 
-    cout << endl << "The student's schedule is:" << endl;
+    cout << endl << ">> The student's schedule is:" << endl;
     for (int i = 0; i < weekdays.size(); i++) {
-        cout << weekdaysNames[i] << ": " << endl;
+        cout << "   >> "<< weekdaysNames[i] << ": " << endl;
         for (pair<string, Slot> slot: weekdays[i]) {
-            cout << slot.first << "   " << decimalToHours(slot.second.getBeginTime()) << " to " << decimalToHours(slot.second.getEndTime())
+            cout << "       "<<slot.first << "   " << decimalToHours(slot.second.getBeginTime()) << " to " << decimalToHours(slot.second.getEndTime())
                  << "   " << slot.second.getType() << endl;
         }
     }
@@ -120,7 +121,6 @@ void App::option3(){
     }
     ClassSchedule cs = manager.getSchedules()[index];
     cs.printStudents();
-    cout << endl;
     waitForInput();
 }
 

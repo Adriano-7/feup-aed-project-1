@@ -4,11 +4,13 @@
 
 using namespace std;
 
-Test::Test(){
+Test::Test(ScheduleManager manager){
+    this->manager = manager;
+    this->manager.readFiles();
     schedulesTest = vector<ClassSchedule>();
 }
 
-void Test::printSchedules(ScheduleManager manager) const {
+void Test::printSchedules() const {
     cout << "-------------- PRINTING SCHEDULES --------------" << endl;
     for (const auto &schedule : manager.getSchedules()) {
         schedule.print();
@@ -16,7 +18,7 @@ void Test::printSchedules(ScheduleManager manager) const {
     }
 }
 
-void Test::printStudents(ScheduleManager manager) const {
+void Test::printStudents() const {
     cout << "-------------- PRINTING STUDENTS --------------" << endl;
     for(Student student : manager.getStudents()) {
         student.print();

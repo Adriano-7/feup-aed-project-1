@@ -6,10 +6,10 @@
 
 class Test{
     public:
-        Test();
+        Test(ScheduleManager manager);
         void testSortingSchedules() const;
-        void printSchedules(ScheduleManager manager) const;
-        void printStudents(ScheduleManager manager) const;
+        void printSchedules() const;
+        void printStudents() const;
         void testScheduleCollisions(ScheduleManager manager) const;
         int testBSearchSchedules(UcClass desiredUcCLass) const;
         bool testClassesCollide(UcClass c1, UcClass c2);
@@ -18,6 +18,7 @@ class Test{
 
     private:
         vector<ClassSchedule> schedulesTest;
+        ScheduleManager manager;
 };
 
 #endif //TRABALHO_TEST_H
