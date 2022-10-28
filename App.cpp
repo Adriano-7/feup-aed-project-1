@@ -90,17 +90,17 @@ int App::run() {
                         << "   " << slot.second.getType() << endl;
                     }
                 }
-                cout << "Press q to go back to the menu ";
+                cout << "Press 'q' to go back to the menu ";
                 string q;
                 cin >> q;
                 cout << endl;
                 break;
         }
-            case 8:
-                return 0;
-            default:
-                cout << "Please choose a valid option" << endl;
-                break;
+        case 8:
+            return 0;
+        default:
+            cout << "Please choose a valid option" << endl;
+            break;
         }
     }
 }
