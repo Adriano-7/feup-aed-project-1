@@ -28,10 +28,11 @@ int App::run() {
     manager.readFiles();
     int option;
     while (true) {
+        system("clear");
         cout << endl << "------------ OPTIONS ------------" << endl << "1 Check the schedule of a student" << endl
              << "2 Check the schedule of a Class" << endl << "3 Check the students in Class " << endl
              << "4 Check the schedule of a Subject " << endl << "5 Make a changing request" << endl
-             << "8 Exit" << endl << "What would you like to do next? " ;
+             << "8 Exit" << endl << "What would you like to do next? ";
         cin >> option;
         if (cin.fail()) {
             throw invalid_argument("Please choose a valid number");
@@ -41,7 +42,6 @@ int App::run() {
                 cout << "Please insert the student's up number: ";
                 string upNumber;
                 cin >> upNumber;
-
                 Student student = Student(upNumber, "");
                 auto loc = manager.getStudents().find(student);
                 if (loc == manager.getStudents().end()) {
@@ -103,4 +103,5 @@ int App::run() {
             break;
         }
     }
+
 }
