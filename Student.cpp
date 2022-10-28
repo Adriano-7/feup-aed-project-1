@@ -14,12 +14,12 @@ Student::Student(string id, string name) {
 
 void Student::print() {
     cout << "Student: " << name << " (" << id << ")" << endl;
-    cout << "Classes: " << endl;
+    cout << "Classes: ";
     for (int i = 0; i < classes.size(); i++) {
-        cout << classes[i].getUcId() << " " << classes[i].getClassId() << endl;
+        cout << classes[i].getUcId() << " " << classes[i].getClassId() << "  |  ";
     }
+    cout << endl;
 }
-
 void Student::addClass(UcClass newClass) {
     classes.push_back(newClass);
 }

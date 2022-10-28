@@ -3,25 +3,11 @@
 UcClass::UcClass() {
     this->ucId = "";
     this->classId = "";
-    this->numStudents=0;
 }
 
 UcClass::UcClass(string ucId, string classId) {
     this->ucId = ucId;
     this->classId = classId;
-    this->numStudents=0;
-}
-
-void UcClass::incrementNumStudents() {
-    numStudents++;
-}
-
-void UcClass::decrementNumStudents(){
-    numStudents--;
-}
-
-int UcClass::getNumStudents() const{
-    return this->numStudents;
 }
 
 string UcClass::getUcId() const {

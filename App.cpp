@@ -26,6 +26,7 @@ App::App(ScheduleManager manager) {
 
 int App::run() {
     manager.readFiles();
+
     int option;
     while (true) {
         system("clear");
@@ -49,6 +50,7 @@ int App::run() {
                     return 0;
                 }
                 Student modStudent = *loc;
+
                 vector<UcClass> studentClasses = modStudent.getClasses();
                 vector<vector<pair<string, Slot>>> weekdays = vector<vector<pair<string, Slot>>>(5);
                 vector<string> weekdaysNames = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday"};
