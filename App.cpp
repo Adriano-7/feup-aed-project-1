@@ -1,9 +1,7 @@
 #include "App.h"
-#include "Test.h"
 #include <iostream>
 #include <utility>
 #include <cmath>
-#include <stdlib.h>
 
 using namespace std;
 
@@ -13,9 +11,8 @@ App::App(ScheduleManager manager) {
 }
 
 void App::waitForInput() {
-    cout << "Insert any key to go back to the menu: " << endl;
     string q;
-    cin >> q;
+    cout << "Insert any key to go back to the menu: "; cin >> q; cout << endl;
 }
 
 string decimalToHours(int decimal){
