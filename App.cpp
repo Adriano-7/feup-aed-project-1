@@ -13,10 +13,9 @@ App::App(ScheduleManager manager) {
 }
 
 void App::waitForInput() {
-    cout << "Press any key to go back to the menu ";
+    cout << "Insert any key to go back to the menu: " << endl;
     string q;
     cin >> q;
-    cout << endl;
 }
 
 string decimalToHours(int decimal){
@@ -44,7 +43,7 @@ int App::optionsMenu() {
             << "What would you like to do next? " ;
     cin >> option;
     if (cin.fail()) {
-        throw invalid_argument("Please choose a valid number");
+        throw invalid_argument(">> Please choose a valid number");
     }
     if(option < 1 || option > 8) {
         return 0;
@@ -60,7 +59,7 @@ void App::option1() {
     Student student = Student(upNumber, "");
     auto loc = manager.getStudents().find(student);
     if (loc == manager.getStudents().end()) {
-        cout << "Student not found" << endl;
+        cout << ">> Student not found" << endl;
         return;
     }
     Student modStudent = *loc;
@@ -108,7 +107,9 @@ void App::option1() {
     waitForInput();
 }
 
-void App::option2(){}
+void App::option2(){
+    cout << ">> This feature is not available yet" << endl;
+}
 
 void App::option3(){
     string ucCode, classCode;
@@ -117,7 +118,7 @@ void App::option3(){
     UcClass ucClass = UcClass(ucCode, classCode);
     int index = manager.binarySearchSchedules(ucClass);
     if(index == -1){
-        cout << "Class not found" << endl;
+        cout << ">> Class not found" << endl;
         return;
     }
     ClassSchedule cs = manager.getSchedules()[index];
@@ -126,10 +127,18 @@ void App::option3(){
     waitForInput();
 }
 
-void App::option4(){}
-void App::option5(){}
-void App::option6(){}
-void App::option7(){}
+void App::option4(){
+    cout << ">> This feature is not available yet" << endl;
+}
+void App::option5(){
+    cout << ">> This feature is not available yet" << endl;
+}
+void App::option6(){
+    cout << ">> This feature is not available yet" << endl;
+}
+void App::option7(){
+    cout << ">> This feature is not available yet" << endl;
+}
 
 int App::run() {
     manager.readFiles();
@@ -168,9 +177,8 @@ int App::run() {
             case 8:
                 return 0;
             default:
-                cout << "Please choose a valid option" << endl;
+                cout << ">> Please choose a valid option" << endl;
                 break;
             }
     }
-
 }
