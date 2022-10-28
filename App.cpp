@@ -1,12 +1,9 @@
-//
-// Created by evans24 on 27-10-2022.
-//
-
 #include "App.h"
 #include "Test.h"
 #include <iostream>
 #include <utility>
 #include <cmath>
+#include <stdlib.h>
 
 using namespace std;
 
@@ -24,24 +21,24 @@ string decimalToHours(int decimal){
 
 App::App(ScheduleManager manager) {
     this->manager = manager;
-    cout << "Schedule manager is online" << endl << endl;
+    cout << ">> Schedule manager is online" << endl;
 }
 
 int App::run() {
     manager.readFiles();
     int option;
     while (true) {
-        cout << "What would you like to do next?" << endl << endl << "1 Check the schedule of a student" << endl
+        cout << endl << "------------ OPTIONS ------------" << endl << "1 Check the schedule of a student" << endl
              << "2 Check the schedule of a Class" << endl << "3 Check the students in Class " << endl
              << "4 Check the schedule of a Subject " << endl << "5 Make a changing request" << endl
-             << "8 Exit" << endl;
+             << "8 Exit" << endl << "What would you like to do next? " ;
         cin >> option;
         if (cin.fail()) {
             throw invalid_argument("Please choose a valid number");
         }
         switch (option) {
             case 1:{
-                cout << "Please insert the student's up number" << endl;
+                cout << "Please insert the student's up number: ";
                 string upNumber;
                 cin >> upNumber;
 
@@ -55,11 +52,12 @@ int App::run() {
                 vector<UcClass> studentClasses = modStudent.getClasses();
                 vector<vector<pair<string, Slot>>> weekdays = vector<vector<pair<string, Slot>>>(5);
                 vector<string> weekdaysNames = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday"};
-                cout << "The student " << modStudent.getName() << " with up number " << modStudent.getId()
+                cout << endl <<  "The student " << modStudent.getName() << " with UP number " << modStudent.getId()
                      << " is enrolled in the following classes:" << endl;
                 for (UcClass classs: studentClasses) {
-                    cout << classs.getUcId() << " " << classs.getClassId() << endl;
+                    cout << classs.getUcId() << " " << classs.getClassId() << "  |  ";
                 }
+                cout << endl;
 
                 for (UcClass ucClass: studentClasses) {
                     ClassSchedule cs = manager.getSchedules()[manager.binarySearchSchedules(ucClass)];
@@ -88,20 +86,21 @@ int App::run() {
                 for (int i = 0; i < weekdays.size(); i++) {
                     cout << weekdaysNames[i] << ": " << endl;
                     for (pair<string, Slot> slot: weekdays[i]) {
-                        cout << slot.first << " " << decimalToHours(slot.second.getBeginTime()) << " to " << decimalToHours(slot.second.getEndTime())
-                        << " " << slot.second.getType() << endl;
+                        cout << slot.first << "   " << decimalToHours(slot.second.getBeginTime()) << " to " << decimalToHours(slot.second.getEndTime())
+                        << "   " << slot.second.getType() << endl;
                     }
                 }
-                cout << "Press q to go back to the menu" << endl;
+                cout << "Press 'q' to go back to the menu ";
                 string q;
                 cin >> q;
+                cout << endl;
                 break;
         }
-            case 8:
-                return 0;
-            default:
-                cout << "Please choose a valid option" << endl;
-                break;
+        case 8:
+            return 0;
+        default:
+            cout << "Please choose a valid option" << endl;
+            break;
         }
     }
 }
