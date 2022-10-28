@@ -62,7 +62,7 @@ int App::run() {
                 }
 
                 for (UcClass ucClass: studentClasses) {
-                    ClassSchedule cs = manager.getSchedules()[manager.BSearchSchedules(ucClass)];
+                    ClassSchedule cs = manager.getSchedules()[manager.binarySearchSchedules(ucClass)];
                     vector<pair<string, Slot>> slots;
                     for (Slot slot: cs.getSlots()) {
                         slots.push_back(make_pair(cs.getUcClass().getUcId(), slot));
