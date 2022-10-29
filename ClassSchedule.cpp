@@ -1,5 +1,6 @@
 #include "ClassSchedule.h"
 #include <iostream>
+#include <algorithm>
 
 using namespace std;
 
@@ -19,31 +20,6 @@ ClassSchedule::ClassSchedule(string ucId, string classId) {
     this->slots = vector<Slot>();
 }
 
-void ClassSchedule::printHeader() const {
-    cout << ">> UC:" << ucClass.getUcId() << " " << ucClass.getClassId() << endl;
-}
-
-void ClassSchedule::printSlots() const {
-    cout << ">> Slots:" << endl;
-    for (const auto &slot : slots) {
-        cout << "   " << slot.getWeekDay() << "   " << slot.getStartTime() << " - " << slot.getEndTime() << "   " << slot.getType() << endl;
-    }
-}
-
-void ClassSchedule::printStudents() const {
-    cout << ">> Number of students: " << students.size() << endl;
-    cout << ">> Students:" << endl;
-    for(Student student: students){
-        cout << "   " << student.getName() << " - " << student.getId() << endl;
-    }
-}
-
-void ClassSchedule::print() const {
-    printHeader();
-    printSlots();
-    printStudents();
-    cout << endl;
-}
 
 void ClassSchedule::addSlot(Slot slot) {
     slots.push_back(slot);
@@ -75,4 +51,35 @@ bool ClassSchedule::operator < (const ClassSchedule &other) const {
 
 bool ClassSchedule::operator == (const ClassSchedule &other) const {
     return this->ucClass == other.getUcClass();
+}
+
+void ClassSchedule::printHeader() const {
+    cout << ">> UC:" << ucClass.getUcId() << " " << ucClass.getClassId() << endl;
+}
+
+void ClassSchedule::printSlots() const {
+    cout << ">> Slots:" << endl;
+    for (const auto &slot : slots) {
+        cout << "   " << slot.getWeekDay() << "   " << slot.getStartTime() << " - " << slot.getEndTime() << "   " << slot.getType() << endl;
+    }
+}
+
+void ClassSchedule::printStudents() const{
+    vector<Student>* studentsVector = new vector<Student>(students.begin(), students.end());
+    sort(studentsVector->begin(), studentsVector->end(), [](const Student &a, const Student &b) {
+        return a.getName() < b.getName();
+    });
+    cout << ">> Number of students: " << students.size() << endl;
+    cout << ">> Students:" << endl;
+    for(Student student: *studentsVector){
+        cout << "   " << student.getName() << " - " << student.getId() << endl;
+    }
+    delete studentsVector;
+}
+
+void ClassSchedule::print() const {
+    printHeader();
+    printSlots();
+    printStudents();
+    cout << endl;
 }

@@ -105,7 +105,7 @@ void App::option1() {
         cout << "   >> "<< weekdaysNames[i] << ": " << endl;
 
         for (pair<string, Slot> slot: weekdays[i]) {
-            cout << "       " << slot.first << "   " << decimalToHours(slot.second.getStartTime()) << " to " << decimalToHours(slot.second.getEndTime())
+            cout << "      " << slot.first << "   " << decimalToHours(slot.second.getStartTime()) << " to " << decimalToHours(slot.second.getEndTime())
                  << "   " << slot.second.getType() << endl;
         }
     }
