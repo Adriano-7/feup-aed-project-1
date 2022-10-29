@@ -43,7 +43,6 @@ void App::waitForInput() {
 
 
 void App::checkStudentSchedule() {
-    system("clear");
     string upNumber;
     cout << "Please insert the student's UP number: ";
     cin >> upNumber;
@@ -52,18 +51,18 @@ void App::checkStudentSchedule() {
 }
 
 void App::checkClassSchedule(){
-    system("clear");
     cout << ">> This feature is not available yet" << endl;
+    usleep(900000);
 }
 
 void App::checkClassStudents(){
-    system("clear");
     string ucCode, classCode;
     cout << "Please insert the UC code: "; cin >> ucCode;
     cout << "Please insert the class code: "; cin >> classCode; cout << endl;
     int index = manager.binarySearchSchedules(UcClass(ucCode, classCode));
     if(index == -1){
         cout << ">> Class not found" << endl;
+        usleep(900000);
         return;
     }
     ClassSchedule cs = manager.getSchedules()[index];
@@ -72,16 +71,16 @@ void App::checkClassStudents(){
 }
 
 void App::checkUcSchedule(){
-    system("clear");
     cout << ">> This feature is not available yet" << endl;
+    usleep(900000);
 }
 
 void App::submitNewRequest(){
-    system("clear");
     string upNumber, ucCode, classCode;
     cout << "Please insert the student's UP number: "; cin >> upNumber; cout << endl;
     if(!manager.studentExists(upNumber)){
         cout << ">> Student not found." << endl;
+        usleep(900000);
         waitForInput();
         return;
     }
@@ -91,6 +90,7 @@ void App::submitNewRequest(){
     cout << "Please insert the class code: "; cin >> classCode;
     if(!manager.ucClassExists(ucCode, classCode)){
         cout << ">> Class not found." << endl;
+        usleep(900000);
         waitForInput();
         return;
     }
@@ -103,9 +103,9 @@ void App::submitNewRequest(){
 
 int App::run() {
     manager.readFiles();
-    system("clear");
 
     while (true) {
+        system("clear");
         int option = optionsMenu();
         switch (option) {
             case 1:{
@@ -131,7 +131,6 @@ int App::run() {
             case 6:
                 return 0;
             default:
-                system("clear");
                 cout << ">> Please choose a valid option" << endl;
                 usleep(900000);
                 break;
