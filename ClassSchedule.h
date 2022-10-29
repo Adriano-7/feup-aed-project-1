@@ -22,7 +22,7 @@ class ClassSchedule {
         bool operator == (const ClassSchedule &other) const;
         void printHeader() const;
         void printSlots() const;
-        void printStudents() const;
+        void printStudents(string order = "alphabetical") const;
         void print() const;
 
     private:

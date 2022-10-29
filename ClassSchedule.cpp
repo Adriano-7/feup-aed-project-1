@@ -64,11 +64,21 @@ void ClassSchedule::printSlots() const {
     }
 }
 
-void ClassSchedule::printStudents() const{
+
+void ClassSchedule::printStudents(string order) const{
     vector<Student>* studentsVector = new vector<Student>(students.begin(), students.end());
-    sort(studentsVector->begin(), studentsVector->end(), [](const Student &a, const Student &b) {
-        return a.getName() < b.getName();
-    });
+    if (order == "alphabetical") {
+        sort(studentsVector->begin(), studentsVector->end(), [](Student a, Student b) { return a.getName() < b.getName(); });
+    } else if (order == "reverse alphabetical") {
+        sort(studentsVector->rbegin(), studentsVector->rend(), [](Student a, Student b) { return a.getName() < b.getName(); });
+    } else if (order == "numerical") {
+        sort(studentsVector->begin(), studentsVector->end());
+    } else if (order == "reverse numerical") {
+        sort(studentsVector->rbegin(), studentsVector->rend());
+    } else {
+        cout << "Invalid order" << endl;
+        return;
+    }
     cout << ">> Number of students: " << students.size() << endl;
     cout << ">> Students:" << endl;
     for(Student student: *studentsVector){
