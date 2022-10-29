@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['ucclass_35',['UcClass',['../class_uc_class.html#adc1e42a30f0c9364683f4209a55314fb',1,'UcClass::UcClass()'],['../class_uc_class.html#adcd9d57c99d8ba36b2579bce13af51fe',1,'UcClass::UcClass(string ucId, string classId)']]]
+  ['sameuc_50',['sameUC',['../class_class_schedule.html#a17032a7764a6787cdf37e085a1985f01',1,'ClassSchedule']]],
+  ['sameucid_51',['sameUcId',['../class_uc_class.html#a52f4b673faa849207f2f3c2f87b00b7f',1,'UcClass']]]
 ];

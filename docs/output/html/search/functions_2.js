@@ -1,5 +1,8 @@
 var searchData=
 [
-  ['printschedules_30',['printSchedules',['../class_test.html#abd368a9c21d4bc07b6bc092f9c827e5b',1,'Test']]],
-  ['printstudents_31',['printStudents',['../class_test.html#a7ff6ee80aeae04c6d436e3ad448b2490',1,'Test']]]
+  ['getclassid_37',['getClassId',['../class_uc_class.html#aae87401ede4c340c5b8e9ac08e81d18a',1,'UcClass']]],
+  ['getnumstudents_38',['getNumStudents',['../class_class_schedule.html#ae72c146550491d43bb902672f7c254c7',1,'ClassSchedule']]],
+  ['getslots_39',['getSlots',['../class_class_schedule.html#adde4fc1fa0a2d164219c5e6a4e3bd15e',1,'ClassSchedule']]],
+  ['getucclass_40',['getUcClass',['../class_class_schedule.html#a533a549ea6583bc994167d863f4af916',1,'ClassSchedule']]],
+  ['getucid_41',['getUcId',['../class_uc_class.html#a02a6c12c91f70b797ba5384d2357b189',1,'UcClass']]]
 ];

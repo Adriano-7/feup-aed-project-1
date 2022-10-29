@@ -11,21 +11,41 @@ App::App(ScheduleManager manager) {
     cout << ">> Schedule manager is online" << endl;
 }
 
-void App::waitForInput() {
-    string q;
-    cout << endl << "Insert any key to go back to the menu: "; cin >> q;cout << endl;system("clear");
-}
+int App::run() {
+    manager.readFiles();
+    system("clear");
 
-string decimalToHours(int decimal){
-    double time = decimal;
-    int timeMins = (int)floor( time * 60.0 );
-    int hours = timeMins / 60;
-    int minutes = timeMins % 60;
-    string hoursStr = to_string(hours);
-    string minutesStr = to_string(minutes);
-    if (hours < 10) hoursStr = "0" + hoursStr;
-    if (minutes < 10) minutesStr = "0" + minutesStr;
-    return hoursStr + ":" + minutesStr;
+    while (true) {
+        int option = optionsMenu();
+        switch (option) {
+            case 1:{
+                option1();
+                break;
+            }
+            case 2:{
+                option2();
+                break;
+            }
+            case 3:{
+                option3();
+                break;
+            }
+            case 4:{
+                option4();
+                break;
+            }
+            case 5:{
+                option5();
+                break;
+            }
+            case 6:
+                return 0;
+            default:
+                system("clear");
+                cout << ">> Please choose a valid option" << endl;
+                break;
+        }
+    }
 }
 
 int App::optionsMenu() {
@@ -49,25 +69,44 @@ int App::optionsMenu() {
     return option;
 }
 
+void App::waitForInput() {
+    string q;
+    cout << endl << "Insert any key to go back to the menu: "; cin >> q;cout << endl;system("clear");
+}
+
+string decimalToHours(int decimal){
+    double time = decimal;
+    int timeMins = (int)floor( time * 60.0 );
+    int hours = timeMins / 60;
+    int minutes = timeMins % 60;
+    string hoursStr = to_string(hours);
+    string minutesStr = to_string(minutes);
+    if (hours < 10) hoursStr = "0" + hoursStr;
+    if (minutes < 10) minutesStr = "0" + minutesStr;
+    return hoursStr + ":" + minutesStr;
+}
+
 void App::option1() {
     string upNumber;
     cout << "Please insert the student's up number: ";
     cin >> upNumber;
 
     Student student = Student(upNumber, "");
+
     auto loc = manager.getStudents().find(student);
     if (loc == manager.getStudents().end()) {
         system("clear");
         cout << ">> Student not found" << endl;
         return;
     }
-    Student modStudent = *loc;
 
-    vector<UcClass> studentClasses = modStudent.getClasses();
+    student = *loc;
+
+    vector<UcClass> studentClasses = student.getClasses();
     vector<vector<pair<string, Slot>>> weekdays = vector<vector<pair<string, Slot>>>(5);
     vector<string> weekdaysNames = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday"};
     system("clear");
-    cout << endl <<  ">> The student " << modStudent.getName() << " with UP number " << modStudent.getId()
+    cout << endl <<  ">> The student " << student.getName() << " with UP number " << student.getId()
          << " is enrolled in the following classes:" << endl;
     for (UcClass classs: studentClasses) {
         cout << "   " << classs.getUcId() << " " << classs.getClassId() << "  |  ";
@@ -139,39 +178,4 @@ void App::option5(){
     system("clear");
     cout << ">> This feature is not available yet" << endl;
 }
-int App::run() {
-    manager.readFiles();
-    system("clear");
 
-    while (true) {
-        int option = optionsMenu();
-        switch (option) {
-            case 1:{
-                option1();
-                break;
-            }
-            case 2:{
-                option2();
-                break;
-            }
-            case 3:{
-                option3();
-                break;
-            }
-            case 4:{
-                option4();
-                break;
-            }
-            case 5:{
-                option5();
-                break;
-            }
-            case 6:
-                return 0;
-            default:
-                system("clear");
-                cout << ">> Please choose a valid option" << endl;
-                break;
-            }
-    }
-}

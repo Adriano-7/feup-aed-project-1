@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['operator_3c_27',['operator&lt;',['../class_uc_class.html#a49201ecbd1442a53b354aa0604e431b6',1,'UcClass']]],
-  ['operator_3d_3d_28',['operator==',['../class_uc_class.html#a3dccc3ab7c4634e47b8ca783e08c3914',1,'UcClass']]],
-  ['operator_3e_29',['operator&gt;',['../class_uc_class.html#ab8f03f400aed740a16f78dff819b582e',1,'UcClass']]]
+  ['classschedule_36',['ClassSchedule',['../class_class_schedule.html#a8d88a9c41fde5818bb1a96af0382ba80',1,'ClassSchedule::ClassSchedule()'],['../class_class_schedule.html#a49cfd34f5d4a8a8f6b22e9349e918f78',1,'ClassSchedule::ClassSchedule(UcClass ucClass)'],['../class_class_schedule.html#a34369c4bd917317326ff9e5abcba50c8',1,'ClassSchedule::ClassSchedule(string ucId, string classId)']]]
 ];
