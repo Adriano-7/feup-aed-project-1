@@ -11,11 +11,7 @@ ScheduleManager::ScheduleManager() {
     this->requests = queue<Request>();
 }
 
-void ScheduleManager::addRequest(Request request) {
-    requests.push(request);
-}
-
-int ScheduleManager::binarySearchSchedules(UcClass desiredUcCLass){
+int ScheduleManager::binarySearchSchedules(UcClass desiredUcCLass) const{
     int left = 0;
     int right = schedules.size() - 1;
     int middle = (left + right) / 2;
@@ -94,7 +90,6 @@ void ScheduleManager::createStudents() {
         UcClass newUcClass = UcClass(row[2], row[3]);
         int i = binarySearchSchedules(newUcClass);
         Student student(id, name);
-        this->schedules[i].addStudent(student);
 
         if (students.find(student) == students.end()) {
             student.addClass(this->schedules[i].getUcClass());
@@ -106,6 +101,7 @@ void ScheduleManager::createStudents() {
             modStudent.addClass(this->schedules[i].getUcClass());
             students.insert(modStudent);
         }
+        this->schedules[i].addStudent(student);
     }
 }
 
@@ -113,6 +109,29 @@ void ScheduleManager::readFiles() {
     createSchedules();
     setSchedules();
     createStudents();
+}
+
+bool ScheduleManager::ucClassExists(string ucCode, string classCode) const {
+    UcClass ucClass = UcClass(ucCode, classCode);
+    int index = binarySearchSchedules(ucClass);
+    return index != -1;
+}
+
+bool ScheduleManager::studentExists(std::string studentId) const{
+    auto student = students.find(Student(studentId, ""));
+    return student != students.end();
+}
+
+Student ScheduleManager::findStudent(string studentId) const{
+    auto student = students.find(Student(studentId, ""));
+    return *student;
+}
+
+void ScheduleManager::addRequest(Student &student, UcClass &ucClass) {
+    student = findStudent(student.getId());
+    Request request(student, ucClass);
+    requests.push(request);
+    request.print();
 }
 
 bool ScheduleManager::classesCollide(UcClass c1, UcClass c2) {

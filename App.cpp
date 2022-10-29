@@ -36,7 +36,7 @@ int App::optionsMenu() {
             << "2 Check the schedule of a class" << endl
             << "3 Check the students in class " << endl
             << "4 Check the schedule of a subject "<< endl
-            << "5 Make a changing request" << endl
+            << "5 Submit a changing request" << endl
             << "6 Exit" << endl
             << "What would you like to do next? " ;
     cin >> option;
@@ -50,9 +50,10 @@ int App::optionsMenu() {
     return option;
 }
 
-void App::option1() {
+void App::checkStudentSchedule() {
+    system("clear");
     string upNumber;
-    cout << "Please insert the student's up number: ";
+    cout << "Please insert the student's UP number: ";
     cin >> upNumber;
 
     Student student = Student(upNumber, "");
@@ -112,17 +113,17 @@ void App::option1() {
     waitForInput();
 }
 
-void App::option2(){
+void App::checkClassSchedule(){
     system("clear");
     cout << ">> This feature is not available yet" << endl;
 }
 
-void App::option3(){
+void App::checkClassStudents(){
+    system("clear");
     string ucCode, classCode;
     cout << "Please insert the UC code: "; cin >> ucCode;
     cout << "Please insert the class code: "; cin >> classCode; cout << endl;
-    UcClass ucClass = UcClass(ucCode, classCode);
-    int index = manager.binarySearchSchedules(ucClass);
+    int index = manager.binarySearchSchedules(UcClass(ucCode, classCode));
     if(index == -1){
         cout << ">> Class not found" << endl;
         return;
@@ -132,14 +133,36 @@ void App::option3(){
     waitForInput();
 }
 
-void App::option4(){
+void App::checkUcSchedule(){
     system("clear");
     cout << ">> This feature is not available yet" << endl;
 }
-void App::option5(){
+
+void App::submitNewRequest(){
     system("clear");
-    cout << ">> This feature is not available yet" << endl;
+    string upNumber, ucCode, classCode;
+    cout << "Please insert the student's UP number: "; cin >> upNumber; cout << endl;
+    if(!manager.studentExists(upNumber)){
+        cout << ">> Student not found." << endl;
+        waitForInput();
+        return;
+    }
+    cout << "The following information is related to the class you want to change to, "
+            "for a certain curricular unit." << endl;
+    cout << "Please insert the UC code: "; cin >> ucCode;
+    cout << "Please insert the class code: "; cin >> classCode;
+    if(!manager.ucClassExists(ucCode, classCode)){
+        cout << ">> Class not found." << endl;
+        waitForInput();
+        return;
+    }
+    Student student = Student(upNumber, "");
+    UcClass ucClass = UcClass(ucCode, classCode);
+    manager.addRequest(student, ucClass);
+    cout << endl << ">> Request successfully submitted!" << endl;
+    waitForInput();
 }
+
 int App::run() {
     manager.readFiles();
     system("clear");
@@ -148,23 +171,23 @@ int App::run() {
         int option = optionsMenu();
         switch (option) {
             case 1:{
-                option1();
+                checkStudentSchedule();
                 break;
             }
             case 2:{
-                option2();
+                checkClassSchedule();
                 break;
             }
             case 3:{
-                option3();
+                checkClassStudents();
                 break;
             }
             case 4:{
-                option4();
+                checkUcSchedule();
                 break;
             }
             case 5:{
-                option5();
+                submitNewRequest();
                 break;
             }
             case 6:

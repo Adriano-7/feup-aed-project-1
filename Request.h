@@ -2,12 +2,14 @@
 #define TRABALHO_REQUEST_H
 
 #include "Student.h"
+#include <iostream>
 
 class Request{
     public:
         Request(Student student, UcClass desiredClass);
         Student getStudent() const;
         UcClass getDesiredClass() const;
+        void print() const;
 
     private:
         Student student;
