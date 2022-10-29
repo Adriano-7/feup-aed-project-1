@@ -12,7 +12,7 @@ Student::Student(string id, string name) {
     this->classes = vector<UcClass>();
 }
 
-void Student::print() {
+void Student::print() const {
     cout << "Student: " << name << " (" << id << ")" << endl;
     cout << "Classes: ";
     for (int i = 0; i < classes.size(); i++) {

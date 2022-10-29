@@ -3,6 +3,7 @@
 #include <utility>
 #include <cmath>
 #include <algorithm>
+#include <unistd.h>
 
 using namespace std;
 
@@ -143,7 +144,7 @@ void App::option1() {
         cout << "   >> "<< weekdaysNames[i] << ": " << endl;
 
         for (pair<string, Slot> slot: weekdays[i]) {
-            cout << "       " << slot.first << "   " << decimalToHours(slot.second.getStartTime()) << " to " << decimalToHours(slot.second.getEndTime())
+            cout << "      " << slot.first << "   " << decimalToHours(slot.second.getStartTime()) << " to " << decimalToHours(slot.second.getEndTime())
                  << "   " << slot.second.getType() << endl;
         }
     }
@@ -178,4 +179,3 @@ void App::option5(){
     system("clear");
     cout << ">> This feature is not available yet" << endl;
 }
-

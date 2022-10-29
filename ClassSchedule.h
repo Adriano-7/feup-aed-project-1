@@ -36,12 +36,12 @@ class ClassSchedule {
          */
         void printSlots() const;
 
-        /**Prints the number of students and each student (Name, Id)
+        /**Prints the students in a given order: alphabetical, reverse alphabetical, numerical, reverse numerical
          */
-        void printStudents() const;
+        void printStudents(string order = "alphabetical") const;
 
         /**Prints the ClassSchedule(calls printHeader, printSlots and printStudents)
-         */
+        */
         void print() const;
 
         /**Get the UcClass
