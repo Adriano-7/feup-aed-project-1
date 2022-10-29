@@ -72,82 +72,17 @@ int App::optionsMenu() {
 
 void App::waitForInput() {
     string q;
-    cout << endl << "Insert any key to go back to the menu: "; cin >> q;cout << endl;system("clear");
-}
-
-string decimalToHours(int decimal){
-    double time = decimal;
-    int timeMins = (int)floor( time * 60.0 );
-    int hours = timeMins / 60;
-    int minutes = timeMins % 60;
-    string hoursStr = to_string(hours);
-    string minutesStr = to_string(minutes);
-    if (hours < 10) hoursStr = "0" + hoursStr;
-    if (minutes < 10) minutesStr = "0" + minutesStr;
-    return hoursStr + ":" + minutesStr;
+    cout << endl << "Insert any key to go back to the menu: ";
+    cin >> q;
+    cout << endl;
+    system("clear");
 }
 
 void App::option1() {
     string upNumber;
     cout << "Please insert the student's up number: ";
     cin >> upNumber;
-
-    Student student = Student(upNumber, "");
-
-    auto loc = manager.getStudents().find(student);
-    if (loc == manager.getStudents().end()) {
-        system("clear");
-        cout << ">> Student not found" << endl;
-        return;
-    }
-
-    student = *loc;
-
-    vector<UcClass> studentClasses = student.getClasses();
-    vector<vector<pair<string, Slot>>> weekdays = vector<vector<pair<string, Slot>>>(5);
-    vector<string> weekdaysNames = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday"};
-    system("clear");
-    cout << endl <<  ">> The student " << student.getName() << " with UP number " << student.getId()
-         << " is enrolled in the following classes:" << endl;
-    for (UcClass classs: studentClasses) {
-        cout << "   " << classs.getUcId() << " " << classs.getClassId() << "  |  ";
-    }
-    cout << endl;
-
-    for (UcClass ucClass: studentClasses) {
-        ClassSchedule cs = manager.getSchedules()[manager.binarySearchSchedules(ucClass)];
-        vector<pair<string, Slot>> slots;
-        for (Slot slot: cs.getSlots()) {
-            slots.push_back(make_pair(cs.getUcClass().getUcId(), slot));
-        }
-
-        for (pair<string, Slot> slot: slots) {
-            if (slot.second.getWeekDay() == "Monday") {
-
-            } else if (slot.second.getWeekDay() == "Tuesday") {
-                weekdays[1].push_back(slot);
-            } else if (slot.second.getWeekDay() == "Wednesday") {
-                weekdays[2].push_back(slot);
-            } else if (slot.second.getWeekDay() == "Thursday") {
-                weekdays[3].push_back(slot);
-            } else if (slot.second.getWeekDay() == "Friday") {
-                weekdays[4].push_back(slot);
-            }
-        }
-    }
-
-    cout << endl << ">> The student's schedule is:" << endl;
-    for (int i = 0; i < weekdays.size(); i++) {
-        sort(weekdays[i].begin(), weekdays[i].end(), [](pair<string, Slot> a, pair<string, Slot> b) {
-            return a.second.getStartTime() < b.second.getStartTime();
-        });
-        cout << "   >> "<< weekdaysNames[i] << ": " << endl;
-
-        for (pair<string, Slot> slot: weekdays[i]) {
-            cout << "      " << slot.first << "   " << decimalToHours(slot.second.getStartTime()) << " to " << decimalToHours(slot.second.getEndTime())
-                 << "   " << slot.second.getType() << endl;
-        }
-    }
+    manager.printStudentSchedule(upNumber);
     waitForInput();
 }
 
