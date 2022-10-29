@@ -12,3 +12,8 @@ Student Request::getStudent() const {
 UcClass Request::getDesiredClass() const {
     return desiredClass;
 }
+
+void Request::print() const {
+    cout << "Student: " << student.getName() << " - "<< student.getId() << endl;
+    cout << "Requested class: " << desiredClass.getUcId() << " - " << desiredClass.getClassId() << endl;
+}
