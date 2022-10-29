@@ -13,6 +13,7 @@ ScheduleManager::ScheduleManager() {
     this->requests = queue<Request>();
 }
 
+
 void ScheduleManager::readFiles() {
     createSchedules();
     setSchedules();
@@ -36,7 +37,6 @@ void ScheduleManager::createSchedules(){
         schedules.push_back(cs);
     }
 }
-
 
 void ScheduleManager::setSchedules() {
     fstream file("../data/classes.csv");
@@ -78,7 +78,6 @@ void ScheduleManager::createStudents() {
         UcClass newUcClass = UcClass(row[2], row[3]);
         int i = binarySearchSchedules(newUcClass);
         Student student(id, name);
-        this->schedules[i].addStudent(student);
 
         if (students.find(student) == students.end()) {
             student.addClass(this->schedules[i].getUcClass());
@@ -90,10 +89,11 @@ void ScheduleManager::createStudents() {
             modStudent.addClass(this->schedules[i].getUcClass());
             students.insert(modStudent);
         }
+        this->schedules[i].addStudent(student);
     }
 }
 
-int ScheduleManager::binarySearchSchedules(UcClass desiredUcCLass){
+int ScheduleManager::binarySearchSchedules(UcClass desiredUcCLass) const{
     int left = 0;
     int right = schedules.size() - 1;
     int middle = (left + right) / 2;
@@ -149,16 +149,7 @@ string decimalToHours(int decimal){
 
 void ScheduleManager::printStudentSchedule(string studentId){
 
-    Student student = Student(studentId, "");
-
-    auto loc = getStudents().find(student);
-    if (loc == getStudents().end()) {
-        system("clear");
-        cout << ">> Student not found" << endl;
-        return;
-    }
-
-    student = *loc;
+    Student student = findStudent(studentId);
 
     vector<UcClass> studentClasses = student.getClasses();
     vector<vector<pair<string, Slot>>> weekdays = vector<vector<pair<string, Slot>>>(5);
@@ -207,8 +198,27 @@ void ScheduleManager::printStudentSchedule(string studentId){
     }
 }
 
-void ScheduleManager::addRequest(Request request) {
+void ScheduleManager::addRequest(Student &student, UcClass &ucClass) {
+    student = findStudent(student.getId());
+    Request request(student, ucClass);
     requests.push(request);
+    request.print();
+}
+
+Student ScheduleManager::findStudent(string studentId) const{
+    auto student = students.find(Student(studentId, ""));
+    return *student;
+}
+
+bool ScheduleManager::studentExists(std::string studentId) const{
+    auto student = students.find(Student(studentId, ""));
+    return student != students.end();
+}
+
+bool ScheduleManager::ucClassExists(string ucCode, string classCode) const {
+    UcClass ucClass = UcClass(ucCode, classCode);
+    int index = binarySearchSchedules(ucClass);
+    return index != -1;
 }
 
 const vector<ClassSchedule> &ScheduleManager::getSchedules() const {
