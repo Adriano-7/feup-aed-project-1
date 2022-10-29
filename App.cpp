@@ -66,6 +66,7 @@ void App::option1() {
     vector<UcClass> studentClasses = modStudent.getClasses();
     vector<vector<pair<string, Slot>>> weekdays = vector<vector<pair<string, Slot>>>(5);
     vector<string> weekdaysNames = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday"};
+    system("clear");
     cout << endl <<  ">> The student " << modStudent.getName() << " with UP number " << modStudent.getId()
          << " is enrolled in the following classes:" << endl;
     for (UcClass classs: studentClasses) {

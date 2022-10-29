@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>trabalho_AED: Test.h Source File</title>
+<title>AED: Test.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,10 +21,10 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">trabalho_AED
+   <div id="projectname">AED
    &#160;<span id="projectnumber">1.0.0</span>
    </div>
-   <div id="projectbrief">Unidade Curricular AED</div>
+   <div id="projectbrief">Gestão de Horários</div>
   </td>
  </tr>
  </tbody>
@@ -72,28 +72,33 @@ $(function() {
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#define TRABALHO_TEST_H</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;ScheduleManager.h&quot;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
-<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="class_test.html">    7</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_test.html">Test</a>{</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;        <a class="code" href="class_test.html">Test</a>();</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;        <span class="keywordtype">void</span> testSortingSchedules() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;        <span class="keywordtype">void</span> printSchedules(<a class="code" href="class_schedule_manager.html">ScheduleManager</a> manager) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        <span class="keywordtype">void</span> printStudents(<a class="code" href="class_schedule_manager.html">ScheduleManager</a> manager) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        <span class="keywordtype">void</span> testScheduleCollisions(<a class="code" href="class_schedule_manager.html">ScheduleManager</a> manager) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        <span class="keywordtype">int</span> testBSearchSchedules(<a class="code" href="class_uc_class.html">UcClass</a> desiredUcCLass) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        <span class="keywordtype">bool</span> testClassesCollide(<a class="code" href="class_uc_class.html">UcClass</a> c1, <a class="code" href="class_uc_class.html">UcClass</a> c2);</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        <span class="keywordtype">bool</span> testStudentClassCollides(<a class="code" href="class_student.html">Student</a> student, <a class="code" href="class_uc_class.html">UcClass</a> newClass);</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        <span class="keywordtype">void</span> testScheduleCollisions();</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        vector&lt;ClassSchedule&gt; schedulesTest;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;};</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#endif </span><span class="comment">//TRABALHO_TEST_H</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="class_test.html">    9</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_test.html">Test</a>{</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        <a class="code" href="class_test.html#a3133763718e2f4fd08ef025209c26034">Test</a>(<a class="code" href="class_schedule_manager.html">ScheduleManager</a> manager);</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_test.html#ac2f076c3d28f47df9af64e53ce7e6085">testSortingSchedules</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_test.html#abd368a9c21d4bc07b6bc092f9c827e5b">printSchedules</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_test.html#a7ff6ee80aeae04c6d436e3ad448b2490">printStudents</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="keywordtype">void</span> testScheduleCollisions(<a class="code" href="class_schedule_manager.html">ScheduleManager</a> manager) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="keywordtype">int</span> testBSearchSchedules(<a class="code" href="class_uc_class.html">UcClass</a> desiredUcCLass) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="keywordtype">bool</span> testClassesCollide(<a class="code" href="class_uc_class.html">UcClass</a> c1, <a class="code" href="class_uc_class.html">UcClass</a> c2);</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <span class="keywordtype">bool</span> testStudentClassCollides(<a class="code" href="class_student.html">Student</a> student, <a class="code" href="class_uc_class.html">UcClass</a> newClass);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="keywordtype">void</span> testScheduleCollisions();</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        vector&lt;ClassSchedule&gt; schedulesTest;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <a class="code" href="class_schedule_manager.html">ScheduleManager</a> manager;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;};</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">#endif </span><span class="comment">//TRABALHO_TEST_H</span></div>
 <div class="ttc" id="aclass_schedule_manager_html"><div class="ttname"><a href="class_schedule_manager.html">ScheduleManager</a></div><div class="ttdef"><b>Definition:</b> ScheduleManager.h:11</div></div>
 <div class="ttc" id="aclass_student_html"><div class="ttname"><a href="class_student.html">Student</a></div><div class="ttdef"><b>Definition:</b> Student.h:10</div></div>
-<div class="ttc" id="aclass_test_html"><div class="ttname"><a href="class_test.html">Test</a></div><div class="ttdef"><b>Definition:</b> Test.h:7</div></div>
-<div class="ttc" id="aclass_uc_class_html"><div class="ttname"><a href="class_uc_class.html">UcClass</a></div><div class="ttdef"><b>Definition:</b> UcClass.h:8</div></div>
+<div class="ttc" id="aclass_test_html"><div class="ttname"><a href="class_test.html">Test</a></div><div class="ttdef"><b>Definition:</b> Test.h:9</div></div>
+<div class="ttc" id="aclass_test_html_a3133763718e2f4fd08ef025209c26034"><div class="ttname"><a href="class_test.html#a3133763718e2f4fd08ef025209c26034">Test::Test</a></div><div class="ttdeci">Test(ScheduleManager manager)</div><div class="ttdef"><b>Definition:</b> Test.cpp:7</div></div>
+<div class="ttc" id="aclass_test_html_a7ff6ee80aeae04c6d436e3ad448b2490"><div class="ttname"><a href="class_test.html#a7ff6ee80aeae04c6d436e3ad448b2490">Test::printStudents</a></div><div class="ttdeci">void printStudents() const</div><div class="ttdef"><b>Definition:</b> Test.cpp:21</div></div>
+<div class="ttc" id="aclass_test_html_abd368a9c21d4bc07b6bc092f9c827e5b"><div class="ttname"><a href="class_test.html#abd368a9c21d4bc07b6bc092f9c827e5b">Test::printSchedules</a></div><div class="ttdeci">void printSchedules() const</div><div class="ttdef"><b>Definition:</b> Test.cpp:13</div></div>
+<div class="ttc" id="aclass_test_html_ac2f076c3d28f47df9af64e53ce7e6085"><div class="ttname"><a href="class_test.html#ac2f076c3d28f47df9af64e53ce7e6085">Test::testSortingSchedules</a></div><div class="ttdeci">void testSortingSchedules() const</div><div class="ttdef"><b>Definition:</b> Test.cpp:29</div></div>
+<div class="ttc" id="aclass_uc_class_html"><div class="ttname"><a href="class_uc_class.html">UcClass</a></div><div class="ttdef"><b>Definition:</b> UcClass.h:12</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

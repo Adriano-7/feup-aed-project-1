@@ -32,6 +32,6 @@ bool UcClass::operator > (const UcClass &other) const {
     return this->ucId > other.ucId;
 }
 
-bool UcClass::sameUC(UcClass other) const {
+bool UcClass::sameUcId(UcClass other) const {
     return this->ucId == other.ucId;
 }

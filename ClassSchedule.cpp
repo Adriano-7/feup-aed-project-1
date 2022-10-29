@@ -66,7 +66,7 @@ const vector<Slot> &ClassSchedule::getSlots() const {
 }
 
 bool ClassSchedule::sameUC(ClassSchedule other) const {
-    return ucClass.sameUC(other.getUcClass());
+    return ucClass.sameUcId(other.getUcClass());
 }
 
 bool ClassSchedule::operator < (const ClassSchedule &other) const {

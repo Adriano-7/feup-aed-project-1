@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>trabalho_AED: ClassSchedule Class Reference</title>
+<title>AED: ClassSchedule Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,10 +21,10 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">trabalho_AED
+   <div id="projectname">AED
    &#160;<span id="projectnumber">1.0.0</span>
    </div>
-   <div id="projectbrief">Unidade Curricular AED</div>
+   <div id="projectbrief">Gestão de Horários</div>
   </td>
  </tr>
  </tbody>
@@ -89,12 +89,12 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>addSlot</b> (<a class
 <tr class="memitem:adde4fc1fa0a2d164219c5e6a4e3bd15e"><td class="memItemLeft" align="right" valign="top"><a id="adde4fc1fa0a2d164219c5e6a4e3bd15e"></a>
 const vector&lt; <a class="el" href="class_slot.html">Slot</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getSlots</b> () const</td></tr>
 <tr class="separator:adde4fc1fa0a2d164219c5e6a4e3bd15e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3cb3ab6a8d4d797e5a4a1f44745d82ec"><td class="memItemLeft" align="right" valign="top"><a id="a3cb3ab6a8d4d797e5a4a1f44745d82ec"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>incrementNumStudents</b> ()</td></tr>
-<tr class="separator:a3cb3ab6a8d4d797e5a4a1f44745d82ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0344d669973e1ff37cef5c8e5be3838f"><td class="memItemLeft" align="right" valign="top"><a id="a0344d669973e1ff37cef5c8e5be3838f"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>decrementNumStudents</b> ()</td></tr>
-<tr class="separator:a0344d669973e1ff37cef5c8e5be3838f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae72c146550491d43bb902672f7c254c7"><td class="memItemLeft" align="right" valign="top"><a id="ae72c146550491d43bb902672f7c254c7"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>getNumStudents</b> () const</td></tr>
+<tr class="separator:ae72c146550491d43bb902672f7c254c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a374e9e9c344a48d46d5ba2a215dbc082"><td class="memItemLeft" align="right" valign="top"><a id="a374e9e9c344a48d46d5ba2a215dbc082"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>addStudent</b> (<a class="el" href="class_student.html">Student</a> student)</td></tr>
+<tr class="separator:a374e9e9c344a48d46d5ba2a215dbc082"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a17032a7764a6787cdf37e085a1985f01"><td class="memItemLeft" align="right" valign="top"><a id="a17032a7764a6787cdf37e085a1985f01"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>sameUC</b> (<a class="el" href="class_class_schedule.html">ClassSchedule</a> other) const</td></tr>
 <tr class="separator:a17032a7764a6787cdf37e085a1985f01"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -104,6 +104,15 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;</b> (con
 <tr class="memitem:ade0af259e5e109dd3b38d78408677237"><td class="memItemLeft" align="right" valign="top"><a id="ade0af259e5e109dd3b38d78408677237"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator==</b> (const <a class="el" href="class_class_schedule.html">ClassSchedule</a> &amp;other) const</td></tr>
 <tr class="separator:ade0af259e5e109dd3b38d78408677237"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c3606b85246ee4c2247172165a35694"><td class="memItemLeft" align="right" valign="top"><a id="a3c3606b85246ee4c2247172165a35694"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>printHeader</b> () const</td></tr>
+<tr class="separator:a3c3606b85246ee4c2247172165a35694"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa271afe9f7a9b42c5be40a083d8dcb26"><td class="memItemLeft" align="right" valign="top"><a id="aa271afe9f7a9b42c5be40a083d8dcb26"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>printSlots</b> () const</td></tr>
+<tr class="separator:aa271afe9f7a9b42c5be40a083d8dcb26"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a187fe553ddac1b6c6786b600c1dd5d6f"><td class="memItemLeft" align="right" valign="top"><a id="a187fe553ddac1b6c6786b600c1dd5d6f"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>printStudents</b> () const</td></tr>
+<tr class="separator:a187fe553ddac1b6c6786b600c1dd5d6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1091607ad18551c206a815a8b823ed29"><td class="memItemLeft" align="right" valign="top"><a id="a1091607ad18551c206a815a8b823ed29"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>print</b> () const</td></tr>
 <tr class="separator:a1091607ad18551c206a815a8b823ed29"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -116,6 +125,9 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:a2147fd37fe1d2171e877fe750b643533"><td class="memItemLeft" align="right" valign="top"><a id="a2147fd37fe1d2171e877fe750b643533"></a>
 vector&lt; <a class="el" href="class_slot.html">Slot</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>slots</b></td></tr>
 <tr class="separator:a2147fd37fe1d2171e877fe750b643533"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af0ca603110a80d5ec0f5dd3040ce3e9f"><td class="memItemLeft" align="right" valign="top"><a id="af0ca603110a80d5ec0f5dd3040ce3e9f"></a>
+set&lt; <a class="el" href="class_student.html">Student</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>students</b></td></tr>
+<tr class="separator:af0ca603110a80d5ec0f5dd3040ce3e9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="_class_schedule_8h_source.html">ClassSchedule.h</a></li>

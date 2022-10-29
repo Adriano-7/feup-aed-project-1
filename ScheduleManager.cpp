@@ -116,7 +116,7 @@ void ScheduleManager::readFiles() {
 }
 
 bool ScheduleManager::classesCollide(UcClass c1, UcClass c2) {
-    if(c1.sameUC(c2)) return false;
+    if(c1.sameUcId(c2)) return false;
     ClassSchedule cs1 = schedules[binarySearchSchedules(c1)];
     ClassSchedule cs2 = schedules[binarySearchSchedules(c2)];
     for(Slot slot1 : cs1.getSlots()){
