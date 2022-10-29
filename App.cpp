@@ -3,6 +3,7 @@
 #include <utility>
 #include <cmath>
 #include <algorithm>
+#include <unistd.h>
 
 using namespace std;
 
@@ -171,6 +172,7 @@ int App::run() {
             default:
                 system("clear");
                 cout << ">> Please choose a valid option" << endl;
+                usleep(900000);
                 break;
             }
     }
