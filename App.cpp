@@ -50,8 +50,10 @@ void App::checkStudentSchedule() const{
 }
 
 void App::checkClassSchedule() const{
-    cout << ">> This feature is not available yet" << endl;
-    usleep(900000);
+    string classCode;
+    cout << "Please insert the class code: "; cin >>classCode; cout<<endl;
+    manager.printClassSchedule(classCode);
+    waitForInput();
 }
 
 void App::checkClassStudents() const{

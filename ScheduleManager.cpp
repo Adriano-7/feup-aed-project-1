@@ -4,6 +4,8 @@
 #include <fstream>
 #include <algorithm>
 #include <cmath>
+#include <map>
+#include <unordered_map>
 
 #include "ScheduleManager.h"
 
@@ -171,13 +173,12 @@ string decimalToHours(int decimal){
 }
 
 void ScheduleManager::printStudentSchedule(const string &studentId) const{
-
+    system("clear");
     Student student = findStudent(studentId);
 
     vector<UcClass> studentClasses = student.getClasses();
     vector<vector<pair<string, Slot>>> weekdays = vector<vector<pair<string, Slot>>>(5);
     vector<string> weekdaysNames = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday"};
-    system("clear");
     cout << endl <<  ">> The student " << student.getName() << " with UP number " << student.getId()
          << " is enrolled in the following classes:" << endl;
 
@@ -218,6 +219,37 @@ void ScheduleManager::printStudentSchedule(const string &studentId) const{
         for (const pair<string, Slot> &slot: weekdays[i]) {
             cout << "      " << slot.first << "   " << decimalToHours(slot.second.getStartTime()) << " to " << decimalToHours(slot.second.getEndTime())
                  << "   " << slot.second.getType() << endl;
+        }
+    }
+}
+
+struct slotUcID{
+    Slot slot;
+    string ucID;
+};
+
+void ScheduleManager::printClassSchedule(const string &classCode) const{
+    system("clear");
+    map<string, vector<slotUcID>> slots;
+    for(const ClassSchedule &cs : schedules){
+        if(cs.getUcClass().getClassId() == classCode){
+            for(const Slot &slot : cs.getSlots()){
+                slotUcID hey = {slot, cs.getUcClass().getUcId()};
+                slots[slot.getWeekDay()].push_back(hey);
+            }
+        }
+    }
+
+    cout << ">> The schedule for the class " << classCode << " is:" << endl;
+    vector<string> weekdays {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday"};
+    for(const string weekday : weekdays){
+        cout << "   >> " << weekday << ": " << endl;
+        vector<slotUcID> slotsWeekday = slots[weekday];
+        sort(slotsWeekday.begin(),slotsWeekday.end(), [](const slotUcID &s1, const slotUcID &s2){
+                                                                    return s1.slot.getStartTime() < s2.slot.getStartTime();
+        });
+        for(const slotUcID &slotId : slotsWeekday){
+            cout << "      " << decimalToHours(slotId.slot.getStartTime()) << " to " << decimalToHours(slotId.slot.getEndTime()) << "  " << slotId.ucID <<  "   " << slotId.slot.getType() << endl;
         }
     }
 }
