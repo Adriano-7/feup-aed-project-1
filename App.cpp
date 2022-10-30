@@ -45,6 +45,7 @@ void groupDuplicates(vector<vector<pair<string, Slot>>> &weekdays){
         }
     }
 }
+
 string toString(vector<string> stringg){
     string s;
     for (string str: stringg){

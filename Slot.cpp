@@ -48,5 +48,5 @@ bool Slot::operator!=(const Slot &other) const {
 }
 
 bool Slot::operator==(const Slot &other) const {
-    return this->startTime == other.getStartTime() && this->endTime == other.getEndTime();
+    return this->startTime == other.getStartTime() && this->endTime == other.getEndTime() && this->type == other.getType();
 }
