@@ -279,6 +279,10 @@ void ScheduleManager::printUcSchedule(const string &subjectCode) const{
             schedulesUC.push_back(cs);
         }
     }
+    if(schedulesUC.empty()){
+        cout << ">> Subject not found" << endl;
+        return;
+    }
     vector<vector<pair<string, Slot>>> weekdays(5);
     vector<string> weekdaysNames = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday"};
 
