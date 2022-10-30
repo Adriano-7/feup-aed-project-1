@@ -77,12 +77,14 @@ void App::checkUcSchedule() const{
 void App::submitNewRequest(){
     string upNumber, ucCode, classCode;
     cout << "Please insert the student's UP number: "; cin >> upNumber; cout << endl;
-    if(!manager.studentExists(upNumber)){
+    Student student = manager.findStudent(upNumber);
+    if(student == Student()){
         cout << ">> Student not found." << endl;
         usleep(900000);
         waitForInput();
         return;
     }
+    student.print();
     cout << "The following information is related to the class you want to change to, "
             "for a certain curricular unit." << endl;
     cout << "Please insert the UC code: "; cin >> ucCode;
@@ -93,9 +95,8 @@ void App::submitNewRequest(){
         waitForInput();
         return;
     }
-    Student student = Student(upNumber, "");
-    UcClass ucClass = UcClass(ucCode, classCode);
-    manager.addRequest(student, ucClass);
+    Request request = Request(student, UcClass(ucCode, classCode));
+    manager.addRequest(request);
     cout << endl << ">> Request successfully submitted!" << endl;
     waitForInput();
 }

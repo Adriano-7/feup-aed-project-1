@@ -147,14 +147,15 @@ bool ScheduleManager::studentExists(const string &studentId) const{
 
 Student ScheduleManager::findStudent(const string &studentId) const{
     auto student = students.find(Student(studentId, ""));
-    return *student;
+    return student == students.end() ? Student() : *student;
 }
 
-void ScheduleManager::addRequest(Student &student, UcClass &ucClass) {
-    student = findStudent(student.getId());
-    Request request(student, ucClass);
+void ScheduleManager::addRequest(const Student &student, const UcClass &ucClass) {
+    requests.push(Request(student, ucClass));
+}
+
+void ScheduleManager::addRequest(const Request &request) {
     requests.push(request);
-    request.print();
 }
 
 string decimalToHours(int decimal){

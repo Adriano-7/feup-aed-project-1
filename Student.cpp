@@ -47,8 +47,11 @@ bool Student::operator>(const Student &other) const {
 void Student::print() const {
     cout << "Student: " << name << " (" << id << ")" << endl;
     cout << "Classes: ";
-    for (const UcClass &ucClass : classes) {
-        cout << ucClass.getUcId() << " " << ucClass.getClassId() << "  |  ";
+    int i = 0;
+    while(i < classes.size()-1){
+        cout << classes[i].getUcId() << " " << classes[i].getClassId() << "  |  ";
+        i++;
     }
+    cout << classes[i].getUcId() << " " << classes[i].getClassId() << endl;
     cout << endl;
 }
