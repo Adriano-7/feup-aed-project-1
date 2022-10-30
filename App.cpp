@@ -7,7 +7,7 @@
 
 using namespace std;
 
-App::App(ScheduleManager manager) {
+App::App(const ScheduleManager &manager) {
     this->manager = manager;
     cout << ">> Schedule manager is online" << endl;
 }
@@ -60,14 +60,13 @@ void App::checkClassStudents() const{
     string ucCode, classCode;
     cout << "Please insert the UC code: "; cin >> ucCode;
     cout << "Please insert the class code: "; cin >> classCode; cout << endl;
-    int index = manager.binarySearchSchedules(UcClass(ucCode, classCode));
-    if(index == -1){
+    ClassSchedule* cs = manager.findSchedule(UcClass(ucCode, classCode));
+    if(cs == nullptr){
         cout << ">> Class not found" << endl;
         usleep(900000);
         return;
     }
-    ClassSchedule cs = manager.getSchedules()[index];
-    cs.printStudents();
+    cs->printStudents();
     waitForInput();
 }
 
@@ -79,26 +78,26 @@ void App::checkUcSchedule() const{
 void App::submitNewRequest(){
     string upNumber, ucCode, classCode;
     cout << "Please insert the student's UP number: "; cin >> upNumber; cout << endl;
-    Student student = manager.findStudent(upNumber);
-    if(student == Student()){
+    Student* student = manager.findStudent(upNumber);
+    if(student == nullptr){
         cout << ">> Student not found." << endl;
         usleep(900000);
         waitForInput();
         return;
     }
-    student.print();
+    student->print();
     cout << "The following information is related to the class you want to change to, "
             "for a certain curricular unit." << endl;
     cout << "Please insert the UC code: "; cin >> ucCode;
     cout << "Please insert the class code: "; cin >> classCode;
-    if(!manager.ucClassExists(ucCode, classCode)){
+    ClassSchedule* cs = manager.findSchedule(UcClass(ucCode, classCode));
+    if(cs == nullptr){
         cout << ">> Class not found." << endl;
         usleep(900000);
         waitForInput();
         return;
     }
-    Request request = Request(student, UcClass(ucCode, classCode));
-    manager.addRequest(request);
+    manager.addRequest(*student, cs->getUcClass());
     cout << endl << ">> Request successfully submitted!" << endl;
     waitForInput();
 }
