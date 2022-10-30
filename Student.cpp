@@ -3,7 +3,11 @@
 #include <iostream>
 
 using namespace std;
-
+/**
+ * Constructor of the class Student
+ * @param id
+ * @param name
+ */
 Student::Student() {}
 
 Student::Student(string id, string name) {

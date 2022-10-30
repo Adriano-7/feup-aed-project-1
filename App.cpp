@@ -131,8 +131,55 @@ void App::option3(){
 }
 
 void App::option4(){
-    system("clear");
-    cout << ">> This feature is not available yet" << endl;
+    cout << "Inset the subject code: " << endl;
+    string subjectCode;
+    cin >> subjectCode;
+    vector<ClassSchedule> schedules;
+
+
+    for(auto it = manager.getSchedules().begin(); it != manager.getSchedules().end(); it++){
+        if(it->getUcClass().getUcId() == subjectCode){
+            schedules.push_back(*it);
+        }
+    }
+    vector<vector<pair<string, Slot>>> weekdays = vector<vector<pair<string, Slot>>>(5);
+    vector<string> weekdaysNames = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday"};
+
+
+    for(auto it = schedules.begin(); it != schedules.end(); it++) {
+        vector<pair<string, Slot>> slots;
+        for (Slot slot: it->getSlots()) {
+            slots.push_back(make_pair(it->getUcClass().getClassId(), slot));
+        }
+        for (pair<string, Slot> slot: slots) {
+            if (slot.second.getWeekDay() == "Monday") {
+
+            } else if (slot.second.getWeekDay() == "Tuesday") {
+                weekdays[1].push_back(slot);
+            } else if (slot.second.getWeekDay() == "Wednesday") {
+                weekdays[2].push_back(slot);
+            } else if (slot.second.getWeekDay() == "Thursday") {
+                weekdays[3].push_back(slot);
+            } else if (slot.second.getWeekDay() == "Friday") {
+                weekdays[4].push_back(slot);
+            }
+        }
+    }
+        cout << endl << ">> This UC class is:" << endl;
+        for (int i = 0; i < weekdays.size(); i++) {
+            sort(weekdays[i].begin(), weekdays[i].end(), [](pair<string, Slot> a, pair<string, Slot> b) {
+                return a.second.getStartTime() < b.second.getStartTime();
+            });
+            cout << "   >> "<< weekdaysNames[i] << ": " << endl;
+
+            for (pair<string, Slot> slot: weekdays[i]) {
+                cout << "       " << slot.first << "   " << decimalToHours(slot.second.getStartTime()) << " to " << decimalToHours(slot.second.getEndTime())
+                     << "   " << slot.second.getType() << endl;
+            }
+
+    }
+
+
 }
 void App::option5(){
     system("clear");

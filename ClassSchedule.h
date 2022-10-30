@@ -6,7 +6,10 @@
 #include "Slot.h"
 #include "UcClass.h"
 #include "Student.h"
-
+/**
+ * @brief Class that represents a schedule for a class
+ * @details
+ */
 class ClassSchedule {
     public:
         ClassSchedule();

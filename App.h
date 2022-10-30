@@ -7,7 +7,10 @@
 
 
 #include "ScheduleManager.h"
-
+/** \Class App
+ * @brief Class that represents the application
+ * @details
+ */
 class App {
     public:
         App(ScheduleManager manager);

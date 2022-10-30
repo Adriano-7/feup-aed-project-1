@@ -6,7 +6,10 @@
 #include "UcClass.h"
 
 using namespace std;
-
+/**
+ * @brief Class that represents a student
+ * @details Class that represents a student
+ */
 class Student {
     public:
         Student();
