@@ -8,7 +8,8 @@
 #include "Student.h"
 
 /**
- * A class to store the the set of students and schedule of lectures in a ucClass
+ * @brief Class that represents a schedule for a class
+ * @details
  */
 
 class ClassSchedule {

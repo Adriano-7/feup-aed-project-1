@@ -26,8 +26,10 @@ float Slot::getEndTime() const {
     return endTime;
 }
 
+
 bool Slot::collides(const Slot &other) const {
     if (this->weekDay != other.getWeekDay()) {
+
         return false;
     }
     if (this->startTime >= other.getEndTime() || this->endTime <= other.getStartTime()) {
@@ -37,4 +39,12 @@ bool Slot::collides(const Slot &other) const {
         return false;
     }
     return true;
+}
+
+bool Slot::operator!=(const Slot &other) const {
+    return this->startTime != other.getStartTime() && this->endTime != other.getEndTime() && this->type != "T" && other.getType() != "T";
+}
+
+bool Slot::operator==(const Slot &other) const {
+    return this->startTime == other.getStartTime() && this->endTime == other.getEndTime() && this->type == other.getType();
 }

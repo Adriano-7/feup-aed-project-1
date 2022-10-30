@@ -52,6 +52,7 @@ class UcClass{
          */
         bool operator > (const UcClass &other) const;
 
+
     private:
         string ucId;
         string classId;

@@ -2,7 +2,10 @@
 #define TRABALHO_APP_H
 
 #include "ScheduleManager.h"
-
+/**
+ * @brief Class that represents the application
+ * @details This class is responsible for the application's main loop
+ */
 class App {
     public:
         App(ScheduleManager manager);
@@ -17,6 +20,8 @@ class App {
 
     private:
         ScheduleManager manager;
+
+    int optionsMenu();
 };
 
 

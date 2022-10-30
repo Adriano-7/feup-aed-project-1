@@ -12,7 +12,17 @@ App::App(ScheduleManager manager) {
     cout << ">> Schedule manager is online" << endl;
 }
 
-int App::optionsMenu() const{
+string toString(vector<string> stringg){
+    string s;
+    for (string str: stringg){
+        s += str + " ";
+    }
+    return s;
+}
+
+
+int App::optionsMenu() {
+
     int option;
     cout    << endl << "------------ OPTIONS ------------" << endl
             << "1 Check the schedule of a student" << endl
@@ -41,101 +51,113 @@ void App::waitForInput() const{
     system("clear");
 }
 
-void App::checkStudentSchedule() const{
+void App::checkStudentSchedule() const {
     string upNumber;
     cout << "Please insert the student's UP number: ";
     cin >> upNumber;
     manager.printStudentSchedule(upNumber);
-    waitForInput();
+
 }
 
-void App::checkClassSchedule() const{
-    string classCode;
-    cout << "Please insert the class code: "; cin >>classCode; cout<<endl;
-    manager.printClassSchedule(classCode);
-    waitForInput();
-}
-
-void App::checkClassStudents() const{
-    string ucCode, classCode;
-    cout << "Please insert the UC code: "; cin >> ucCode;
-    cout << "Please insert the class code: "; cin >> classCode; cout << endl;
-    int index = manager.binarySearchSchedules(UcClass(ucCode, classCode));
-    if(index == -1){
-        cout << ">> Class not found" << endl;
-        usleep(900000);
-        return;
-    }
-    ClassSchedule cs = manager.getSchedules()[index];
-    cs.printStudents();
-    waitForInput();
-}
-
-void App::checkUcSchedule() const{
-    cout << ">> This feature is not available yet" << endl;
-    usleep(900000);
-}
-
-void App::submitNewRequest(){
-    string upNumber, ucCode, classCode;
-    cout << "Please insert the student's UP number: "; cin >> upNumber; cout << endl;
-    Student student = manager.findStudent(upNumber);
-    if(student == Student()){
-        cout << ">> Student not found." << endl;
-        usleep(900000);
+    void App::checkClassSchedule() const {
+        string classCode;
+        cout << "Please insert the class code: ";
+        cin >> classCode;
+        cout << endl;
+        manager.printClassSchedule(classCode);
         waitForInput();
-        return;
     }
-    student.print();
-    cout << "The following information is related to the class you want to change to, "
-            "for a certain curricular unit." << endl;
-    cout << "Please insert the UC code: "; cin >> ucCode;
-    cout << "Please insert the class code: "; cin >> classCode;
-    if(!manager.ucClassExists(ucCode, classCode)){
-        cout << ">> Class not found." << endl;
-        usleep(900000);
+
+    void App::checkClassStudents() const {
+        string ucCode, classCode;
+        cout << "Please insert the UC code: ";
+        cin >> ucCode;
+        cout << "Please insert the class code: ";
+        cin >> classCode;
+        cout << endl;
+        int index = manager.binarySearchSchedules(UcClass(ucCode, classCode));
+        if (index == -1) {
+            cout << ">> Class not found" << endl;
+            usleep(900000);
+            return;
+        }
+        ClassSchedule cs = manager.getSchedules()[index];
+        cs.printStudents();
         waitForInput();
-        return;
     }
-    Request request = Request(student, UcClass(ucCode, classCode));
-    manager.addRequest(request);
-    cout << endl << ">> Request successfully submitted!" << endl;
-    waitForInput();
-}
 
-int App::run(){
-    manager.readFiles();
-
-    while (true) {
-        system("clear");
-        int option = optionsMenu();
-        switch (option) {
-            case 1:{
-                checkStudentSchedule();
-                break;
-            }
-            case 2:{
-                checkClassSchedule();
-                break;
-            }
-            case 3:{
-                checkClassStudents();
-                break;
-            }
-            case 4:{
-                checkUcSchedule();
-                break;
-            }
-            case 5:{
-                submitNewRequest();
-                break;
-            }
-            case 6:
-                return 0;
-            default:
-                cout << ">> Please choose a valid option" << endl;
-                usleep(900000);
-                break;
-            }
+    void App::checkUcSchedule() const {
+        cout << "Inset the subject code: " << endl;
+        string subjectCode;
+        cin >> subjectCode;
+        manager.printUcSchedule(subjectCode);
     }
-}
+
+    void App::submitNewRequest() {
+        string upNumber, ucCode, classCode;
+        cout << "Please insert the student's UP number: ";
+        cin >> upNumber;
+        cout << endl;
+        Student student = manager.findStudent(upNumber);
+        if (student == Student()) {
+            cout << ">> Student not found." << endl;
+            usleep(900000);
+            waitForInput();
+            return;
+        }
+        student.print();
+        cout << "The following information is related to the class you want to change to, "
+                "for a certain curricular unit." << endl;
+        cout << "Please insert the UC code: ";
+        cin >> ucCode;
+        cout << "Please insert the class code: ";
+        cin >> classCode;
+        if (!manager.ucClassExists(ucCode, classCode)) {
+            cout << ">> Class not found." << endl;
+            usleep(900000);
+            waitForInput();
+            return;
+        }
+        Request request = Request(student, UcClass(ucCode, classCode));
+        manager.addRequest(request);
+        cout << endl << ">> Request successfully submitted!" << endl;
+        waitForInput();
+    }
+
+    int App::run() {
+        manager.readFiles();
+
+        while (true) {
+            system("clear");
+            int option = optionsMenu();
+            switch (option) {
+                case 1: {
+                    checkStudentSchedule();
+                    break;
+                }
+                case 2: {
+                    checkClassSchedule();
+                    break;
+                }
+                case 3: {
+                    checkClassStudents();
+                    break;
+                }
+                case 4: {
+                    checkUcSchedule();
+                    break;
+                }
+                case 5: {
+                    submitNewRequest();
+                    break;
+                }
+                case 6:
+                    return 0;
+                default:
+                    cout << ">> Please choose a valid option" << endl;
+                    usleep(900000);
+                    break;
+            }
+        }
+    }
+
