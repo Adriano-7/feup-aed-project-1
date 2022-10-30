@@ -63,7 +63,7 @@ void App::checkStudentSchedule() const {
     cout << "Please insert the student's UP number: ";
     cin >> upNumber;
     manager.printStudentSchedule(upNumber);
-
+    waitForInput();
 }
 
 /**
@@ -98,9 +98,8 @@ void App::checkClassStudents() const{
  * @brief Function that checks the schedule of a subject
  */
 void App::checkUcSchedule() const {
-    cout << "Inset the subject code: " << endl;
     string subjectCode;
-    cin >> subjectCode;
+    cout << "Insert the subject code: "; cin >> subjectCode; cout << endl;
     manager.printUcSchedule(subjectCode);
 }
 
@@ -133,10 +132,12 @@ void App::submitNewRequest() {
     }
 }
 
+
 /**
  * @brief Function that runs the application
  * @return 0 if the application was closed successfully
  */
+
 int App::run() {
     manager.readFiles();
 
