@@ -56,7 +56,7 @@ void App::checkStudentSchedule() const {
     cout << "Please insert the student's UP number: ";
     cin >> upNumber;
     manager.printStudentSchedule(upNumber);
-
+    waitForInput();
 }
 
 void App::checkClassSchedule() const{
@@ -81,9 +81,8 @@ void App::checkClassStudents() const{
 }
 
 void App::checkUcSchedule() const {
-    cout << "Inset the subject code: " << endl;
     string subjectCode;
-    cin >> subjectCode;
+    cout << "Insert the subject code: "; cin >> subjectCode; cout << endl;
     manager.printUcSchedule(subjectCode);
 }
 
@@ -113,40 +112,40 @@ void App::submitNewRequest() {
     }
 }
 
-    int App::run() {
-        manager.readFiles();
+int App::run() {
+    manager.readFiles();
 
-        while (true) {
-            system("clear");
-            int option = optionsMenu();
-            switch (option) {
-                case 1: {
-                    checkStudentSchedule();
-                    break;
-                }
-                case 2: {
-                    checkClassSchedule();
-                    break;
-                }
-                case 3: {
-                    checkClassStudents();
-                    break;
-                }
-                case 4: {
-                    checkUcSchedule();
-                    break;
-                }
-                case 5: {
-                    submitNewRequest();
-                    break;
-                }
-                case 6:
-                    return 0;
-                default:
-                    cout << ">> Please choose a valid option" << endl;
-                    usleep(900000);
-                    break;
+    while (true) {
+        system("clear");
+        int option = optionsMenu();
+        switch (option) {
+            case 1: {
+                checkStudentSchedule();
+                break;
             }
+            case 2: {
+                checkClassSchedule();
+                break;
+            }
+            case 3: {
+                checkClassStudents();
+                break;
+            }
+            case 4: {
+                checkUcSchedule();
+                break;
+            }
+            case 5: {
+                submitNewRequest();
+                break;
+            }
+            case 6:
+                return 0;
+            default:
+                cout << ">> Please choose a valid option" << endl;
+                usleep(900000);
+                break;
         }
     }
+}
 

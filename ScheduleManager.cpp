@@ -156,9 +156,8 @@ void ScheduleManager::addRequest(const Request &request) {
     requests.push(request);
 }
 
-void insertIntoWeek(vector<vector<pair<string, Slot>>> &weekdays , vector<pair<string, Slot>> slots){
-    for (pair<string, Slot> slot: slots) {
-
+void insertIntoWeek(vector<vector<pair<string, Slot>>> &weekdays , const vector<pair<string, Slot>> &slots){
+    for (const pair<string, Slot> &slot: slots) {
         if (slot.second.getWeekDay() == "Monday") {
             weekdays[0].push_back(slot);
         } else if (slot.second.getWeekDay() == "Tuesday") {
@@ -207,9 +206,9 @@ void ScheduleManager::printStudentSchedule(const string &studentId) const {
         cout << ">> Student not found" << endl;
         return;
     }
-
+    vector<vector<pair<string, Slot>>> weekdays(5);
     vector<UcClass> studentClasses = student->getClasses();
-    vector<vector<pair<string, Slot>>> weekdays = vector<vector<pair<string, Slot>>>(5);
+
     vector<string> weekdaysNames = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday"};
 
     cout << endl <<  ">> The student " << student->getName() << " with UP number " << student->getId()
@@ -218,29 +217,29 @@ void ScheduleManager::printStudentSchedule(const string &studentId) const {
     student->printClasses();
 
     for (const UcClass &ucClass: studentClasses) {
-        ClassSchedule* cs = findSchedule(ucClass);
+        ClassSchedule *cs = findSchedule(ucClass);
         vector<pair<string, Slot>> slots;
         for (const Slot &slot: cs->getSlots()) {
             slots.emplace_back(cs->getUcClass().getUcId(), slot);
         }
-
         insertIntoWeek(weekdays, slots);
+    }
 
-        cout << endl << ">> The student's schedule is:" << endl;
-        for (int i = 0; i < weekdays.size(); i++) {
-            sort(weekdays[i].begin(), weekdays[i].end(), [](const pair<string, Slot> &a, const pair<string, Slot> &b) {
-                return a.second.getStartTime() < b.second.getStartTime();
-            });
-            cout << "   >> " << weekdaysNames[i] << ": " << endl;
+    cout << endl << ">> The student's schedule is:" << endl;
+    for (int i = 0; i < weekdays.size(); i++) {
+        sort(weekdays[i].begin(), weekdays[i].end(), [](const pair<string, Slot> &a, const pair<string, Slot> &b) {
+            return a.second.getStartTime() < b.second.getStartTime();
+        });
+        cout << "   >> " << weekdaysNames[i] << ": " << endl;
 
-            for (const pair<string, Slot> &slot: weekdays[i]) {
-                cout << "      " << slot.first << "   " << decimalToHours(slot.second.getStartTime()) << " to "
-                     << decimalToHours(slot.second.getEndTime())
-                     << "   " << slot.second.getType() << endl;
-            }
+        for (const pair<string, Slot> &slot: weekdays[i]) {
+            cout << "      " << slot.first << "   " << decimalToHours(slot.second.getStartTime()) << " to "
+                 << decimalToHours(slot.second.getEndTime())
+                 << "   " << slot.second.getType() << endl;
         }
     }
 }
+
 
 struct slotUcID{
     Slot slot;
@@ -268,42 +267,41 @@ void ScheduleManager::printClassSchedule(const string &classCode) const{
                                                                     return s1.slot.getStartTime() < s2.slot.getStartTime();
         });
         for(const slotUcID &slotId : slotsWeekday){
-            cout << "      " << decimalToHours(slotId.slot.getStartTime()) << " to " << decimalToHours(slotId.slot.getEndTime()) << "  " << slotId.ucID <<  "   " << slotId.slot.getType() << endl;
+            cout << "      " << decimalToHours(slotId.slot.getStartTime()) << " to " << decimalToHours(slotId.slot.getEndTime()) << "\t" << slotId.ucID <<  "\t" << slotId.slot.getType() << endl;
         }
     }
 }
 
 void ScheduleManager::printUcSchedule(const string &subjectCode) const{
-    vector <ClassSchedule> schedules;
-    for (ClassSchedule cs: getSchedules()) {
+    vector<ClassSchedule> schedulesUC;
+    for (const ClassSchedule &cs: schedules) {
         if (cs.getUcClass().getUcId() == subjectCode) {
-            schedules.push_back(cs);
+            schedulesUC.push_back(cs);
         }
     }
-    vector < vector < pair < string, Slot>>> weekdays = vector < vector < pair < string, Slot>>>(5);
-    vector <string> weekdaysNames = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday"};
+    vector<vector<pair<string, Slot>>> weekdays(5);
+    vector<string> weekdaysNames = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday"};
 
-    // Insert the slots into the weekdays vector
-    for (auto it = schedules.begin(); it != schedules.end(); it++) {
+    for (auto it = schedulesUC.begin(); it != schedulesUC.end(); it++) {
         vector <pair<string, Slot>> slots;
-        for (Slot slot: it->getSlots()) {
-            slots.push_back(make_pair(it->getUcClass().getClassId(), slot));
+        for (const Slot &slot: it->getSlots()) {
+            slots.emplace_back(it->getUcClass().getClassId(), slot);
         }
 
         insertIntoWeek(weekdays, slots);
         groupDuplicates(weekdays);
     }
-    cout << endl << ">> This UC class is:" << endl;
+    cout << endl << ">> This UC schedule is:" << endl;
+
     for (int i = 0; i < weekdays.size(); i++) {
-        sort(weekdays[i].begin(), weekdays[i].end(), [](pair <string, Slot> a, pair <string, Slot> b) {
+        sort(weekdays[i].begin(), weekdays[i].end(), [](const pair<string, Slot> &a,const pair <string, Slot> &b) {
             return a.second.getStartTime() < b.second.getStartTime();
         });
         cout << "   >> " << weekdaysNames[i] << ": " << endl;
 
-        for (pair <string, Slot> slot: weekdays[i]) {
-            cout << "       " << slot.first << "   " << decimalToHours(slot.second.getStartTime()) << " to "
-                 << decimalToHours(slot.second.getEndTime())
-                 << "   " << slot.second.getType() << endl;
+        for (const pair<string, Slot> &slot: weekdays[i]) {
+            cout << "      " << decimalToHours(slot.second.getStartTime()) << " to "
+                             << decimalToHours(slot.second.getEndTime()) << "\t" << slot.second.getType() << "\t" << slot.first << endl;
         }
     }
 }
