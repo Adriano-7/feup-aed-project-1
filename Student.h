@@ -21,6 +21,7 @@ class Student {
         bool operator == (const Student &other) const;
         bool operator < (const Student &other) const;
         bool operator > (const Student &other) const;
+        void printClasses() const;
         void print() const;
 
     private:

@@ -8,7 +8,7 @@
  */
 class App {
     public:
-        App(ScheduleManager manager);
+        explicit App(const ScheduleManager &manager);
         int run();
         int optionsMenu() const;
         void checkStudentSchedule() const;

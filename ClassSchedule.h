@@ -37,9 +37,9 @@ class ClassSchedule {
          */
         void printSlots() const;
 
-        /**Prints the students in a given order: alphabetical, reverse alphabetical, numerical, reverse numerical
+        /**Prints the students in a given sortType: alphabetical, reverse alphabetical, numerical, reverse numerical
          */
-        void printStudents(const string &order = "alphabetical") const;
+        void printStudents(const string &sortType = "alphabetical") const;
 
         /**Prints the ClassSchedule(calls printHeader, printSlots and printStudents)
         */

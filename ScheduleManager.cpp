@@ -116,10 +116,10 @@ int ScheduleManager::binarySearchSchedules(const UcClass &desiredUcCLass) const{
 
 bool ScheduleManager::classesCollide(const UcClass &c1, const UcClass &c2) const{
     if(c1.sameUC(c2)) return false;
-    ClassSchedule cs1 = schedules[binarySearchSchedules(c1)];
-    ClassSchedule cs2 = schedules[binarySearchSchedules(c2)];
-    for(const Slot &slot1 : cs1.getSlots()){
-        for(const Slot &slot2 : cs2.getSlots()){
+    ClassSchedule* cs1 = findSchedule(c1);
+    ClassSchedule* cs2 = findSchedule(c2);
+    for(const Slot &slot1 : cs1->getSlots()){
+        for(const Slot &slot2 : cs2->getSlots()){
             if(slot1.collides(slot2)) return true;
         }
     }
@@ -136,20 +136,16 @@ bool ScheduleManager::requestHasCollision(const Request &request) const{
     return false;
 }
 
-bool ScheduleManager::ucClassExists(const string &ucCode, const string &classCode) const {
-    UcClass ucClass = UcClass(ucCode, classCode);
+ClassSchedule* ScheduleManager::findSchedule(const UcClass &ucClass) const {
     int index = binarySearchSchedules(ucClass);
-    return index != -1;
+    if(index == -1) return nullptr;
+    return const_cast<ClassSchedule*>(&schedules[index]);
 }
 
-bool ScheduleManager::studentExists(const string &studentId) const{
-    auto student = students.find(Student(studentId, ""));
-    return student != students.end();
-}
 
-Student ScheduleManager::findStudent(const string &studentId) const{
+Student* ScheduleManager::findStudent(const string &studentId) const{
     auto student = students.find(Student(studentId, ""));
-    return student == students.end() ? Student() : *student;
+    return student == students.end() ? nullptr : const_cast<Student*>(&(*student));
 }
 
 void ScheduleManager::addRequest(const Student &student, const UcClass &ucClass) {
@@ -205,24 +201,27 @@ string decimalToHours(int decimal){
 
 void ScheduleManager::printStudentSchedule(const string &studentId) const {
     system("clear");
-    Student student = findStudent(studentId);
+    Student* student = findStudent(studentId);
 
-    vector<UcClass> studentClasses = student.getClasses();
+    if(student == nullptr){
+        cout << ">> Student not found" << endl;
+        return;
+    }
+
+    vector<UcClass> studentClasses = student->getClasses();
     vector<vector<pair<string, Slot>>> weekdays = vector<vector<pair<string, Slot>>>(5);
     vector<string> weekdaysNames = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday"};
-    cout << endl << ">> The student " << student.getName() << " with UP number " << student.getId()
+
+    cout << endl <<  ">> The student " << student->getName() << " with UP number " << student->getId()
          << " is enrolled in the following classes:" << endl;
 
-    for (const UcClass &ucClass: studentClasses) {
-        cout << "   " << ucClass.getUcId() << " " << ucClass.getClassId() << "  |  ";
-    }
-    cout << endl;
+    student->printClasses();
 
     for (const UcClass &ucClass: studentClasses) {
-        ClassSchedule cs = getSchedules()[binarySearchSchedules(ucClass)];
+        ClassSchedule* cs = findSchedule(ucClass);
         vector<pair<string, Slot>> slots;
-        for (const Slot &slot: cs.getSlots()) {
-            slots.emplace_back(cs.getUcClass().getUcId(), slot);
+        for (const Slot &slot: cs->getSlots()) {
+            slots.emplace_back(cs->getUcClass().getUcId(), slot);
         }
 
         insertIntoWeek(weekdays, slots);
@@ -262,7 +261,7 @@ void ScheduleManager::printClassSchedule(const string &classCode) const{
 
     cout << ">> The schedule for the class " << classCode << " is:" << endl;
     vector<string> weekdays {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday"};
-    for(const string weekday : weekdays){
+    for(const string &weekday : weekdays){
         cout << "   >> " << weekday << ": " << endl;
         vector<slotUcID> slotsWeekday = slots[weekday];
         sort(slotsWeekday.begin(),slotsWeekday.end(), [](const slotUcID &s1, const slotUcID &s2){

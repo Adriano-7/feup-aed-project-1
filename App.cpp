@@ -7,7 +7,7 @@
 
 using namespace std;
 
-App::App(ScheduleManager manager) {
+App::App(const ScheduleManager &manager) {
     this->manager = manager;
     cout << ">> Schedule manager is online" << endl;
 }
@@ -59,70 +59,59 @@ void App::checkStudentSchedule() const {
 
 }
 
-    void App::checkClassSchedule() const {
-        string classCode;
-        cout << "Please insert the class code: ";
-        cin >> classCode;
-        cout << endl;
-        manager.printClassSchedule(classCode);
+void App::checkClassSchedule() const{
+    string classCode;
+    cout << "Please insert the class code: "; cin >>classCode; cout<<endl;
+    manager.printClassSchedule(classCode);
+    waitForInput();
+}
+
+void App::checkClassStudents() const{
+    string ucCode, classCode;
+    cout << "Please insert the UC code: "; cin >> ucCode;
+    cout << "Please insert the class code: "; cin >> classCode; cout << endl;
+    ClassSchedule* cs = manager.findSchedule(UcClass(ucCode, classCode));
+    if(cs == nullptr){
+        cout << ">> Class not found" << endl;
+        usleep(900000);
+        return;
+    }
+    cs->printStudents();
+    waitForInput();
+}
+
+void App::checkUcSchedule() const {
+    cout << "Inset the subject code: " << endl;
+    string subjectCode;
+    cin >> subjectCode;
+    manager.printUcSchedule(subjectCode);
+}
+
+void App::submitNewRequest() {
+    string upNumber, ucCode, classCode;
+    cout << "Please insert the student's UP number: ";
+    cin >> upNumber;
+    cout << endl;
+    Student *student = manager.findStudent(upNumber);
+    if (student == nullptr) {
+        cout << ">> Student not found." << endl;
+        usleep(900000);
         waitForInput();
     }
-
-    void App::checkClassStudents() const {
-        string ucCode, classCode;
-        cout << "Please insert the UC code: ";
-        cin >> ucCode;
-        cout << "Please insert the class code: ";
-        cin >> classCode;
-        cout << endl;
-        int index = manager.binarySearchSchedules(UcClass(ucCode, classCode));
-        if (index == -1) {
-            cout << ">> Class not found" << endl;
-            usleep(900000);
-            return;
-        }
-        ClassSchedule cs = manager.getSchedules()[index];
-        cs.printStudents();
+    student->print();
+    cout << "The following information is related to the class you want to change to, "
+            "for a certain curricular unit." << endl;
+    cout << "Please insert the UC code: ";
+    cin >> ucCode;
+    cout << "Please insert the class code: ";
+    cin >> classCode;
+    ClassSchedule *cs = manager.findSchedule(UcClass(ucCode, classCode));
+    if (cs == nullptr) {
+        cout << ">> Class not found." << endl;
+        usleep(900000);
         waitForInput();
     }
-
-    void App::checkUcSchedule() const {
-        cout << "Inset the subject code: " << endl;
-        string subjectCode;
-        cin >> subjectCode;
-        manager.printUcSchedule(subjectCode);
-    }
-
-    void App::submitNewRequest() {
-        string upNumber, ucCode, classCode;
-        cout << "Please insert the student's UP number: ";
-        cin >> upNumber;
-        cout << endl;
-        Student student = manager.findStudent(upNumber);
-        if (student == Student()) {
-            cout << ">> Student not found." << endl;
-            usleep(900000);
-            waitForInput();
-            return;
-        }
-        student.print();
-        cout << "The following information is related to the class you want to change to, "
-                "for a certain curricular unit." << endl;
-        cout << "Please insert the UC code: ";
-        cin >> ucCode;
-        cout << "Please insert the class code: ";
-        cin >> classCode;
-        if (!manager.ucClassExists(ucCode, classCode)) {
-            cout << ">> Class not found." << endl;
-            usleep(900000);
-            waitForInput();
-            return;
-        }
-        Request request = Request(student, UcClass(ucCode, classCode));
-        manager.addRequest(request);
-        cout << endl << ">> Request successfully submitted!" << endl;
-        waitForInput();
-    }
+}
 
     int App::run() {
         manager.readFiles();

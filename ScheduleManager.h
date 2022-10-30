@@ -23,10 +23,10 @@ class ScheduleManager {
         void printClassSchedule(const string &classCode) const;
         void addRequest(const Student &student, const UcClass &ucClass);
         void addRequest(const Request &request);
-        Student findStudent(const string &studentId) const;   //Temos que trocar o tipo de retorno para uma referência/pointer;
-        bool studentExists(const string &studentId) const;
-        bool ucClassExists(const string &ucId, const string &classId) const;
+
         void printUcSchedule(const string &ucId) const;
+        Student* findStudent(const string &studentId) const;
+        ClassSchedule* findSchedule(const UcClass &ucClass) const;
 
         const vector<ClassSchedule> &getSchedules() const;
         const set<Student> &getStudents() const;
