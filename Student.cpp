@@ -4,23 +4,19 @@
 
 using namespace std;
 
-Student::Student() {}
+Student::Student() {
+    this->id = "";
+    this->name = "";
+    this->classes = vector<UcClass>();
+}
 
-Student::Student(string id, string name) {
+Student::Student(const string &id, const string &name) {
     this->id = id;
     this->name = name;
     this->classes = vector<UcClass>();
 }
 
-void Student::print() const {
-    cout << "Student: " << name << " (" << id << ")" << endl;
-    cout << "Classes: ";
-    for (int i = 0; i < classes.size(); i++) {
-        cout << classes[i].getUcId() << " " << classes[i].getClassId() << "  |  ";
-    }
-    cout << endl;
-}
-void Student::addClass(UcClass newClass) {
+void Student::addClass(const UcClass &newClass) {
     classes.push_back(newClass);
 }
 
@@ -46,4 +42,13 @@ bool Student::operator<(const Student &other) const {
 
 bool Student::operator>(const Student &other) const {
     return this->id > other.getId();
+}
+
+void Student::print() const {
+    cout << "Student: " << name << " (" << id << ")" << endl;
+    cout << "Classes: ";
+    for (const UcClass &ucClass : classes) {
+        cout << ucClass.getUcId() << " " << ucClass.getClassId() << "  |  ";
+    }
+    cout << endl;
 }

@@ -13,7 +13,6 @@ ScheduleManager::ScheduleManager() {
     this->requests = queue<Request>();
 }
 
-
 void ScheduleManager::readFiles() {
     createSchedules();
     setSchedules();
@@ -93,7 +92,7 @@ void ScheduleManager::createStudents() {
     }
 }
 
-int ScheduleManager::binarySearchSchedules(UcClass desiredUcCLass) const{
+int ScheduleManager::binarySearchSchedules(const UcClass &desiredUcCLass) const{
     int left = 0;
     int right = schedules.size() - 1;
     int middle = (left + right) / 2;
@@ -113,26 +112,49 @@ int ScheduleManager::binarySearchSchedules(UcClass desiredUcCLass) const{
     return -1;
 }
 
-bool ScheduleManager::requestHasCollision(Request request){
+bool ScheduleManager::classesCollide(const UcClass &c1, const UcClass &c2) const{
+    if(c1.sameUC(c2)) return false;
+    ClassSchedule cs1 = schedules[binarySearchSchedules(c1)];
+    ClassSchedule cs2 = schedules[binarySearchSchedules(c2)];
+    for(const Slot &slot1 : cs1.getSlots()){
+        for(const Slot &slot2 : cs2.getSlots()){
+            if(slot1.collides(slot2)) return true;
+        }
+    }
+    return false;
+}
+
+bool ScheduleManager::requestHasCollision(const Request &request) const{
     Student student = request.getStudent();
     UcClass desiredClass = request.getDesiredClass();
     vector<UcClass> studentClasses = student.getClasses();
-    for(UcClass ucClass : studentClasses){
+    for (const UcClass &ucClass : studentClasses){
         if(classesCollide(ucClass, desiredClass)) return true;
     }
     return false;
 }
 
-bool ScheduleManager::classesCollide(UcClass c1, UcClass c2) {
-    if(c1.sameUcId(c2)) return false;
-    ClassSchedule cs1 = schedules[binarySearchSchedules(c1)];
-    ClassSchedule cs2 = schedules[binarySearchSchedules(c2)];
-    for(Slot slot1 : cs1.getSlots()){
-        for(Slot slot2 : cs2.getSlots()){
-            if(slot1.collides(slot2)) return true;
-        }
-    }
-    return false;
+bool ScheduleManager::ucClassExists(const string &ucCode, const string &classCode) const {
+    UcClass ucClass = UcClass(ucCode, classCode);
+    int index = binarySearchSchedules(ucClass);
+    return index != -1;
+}
+
+bool ScheduleManager::studentExists(const string &studentId) const{
+    auto student = students.find(Student(studentId, ""));
+    return student != students.end();
+}
+
+Student ScheduleManager::findStudent(const string &studentId) const{
+    auto student = students.find(Student(studentId, ""));
+    return *student;
+}
+
+void ScheduleManager::addRequest(Student &student, UcClass &ucClass) {
+    student = findStudent(student.getId());
+    Request request(student, ucClass);
+    requests.push(request);
+    request.print();
 }
 
 string decimalToHours(int decimal){
@@ -147,7 +169,7 @@ string decimalToHours(int decimal){
     return hoursStr + ":" + minutesStr;
 }
 
-void ScheduleManager::printStudentSchedule(string studentId){
+void ScheduleManager::printStudentSchedule(const string &studentId) const{
 
     Student student = findStudent(studentId);
 
@@ -157,21 +179,22 @@ void ScheduleManager::printStudentSchedule(string studentId){
     system("clear");
     cout << endl <<  ">> The student " << student.getName() << " with UP number " << student.getId()
          << " is enrolled in the following classes:" << endl;
-    for (UcClass classs: studentClasses) {
-        cout << "   " << classs.getUcId() << " " << classs.getClassId() << "  |  ";
+
+    for (const UcClass &ucClass: studentClasses) {
+        cout << "   " << ucClass.getUcId() << " " << ucClass.getClassId() << "  |  ";
     }
     cout << endl;
 
-    for (UcClass ucClass: studentClasses) {
+    for (const UcClass &ucClass: studentClasses) {
         ClassSchedule cs = getSchedules()[binarySearchSchedules(ucClass)];
         vector<pair<string, Slot>> slots;
-        for (Slot slot: cs.getSlots()) {
-            slots.push_back(make_pair(cs.getUcClass().getUcId(), slot));
+        for (const Slot &slot: cs.getSlots()) {
+            slots.emplace_back(cs.getUcClass().getUcId(), slot);
         }
 
-        for (pair<string, Slot> slot: slots) {
+        for (const pair<string, Slot> &slot: slots) {
             if (slot.second.getWeekDay() == "Monday") {
-
+                weekdays[0].push_back(slot);
             } else if (slot.second.getWeekDay() == "Tuesday") {
                 weekdays[1].push_back(slot);
             } else if (slot.second.getWeekDay() == "Wednesday") {
@@ -186,39 +209,16 @@ void ScheduleManager::printStudentSchedule(string studentId){
 
     cout << endl << ">> The student's schedule is:" << endl;
     for (int i = 0; i < weekdays.size(); i++) {
-        sort(weekdays[i].begin(), weekdays[i].end(), [](pair<string, Slot> a, pair<string, Slot> b) {
+        sort(weekdays[i].begin(), weekdays[i].end(), [](const pair<string, Slot> &a, const pair<string, Slot> &b) {
             return a.second.getStartTime() < b.second.getStartTime();
         });
         cout << "   >> "<< weekdaysNames[i] << ": " << endl;
 
-        for (pair<string, Slot> slot: weekdays[i]) {
+        for (const pair<string, Slot> &slot: weekdays[i]) {
             cout << "      " << slot.first << "   " << decimalToHours(slot.second.getStartTime()) << " to " << decimalToHours(slot.second.getEndTime())
                  << "   " << slot.second.getType() << endl;
         }
     }
-}
-
-void ScheduleManager::addRequest(Student &student, UcClass &ucClass) {
-    student = findStudent(student.getId());
-    Request request(student, ucClass);
-    requests.push(request);
-    request.print();
-}
-
-Student ScheduleManager::findStudent(string studentId) const{
-    auto student = students.find(Student(studentId, ""));
-    return *student;
-}
-
-bool ScheduleManager::studentExists(std::string studentId) const{
-    auto student = students.find(Student(studentId, ""));
-    return student != students.end();
-}
-
-bool ScheduleManager::ucClassExists(string ucCode, string classCode) const {
-    UcClass ucClass = UcClass(ucCode, classCode);
-    int index = binarySearchSchedules(ucClass);
-    return index != -1;
 }
 
 const vector<ClassSchedule> &ScheduleManager::getSchedules() const {

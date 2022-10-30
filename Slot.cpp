@@ -1,19 +1,17 @@
 #include "Slot.h"
 #include <string>
-#include <iostream>
-
 
 using namespace std;
 
-Slot::Slot(string weekday, float beginTime, float duration, string type) {
-    this->weekday = weekday;
-    this->startTime = beginTime;
-    this->endTime = beginTime + duration;
+Slot::Slot(const string &weekDay, const float &startTime, const float &duration, const string &type) {
+    this->weekDay = weekDay;
+    this->startTime = startTime;
+    this->endTime = startTime + duration;
     this->type = type;
 }
 
 string Slot::getWeekDay() const {
-    return weekday;
+    return weekDay;
 }
 
 float Slot::getStartTime() const {
@@ -28,8 +26,8 @@ float Slot::getEndTime() const {
     return endTime;
 }
 
-bool Slot::collides(Slot other) const {
-    if (this->weekday != other.getWeekDay()) {
+bool Slot::collides(const Slot &other) const {
+    if (this->weekDay != other.getWeekDay()) {
         return false;
     }
     if (this->startTime >= other.getEndTime() || this->endTime <= other.getStartTime()) {

@@ -68,7 +68,7 @@ int Test::testBSearchSchedules(UcClass desiredUcCLass) const {
 }
 
 bool Test::testClassesCollide(UcClass c1, UcClass c2) {
-    if(c1.sameUcId(c2)) return false;
+    if(c1.sameUC(c2)) return false;
     ClassSchedule cs1 = schedulesTest[testBSearchSchedules(c1)];
     ClassSchedule cs2 = schedulesTest[testBSearchSchedules(c2)];
     for(Slot slot1 : cs1.getSlots()){

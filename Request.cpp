@@ -1,6 +1,6 @@
 #include "Request.h"
 
-Request::Request(Student student, UcClass desiredClass){
+Request::Request(const Student &student, const UcClass &desiredClass){
     this->student = student;
     this->desiredClass = desiredClass;
 }

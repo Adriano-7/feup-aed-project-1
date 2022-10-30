@@ -5,7 +5,7 @@ UcClass::UcClass() {
     this->classId = "";
 }
 
-UcClass::UcClass(string ucId, string classId) {
+UcClass::UcClass(const string &ucId, const string &classId) {
     this->ucId = ucId;
     this->classId = classId;
 }
@@ -16,6 +16,10 @@ string UcClass::getUcId() const {
 
 string UcClass::getClassId() const {
     return classId;
+}
+
+bool UcClass::sameUC(const UcClass &other) const {
+    return this->ucId == other.ucId;
 }
 
 bool UcClass::operator == (const UcClass &other) const {
@@ -30,8 +34,4 @@ bool UcClass::operator < (const UcClass &other) const {
 bool UcClass::operator > (const UcClass &other) const {
     if(this->ucId == other.ucId) return this->classId > other.classId;
     return this->ucId > other.ucId;
-}
-
-bool UcClass::sameUcId(UcClass other) const {
-    return this->ucId == other.ucId;
 }

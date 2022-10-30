@@ -12,7 +12,7 @@ App::App(ScheduleManager manager) {
     cout << ">> Schedule manager is online" << endl;
 }
 
-int App::optionsMenu() {
+int App::optionsMenu() const{
     int option;
     cout    << endl << "------------ OPTIONS ------------" << endl
             << "1 Check the schedule of a student" << endl
@@ -33,7 +33,7 @@ int App::optionsMenu() {
     return option;
 }
 
-void App::waitForInput() {
+void App::waitForInput() const{
     string q;
     cout << endl << "Insert any key to go back to the menu: ";
     cin >> q;
@@ -41,8 +41,7 @@ void App::waitForInput() {
     system("clear");
 }
 
-
-void App::checkStudentSchedule() {
+void App::checkStudentSchedule() const{
     string upNumber;
     cout << "Please insert the student's UP number: ";
     cin >> upNumber;
@@ -50,12 +49,12 @@ void App::checkStudentSchedule() {
     waitForInput();
 }
 
-void App::checkClassSchedule(){
+void App::checkClassSchedule() const{
     cout << ">> This feature is not available yet" << endl;
     usleep(900000);
 }
 
-void App::checkClassStudents(){
+void App::checkClassStudents() const{
     string ucCode, classCode;
     cout << "Please insert the UC code: "; cin >> ucCode;
     cout << "Please insert the class code: "; cin >> classCode; cout << endl;
@@ -70,7 +69,7 @@ void App::checkClassStudents(){
     waitForInput();
 }
 
-void App::checkUcSchedule(){
+void App::checkUcSchedule() const{
     cout << ">> This feature is not available yet" << endl;
     usleep(900000);
 }
@@ -101,7 +100,7 @@ void App::submitNewRequest(){
     waitForInput();
 }
 
-int App::run() {
+int App::run(){
     manager.readFiles();
 
     while (true) {

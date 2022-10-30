@@ -7,13 +7,13 @@ class App {
     public:
         App(ScheduleManager manager);
         int run();
-        int optionsMenu();
-        void checkStudentSchedule();
-        void checkClassSchedule();
-        void checkClassStudents();
-        void checkUcSchedule();
+        int optionsMenu() const;
+        void checkStudentSchedule() const;
+        void checkClassSchedule() const;
+        void checkClassStudents() const;
+        void checkUcSchedule() const;
         void submitNewRequest();
-        void waitForInput();
+        void waitForInput() const;
 
     private:
         ScheduleManager manager;

@@ -8,15 +8,15 @@ using namespace std;
 
 class Slot {
     public:
-        Slot(string weekday, float beginTime, float duration, string type);
+        Slot(const string &weekDay, const float &beginTime, const float &duration, const string &type);
         string getWeekDay() const;
         string getType() const;
         float getStartTime() const;
         float getEndTime() const;
-        bool collides(Slot other) const;
+        bool collides(const Slot &other) const;
 
     private:
-        string weekday;
+        string weekDay;
         float startTime;
         float endTime;
         string type;

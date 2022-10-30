@@ -19,14 +19,14 @@ class ClassSchedule {
         /**Constructor, the vector of slots is set to empty
         * @param UcClass the UcClass of the schedule
         */
-        ClassSchedule(UcClass ucClass);
+        ClassSchedule(const UcClass &ucClass);
 
         /**Constructor, given a ucId and a classId, creates a ClassSchedule with the the vector of slots empty
          *
          * @param ucId
          * @param classId
          */
-        ClassSchedule(string ucId, string classId);
+        ClassSchedule(const string &ucId, const string &classId);
 
         /**Prints the ucId and classId
          */
@@ -38,7 +38,7 @@ class ClassSchedule {
 
         /**Prints the students in a given order: alphabetical, reverse alphabetical, numerical, reverse numerical
          */
-        void printStudents(string order = "alphabetical") const;
+        void printStudents(const string &order = "alphabetical") const;
 
         /**Prints the ClassSchedule(calls printHeader, printSlots and printStudents)
         */
@@ -50,7 +50,7 @@ class ClassSchedule {
 
         /**Get add the slot to the vector of slots
         */
-        void addSlot(Slot slot);
+        void addSlot(const Slot &slot);
 
         /**
          * @return vector of slots
@@ -65,7 +65,7 @@ class ClassSchedule {
         /** Add a student to the set of students
          * @param student the student to add
          */
-        void addStudent(Student student);
+        void addStudent(const Student &student);
 
         /**Bolean function that returns true if both ClassSchedule have the same UcId, false otherwise
          */

@@ -18,7 +18,7 @@ class UcClass{
          * @param ucId the id of the UC
          * @param classId the id of the class
          */
-        UcClass(string ucId, string classId);
+        UcClass(const string &ucId, const string &classId);
 
         /**Get the id of the UC
          */
@@ -38,7 +38,7 @@ class UcClass{
          * @param other The UcClass to compare to
          * @return true if the ucId is the same, false otherwise
          */
-        bool sameUcId(UcClass other) const;
+        bool sameUC(const UcClass &other) const;
 
         /** Compares two UcClass
          * @param other The UcClass to compare to

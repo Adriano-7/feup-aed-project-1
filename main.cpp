@@ -7,9 +7,6 @@ using namespace std;
 int main()
 {
     ScheduleManager manager;
-    //Test tester(manager);
-    //tester.printSchedules();
-    //tester.printStudents();
     App app(manager);
     app.run();
     return 0;

@@ -10,11 +10,11 @@ using namespace std;
 class Student {
     public:
         Student();
-        Student(string id, string name);
+        Student(const string &id, const string &name);
         string getId() const;
         string getName() const;
         vector<UcClass> getClasses() const;
-        void addClass(UcClass newClass);
+        void addClass(const UcClass &newClass);
         bool operator == (const Student &other) const;
         bool operator < (const Student &other) const;
         bool operator > (const Student &other) const;
