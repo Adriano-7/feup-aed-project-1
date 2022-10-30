@@ -4,6 +4,7 @@
 
 using namespace std;
 
+
 ClassSchedule::ClassSchedule() {
     this->ucClass = UcClass();
     this->slots = vector<Slot>();
@@ -52,6 +53,7 @@ bool ClassSchedule::operator == (const ClassSchedule &other) const {
     return this->ucClass == other.getUcClass();
 }
 
+
 void ClassSchedule::printHeader() const {
     cout << ">> UC:" << ucClass.getUcId() << " " << ucClass.getClassId() << endl;
 }
@@ -84,6 +86,7 @@ void ClassSchedule::printStudents(const string &sortType) const{
     }
     delete studentsVector;
 }
+
 
 void ClassSchedule::print() const {
     printHeader();

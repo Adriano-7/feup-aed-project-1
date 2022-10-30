@@ -9,18 +9,30 @@
 
 #include "ScheduleManager.h"
 
+/**
+ * @brief Schedule Manager constructor
+ *
+ */
 ScheduleManager::ScheduleManager() {
     this->students = set<Student>();
     this->schedules = vector<ClassSchedule>();
     this->requests = queue<Request>();
 }
 
+/**
+ * @brief Reads the files and creates the students and schedules
+ *
+ */
 void ScheduleManager::readFiles() {
     createSchedules();
     setSchedules();
     createStudents();
 }
 
+/**
+ * @brief Creates the schedules
+ * Reads the file "classes_per_uc.csv" and creates a vector of schedules with only the uc code and the number of classe
+ */
 void ScheduleManager::createSchedules(){
     fstream file("../data/classes_per_uc.csv");
     file.ignore(1000, '\n');
@@ -38,6 +50,12 @@ void ScheduleManager::createSchedules(){
         schedules.push_back(cs);
     }
 }
+
+/**
+ * @brief Sets the schedules
+ * Reads the file "classes.csv" and adds the slots to the schedules created in the previous function
+ * @see createSchedules()
+ */
 
 void ScheduleManager::setSchedules() {
     fstream file("../data/classes.csv");
@@ -62,6 +80,12 @@ void ScheduleManager::setSchedules() {
     }
 }
 
+/**
+ * @brief Reads the students_classes.csv file and creates the students set
+ * @details The students are created with the student id, name and the classes they are enrolled in
+ *
+ * @return void
+ */
 void ScheduleManager::createStudents() {
     fstream file("../data/students_classes.csv");
     file.ignore(1000, '\n');
@@ -93,7 +117,12 @@ void ScheduleManager::createStudents() {
         this->schedules[i].addStudent(student);
     }
 }
-
+/**
+ * @brief Function that returns the index of the schedule with the ucClass passed as parameter
+ * @param ucClass
+ * @details Uses binary search to find the schedules
+ *
+ */
 int ScheduleManager::binarySearchSchedules(const UcClass &desiredUcCLass) const{
     int left = 0;
     int right = schedules.size() - 1;

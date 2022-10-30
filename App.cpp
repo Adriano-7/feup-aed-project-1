@@ -7,6 +7,7 @@
 
 using namespace std;
 
+
 App::App(const ScheduleManager &manager) {
     this->manager = manager;
     cout << ">> Schedule manager is online" << endl;
@@ -20,7 +21,9 @@ string toString(vector<string> stringg){
     return s;
 }
 
-
+/**
+ * @brief Function that prints the main menu
+ */
 int App::optionsMenu() {
 
     int option;
@@ -43,6 +46,7 @@ int App::optionsMenu() {
     return option;
 }
 
+
 void App::waitForInput() const{
     string q;
     cout << endl << "Insert any key to go back to the menu: ";
@@ -51,6 +55,9 @@ void App::waitForInput() const{
     system("clear");
 }
 
+/**
+ * @brief Function that checks the schedule of a student
+ */
 void App::checkStudentSchedule() const {
     string upNumber;
     cout << "Please insert the student's UP number: ";
@@ -59,6 +66,9 @@ void App::checkStudentSchedule() const {
 
 }
 
+/**
+ * @brief Function that checks the schedule of a class
+ */
 void App::checkClassSchedule() const{
     string classCode;
     cout << "Please insert the class code: "; cin >>classCode; cout<<endl;
@@ -66,6 +76,10 @@ void App::checkClassSchedule() const{
     waitForInput();
 }
 
+/**
+ * @brief Function that checks the students in a class of a certain subject
+ *
+ */
 void App::checkClassStudents() const{
     string ucCode, classCode;
     cout << "Please insert the UC code: "; cin >> ucCode;
@@ -80,6 +94,9 @@ void App::checkClassStudents() const{
     waitForInput();
 }
 
+/**
+ * @brief Function that checks the schedule of a subject
+ */
 void App::checkUcSchedule() const {
     cout << "Inset the subject code: " << endl;
     string subjectCode;
@@ -87,6 +104,9 @@ void App::checkUcSchedule() const {
     manager.printUcSchedule(subjectCode);
 }
 
+/**
+ * @brief Function that submits a changing request
+ */
 void App::submitNewRequest() {
     string upNumber, ucCode, classCode;
     cout << "Please insert the student's UP number: ";
@@ -113,40 +133,44 @@ void App::submitNewRequest() {
     }
 }
 
-    int App::run() {
-        manager.readFiles();
+/**
+ * @brief Function that runs the application
+ * @return 0 if the application was closed successfully
+ */
+int App::run() {
+    manager.readFiles();
 
-        while (true) {
-            system("clear");
-            int option = optionsMenu();
-            switch (option) {
-                case 1: {
-                    checkStudentSchedule();
-                    break;
-                }
-                case 2: {
-                    checkClassSchedule();
-                    break;
-                }
-                case 3: {
-                    checkClassStudents();
-                    break;
-                }
-                case 4: {
-                    checkUcSchedule();
-                    break;
-                }
-                case 5: {
-                    submitNewRequest();
-                    break;
-                }
-                case 6:
-                    return 0;
-                default:
-                    cout << ">> Please choose a valid option" << endl;
-                    usleep(900000);
-                    break;
+    while (true) {
+        system("clear");
+        int option = optionsMenu();
+        switch (option) {
+            case 1: {
+                checkStudentSchedule();
+                break;
             }
+            case 2: {
+                checkClassSchedule();
+                break;
+            }
+            case 3: {
+                checkClassStudents();
+                break;
+            }
+            case 4: {
+                checkUcSchedule();
+                break;
+            }
+            case 5: {
+                submitNewRequest();
+                break;
+            }
+            case 6:
+                return 0;
+            default:
+                cout << ">> Please choose a valid option" << endl;
+                usleep(900000);
+                break;
         }
     }
+}
 

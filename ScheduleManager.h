@@ -7,7 +7,10 @@
 #include "ClassSchedule.h"
 #include "Request.h"
 
-
+/**
+ * @brief Class that represents the schedule manager
+ * @details This is the class reponsabile for managing the schedules
+ */
 class ScheduleManager {
     public:
         ScheduleManager();

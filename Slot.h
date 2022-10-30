@@ -5,7 +5,13 @@
 #include <vector>
 
 using namespace std;
-
+/**
+ * @brief Class that represents a slot
+ * @param duration
+ * @param startTime
+ * @param endTime
+ * @param type
+ */
 class Slot {
     public:
         Slot(const string &weekDay, const float &beginTime, const float &duration, const string &type);

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>trabalho_AED: Slot Class Reference</title>
+<title>Schedule Manager: Slot Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,10 +21,10 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">trabalho_AED
+   <div id="projectname">Schedule Manager
    &#160;<span id="projectnumber">1.0.0</span>
    </div>
-   <div id="projectbrief">Unidade Curricular AED</div>
+   <div id="projectbrief">Project of AED</div>
   </td>
  </tr>
  </tbody>
@@ -71,12 +71,18 @@ $(function() {
 <div class="title">Slot Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Class that represents a slot.  
+ <a href="class_slot.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_slot_8h_source.html">Slot.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a97f77387fa0fe2ab80becf365178d5c4"><td class="memItemLeft" align="right" valign="top"><a id="a97f77387fa0fe2ab80becf365178d5c4"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Slot</b> (string weekday, float beginTime, float duration, string type)</td></tr>
-<tr class="separator:a97f77387fa0fe2ab80becf365178d5c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a06a938e522fc7d42a849127007dbfe8b"><td class="memItemLeft" align="right" valign="top"><a id="a06a938e522fc7d42a849127007dbfe8b"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_slot.html#a06a938e522fc7d42a849127007dbfe8b">Slot</a> (const string &amp;weekDay, const float &amp;beginTime, const float &amp;duration, const string &amp;type)</td></tr>
+<tr class="memdesc:a06a938e522fc7d42a849127007dbfe8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class constructor that receives all the parameters. <br /></td></tr>
+<tr class="separator:a06a938e522fc7d42a849127007dbfe8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7f42ca3fce6295fa0db5c085e3c5d090"><td class="memItemLeft" align="right" valign="top"><a id="a7f42ca3fce6295fa0db5c085e3c5d090"></a>
 string&#160;</td><td class="memItemRight" valign="bottom"><b>getWeekDay</b> () const</td></tr>
 <tr class="separator:a7f42ca3fce6295fa0db5c085e3c5d090"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -89,9 +95,9 @@ float&#160;</td><td class="memItemRight" valign="bottom"><b>getStartTime</b> () 
 <tr class="memitem:abf8b5b639de92285fb3f7d33a9994ec2"><td class="memItemLeft" align="right" valign="top"><a id="abf8b5b639de92285fb3f7d33a9994ec2"></a>
 float&#160;</td><td class="memItemRight" valign="bottom"><b>getEndTime</b> () const</td></tr>
 <tr class="separator:abf8b5b639de92285fb3f7d33a9994ec2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a819927eab1ecb100348573221fc25bba"><td class="memItemLeft" align="right" valign="top"><a id="a819927eab1ecb100348573221fc25bba"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>collides</b> (<a class="el" href="class_slot.html">Slot</a> other) const</td></tr>
-<tr class="separator:a819927eab1ecb100348573221fc25bba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a37f6b9454cc33928f757960ca5c45617"><td class="memItemLeft" align="right" valign="top"><a id="a37f6b9454cc33928f757960ca5c45617"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>collides</b> (const <a class="el" href="class_slot.html">Slot</a> &amp;other) const</td></tr>
+<tr class="separator:a37f6b9454cc33928f757960ca5c45617"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a81ac402d57ed170085876894febe977d"><td class="memItemLeft" align="right" valign="top"><a id="a81ac402d57ed170085876894febe977d"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator!=</b> (const <a class="el" href="class_slot.html">Slot</a> &amp;other) const</td></tr>
 <tr class="separator:a81ac402d57ed170085876894febe977d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -101,9 +107,9 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator==</b> (const
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a46f8005d8b5fb68f3259e9bb35b36763"><td class="memItemLeft" align="right" valign="top"><a id="a46f8005d8b5fb68f3259e9bb35b36763"></a>
-string&#160;</td><td class="memItemRight" valign="bottom"><b>weekday</b></td></tr>
-<tr class="separator:a46f8005d8b5fb68f3259e9bb35b36763"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad1606017cfd87fb3eee16096fdcbf429"><td class="memItemLeft" align="right" valign="top"><a id="ad1606017cfd87fb3eee16096fdcbf429"></a>
+string&#160;</td><td class="memItemRight" valign="bottom"><b>weekDay</b></td></tr>
+<tr class="separator:ad1606017cfd87fb3eee16096fdcbf429"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a63c5fbdc896855f8ddd24178d3c0ed04"><td class="memItemLeft" align="right" valign="top"><a id="a63c5fbdc896855f8ddd24178d3c0ed04"></a>
 float&#160;</td><td class="memItemRight" valign="bottom"><b>startTime</b></td></tr>
 <tr class="separator:a63c5fbdc896855f8ddd24178d3c0ed04"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -114,7 +120,18 @@ float&#160;</td><td class="memItemRight" valign="bottom"><b>endTime</b></td></tr
 string&#160;</td><td class="memItemRight" valign="bottom"><b>type</b></td></tr>
 <tr class="separator:a2724196d075f2b8abf68e51508d9edbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<hr/>The documentation for this class was generated from the following files:<ul>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Class that represents a slot. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">duration</td><td></td></tr>
+    <tr><td class="paramname">startTime</td><td></td></tr>
+    <tr><td class="paramname">endTime</td><td></td></tr>
+    <tr><td class="paramname">type</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+</div><hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="_slot_8h_source.html">Slot.h</a></li>
 <li>Slot.cpp</li>
 </ul>
