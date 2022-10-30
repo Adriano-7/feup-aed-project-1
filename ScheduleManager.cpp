@@ -35,6 +35,26 @@ int ScheduleManager::binarySearchSchedules(UcClass desiredUcCLass){
     return -1;
 }
 
+int ScheduleManager::binarySearchUC(string desiredUc){
+    int left = 0;
+    int right = schedules.size() - 1;
+    int middle = (left + right) / 2;
+
+    while(left <= right){
+        if(schedules[middle].getUcClass().getUcId() == desiredUc){
+            return middle;
+        }
+        else if(schedules[middle].getUcClass().getUcId() < desiredUc){
+            left = middle + 1;
+        }
+        else{
+            right = middle - 1;
+        }
+        middle = (left + right) / 2;
+    }
+    return -1;
+}
+
 
 void ScheduleManager::createSchedules(){
     fstream file("../data/classes_per_uc.csv");

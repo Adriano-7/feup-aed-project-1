@@ -15,6 +15,7 @@ class UcClass{
         bool operator < (const UcClass &other) const;
         bool operator > (const UcClass &other) const;
         bool sameUC(UcClass other) const;
+        bool equivalent(UcClass other) const;
 
     private:
         string ucId;

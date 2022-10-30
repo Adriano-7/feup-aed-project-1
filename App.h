@@ -26,6 +26,7 @@ class App {
 
     private:
         ScheduleManager manager;
+
 };
 
 

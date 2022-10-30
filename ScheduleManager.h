@@ -28,6 +28,8 @@ class ScheduleManager {
         set <Student> students;
         vector<ClassSchedule> schedules;
         queue<Request> requests;
+
+    int binarySearchUC(string desiredUc);
 };
 
 

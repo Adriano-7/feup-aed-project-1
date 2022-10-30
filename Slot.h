@@ -14,6 +14,8 @@ class Slot {
         float getStartTime() const;
         float getEndTime() const;
         bool collides(Slot other) const;
+        bool operator !=(const Slot &other) const;
+        bool operator ==(const Slot &other) const;
 
     private:
         string weekday;

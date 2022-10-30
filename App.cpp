@@ -16,6 +16,43 @@ void App::waitForInput() {
     cout << endl << "Insert any key to go back to the menu: "; cin >> q;cout << endl;system("clear");
 }
 
+void insertIntoWeek(vector<vector<pair<string, Slot>>> &weekdays , vector<pair<string, Slot>> slots){
+    for (pair<string, Slot> slot: slots) {
+
+       if (slot.second.getWeekDay() == "Monday") {
+              weekdays[0].push_back(slot);
+        } else if (slot.second.getWeekDay() == "Tuesday") {
+            weekdays[1].push_back(slot);
+        } else if (slot.second.getWeekDay() == "Wednesday") {
+            weekdays[2].push_back(slot);
+        } else if (slot.second.getWeekDay() == "Thursday") {
+            weekdays[3].push_back(slot);
+        } else if (slot.second.getWeekDay() == "Friday") {
+            weekdays[4].push_back(slot);
+        }
+    }
+}
+void groupDuplicates(vector<vector<pair<string, Slot>>> &weekdays){
+    for (int i = 0; i < weekdays.size(); i++) {
+        for (int j = 0; j < weekdays[i].size(); j++) {
+            for (int k = j + 1; k < weekdays[i].size(); k++) {
+                if (weekdays[i][j].second == weekdays[i][k].second) {
+                    weekdays[i][j].first += ", " + weekdays[i][k].first;
+                    weekdays[i].erase(weekdays[i].begin() + k);
+                    k--;
+                }
+            }
+        }
+    }
+}
+string toString(vector<string> stringg){
+    string s;
+    for (string str: stringg){
+        s += str + " ";
+    }
+    return s;
+}
+
 string decimalToHours(int decimal){
     double time = decimal;
     int timeMins = (int)floor( time * 60.0 );
@@ -64,14 +101,13 @@ void App::option1() {
     Student modStudent = *loc;
 
     vector<UcClass> studentClasses = modStudent.getClasses();
-    vector<vector<pair<string, Slot>>> weekdays = vector<vector<pair<string, Slot>>>(5);
-    vector<string> weekdaysNames = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday"};
     cout << endl <<  ">> The student " << modStudent.getName() << " with UP number " << modStudent.getId()
          << " is enrolled in the following classes:" << endl;
     for (UcClass classs: studentClasses) {
         cout << "   " << classs.getUcId() << " " << classs.getClassId() << "  |  ";
     }
     cout << endl;
+    vector<vector<pair<string, Slot>>> weekdays = vector<vector<pair<string, Slot>>>(5);
 
     for (UcClass ucClass: studentClasses) {
         ClassSchedule cs = manager.getSchedules()[manager.binarySearchSchedules(ucClass)];
@@ -79,22 +115,10 @@ void App::option1() {
         for (Slot slot: cs.getSlots()) {
             slots.push_back(make_pair(cs.getUcClass().getUcId(), slot));
         }
-
-        for (pair<string, Slot> slot: slots) {
-            if (slot.second.getWeekDay() == "Monday") {
-
-            } else if (slot.second.getWeekDay() == "Tuesday") {
-                weekdays[1].push_back(slot);
-            } else if (slot.second.getWeekDay() == "Wednesday") {
-                weekdays[2].push_back(slot);
-            } else if (slot.second.getWeekDay() == "Thursday") {
-                weekdays[3].push_back(slot);
-            } else if (slot.second.getWeekDay() == "Friday") {
-                weekdays[4].push_back(slot);
-            }
-        }
+        insertIntoWeek(weekdays, slots);
     }
 
+    vector<string> weekdaysNames = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday"};
     cout << endl << ">> The student's schedule is:" << endl;
     for (int i = 0; i < weekdays.size(); i++) {
         sort(weekdays[i].begin(), weekdays[i].end(), [](pair<string, Slot> a, pair<string, Slot> b) {
@@ -130,56 +154,41 @@ void App::option3(){
     waitForInput();
 }
 
-void App::option4(){
+void App::option4() {
     cout << "Inset the subject code: " << endl;
     string subjectCode;
     cin >> subjectCode;
     vector<ClassSchedule> schedules;
-
-
-    for(auto it = manager.getSchedules().begin(); it != manager.getSchedules().end(); it++){
-        if(it->getUcClass().getUcId() == subjectCode){
-            schedules.push_back(*it);
+    for (ClassSchedule cs: manager.getSchedules()) {
+        if (cs.getUcClass().getUcId() == subjectCode) {
+            schedules.push_back(cs);
         }
     }
     vector<vector<pair<string, Slot>>> weekdays = vector<vector<pair<string, Slot>>>(5);
     vector<string> weekdaysNames = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday"};
 
-
-    for(auto it = schedules.begin(); it != schedules.end(); it++) {
+    // Insert the slots into the weekdays vector
+    for (auto it = schedules.begin(); it != schedules.end(); it++) {
         vector<pair<string, Slot>> slots;
         for (Slot slot: it->getSlots()) {
             slots.push_back(make_pair(it->getUcClass().getClassId(), slot));
         }
-        for (pair<string, Slot> slot: slots) {
-            if (slot.second.getWeekDay() == "Monday") {
 
-            } else if (slot.second.getWeekDay() == "Tuesday") {
-                weekdays[1].push_back(slot);
-            } else if (slot.second.getWeekDay() == "Wednesday") {
-                weekdays[2].push_back(slot);
-            } else if (slot.second.getWeekDay() == "Thursday") {
-                weekdays[3].push_back(slot);
-            } else if (slot.second.getWeekDay() == "Friday") {
-                weekdays[4].push_back(slot);
-            }
+        insertIntoWeek(weekdays, slots);
+        groupDuplicates(weekdays);
+    }
+    cout << endl << ">> This UC class is:" << endl;
+    for (int i = 0; i < weekdays.size(); i++) {
+        sort(weekdays[i].begin(), weekdays[i].end(), [](pair<string, Slot> a, pair<string, Slot> b) {
+            return a.second.getStartTime() < b.second.getStartTime();
+        });
+        cout << "   >> " << weekdaysNames[i] << ": " << endl;
+
+        for (pair<string, Slot> slot: weekdays[i]) {
+            cout << "       " << slot.first << "   " << decimalToHours(slot.second.getStartTime()) << " to " << decimalToHours(slot.second.getEndTime())
+                 << "   " << slot.second.getType() << endl;
         }
     }
-        cout << endl << ">> This UC class is:" << endl;
-        for (int i = 0; i < weekdays.size(); i++) {
-            sort(weekdays[i].begin(), weekdays[i].end(), [](pair<string, Slot> a, pair<string, Slot> b) {
-                return a.second.getStartTime() < b.second.getStartTime();
-            });
-            cout << "   >> "<< weekdaysNames[i] << ": " << endl;
-
-            for (pair<string, Slot> slot: weekdays[i]) {
-                cout << "       " << slot.first << "   " << decimalToHours(slot.second.getStartTime()) << " to " << decimalToHours(slot.second.getEndTime())
-                     << "   " << slot.second.getType() << endl;
-            }
-
-    }
-
-
 }
 void App::option5(){
     system("clear");
