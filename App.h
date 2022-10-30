@@ -7,9 +7,9 @@
 
 
 #include "ScheduleManager.h"
-/** \Class App
+/**
  * @brief Class that represents the application
- * @details
+ * @details This class is responsible for the application's main loop
  */
 class App {
     public:
