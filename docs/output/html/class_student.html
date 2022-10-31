@@ -71,12 +71,17 @@ $(function() {
 <div class="title">Student Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Class that represents a student.  
+ <a href="class_student.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_student_8h_source.html">Student.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a5fdad8df3c1744b6a9fe7b179d1479d0"><td class="memItemLeft" align="right" valign="top"><a id="a5fdad8df3c1744b6a9fe7b179d1479d0"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Student</b> (string id, string name)</td></tr>
-<tr class="separator:a5fdad8df3c1744b6a9fe7b179d1479d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7feba9a36b0af8915a548fa0cccf97b7"><td class="memItemLeft" align="right" valign="top"><a id="a7feba9a36b0af8915a548fa0cccf97b7"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Student</b> (const string &amp;id, const string &amp;name)</td></tr>
+<tr class="separator:a7feba9a36b0af8915a548fa0cccf97b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a95c442551c1f34157e426b2a7dc9a36a"><td class="memItemLeft" align="right" valign="top"><a id="a95c442551c1f34157e426b2a7dc9a36a"></a>
 string&#160;</td><td class="memItemRight" valign="bottom"><b>getId</b> () const</td></tr>
 <tr class="separator:a95c442551c1f34157e426b2a7dc9a36a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -86,9 +91,9 @@ string&#160;</td><td class="memItemRight" valign="bottom"><b>getName</b> () cons
 <tr class="memitem:a67b42ae13e827bb16cee89e76556a158"><td class="memItemLeft" align="right" valign="top"><a id="a67b42ae13e827bb16cee89e76556a158"></a>
 vector&lt; <a class="el" href="class_uc_class.html">UcClass</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getClasses</b> () const</td></tr>
 <tr class="separator:a67b42ae13e827bb16cee89e76556a158"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1b294c039b542443c186e31cfcb9f6b3"><td class="memItemLeft" align="right" valign="top"><a id="a1b294c039b542443c186e31cfcb9f6b3"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>addClass</b> (<a class="el" href="class_uc_class.html">UcClass</a> newClass)</td></tr>
-<tr class="separator:a1b294c039b542443c186e31cfcb9f6b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4a1ad3559a3415a9256699a3d7f3f95e"><td class="memItemLeft" align="right" valign="top"><a id="a4a1ad3559a3415a9256699a3d7f3f95e"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>addClass</b> (const <a class="el" href="class_uc_class.html">UcClass</a> &amp;newClass)</td></tr>
+<tr class="separator:a4a1ad3559a3415a9256699a3d7f3f95e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8f7c31ed0e331481ac58f12b2e822047"><td class="memItemLeft" align="right" valign="top"><a id="a8f7c31ed0e331481ac58f12b2e822047"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator==</b> (const <a class="el" href="class_student.html">Student</a> &amp;other) const</td></tr>
 <tr class="separator:a8f7c31ed0e331481ac58f12b2e822047"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -98,9 +103,12 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;</b> (con
 <tr class="memitem:a8ed21df54035f4067179661924875aac"><td class="memItemLeft" align="right" valign="top"><a id="a8ed21df54035f4067179661924875aac"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator&gt;</b> (const <a class="el" href="class_student.html">Student</a> &amp;other) const</td></tr>
 <tr class="separator:a8ed21df54035f4067179661924875aac"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a78e0a36e97d117f12bd1879ca7e5cf9c"><td class="memItemLeft" align="right" valign="top"><a id="a78e0a36e97d117f12bd1879ca7e5cf9c"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>print</b> ()</td></tr>
-<tr class="separator:a78e0a36e97d117f12bd1879ca7e5cf9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a5130adbe6997ac6d7e737f3b693cd7"><td class="memItemLeft" align="right" valign="top"><a id="a0a5130adbe6997ac6d7e737f3b693cd7"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>printClasses</b> () const</td></tr>
+<tr class="separator:a0a5130adbe6997ac6d7e737f3b693cd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abdbb14cd83ef23c09f811bd1e30ddd4f"><td class="memItemLeft" align="right" valign="top"><a id="abdbb14cd83ef23c09f811bd1e30ddd4f"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>print</b> () const</td></tr>
+<tr class="separator:abdbb14cd83ef23c09f811bd1e30ddd4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -114,7 +122,10 @@ string&#160;</td><td class="memItemRight" valign="bottom"><b>name</b></td></tr>
 vector&lt; <a class="el" href="class_uc_class.html">UcClass</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>classes</b></td></tr>
 <tr class="separator:affb989666a9b6a09a9d661e9a7a1e267"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<hr/>The documentation for this class was generated from the following files:<ul>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Class that represents a student. </p>
+<p>Class that represents a student </p>
+</div><hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="_student_8h_source.html">Student.h</a></li>
 <li>Student.cpp</li>
 </ul>

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['ucclass_25',['UcClass',['../class_uc_class.html',1,'UcClass'],['../class_uc_class.html#adc1e42a30f0c9364683f4209a55314fb',1,'UcClass::UcClass()'],['../class_uc_class.html#adcd9d57c99d8ba36b2579bce13af51fe',1,'UcClass::UcClass(string ucId, string classId)']]]
+  ['test_37',['Test',['../class_test.html',1,'Test'],['../class_test.html#a3133763718e2f4fd08ef025209c26034',1,'Test::Test(ScheduleManager manager)']]],
+  ['testsortingschedules_38',['testSortingSchedules',['../class_test.html#ac2f076c3d28f47df9af64e53ce7e6085',1,'Test']]]
 ];

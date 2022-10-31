@@ -6,6 +6,7 @@
 #include <cmath>
 #include <map>
 #include <unordered_map>
+#include <csignal>
 
 #include "ScheduleManager.h"
 
@@ -278,6 +279,7 @@ struct slotUcID{
 void ScheduleManager::printClassSchedule(const string &classCode) const{
     system("clear");
     map<string, vector<slotUcID>> slots;
+    const vector<ClassSchedule> check = schedules;
     for(const ClassSchedule &cs : schedules){
         if(cs.getUcClass().getClassId() == classCode){
             for(const Slot &slot : cs.getSlots()){
@@ -285,6 +287,12 @@ void ScheduleManager::printClassSchedule(const string &classCode) const{
                 slots[slot.getWeekDay()].push_back(hey);
             }
         }
+    }
+
+    if(slots.empty()){
+        cout<<">> Class not found"<<endl;
+        usleep(6000);
+        return;
     }
 
     cout << ">> The schedule for the class " << classCode << " is:" << endl;
