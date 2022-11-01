@@ -19,7 +19,7 @@ class ScheduleManager {
         void setSchedules();
         void createStudents();
 
-        int binarySearchSchedules(const UcClass &desiredUcCLass) const;
+        unsigned long binarySearchSchedules(const UcClass &desiredUcCLass) const;
         bool requestHasCollision(const Request &request) const;
         bool classesCollide(const UcClass &c1, const UcClass &c2) const;
         void printStudentSchedule(const string &studentId) const;
@@ -38,8 +38,6 @@ class ScheduleManager {
         set <Student> students;
         vector<ClassSchedule> schedules;
         queue<Request> requests;
-
-    int binarySearchUC(string desiredUc);
 };
 
 

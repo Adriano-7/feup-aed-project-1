@@ -124,10 +124,8 @@ void ScheduleManager::createStudents() {
  * @details Uses binary search to find the schedules
  *
  */
-int ScheduleManager::binarySearchSchedules(const UcClass &desiredUcCLass) const{
-    int left = 0;
-    int right = schedules.size() - 1;
-    int middle = (left + right) / 2;
+unsigned long ScheduleManager::binarySearchSchedules(const UcClass &desiredUcCLass) const{
+    unsigned long left = 0, right = schedules.size() - 1, middle = (left + right) / 2;
 
     while(left <= right){
         if(schedules[middle].getUcClass() == desiredUcCLass){
@@ -291,7 +289,6 @@ void ScheduleManager::printClassSchedule(const string &classCode) const{
 
     if(slots.empty()){
         cout<<">> Class not found"<<endl;
-        usleep(6000);
         return;
     }
 

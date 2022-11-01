@@ -13,13 +13,6 @@ App::App(const ScheduleManager &manager) {
     cout << ">> Schedule manager is online" << endl;
 }
 
-string toString(vector<string> stringg){
-    string s;
-    for (string str: stringg){
-        s += str + " ";
-    }
-    return s;
-}
 
 /**
  * @brief Function that prints the main menu
@@ -82,7 +75,7 @@ void App::checkClassSchedule() const{
  */
 void App::checkClassStudents() const{
     string ucCode, classCode;
-    cout << "Please insert the UC code: "; cin >> ucCode;
+    cout << "Please insert the subject code: "; cin >> ucCode;
     cout << "Please insert the class code: "; cin >> classCode; cout << endl;
     ClassSchedule* cs = manager.findSchedule(UcClass(ucCode, classCode));
     if(cs == nullptr){
@@ -120,7 +113,7 @@ void App::submitNewRequest() {
     student->print();
     cout << "The following information is related to the class you want to change to, "
             "for a certain curricular unit." << endl;
-    cout << "Please insert the UC code: ";
+    cout << "Please insert the subject code: ";
     cin >> ucCode;
     cout << "Please insert the class code: ";
     cin >> classCode;
@@ -129,7 +122,12 @@ void App::submitNewRequest() {
         cout << ">> Class not found." << endl;
         usleep(900000);
         waitForInput();
+        return;
     }
+    manager.addRequest(*student, cs->getUcClass());
+    cout << ">> Request submitted successfully." << endl;
+    usleep(900000);
+    waitForInput();
 }
 
 

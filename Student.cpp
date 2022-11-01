@@ -44,8 +44,11 @@ bool Student::operator>(const Student &other) const {
     return this->id > other.getId();
 }
 
+void Student::printHeader() const {
+    cout << name << " - " << id << endl;
+}
+
 void Student::printClasses() const {
-    cout << "Classes: ";
     int i = 0;
     while(i < classes.size()-1){
         cout << classes[i].getUcId() << " " << classes[i].getClassId() << "  |  ";
@@ -56,6 +59,6 @@ void Student::printClasses() const {
 
 
 void Student::print() const {
-    cout << "Student: " << name << " (" << id << ")" << endl;
-    printClasses();
+    cout << "Student: "; printHeader();
+    cout << "Classes: "; printClasses();
 }
