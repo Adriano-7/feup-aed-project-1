@@ -176,7 +176,7 @@ bool ScheduleManager::requestHasCollision(const Request &request) const{
  * @param ucClass
  */
 ClassSchedule* ScheduleManager::findSchedule(const UcClass &ucClass) const {
-    int index = binarySearchSchedules(ucClass);
+    unsigned long index = binarySearchSchedules(ucClass);
     if(index == -1) return nullptr;
     return const_cast<ClassSchedule*>(&schedules[index]);
 }
@@ -375,7 +375,8 @@ void ScheduleManager::printUcStudents(const string &ucId) const {
     sort(studentsVector->begin(), studentsVector->end(), [](const Student &s1, const Student &s2) {
         return s1.getName() < s2.getName();
     });
-    cout << endl << ">> The students enrolled in the subject " << ucId << " are:" << endl;
+    cout << endl << ">> Number of students: " << studentsVector->size() << endl;
+    cout << ">> Students:" << endl;
     for (const Student &student: *studentsVector) {
         cout << "   "; student.printHeader();
     }
