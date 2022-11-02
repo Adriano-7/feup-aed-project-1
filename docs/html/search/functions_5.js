@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['operator_3c_79',['operator&lt;',['../class_class_schedule.html#ab74d241bc5886d6dd76ab4b97ca31423',1,'ClassSchedule::operator&lt;()'],['../class_uc_class.html#a49201ecbd1442a53b354aa0604e431b6',1,'UcClass::operator&lt;()']]],
-  ['operator_3d_3d_80',['operator==',['../class_class_schedule.html#ade0af259e5e109dd3b38d78408677237',1,'ClassSchedule::operator==()'],['../class_uc_class.html#a3dccc3ab7c4634e47b8ca783e08c3914',1,'UcClass::operator==(const UcClass &amp;other) const']]],
-  ['operator_3e_81',['operator&gt;',['../class_uc_class.html#ab8f03f400aed740a16f78dff819b582e',1,'UcClass']]],
-  ['optionsmenu_82',['optionsMenu',['../class_app.html#ab85daf15970621082d9b44ec93a3578b',1,'App']]]
+  ['operator_3c_87',['operator&lt;',['../class_class_schedule.html#ab74d241bc5886d6dd76ab4b97ca31423',1,'ClassSchedule::operator&lt;()'],['../class_uc_class.html#a49201ecbd1442a53b354aa0604e431b6',1,'UcClass::operator&lt;()']]],
+  ['operator_3d_3d_88',['operator==',['../class_class_schedule.html#ade0af259e5e109dd3b38d78408677237',1,'ClassSchedule::operator==()'],['../class_uc_class.html#a3dccc3ab7c4634e47b8ca783e08c3914',1,'UcClass::operator==(const UcClass &amp;other) const']]],
+  ['operator_3e_89',['operator&gt;',['../class_uc_class.html#ab8f03f400aed740a16f78dff819b582e',1,'UcClass']]],
+  ['optionsmenu_90',['optionsMenu',['../class_app.html#ab85daf15970621082d9b44ec93a3578b',1,'App']]]
 ];

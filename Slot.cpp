@@ -3,10 +3,7 @@
 
 using namespace std;
 
-/**
- * @brief Class constructor that receives all the parameters
- *
- */
+
 Slot::Slot(const string &weekDay, const float &startTime, const float &duration, const string &type) {
     this->weekDay = weekDay;
     this->startTime = startTime;
