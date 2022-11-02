@@ -18,12 +18,10 @@ class App {
         void submitNewRequest();
         void checkUcStudents() const;
         void waitForInput() const;
-        static const int sleepTime = 800000;
 
     private:
         ScheduleManager manager;
-
-    int optionsMenu();
+        int sleepTime;
 };
 
 

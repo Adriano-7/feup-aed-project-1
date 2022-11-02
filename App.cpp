@@ -10,6 +10,7 @@ using namespace std;
 
 App::App(const ScheduleManager &manager) {
     this->manager = manager;
+    this->sleepTime = 800000;
     cout << ">> Schedule manager is online" << endl;
 }
 
@@ -17,7 +18,7 @@ App::App(const ScheduleManager &manager) {
 /**
  * @brief Function that prints the main menu
  */
-int App::optionsMenu() {
+int App::optionsMenu() const {
 
     int option;
     cout    << endl << "-------------- OPTIONS --------------" << endl
