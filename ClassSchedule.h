@@ -8,15 +8,15 @@
 #include "Student.h"
 
 /**
- * @brief Class that represents a schedule for a class, with a vector of slots and a set of students
+ * @brief Class that represents a schedule for a class in a given Course, with a vector of slots and a set of students
  */
 
 class ClassSchedule {
     public:
-        /**Default Constructor, ucClass default constructor is called and a empty vector of slots is created*/
+        /**Default Constructor, initialized with an empty vector of slots and students*/
         ClassSchedule();
 
-        /**Constructor, the vector of slots is set to empty
+        /**Constructor, sets ucClass to the given one. The vector of slots is set to empty.
         * @param UcClass the UcClass of the schedule
         */
         ClassSchedule(const UcClass &ucClass);
@@ -36,7 +36,8 @@ class ClassSchedule {
          */
         void printSlots() const;
 
-        /**Prints the students in a given sortType: alphabetical, reverse alphabetical, numerical, reverse numerical
+        /**Prints the students in a given sortType
+         * @param sortType the type of sort, it can be alphabetical, reverse alphabetical, numerical, reverse numerical
          */
         void printStudents(const string &sortType = "alphabetical") const;
 
@@ -52,12 +53,14 @@ class ClassSchedule {
         */
         set<Student> getStudents() const;
 
-        /**Get add the slot to the vector of slots
+        /** Add a slot to the vector of slots
+         * @param slot the slot to be added
         */
         void addSlot(const Slot &slot);
 
         /**
-         * @return vector of slots
+         * Get the slots
+         * @return the reference to the vector of slots
         */
         const vector<Slot> &getSlots() const;
 
@@ -72,6 +75,7 @@ class ClassSchedule {
         void addStudent(const Student &student);
 
         /**Bolean function that returns true if both ClassSchedule have the same UcId, false otherwise
+         * @param other the other ClassSchedule
          */
         bool sameUC(ClassSchedule other) const;
 
