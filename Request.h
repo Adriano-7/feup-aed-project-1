@@ -4,6 +4,11 @@
 #include "Student.h"
 #include <iostream>
 
+/**
+ * @brief Class to store the information about a given request.
+ */
+
+
 class Request{
     public:
         Request(const Student &student, const UcClass &desiredClass);

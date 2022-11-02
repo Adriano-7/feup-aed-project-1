@@ -3,9 +3,11 @@
 #define TRABALHO_TEST_H
 
 #include "ScheduleManager.h"
+
 /**
- * A class to test the methods in our project
+ * @brief Class to test the methods in our project.
  */
+
 class Test{
     public:
         /** Constructor

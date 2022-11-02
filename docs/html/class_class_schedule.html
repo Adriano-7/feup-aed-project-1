@@ -72,7 +72,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Class that represents a schedule for a class.  
+<p>Class that represents a schedule for a class, with a vector of slots and a set of students.  
  <a href="class_class_schedule.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_class_schedule_8h_source.html">ClassSchedule.h</a>&gt;</code></p>
@@ -95,6 +95,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a1091607ad18551c206a815a8b823ed29"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a533a549ea6583bc994167d863f4af916"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_uc_class.html">UcClass</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_class_schedule.html#a533a549ea6583bc994167d863f4af916">getUcClass</a> () const</td></tr>
 <tr class="separator:a533a549ea6583bc994167d863f4af916"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae4245108e596be85e9b7449075781c92"><td class="memItemLeft" align="right" valign="top">set&lt; <a class="el" href="class_student.html">Student</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_class_schedule.html#ae4245108e596be85e9b7449075781c92">getStudents</a> () const</td></tr>
+<tr class="separator:ae4245108e596be85e9b7449075781c92"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af6a739209d324916e2a62d886d7ec4e0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_class_schedule.html#af6a739209d324916e2a62d886d7ec4e0">addSlot</a> (const <a class="el" href="class_slot.html">Slot</a> &amp;slot)</td></tr>
 <tr class="separator:af6a739209d324916e2a62d886d7ec4e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adde4fc1fa0a2d164219c5e6a4e3bd15e"><td class="memItemLeft" align="right" valign="top">const vector&lt; <a class="el" href="class_slot.html">Slot</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_class_schedule.html#adde4fc1fa0a2d164219c5e6a4e3bd15e">getSlots</a> () const</td></tr>
@@ -123,7 +125,7 @@ set&lt; <a class="el" href="class_student.html">Student</a> &gt;&#160;</td><td c
 <tr class="separator:af0ca603110a80d5ec0f5dd3040ce3e9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Class that represents a schedule for a class. </p>
+<div class="textblock"><p>Class that represents a schedule for a class, with a vector of slots and a set of students. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a8d88a9c41fde5818bb1a96af0382ba80"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8d88a9c41fde5818bb1a96af0382ba80">&#9670;&nbsp;</a></span>ClassSchedule() <span class="overload">[1/3]</span></h2>
@@ -139,7 +141,7 @@ set&lt; <a class="el" href="class_student.html">Student</a> &gt;&#160;</td><td c
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Default Constructor, ucClass default constructor is called and vector of slots is set to empty </p>
+<p>Default Constructor, ucClass default constructor is called and a empty vector of slots is created </p>
 
 </div>
 </div>
@@ -160,7 +162,7 @@ set&lt; <a class="el" href="class_student.html">Student</a> &gt;&#160;</td><td c
 </div><div class="memdoc">
 <p>Constructor, the vector of slots is set to empty </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_uc_class.html">UcClass</a></td><td>the <a class="el" href="class_uc_class.html">UcClass</a> of the schedule </td></tr>
+    <tr><td class="paramname"><a class="el" href="class_uc_class.html" title="Class to store the information about a given class in a UC.">UcClass</a></td><td>the <a class="el" href="class_uc_class.html" title="Class to store the information about a given class in a UC.">UcClass</a> of the schedule </td></tr>
   </table>
   </dd>
 </dl>
@@ -192,7 +194,7 @@ set&lt; <a class="el" href="class_student.html">Student</a> &gt;&#160;</td><td c
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Constructor, given a ucId and a classId, creates a <a class="el" href="class_class_schedule.html" title="Class that represents a schedule for a class.">ClassSchedule</a> with the the vector of slots empty</p>
+<p>Constructor, given a ucId and a classId, creates a <a class="el" href="class_class_schedule.html" title="Class that represents a schedule for a class, with a vector of slots and a set of students.">ClassSchedule</a> with the the vector of slots empty</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">ucId</td><td></td></tr>
@@ -283,6 +285,24 @@ set&lt; <a class="el" href="class_student.html">Student</a> &gt;&#160;</td><td c
 
 </div>
 </div>
+<a id="ae4245108e596be85e9b7449075781c92"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae4245108e596be85e9b7449075781c92">&#9670;&nbsp;</a></span>getStudents()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">set&lt; <a class="el" href="class_student.html">Student</a> &gt; ClassSchedule::getStudents </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get students </p>
+
+</div>
+</div>
 <a id="a533a549ea6583bc994167d863f4af916"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a533a549ea6583bc994167d863f4af916">&#9670;&nbsp;</a></span>getUcClass()</h2>
 
@@ -297,7 +317,7 @@ set&lt; <a class="el" href="class_student.html">Student</a> &gt;&#160;</td><td c
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Get the <a class="el" href="class_uc_class.html">UcClass</a> </p>
+<p>Get the <a class="el" href="class_uc_class.html" title="Class to store the information about a given class in a UC.">UcClass</a> </p>
 
 </div>
 </div>
@@ -318,11 +338,11 @@ set&lt; <a class="el" href="class_student.html">Student</a> &gt;&#160;</td><td c
 </div><div class="memdoc">
 <p>Minor operator </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">other</td><td>The <a class="el" href="class_class_schedule.html" title="Class that represents a schedule for a class.">ClassSchedule</a> to compare to </td></tr>
+    <tr><td class="paramname">other</td><td>The <a class="el" href="class_class_schedule.html" title="Class that represents a schedule for a class, with a vector of slots and a set of students.">ClassSchedule</a> to compare to </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>true if the <a class="el" href="class_uc_class.html">UcClass</a> is smaller, false otherwise </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>true if the <a class="el" href="class_uc_class.html" title="Class to store the information about a given class in a UC.">UcClass</a> is smaller, false otherwise </dd></dl>
 
 </div>
 </div>
@@ -343,11 +363,11 @@ set&lt; <a class="el" href="class_student.html">Student</a> &gt;&#160;</td><td c
 </div><div class="memdoc">
 <p>Equality operator </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">other</td><td>The <a class="el" href="class_class_schedule.html" title="Class that represents a schedule for a class.">ClassSchedule</a> to compare to </td></tr>
+    <tr><td class="paramname">other</td><td>The <a class="el" href="class_class_schedule.html" title="Class that represents a schedule for a class, with a vector of slots and a set of students.">ClassSchedule</a> to compare to </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>true if the <a class="el" href="class_uc_class.html">UcClass</a> is equal, false otherwise </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>true if the <a class="el" href="class_uc_class.html" title="Class to store the information about a given class in a UC.">UcClass</a> is equal, false otherwise </dd></dl>
 
 </div>
 </div>
@@ -365,7 +385,7 @@ set&lt; <a class="el" href="class_student.html">Student</a> &gt;&#160;</td><td c
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Prints the <a class="el" href="class_class_schedule.html" title="Class that represents a schedule for a class.">ClassSchedule(calls printHeader, printSlots and printStudents)</a> </p>
+<p>Prints the <a class="el" href="class_class_schedule.html" title="Class that represents a schedule for a class, with a vector of slots and a set of students.">ClassSchedule(calls printHeader, printSlots and printStudents)</a> </p>
 
 </div>
 </div>
@@ -439,7 +459,7 @@ set&lt; <a class="el" href="class_student.html">Student</a> &gt;&#160;</td><td c
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Bolean function that returns true if both <a class="el" href="class_class_schedule.html" title="Class that represents a schedule for a class.">ClassSchedule</a> have the same UcId, false otherwise </p>
+<p>Bolean function that returns true if both <a class="el" href="class_class_schedule.html" title="Class that represents a schedule for a class, with a vector of slots and a set of students.">ClassSchedule</a> have the same UcId, false otherwise </p>
 
 </div>
 </div>

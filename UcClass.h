@@ -6,7 +6,7 @@
 using namespace std;
 
 /**
- * A class to store the information about a given class in a UC
+ * @brief Class to store the information about a given class in a UC.
  */
 
 class UcClass{

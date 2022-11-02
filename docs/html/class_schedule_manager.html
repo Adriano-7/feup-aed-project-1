@@ -65,7 +65,6 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_schedule_manager-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -73,7 +72,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Class that represents the schedule manager.  
+<p>Class to store the information about the schedules, requests and students.  
  <a href="class_schedule_manager.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_schedule_manager_8h_source.html">ScheduleManager.h</a>&gt;</code></p>
@@ -90,7 +89,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="separator:ac323a75c9918f4c429cde88103f99ad0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a730be2ab6c4e3f1bc7ba3d11ba75018f"><td class="memItemLeft" align="right" valign="top"><a id="a730be2ab6c4e3f1bc7ba3d11ba75018f"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_schedule_manager.html#a730be2ab6c4e3f1bc7ba3d11ba75018f">createSchedules</a> ()</td></tr>
-<tr class="memdesc:a730be2ab6c4e3f1bc7ba3d11ba75018f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates the schedules Reads the file "classes_per_uc.csv" and creates a vector of schedules with only the uc code and the number of classe. <br /></td></tr>
+<tr class="memdesc:a730be2ab6c4e3f1bc7ba3d11ba75018f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates the schedules Reads the file "classes_per_uc.csv" and creates a vector of schedules with only the uc code and the class code. <br /></td></tr>
 <tr class="separator:a730be2ab6c4e3f1bc7ba3d11ba75018f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa9cd7c49b7db003fdec970845b7c72bf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_schedule_manager.html#aa9cd7c49b7db003fdec970845b7c72bf">setSchedules</a> ()</td></tr>
 <tr class="memdesc:aa9cd7c49b7db003fdec970845b7c72bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the schedules Reads the file "classes.csv" and adds the slots to the schedules created in the previous function.  <a href="class_schedule_manager.html#aa9cd7c49b7db003fdec970845b7c72bf">More...</a><br /></td></tr>
@@ -98,14 +97,14 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memitem:a7af2b6012df3cf98a4828a3ab26cd067"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_schedule_manager.html#a7af2b6012df3cf98a4828a3ab26cd067">createStudents</a> ()</td></tr>
 <tr class="memdesc:a7af2b6012df3cf98a4828a3ab26cd067"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads the students_classes.csv file and creates the students set.  <a href="class_schedule_manager.html#a7af2b6012df3cf98a4828a3ab26cd067">More...</a><br /></td></tr>
 <tr class="separator:a7af2b6012df3cf98a4828a3ab26cd067"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a21aca814366e750d7bfe190b10b11616"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_schedule_manager.html#a21aca814366e750d7bfe190b10b11616">binarySearchSchedules</a> (const <a class="el" href="class_uc_class.html">UcClass</a> &amp;desiredUcCLass) const</td></tr>
-<tr class="memdesc:a21aca814366e750d7bfe190b10b11616"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that returns the index of the schedule with the ucClass passed as parameter.  <a href="class_schedule_manager.html#a21aca814366e750d7bfe190b10b11616">More...</a><br /></td></tr>
-<tr class="separator:a21aca814366e750d7bfe190b10b11616"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0b8d401656962163906cbbce56d6aaa9"><td class="memItemLeft" align="right" valign="top"><a id="a0b8d401656962163906cbbce56d6aaa9"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>requestHasCollision</b> (const <a class="el" href="class_request.html">Request</a> &amp;request) const</td></tr>
+<tr class="memitem:a00e0f3266ce65286c708e52fd6b20207"><td class="memItemLeft" align="right" valign="top">unsigned long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_schedule_manager.html#a00e0f3266ce65286c708e52fd6b20207">binarySearchSchedules</a> (const <a class="el" href="class_uc_class.html">UcClass</a> &amp;desiredUcCLass) const</td></tr>
+<tr class="memdesc:a00e0f3266ce65286c708e52fd6b20207"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that returns the index of the schedule with the ucClass passed as parameter.  <a href="class_schedule_manager.html#a00e0f3266ce65286c708e52fd6b20207">More...</a><br /></td></tr>
+<tr class="separator:a00e0f3266ce65286c708e52fd6b20207"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0b8d401656962163906cbbce56d6aaa9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_schedule_manager.html#a0b8d401656962163906cbbce56d6aaa9">requestHasCollision</a> (const <a class="el" href="class_request.html">Request</a> &amp;request) const</td></tr>
+<tr class="memdesc:a0b8d401656962163906cbbce56d6aaa9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that verifies if a given schedule has a conflict with the schedules of a given student.  <a href="class_schedule_manager.html#a0b8d401656962163906cbbce56d6aaa9">More...</a><br /></td></tr>
 <tr class="separator:a0b8d401656962163906cbbce56d6aaa9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3baee18c837ff981d35dc965ba0f4ef2"><td class="memItemLeft" align="right" valign="top"><a id="a3baee18c837ff981d35dc965ba0f4ef2"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>classesCollide</b> (const <a class="el" href="class_uc_class.html">UcClass</a> &amp;c1, const <a class="el" href="class_uc_class.html">UcClass</a> &amp;c2) const</td></tr>
+<tr class="memitem:a3baee18c837ff981d35dc965ba0f4ef2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_schedule_manager.html#a3baee18c837ff981d35dc965ba0f4ef2">classesCollide</a> (const <a class="el" href="class_uc_class.html">UcClass</a> &amp;c1, const <a class="el" href="class_uc_class.html">UcClass</a> &amp;c2) const</td></tr>
+<tr class="memdesc:a3baee18c837ff981d35dc965ba0f4ef2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that verifies if two given schedules have a conflict.  <a href="class_schedule_manager.html#a3baee18c837ff981d35dc965ba0f4ef2">More...</a><br /></td></tr>
 <tr class="separator:a3baee18c837ff981d35dc965ba0f4ef2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a123d9c735c3b5b305675d4a00fcf82c9"><td class="memItemLeft" align="right" valign="top"><a id="a123d9c735c3b5b305675d4a00fcf82c9"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>printStudentSchedule</b> (const string &amp;studentId) const</td></tr>
@@ -113,6 +112,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>printStudentSchedule<
 <tr class="memitem:ac73373a2b256ca35e589d2ddd69048d2"><td class="memItemLeft" align="right" valign="top"><a id="ac73373a2b256ca35e589d2ddd69048d2"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>printClassSchedule</b> (const string &amp;classCode) const</td></tr>
 <tr class="separator:ac73373a2b256ca35e589d2ddd69048d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc110193c9c8b1fcf448df7233757c93"><td class="memItemLeft" align="right" valign="top"><a id="adc110193c9c8b1fcf448df7233757c93"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>printUcStudents</b> (const string &amp;ucId) const</td></tr>
+<tr class="separator:adc110193c9c8b1fcf448df7233757c93"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad2210b03f039fdeec65168fb069b0bc6"><td class="memItemLeft" align="right" valign="top"><a id="ad2210b03f039fdeec65168fb069b0bc6"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>addRequest</b> (const <a class="el" href="class_student.html">Student</a> &amp;student, const <a class="el" href="class_uc_class.html">UcClass</a> &amp;ucClass)</td></tr>
 <tr class="separator:ad2210b03f039fdeec65168fb069b0bc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -122,11 +124,11 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>addRequest</b> (const
 <tr class="memitem:a986815717f5c3934a59b8346f7cb4d61"><td class="memItemLeft" align="right" valign="top"><a id="a986815717f5c3934a59b8346f7cb4d61"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>printUcSchedule</b> (const string &amp;ucId) const</td></tr>
 <tr class="separator:a986815717f5c3934a59b8346f7cb4d61"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a62ea845de4c37125119cb2dd5d8c9a34"><td class="memItemLeft" align="right" valign="top"><a id="a62ea845de4c37125119cb2dd5d8c9a34"></a>
-<a class="el" href="class_student.html">Student</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>findStudent</b> (const string &amp;studentId) const</td></tr>
+<tr class="memitem:a62ea845de4c37125119cb2dd5d8c9a34"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_student.html">Student</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_schedule_manager.html#a62ea845de4c37125119cb2dd5d8c9a34">findStudent</a> (const string &amp;studentId) const</td></tr>
+<tr class="memdesc:a62ea845de4c37125119cb2dd5d8c9a34"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that returns the student with the ID passed as parameter.  <a href="class_schedule_manager.html#a62ea845de4c37125119cb2dd5d8c9a34">More...</a><br /></td></tr>
 <tr class="separator:a62ea845de4c37125119cb2dd5d8c9a34"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6dc5261286d89b133d71d7f948c214da"><td class="memItemLeft" align="right" valign="top"><a id="a6dc5261286d89b133d71d7f948c214da"></a>
-<a class="el" href="class_class_schedule.html">ClassSchedule</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>findSchedule</b> (const <a class="el" href="class_uc_class.html">UcClass</a> &amp;ucClass) const</td></tr>
+<tr class="memitem:a6dc5261286d89b133d71d7f948c214da"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_class_schedule.html">ClassSchedule</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_schedule_manager.html#a6dc5261286d89b133d71d7f948c214da">findSchedule</a> (const <a class="el" href="class_uc_class.html">UcClass</a> &amp;ucClass) const</td></tr>
+<tr class="memdesc:a6dc5261286d89b133d71d7f948c214da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that returns the schedule with the ucClass passed as parameter.  <a href="class_schedule_manager.html#a6dc5261286d89b133d71d7f948c214da">More...</a><br /></td></tr>
 <tr class="separator:a6dc5261286d89b133d71d7f948c214da"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a22eb76ac709b9646df4329eb56722c49"><td class="memItemLeft" align="right" valign="top"><a id="a22eb76ac709b9646df4329eb56722c49"></a>
 const vector&lt; <a class="el" href="class_class_schedule.html">ClassSchedule</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getSchedules</b> () const</td></tr>
@@ -134,12 +136,6 @@ const vector&lt; <a class="el" href="class_class_schedule.html">ClassSchedule</a
 <tr class="memitem:ac1aa79addc42d57321ef6abb7c77e872"><td class="memItemLeft" align="right" valign="top"><a id="ac1aa79addc42d57321ef6abb7c77e872"></a>
 const set&lt; <a class="el" href="class_student.html">Student</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getStudents</b> () const</td></tr>
 <tr class="separator:ac1aa79addc42d57321ef6abb7c77e872"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
-Private Member Functions</h2></td></tr>
-<tr class="memitem:a257c3015e91ea3c456f670db9288681b"><td class="memItemLeft" align="right" valign="top"><a id="a257c3015e91ea3c456f670db9288681b"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>binarySearchUC</b> (string desiredUc)</td></tr>
-<tr class="separator:a257c3015e91ea3c456f670db9288681b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -154,17 +150,16 @@ queue&lt; <a class="el" href="class_request.html">Request</a> &gt;&#160;</td><td
 <tr class="separator:a22cfea4c8bfdbb639fda3465da17bb02"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Class that represents the schedule manager. </p>
-<p>This is the class reponsabile for managing the schedules </p>
+<div class="textblock"><p>Class to store the information about the schedules, requests and students. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a21aca814366e750d7bfe190b10b11616"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a21aca814366e750d7bfe190b10b11616">&#9670;&nbsp;</a></span>binarySearchSchedules()</h2>
+<a id="a00e0f3266ce65286c708e52fd6b20207"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a00e0f3266ce65286c708e52fd6b20207">&#9670;&nbsp;</a></span>binarySearchSchedules()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int ScheduleManager::binarySearchSchedules </td>
+          <td class="memname">unsigned long ScheduleManager::binarySearchSchedules </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="class_uc_class.html">UcClass</a> &amp;&#160;</td>
           <td class="paramname"><em>desiredUcCLass</em></td><td>)</td>
@@ -176,11 +171,47 @@ queue&lt; <a class="el" href="class_request.html">Request</a> &gt;&#160;</td><td
 <p>Function that returns the index of the schedule with the ucClass passed as parameter. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">ucClass</td><td></td></tr>
+    <tr><td class="paramname">desiredUcCLass</td><td></td></tr>
   </table>
   </dd>
 </dl>
 <p>Uses binary search to find the schedules </p>
+
+</div>
+</div>
+<a id="a3baee18c837ff981d35dc965ba0f4ef2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3baee18c837ff981d35dc965ba0f4ef2">&#9670;&nbsp;</a></span>classesCollide()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ScheduleManager::classesCollide </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_uc_class.html">UcClass</a> &amp;&#160;</td>
+          <td class="paramname"><em>c1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_uc_class.html">UcClass</a> &amp;&#160;</td>
+          <td class="paramname"><em>c2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Function that verifies if two given schedules have a conflict. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">c1,c2</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -202,6 +233,84 @@ queue&lt; <a class="el" href="class_request.html">Request</a> &gt;&#160;</td><td
 <p>Reads the students_classes.csv file and creates the students set. </p>
 <p>The students are created with the student id, name and the classes they are enrolled in</p>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a id="a6dc5261286d89b133d71d7f948c214da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6dc5261286d89b133d71d7f948c214da">&#9670;&nbsp;</a></span>findSchedule()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_class_schedule.html">ClassSchedule</a> * ScheduleManager::findSchedule </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_uc_class.html">UcClass</a> &amp;&#160;</td>
+          <td class="paramname"><em>ucClass</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Function that returns the schedule with the ucClass passed as parameter. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ucClass</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a62ea845de4c37125119cb2dd5d8c9a34"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a62ea845de4c37125119cb2dd5d8c9a34">&#9670;&nbsp;</a></span>findStudent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_student.html">Student</a> * ScheduleManager::findStudent </td>
+          <td>(</td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>studentId</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Function that returns the student with the ID passed as parameter. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">studentId</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a0b8d401656962163906cbbce56d6aaa9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0b8d401656962163906cbbce56d6aaa9">&#9670;&nbsp;</a></span>requestHasCollision()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ScheduleManager::requestHasCollision </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_request.html">Request</a> &amp;&#160;</td>
+          <td class="paramname"><em>request</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Function that verifies if a given schedule has a conflict with the schedules of a given student. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">request</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

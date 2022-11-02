@@ -8,13 +8,12 @@
 #include "Student.h"
 
 /**
- * @brief Class that represents a schedule for a class
- * @details
+ * @brief Class that represents a schedule for a class, with a vector of slots and a set of students
  */
 
 class ClassSchedule {
     public:
-        /**Default Constructor, ucClass default constructor is called and vector of slots is set to empty*/
+        /**Default Constructor, ucClass default constructor is called and a empty vector of slots is created*/
         ClassSchedule();
 
         /**Constructor, the vector of slots is set to empty
