@@ -49,6 +49,10 @@ class ClassSchedule {
         */
         UcClass getUcClass() const;
 
+        /**Get students
+        */
+        set<Student> getStudents() const;
+
         /**Get add the slot to the vector of slots
         */
         void addSlot(const Slot &slot);

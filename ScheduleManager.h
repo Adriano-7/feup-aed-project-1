@@ -24,6 +24,7 @@ class ScheduleManager {
         bool classesCollide(const UcClass &c1, const UcClass &c2) const;
         void printStudentSchedule(const string &studentId) const;
         void printClassSchedule(const string &classCode) const;
+        void printUcStudents(const string &ucId) const;
         void addRequest(const Student &student, const UcClass &ucClass);
         void addRequest(const Request &request);
 

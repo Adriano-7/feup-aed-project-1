@@ -41,6 +41,10 @@ const vector<Slot> &ClassSchedule::getSlots() const {
     return slots;
 }
 
+set<Student> ClassSchedule::getStudents() const {
+    return students;
+}
+
 bool ClassSchedule::sameUC(ClassSchedule other) const {
     return ucClass.sameUC(other.getUcClass());
 }
@@ -82,7 +86,7 @@ void ClassSchedule::printStudents(const string &sortType) const{
     cout << ">> Number of students: " << students.size() << endl;
     cout << ">> Students:" << endl;
     for(const Student &student: *studentsVector){
-        student.printHeader();
+        cout << "   "; student.printHeader();
     }
     delete studentsVector;
 }

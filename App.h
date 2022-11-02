@@ -16,7 +16,9 @@ class App {
         void checkClassStudents() const;
         void checkUcSchedule() const;
         void submitNewRequest();
+        void checkUcStudents() const;
         void waitForInput() const;
+        static const int sleepTime = 800000;
 
     private:
         ScheduleManager manager;

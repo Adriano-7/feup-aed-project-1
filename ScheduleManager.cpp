@@ -32,7 +32,7 @@ void ScheduleManager::readFiles() {
 
 /**
  * @brief Creates the schedules
- * Reads the file "classes_per_uc.csv" and creates a vector of schedules with only the uc code and the number of classe
+ * Reads the file "classes_per_uc.csv" and creates a vector of schedules with only the uc code and the class code
  */
 void ScheduleManager::createSchedules(){
     fstream file("../data/classes_per_uc.csv");
@@ -57,7 +57,6 @@ void ScheduleManager::createSchedules(){
  * Reads the file "classes.csv" and adds the slots to the schedules created in the previous function
  * @see createSchedules()
  */
-
 void ScheduleManager::setSchedules() {
     fstream file("../data/classes.csv");
     file.ignore(1000, '\n');
@@ -141,6 +140,7 @@ unsigned long ScheduleManager::binarySearchSchedules(const UcClass &desiredUcCLa
     }
     return -1;
 }
+
 
 bool ScheduleManager::classesCollide(const UcClass &c1, const UcClass &c2) const{
     if(c1.sameUC(c2)) return false;
@@ -240,7 +240,7 @@ void ScheduleManager::printStudentSchedule(const string &studentId) const {
     vector<string> weekdaysNames = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday"};
 
     cout << endl <<  ">> The student " << student->getName() << " with UP number " << student->getId()
-         << " is enrolled in the following classes:" << endl;
+         << " is enrolled in the following classes:" << endl << "   ";
 
     student->printClasses();
 
@@ -342,6 +342,29 @@ void ScheduleManager::printUcSchedule(const string &subjectCode) const{
                              << decimalToHours(slot.second.getEndTime()) << "\t" << slot.second.getType() << "\t" << slot.first << endl;
         }
     }
+}
+
+void ScheduleManager::printUcStudents(const string &ucId) const {
+    auto studentsVector = new vector<Student>;
+    for (const ClassSchedule &cs: schedules) {
+        if (cs.getUcClass().getUcId() == ucId) {
+            for (const Student &student: cs.getStudents()) {
+                studentsVector->push_back(student);
+            }
+        }
+    }
+    if(studentsVector->empty()){
+        cout << ">> Subject not found" << endl;
+        return;
+    }
+    sort(studentsVector->begin(), studentsVector->end(), [](const Student &s1, const Student &s2) {
+        return s1.getName() < s2.getName();
+    });
+    cout << endl << ">> The students enrolled in the subject " << ucId << " are:" << endl;
+    for (const Student &student: *studentsVector) {
+        cout << "   "; student.printHeader();
+    }
+    delete studentsVector;
 }
 
 const vector<ClassSchedule> &ScheduleManager::getSchedules() const {

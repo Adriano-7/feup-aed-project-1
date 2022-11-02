@@ -20,13 +20,14 @@ App::App(const ScheduleManager &manager) {
 int App::optionsMenu() {
 
     int option;
-    cout    << endl << "------------ OPTIONS ------------" << endl
+    cout    << endl << "-------------- OPTIONS --------------" << endl
             << "1 Check the schedule of a student" << endl
             << "2 Check the schedule of a class" << endl
-            << "3 Check the students in class " << endl
-            << "4 Check the schedule of a subject "<< endl
-            << "5 Submit a changing request" << endl
-            << "6 Exit" << endl
+            << "3 Check the schedule of a subject"<< endl
+            << "4 Check the students in class"<< endl
+            << "5 Check the students enrolled in a subject" << endl
+            << "6 Submit a changing request" << endl
+            << "7 Exit" << endl
             << "What would you like to do next? " ;
     cin >> option;
     cout << endl;
@@ -41,6 +42,7 @@ int App::optionsMenu() {
 
 
 void App::waitForInput() const{
+    usleep(sleepTime);
     string q;
     cout << endl << "Insert any key to go back to the menu: ";
     cin >> q;
@@ -56,7 +58,6 @@ void App::checkStudentSchedule() const {
     cout << "Please insert the student's UP number: ";
     cin >> upNumber;
     manager.printStudentSchedule(upNumber);
-    waitForInput();
 }
 
 /**
@@ -66,7 +67,6 @@ void App::checkClassSchedule() const{
     string classCode;
     cout << "Please insert the class code: "; cin >>classCode; cout<<endl;
     manager.printClassSchedule(classCode);
-    waitForInput();
 }
 
 /**
@@ -84,7 +84,6 @@ void App::checkClassStudents() const{
         return;
     }
     cs->printStudents();
-    waitForInput();
 }
 
 /**
@@ -107,8 +106,7 @@ void App::submitNewRequest() {
     Student *student = manager.findStudent(upNumber);
     if (student == nullptr) {
         cout << ">> Student not found." << endl;
-        usleep(900000);
-        waitForInput();
+        return;
     }
     student->print();
     cout << "The following information is related to the class you want to change to, "
@@ -120,14 +118,16 @@ void App::submitNewRequest() {
     ClassSchedule *cs = manager.findSchedule(UcClass(ucCode, classCode));
     if (cs == nullptr) {
         cout << ">> Class not found." << endl;
-        usleep(900000);
-        waitForInput();
         return;
     }
-    manager.addRequest(*student, cs->getUcClass());
+    manager.addRequest(*student, UcClass(ucCode, classCode));
     cout << ">> Request submitted successfully." << endl;
-    usleep(900000);
-    waitForInput();
+}
+
+void App::checkUcStudents() const{
+    string ucCode;
+    cout << "Please insert the subject code: "; cin >> ucCode;
+    manager.printUcStudents(ucCode);
 }
 
 
@@ -140,35 +140,46 @@ int App::run() {
     manager.readFiles();
 
     while (true) {
-        system("clear");
         int option = optionsMenu();
         switch (option) {
             case 1: {
                 checkStudentSchedule();
+                waitForInput();
                 break;
             }
             case 2: {
                 checkClassSchedule();
+                waitForInput();
                 break;
             }
             case 3: {
-                checkClassStudents();
+                checkUcSchedule();
+                waitForInput();
                 break;
             }
             case 4: {
-                checkUcSchedule();
+                checkClassStudents();
+                waitForInput();
                 break;
             }
             case 5: {
-                submitNewRequest();
+                checkUcStudents();
+                waitForInput();
                 break;
             }
             case 6:
-                return 0;
-            default:
-                cout << ">> Please choose a valid option" << endl;
-                usleep(900000);
+                submitNewRequest();
+                waitForInput();
                 break;
+
+            case 7: {
+                return 0;
+            }
+            default:{
+                cout << ">> Please choose a valid option" << endl;
+                usleep(sleepTime);
+                break;
+            }
         }
     }
 }
