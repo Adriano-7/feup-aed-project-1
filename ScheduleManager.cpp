@@ -144,6 +144,7 @@ unsigned long ScheduleManager::binarySearchSchedules(const UcClass &desiredUcCLa
 /**
  * @brief Function that verifies if two given schedules have a conflict
  * @param c1, c2
+ * @see Slot::collides()
  */
 bool ScheduleManager::classesCollide(const UcClass &c1, const UcClass &c2) const{
     if(c1.sameUC(c2)) return false;
@@ -190,15 +191,19 @@ Student* ScheduleManager::findStudent(const string &studentId) const{
     auto student = students.find(Student(studentId, ""));
     return student == students.end() ? nullptr : const_cast<Student*>(&(*student));
 }
-
+/**
+ * @brief adds a request to the requests queue
+ */
 void ScheduleManager::addRequest(const Student &student, const UcClass &ucClass) {
     requests.push(Request(student, ucClass));
 }
 
-void ScheduleManager::addRequest(const Request &request) {
-    requests.push(request);
-}
-
+/**
+ * @brief Function the organizes the slots in weekdays
+ * @details The slots are organized in a vector in which the index is associated with the weekday.
+ * The index 0 is associated with Monday, 1 with Tuesday, 2 with Wednesday...
+ *
+ */
 void insertIntoWeek(vector<vector<pair<string, Slot>>> &weekdays , const vector<pair<string, Slot>> &slots){
     for (const pair<string, Slot> &slot: slots) {
         if (slot.second.getWeekDay() == "Monday") {
@@ -214,7 +219,10 @@ void insertIntoWeek(vector<vector<pair<string, Slot>>> &weekdays , const vector<
         }
     }
 }
-
+/**
+ * @brief Function that organizes the slots by weekday
+ * @param weekdays
+ */
 void groupDuplicates(vector<vector<pair<string, Slot>>> &weekdays){
     for (int i = 0; i < weekdays.size(); i++) {
         for (int j = 0; j < weekdays[i].size(); j++) {
@@ -228,7 +236,11 @@ void groupDuplicates(vector<vector<pair<string, Slot>>> &weekdays){
         }
     }
 }
-
+/**
+ * @brief  Function converts decimal time to string
+ * @param weekdays
+ *
+ */
 string decimalToHours(int decimal){
     double time = decimal;
     int timeMins = (int)floor( time * 60.0 );
@@ -240,7 +252,10 @@ string decimalToHours(int decimal){
     if (minutes < 10) minutesStr = "0" + minutesStr;
     return hoursStr + ":" + minutesStr;
 }
-
+/**
+ * @brief Function that prints the schedule of a given student
+ * @param student
+ */
 void ScheduleManager::printStudentSchedule(const string &studentId) const {
     system("clear");
     Student* student = findStudent(studentId);
@@ -289,6 +304,10 @@ struct slotUcID{
     string ucID;
 };
 
+/**@brief Function that prints the schedule of a class
+ * @param classCode
+ *
+ */
 void ScheduleManager::printClassSchedule(const string &classCode) const{
     system("clear");
     map<string, vector<slotUcID>> slots;
@@ -306,7 +325,6 @@ void ScheduleManager::printClassSchedule(const string &classCode) const{
         cout<<">> Class not found"<<endl;
         return;
     }
-
     cout << ">> The schedule for the class " << classCode << " is:" << endl;
     vector<string> weekdays {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday"};
     for(const string &weekday : weekdays){
@@ -320,7 +338,10 @@ void ScheduleManager::printClassSchedule(const string &classCode) const{
         }
     }
 }
-
+/**
+ * @brief Function that print the schedule of a given subject
+ * @param subjectCode
+ */
 void ScheduleManager::printUcSchedule(const string &subjectCode) const{
     vector<ClassSchedule> schedulesUC;
     for (const ClassSchedule &cs: schedules) {
@@ -358,7 +379,10 @@ void ScheduleManager::printUcSchedule(const string &subjectCode) const{
         }
     }
 }
-
+/** @brief Function that prints the students enrolled in a UC
+ *
+ * @param ucId
+ */
 void ScheduleManager::printUcStudents(const string &ucId) const {
     auto studentsVector = new vector<Student>;
     for (const ClassSchedule &cs: schedules) {
@@ -381,11 +405,15 @@ void ScheduleManager::printUcStudents(const string &ucId) const {
     }
     delete studentsVector;
 }
-
+/** @brief Getter of the vector of schedules
+ *
+ */
 const vector<ClassSchedule> &ScheduleManager::getSchedules() const {
     return schedules;
 }
-
+/** @brief Getter of the set of students
+ *
+ */
 const set<Student> &ScheduleManager::getStudents() const {
     return students;
 }

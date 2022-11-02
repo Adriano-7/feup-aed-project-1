@@ -1,5 +1,10 @@
 var searchData=
 [
-  ['test_37',['Test',['../class_test.html',1,'Test'],['../class_test.html#a3133763718e2f4fd08ef025209c26034',1,'Test::Test(ScheduleManager manager)']]],
-  ['testsortingschedules_38',['testSortingSchedules',['../class_test.html#ac2f076c3d28f47df9af64e53ce7e6085',1,'Test']]]
+  ['sameuc_42',['sameUC',['../class_class_schedule.html#a17032a7764a6787cdf37e085a1985f01',1,'ClassSchedule::sameUC()'],['../class_uc_class.html#ad9a17a3bb33b701aee967f94e5bec861',1,'UcClass::sameUC()']]],
+  ['schedulemanager_43',['ScheduleManager',['../class_schedule_manager.html',1,'ScheduleManager'],['../class_schedule_manager.html#a01e612817374dc034ba3869d5ab38afb',1,'ScheduleManager::ScheduleManager()']]],
+  ['setschedules_44',['setSchedules',['../class_schedule_manager.html#aa9cd7c49b7db003fdec970845b7c72bf',1,'ScheduleManager']]],
+  ['slot_45',['Slot',['../class_slot.html',1,'Slot'],['../class_slot.html#a06a938e522fc7d42a849127007dbfe8b',1,'Slot::Slot()']]],
+  ['slotucid_46',['slotUcID',['../structslot_uc_i_d.html',1,'']]],
+  ['student_47',['Student',['../class_student.html',1,'']]],
+  ['submitnewrequest_48',['submitNewRequest',['../class_app.html#a2ab6ec40316e53aa924cfa3e5e8f4df4',1,'App']]]
 ];
