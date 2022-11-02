@@ -6,7 +6,6 @@
 
 class Request{
     public:
-
         Request(const Student &student, const UcClass &desiredClass);
         Student getStudent() const;
         UcClass getDesiredClass() const;

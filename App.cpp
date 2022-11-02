@@ -7,13 +7,15 @@
 
 using namespace std;
 
-
+/**
+ * Constructor
+ * @param manager
+ */
 App::App(const ScheduleManager &manager) {
     this->manager = manager;
     this->sleepTime = 800000;
     cout << ">> Schedule manager is online" << endl;
 }
-
 
 /**
  * @brief Function that prints the main menu
@@ -41,7 +43,9 @@ int App::optionsMenu() const {
     return option;
 }
 
-
+/**
+ * @brief Function that makes the program wait for user input to continue
+ */
 void App::waitForInput() const{
     usleep(sleepTime);
     string q;
@@ -125,18 +129,19 @@ void App::submitNewRequest() {
     cout << ">> Request submitted successfully." << endl;
 }
 
+/**
+ * @brief Function that prints the students enrolled in a subject
+ */
 void App::checkUcStudents() const{
     string ucCode;
     cout << "Please insert the subject code: "; cin >> ucCode;
     manager.printUcStudents(ucCode);
 }
 
-
 /**
  * @brief Function that runs the application
  * @return 0 if the application was closed successfully
  */
-
 int App::run() {
     manager.readFiles();
 

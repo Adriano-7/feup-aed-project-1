@@ -101,7 +101,7 @@ void ScheduleManager::createStudents() {
         string id = row[0], name = row[1];
 
         UcClass newUcClass = UcClass(row[2], row[3]);
-        int i = binarySearchSchedules(newUcClass);
+        unsigned long i = binarySearchSchedules(newUcClass);
         Student student(id, name);
 
         if (students.find(student) == students.end()) {
@@ -119,7 +119,7 @@ void ScheduleManager::createStudents() {
 }
 /**
  * @brief Function that returns the index of the schedule with the ucClass passed as parameter
- * @param ucClass
+ * @param desiredUcCLass
  * @details Uses binary search to find the schedules
  *
  */
@@ -141,7 +141,10 @@ unsigned long ScheduleManager::binarySearchSchedules(const UcClass &desiredUcCLa
     return -1;
 }
 
-
+/**
+ * @brief Function that verifies if two given schedules have a conflict
+ * @param c1, c2
+ */
 bool ScheduleManager::classesCollide(const UcClass &c1, const UcClass &c2) const{
     if(c1.sameUC(c2)) return false;
     ClassSchedule* cs1 = findSchedule(c1);
@@ -154,6 +157,10 @@ bool ScheduleManager::classesCollide(const UcClass &c1, const UcClass &c2) const
     return false;
 }
 
+/**
+ * @brief Function that verifies if a given schedule has a conflict with the schedules of a given student
+ * @param request
+ */
 bool ScheduleManager::requestHasCollision(const Request &request) const{
     Student student = request.getStudent();
     UcClass desiredClass = request.getDesiredClass();
@@ -164,6 +171,10 @@ bool ScheduleManager::requestHasCollision(const Request &request) const{
     return false;
 }
 
+/**
+ * @brief Function that returns the schedule with the ucClass passed as parameter
+ * @param ucClass
+ */
 ClassSchedule* ScheduleManager::findSchedule(const UcClass &ucClass) const {
     int index = binarySearchSchedules(ucClass);
     if(index == -1) return nullptr;
@@ -171,6 +182,10 @@ ClassSchedule* ScheduleManager::findSchedule(const UcClass &ucClass) const {
 }
 
 
+/**
+ * @brief Function that returns the student with the ID passed as parameter
+ * @param studentId
+ */
 Student* ScheduleManager::findStudent(const string &studentId) const{
     auto student = students.find(Student(studentId, ""));
     return student == students.end() ? nullptr : const_cast<Student*>(&(*student));
