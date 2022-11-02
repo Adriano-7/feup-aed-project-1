@@ -46,6 +46,7 @@ class ScheduleManager {
         * @param desiredUcCLass
         * @details Uses binary search to find the schedules
         * @return The index of the schedule with the ucClass passed as parameter
+         * @see Slot::collides()
         */
         unsigned long binarySearchSchedules(const UcClass &desiredUcCLass) const;
 
@@ -75,8 +76,8 @@ class ScheduleManager {
         void printClassSchedule(const string &classCode) const;
 
         /**
-         * @brief Function that prints the students of a given uc
-         * @param ucCode
+         * @brief Function that prints the students enrolled a given uc
+         * @param ucId
          */
         void printUcStudents(const string &ucId) const;
 
@@ -92,7 +93,8 @@ class ScheduleManager {
         void addRequest(const Request &request);
 
         /**
-         * @brief Function that prints the schedule of a given uc
+         * @brief Function that print the schedule of a given subject
+         * @param subjectCode
          */
         void printUcSchedule(const string &ucId) const;
 
@@ -109,12 +111,12 @@ class ScheduleManager {
         ClassSchedule* findSchedule(const UcClass &ucClass) const;
 
         /**
-         * @brief Function that returns the vector of ClassSchedules
+         * @brief Getter of the vector of ClassSchedules
          */
         const vector<ClassSchedule> &getSchedules() const;
 
         /**
-         * @brief Function that returns the set of students
+         * @brief Getter of set of students
          */
         const set<Student> &getStudents() const;
 

@@ -151,10 +151,11 @@ void ScheduleManager::addRequest(const Student &student, const UcClass &ucClass)
     requests.push(Request(student, ucClass));
 }
 
-void ScheduleManager::addRequest(const Request &request) {
-    requests.push(request);
-}
-
+/**
+ * @brief Function the organizes the slots in weekdays
+ * @details The slots are organized in a vector in which the index is associated with the weekday.
+ * The index 0 is associated with Monday, 1 with Tuesday, 2 with Wednesday...
+ */
 void insertIntoWeek(vector<vector<pair<string, Slot>>> &weekdays , const vector<pair<string, Slot>> &slots){
     for (const pair<string, Slot> &slot: slots) {
         if (slot.second.getWeekDay() == "Monday") {
@@ -170,7 +171,10 @@ void insertIntoWeek(vector<vector<pair<string, Slot>>> &weekdays , const vector<
         }
     }
 }
-
+/**
+ * @brief Function that organizes the slots by weekday
+ * @param weekdays
+ */
 void groupDuplicates(vector<vector<pair<string, Slot>>> &weekdays){
     for (int i = 0; i < weekdays.size(); i++) {
         for (int j = 0; j < weekdays[i].size(); j++) {
@@ -184,7 +188,11 @@ void groupDuplicates(vector<vector<pair<string, Slot>>> &weekdays){
         }
     }
 }
-
+/**
+ * @brief  Function converts decimal time to string
+ * @param weekdays
+ *
+ */
 string decimalToHours(int decimal){
     double time = decimal;
     int timeMins = (int)floor( time * 60.0 );
@@ -262,7 +270,6 @@ void ScheduleManager::printClassSchedule(const string &classCode) const{
         cout<<">> Class not found"<<endl;
         return;
     }
-
     cout << ">> The schedule for the class " << classCode << " is:" << endl;
     vector<string> weekdays {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday"};
     for(const string &weekday : weekdays){
