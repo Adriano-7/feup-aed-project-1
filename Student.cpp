@@ -32,6 +32,15 @@ vector <UcClass> Student::getClasses() const {
     return classes;
 }
 
+bool Student::isEnrolled(const string &ucCode) const {
+    for (auto &i : classes) {
+        if (i.getUcId() == ucCode) {
+            return true;
+        }
+    }
+    return false;
+}
+
 bool Student::operator==(const Student &other) const{
     return this->id == other.getId();
 }

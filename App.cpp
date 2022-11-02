@@ -118,6 +118,10 @@ void App::submitNewRequest() {
             "for a certain curricular unit." << endl;
     cout << "Please insert the subject code: ";
     cin >> ucCode;
+    if(!student->isEnrolled(ucCode)){
+        cout << ">> This student is not enrolled in this subject." << endl;
+        return;
+    }
     cout << "Please insert the class code: ";
     cin >> classCode;
     ClassSchedule *cs = manager.findSchedule(UcClass(ucCode, classCode));
