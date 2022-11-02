@@ -199,6 +199,50 @@ void ScheduleManager::addRequest(const Request &request) {
     requests.push(request);
 }
 
+vector<ClassSchedule> ScheduleManager::classesOfSubject(const string &ucId) const {
+    vector<ClassSchedule> classes;
+    for(const ClassSchedule &cs : schedules){
+        if(cs.getUcClass().getUcId() == ucId){
+            classes.push_back(cs);
+        }
+    }
+    return classes;
+}
+
+vector<Student> ScheduleManager::studentsOfSubject(const string &ucId) const {
+    vector<Student> subjectStudents;
+    vector<ClassSchedule> subjectClasses = classesOfSubject(ucId);
+    for(const ClassSchedule &cs : subjectClasses){
+        for(const Student &student : cs.getStudents()){
+            subjectStudents.push_back(student);
+        }
+    }
+    return subjectStudents;
+}
+
+bool ScheduleManager::requestExceedsMaxStudents(const Request &request) const {
+    string ucId = request.getDesiredClass().getUcId();
+    vector<ClassSchedule> subjectClasses = classesOfSubject(ucId);
+    sort(subjectClasses.begin(), subjectClasses.end(), [](const ClassSchedule &cs1, const ClassSchedule &cs2){
+        return cs1.getNumStudents() < cs2.getNumStudents();
+    });
+    int maxDifference = subjectClasses[subjectClasses.size() - 1].getNumStudents() - subjectClasses[0].getNumStudents();
+    if(maxDifference >= 4) return true;
+    unsigned long enrolledSubjectStudents = 0;
+    for(const ClassSchedule &cs : subjectClasses){
+        enrolledSubjectStudents += cs.getNumStudents();
+    }
+    unsigned long maxStudents = enrolledSubjectStudents/16 + 4;
+    ClassSchedule* schedule = findSchedule(request.getDesiredClass());
+    return schedule->getNumStudents() >= maxStudents;
+}
+
+bool ScheduleManager::processRequest(const Request &request) {
+    if(requestHasCollision(request)) return false;
+    if(requestExceedsMaxStudents(request)) return false;
+    return true;
+}
+
 void insertIntoWeek(vector<vector<pair<string, Slot>>> &weekdays , const vector<pair<string, Slot>> &slots){
     for (const pair<string, Slot> &slot: slots) {
         if (slot.second.getWeekDay() == "Monday") {
@@ -360,27 +404,19 @@ void ScheduleManager::printUcSchedule(const string &subjectCode) const{
 }
 
 void ScheduleManager::printUcStudents(const string &ucId) const {
-    auto studentsVector = new vector<Student>;
-    for (const ClassSchedule &cs: schedules) {
-        if (cs.getUcClass().getUcId() == ucId) {
-            for (const Student &student: cs.getStudents()) {
-                studentsVector->push_back(student);
-            }
-        }
-    }
-    if(studentsVector->empty()){
+    vector<Student> studentsVector = studentsOfSubject(ucId);
+    if(studentsVector.empty()){
         cout << ">> Subject not found" << endl;
         return;
     }
-    sort(studentsVector->begin(), studentsVector->end(), [](const Student &s1, const Student &s2) {
+    sort(studentsVector.begin(), studentsVector.end(), [](const Student &s1, const Student &s2) {
         return s1.getName() < s2.getName();
     });
-    cout << endl << ">> Number of students: " << studentsVector->size() << endl;
+    cout << endl << ">> Number of students: " << studentsVector.size() << endl;
     cout << ">> Students:" << endl;
-    for (const Student &student: *studentsVector) {
+    for (const Student &student: studentsVector) {
         cout << "   "; student.printHeader();
     }
-    delete studentsVector;
 }
 
 const vector<ClassSchedule> &ScheduleManager::getSchedules() const {
