@@ -372,6 +372,7 @@ void ScheduleManager::printStudentSchedule(const string &studentId) const {
         cout << ">> Student not found" << endl;
         return;
     }
+
     vector<vector<pair<string, Slot>>> weekdays(5);
     vector<UcClass> studentClasses = student->getClasses();
 
@@ -414,7 +415,6 @@ void ScheduleManager::printClassSchedule(const string &classCode) const{
     system("clear");
     struct slotUcID{Slot slot; string ucID;};
     map<string, vector<slotUcID>> slots;
-    const vector<ClassSchedule> check = schedules;
     for(const ClassSchedule &cs : schedules){
         if(cs.getUcClass().getClassId() == classCode){
             for(const Slot &slot : cs.getSlots()){
@@ -445,13 +445,14 @@ void ScheduleManager::printClassSchedule(const string &classCode) const{
 
 /**
  * @brief Function that print the schedule of a given subject
- * @param subjectCode
+ * @param uc
  */
-void ScheduleManager::printUcSchedule(const string &subjectCode) const{
+void ScheduleManager::printUcSchedule(const string &uc) const{
     system("clear");
     vector<ClassSchedule> schedulesUC;
+
     for (const ClassSchedule &cs: schedules) {
-        if (cs.getUcClass().getUcId() == subjectCode) {
+        if (cs.getUcClass().getUcId() == uc) {
             schedulesUC.push_back(cs);
         }
     }
@@ -471,7 +472,7 @@ void ScheduleManager::printUcSchedule(const string &subjectCode) const{
         insertIntoWeek(weekdays, slots);
         groupDuplicates(weekdays);
     }
-    cout << endl << ">> The UC "<< subjectCode << " has the following schedule:" << endl;
+    cout << endl << ">> The UC "<< uc << " has the following schedule:" << endl;
 
     for (int i = 0; i < weekdays.size(); i++) {
         sort(weekdays[i].begin(), weekdays[i].end(), [](const pair<string, Slot> &a,const pair <string, Slot> &b) {

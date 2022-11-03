@@ -7,7 +7,7 @@
 using namespace std;
 
 /**
-* @brief Constructor, sleepTime is set to 800000 ms
+* @brief Constructor, sleepTime is set by default to 800000 ms
 * @param ScheduleManager manager
 */
 App::App(const ScheduleManager &manager) {
@@ -50,6 +50,7 @@ int App::optionsMenu() const {
 */
 int App::run() {
     manager.readFiles();
+    system("clear");
 
     while (true) {
         int option = optionsMenu();
@@ -107,8 +108,7 @@ int App::run() {
 */
 void App::checkStudentSchedule() const {
     string upNumber;
-    cout << "Please insert the student's UP number: ";
-    cin >> upNumber;
+    cout << "Please insert the student's UP number: "; cin >> upNumber;cout << endl;
     manager.printStudentSchedule(upNumber);
 }
 /**
@@ -124,20 +124,22 @@ void App::checkClassSchedule() const{
 */
 void App::checkClassStudents() const{
     string ucCode, classCode;
-    cout << "Please insert the uc code: "; cin >> ucCode;
+    cout << "Please insert the uc code: "; cin >> ucCode; cout << endl;
     cout << "Please insert the class code: "; cin >> classCode; cout << endl;
     ClassSchedule* cs = manager.findSchedule(UcClass(ucCode, classCode));
+
     if(cs == nullptr){
+        system("clear");
         cout << ">> Class not found" << endl;
-        usleep(900000);
+        usleep(sleepTime);
         return;
     }
 
-    cout << "You want to display the students in what order ?" << endl;
-    cout << "1 Alphabetical" << endl;
-    cout << "2 Alphabetical in reverse" << endl;
-    cout << "3 Numerical" << endl;
-    cout << "4 Numerical in reverse" << endl;
+    cout << "You want to display the students in what order ?" << endl
+         << "1 - Alphabetical" << endl
+         << "2 - Alphabetical in reverse" << endl
+         << "3 - Numerical" << endl
+         << "4 - Numerical in reverse" << endl;
     int option; cin >> option;
     switch (option) {
         case 1:
@@ -154,7 +156,7 @@ void App::checkClassStudents() const{
             break;
         default:
             cout << ">> Please choose a valid option" << endl;
-            usleep(900000);
+            usleep(sleepTime);
             break;
     }
 }
@@ -172,14 +174,14 @@ void App::checkUcSchedule() const {
 */
 void App::submitNewRequest() {
     string upNumber, ucCode, classCode;
-    cout << "Please insert the student's UP number: ";
-    cin >> upNumber;
-    cout << endl;
+    cout << "Please insert the student's UP number: "; cin >> upNumber; cout << endl;
     Student *student = manager.findStudent(upNumber);
     if (student == nullptr) {
+        system("clear");
         cout << ">> Student not found." << endl;
         return;
     }
+
     student->print();
     cout << endl << "The following information is related to the class you want to change to, "
                     "for a certain curricular unit." << endl;

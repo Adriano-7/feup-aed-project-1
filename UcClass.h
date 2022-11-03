@@ -7,11 +7,7 @@ using namespace std;
 
 /**
  * @brief Class to store the information about a given class in a UC
- * @param id
- * @param classId
  */
-
-
 class UcClass{
     public:
         UcClass();
