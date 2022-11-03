@@ -10,10 +10,6 @@
 
 #include "ScheduleManager.h"
 
-/**
- * @brief Schedule Manager constructor
- *
- */
 ScheduleManager::ScheduleManager() {
     this->students = set<Student>();
     this->schedules = vector<ClassSchedule>();
@@ -21,20 +17,12 @@ ScheduleManager::ScheduleManager() {
     this->rejectedRequests = vector<Request>();
 }
 
-/**
- * @brief Reads the files and creates the students and schedules
- *
- */
 void ScheduleManager::readFiles() {
     createSchedules();
     setSchedules();
     createStudents();
 }
 
-/**
- * @brief Creates the schedules
- * Reads the file "classes_per_uc.csv" and creates a vector of schedules with only the uc code and the class code
- */
 void ScheduleManager::createSchedules(){
     fstream file("../data/classes_per_uc.csv");
     file.ignore(1000, '\n');
@@ -53,11 +41,6 @@ void ScheduleManager::createSchedules(){
     }
 }
 
-/**
- * @brief Sets the schedules
- * Reads the file "classes.csv" and adds the slots to the schedules created in the previous function
- * @see createSchedules()
- */
 void ScheduleManager::setSchedules() {
     fstream file("../data/classes.csv");
     file.ignore(1000, '\n');
@@ -74,19 +57,13 @@ void ScheduleManager::setSchedules() {
         string classCode = row[0], ucCode = row[1], weekDay = row[2], startTime = row[3], duration = row[4], type = row[5];
         UcClass ucClass(ucCode, classCode);
         Slot slot(weekDay, stof(startTime), stof(duration), type);
-        int scheduleIndex = binarySearchSchedules(ucClass);
+        unsigned long scheduleIndex = binarySearchSchedules(ucClass);
         if (scheduleIndex != -1) {
             schedules[scheduleIndex].addSlot(slot);
         }
     }
 }
 
-/**
- * @brief Reads the students_classes.csv file and creates the students set
- * @details The students are created with the student id, name and the classes they are enrolled in
- *
- * @return void
- */
 void ScheduleManager::createStudents() {
     fstream file("../data/students_classes.csv");
     file.ignore(1000, '\n');
@@ -118,12 +95,7 @@ void ScheduleManager::createStudents() {
         this->schedules[i].addStudent(student);
     }
 }
-/**
- * @brief Function that returns the index of the schedule with the ucClass passed as parameter
- * @param desiredUcCLass
- * @details Uses binary search to find the schedules
- *
- */
+
 unsigned long ScheduleManager::binarySearchSchedules(const UcClass &desiredUcCLass) const{
     unsigned long left = 0, right = schedules.size() - 1, middle = (left + right) / 2;
 
@@ -142,10 +114,6 @@ unsigned long ScheduleManager::binarySearchSchedules(const UcClass &desiredUcCLa
     return -1;
 }
 
-/**
- * @brief Function that verifies if two given schedules have a conflict
- * @param c1, c2
- */
 bool ScheduleManager::classesCollide(const UcClass &c1, const UcClass &c2) const{
     if(c1.sameUC(c2)) return false;
     ClassSchedule* cs1 = findSchedule(c1);
@@ -158,10 +126,6 @@ bool ScheduleManager::classesCollide(const UcClass &c1, const UcClass &c2) const
     return false;
 }
 
-/**
- * @brief Function that verifies if a given schedule has a conflict with the schedules of a given student
- * @param request
- */
 bool ScheduleManager::requestHasCollision(const Request &request) const{
     Student student = request.getStudent();
     UcClass desiredClass = request.getDesiredClass();
@@ -172,21 +136,13 @@ bool ScheduleManager::requestHasCollision(const Request &request) const{
     return false;
 }
 
-/**
- * @brief Function that returns the schedule with the ucClass passed as parameter
- * @param ucClass
- */
+
 ClassSchedule* ScheduleManager::findSchedule(const UcClass &ucClass) const {
     unsigned long index = binarySearchSchedules(ucClass);
     if(index == -1) return nullptr;
     return const_cast<ClassSchedule*>(&schedules[index]);
 }
 
-
-/**
- * @brief Function that returns the student with the ID passed as parameter
- * @param studentId
- */
 Student* ScheduleManager::findStudent(const string &studentId) const{
     auto student = students.find(Student(studentId, ""));
     return student == students.end() ? nullptr : const_cast<Student*>(&(*student));
@@ -194,10 +150,6 @@ Student* ScheduleManager::findStudent(const string &studentId) const{
 
 void ScheduleManager::addRequest(const Student &student, const UcClass &ucClass) {
     requests.push(Request(student, ucClass));
-}
-
-void ScheduleManager::addRequest(const Request &request) {
-    requests.push(request);
 }
 
 vector<ClassSchedule> ScheduleManager::classesOfSubject(const string &ucId) const {
@@ -269,6 +221,11 @@ void ScheduleManager::processRequests() {
     }
 }
 
+/**
+ * @brief Function the organizes the slots in weekdays
+ * @details The slots are organized in a vector in which the index is associated with the weekday.
+ * The index 0 is associated with Monday, 1 with Tuesday, 2 with Wednesday...
+ */
 void insertIntoWeek(vector<vector<pair<string, Slot>>> &weekdays , const vector<pair<string, Slot>> &slots){
     for (const pair<string, Slot> &slot: slots) {
         if (slot.second.getWeekDay() == "Monday") {
@@ -284,7 +241,10 @@ void insertIntoWeek(vector<vector<pair<string, Slot>>> &weekdays , const vector<
         }
     }
 }
-
+/**
+ * @brief Function that organizes the slots by weekday
+ * @param weekdays
+ */
 void groupDuplicates(vector<vector<pair<string, Slot>>> &weekdays){
     for (int i = 0; i < weekdays.size(); i++) {
         for (int j = 0; j < weekdays[i].size(); j++) {
@@ -298,7 +258,11 @@ void groupDuplicates(vector<vector<pair<string, Slot>>> &weekdays){
         }
     }
 }
-
+/**
+ * @brief  Function converts decimal time to string
+ * @param weekdays
+ *
+ */
 string decimalToHours(int decimal){
     double time = decimal;
     int timeMins = (int)floor( time * 60.0 );
@@ -376,7 +340,6 @@ void ScheduleManager::printClassSchedule(const string &classCode) const{
         cout<<">> Class not found"<<endl;
         return;
     }
-
     cout << ">> The schedule for the class " << classCode << " is:" << endl;
     vector<string> weekdays {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday"};
     for(const string &weekday : weekdays){

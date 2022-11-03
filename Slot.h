@@ -6,14 +6,17 @@
 
 using namespace std;
 /**
- * @brief Class that represents a slot
+ * @brief Class that represents a slot (time and day) in which a class of a given course is held.
  * @param duration
  * @param startTime
  * @param endTime
  * @param type
  */
+
 class Slot {
     public:
+
+
         Slot(const string &weekDay, const float &beginTime, const float &duration, const string &type);
         string getWeekDay() const;
         string getType() const;
@@ -27,6 +30,12 @@ class Slot {
         string weekDay;
         float startTime;
         float endTime;
+        /**
+         * @brief Type of the class
+         * T - Teórica
+         * P - Prática
+         * PL - Prática Laboratorial
+         */
         string type;
 };
 

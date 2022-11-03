@@ -7,9 +7,13 @@
 
 using namespace std;
 /**
- * @brief Class that represents a student
- * @details Class that represents a student
+ * @brief Class to store the information about a given student.
+
+ * @param id
+ * @param name
+ * @param classes
  */
+
 class Student {
     public:
         Student();

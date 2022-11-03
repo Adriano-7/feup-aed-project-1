@@ -7,19 +7,13 @@
 
 using namespace std;
 
-/**
- * Constructor
- * @param manager
- */
 App::App(const ScheduleManager &manager) {
     this->manager = manager;
     this->sleepTime = 800000;
     cout << ">> Schedule manager is online" << endl;
 }
 
-/**
- * @brief Function that prints the main menu
- */
+
 int App::optionsMenu() const {
 
     int option;
@@ -44,9 +38,7 @@ int App::optionsMenu() const {
     return option;
 }
 
-/**
- * @brief Function that makes the program wait for user input to continue
- */
+
 void App::waitForInput() const{
     usleep(sleepTime);
     string q;
@@ -56,9 +48,6 @@ void App::waitForInput() const{
     system("clear");
 }
 
-/**
- * @brief Function that checks the schedule of a student
- */
 void App::checkStudentSchedule() const {
     string upNumber;
     cout << "Please insert the student's UP number: ";
@@ -66,19 +55,12 @@ void App::checkStudentSchedule() const {
     manager.printStudentSchedule(upNumber);
 }
 
-/**
- * @brief Function that checks the schedule of a class
- */
 void App::checkClassSchedule() const{
     string classCode;
     cout << "Please insert the class code: "; cin >>classCode; cout<<endl;
     manager.printClassSchedule(classCode);
 }
 
-/**
- * @brief Function that checks the students in a class of a certain subject
- *
- */
 void App::checkClassStudents() const{
     string ucCode, classCode;
     cout << "Please insert the subject code: "; cin >> ucCode;
@@ -92,18 +74,12 @@ void App::checkClassStudents() const{
     cs->printStudents();
 }
 
-/**
- * @brief Function that checks the schedule of a subject
- */
 void App::checkUcSchedule() const {
     string subjectCode;
     cout << "Insert the subject code: "; cin >> subjectCode; cout << endl;
     manager.printUcSchedule(subjectCode);
 }
 
-/**
- * @brief Function that submits a changing request
- */
 void App::submitNewRequest() {
     string upNumber, ucCode, classCode;
     cout << "Please insert the student's UP number: ";
@@ -134,9 +110,6 @@ void App::submitNewRequest() {
     cout << ">> Request submitted successfully." << endl;
 }
 
-/**
- * @brief Function that prints the students enrolled in a subject
- */
 void App::checkUcStudents() const{
     string ucCode;
     cout << "Please insert the subject code: "; cin >> ucCode;
@@ -157,6 +130,7 @@ void App::processPendingRequests() {
  * @brief Function that runs the application
  * @return 0 if the application was closed successfully
  */
+
 int App::run() {
     manager.readFiles();
 

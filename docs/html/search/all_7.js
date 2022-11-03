@@ -1,10 +1,12 @@
 var searchData=
 [
-  ['sameuc_30',['sameUC',['../class_class_schedule.html#a17032a7764a6787cdf37e085a1985f01',1,'ClassSchedule::sameUC()'],['../class_uc_class.html#ad9a17a3bb33b701aee967f94e5bec861',1,'UcClass::sameUC()']]],
-  ['schedulemanager_31',['ScheduleManager',['../class_schedule_manager.html',1,'ScheduleManager'],['../class_schedule_manager.html#a01e612817374dc034ba3869d5ab38afb',1,'ScheduleManager::ScheduleManager()']]],
-  ['setschedules_32',['setSchedules',['../class_schedule_manager.html#aa9cd7c49b7db003fdec970845b7c72bf',1,'ScheduleManager']]],
-  ['slot_33',['Slot',['../class_slot.html',1,'Slot'],['../class_slot.html#a06a938e522fc7d42a849127007dbfe8b',1,'Slot::Slot()']]],
-  ['slotucid_34',['slotUcID',['../structslot_uc_i_d.html',1,'']]],
-  ['student_35',['Student',['../class_student.html',1,'']]],
-  ['submitnewrequest_36',['submitNewRequest',['../class_app.html#a2ab6ec40316e53aa924cfa3e5e8f4df4',1,'App']]]
+  ['print_41',['print',['../class_class_schedule.html#a1091607ad18551c206a815a8b823ed29',1,'ClassSchedule::print()'],['../class_request.html#abd45c81acc563acba456eebc85eb5ec5',1,'Request::print()'],['../class_student.html#abdbb14cd83ef23c09f811bd1e30ddd4f',1,'Student::print() const']]],
+  ['printclasses_42',['printClasses',['../class_student.html#a0a5130adbe6997ac6d7e737f3b693cd7',1,'Student']]],
+  ['printclassschedule_43',['printClassSchedule',['../class_schedule_manager.html#ac73373a2b256ca35e589d2ddd69048d2',1,'ScheduleManager']]],
+  ['printheader_44',['printHeader',['../class_class_schedule.html#a3c3606b85246ee4c2247172165a35694',1,'ClassSchedule::printHeader()'],['../class_student.html#a962ad067dc64c9ed0f5e48dc1241bb09',1,'Student::printHeader()']]],
+  ['printslots_45',['printSlots',['../class_class_schedule.html#aa271afe9f7a9b42c5be40a083d8dcb26',1,'ClassSchedule']]],
+  ['printstudents_46',['printStudents',['../class_class_schedule.html#a49f6c1dec5edf6fabbc91591972b5d25',1,'ClassSchedule']]],
+  ['printstudentschedule_47',['printStudentSchedule',['../class_schedule_manager.html#a123d9c735c3b5b305675d4a00fcf82c9',1,'ScheduleManager']]],
+  ['printucschedule_48',['printUcSchedule',['../class_schedule_manager.html#a986815717f5c3934a59b8346f7cb4d61',1,'ScheduleManager']]],
+  ['printucstudents_49',['printUcStudents',['../class_schedule_manager.html#adc110193c9c8b1fcf448df7233757c93',1,'ScheduleManager']]]
 ];

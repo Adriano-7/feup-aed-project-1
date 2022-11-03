@@ -1,7 +1,19 @@
 var searchData=
 [
-  ['operator_3c_66',['operator&lt;',['../class_class_schedule.html#ab74d241bc5886d6dd76ab4b97ca31423',1,'ClassSchedule::operator&lt;()'],['../class_uc_class.html#a49201ecbd1442a53b354aa0604e431b6',1,'UcClass::operator&lt;()']]],
-  ['operator_3d_3d_67',['operator==',['../class_class_schedule.html#ade0af259e5e109dd3b38d78408677237',1,'ClassSchedule::operator==()'],['../class_uc_class.html#a3dccc3ab7c4634e47b8ca783e08c3914',1,'UcClass::operator==(const UcClass &amp;other) const']]],
-  ['operator_3e_68',['operator&gt;',['../class_uc_class.html#ab8f03f400aed740a16f78dff819b582e',1,'UcClass']]],
-  ['optionsmenu_69',['optionsMenu',['../class_app.html#a0cb7c718f7580635ff0ca76106e79b9b',1,'App']]]
+  ['getclasses_99',['getClasses',['../class_student.html#a67b42ae13e827bb16cee89e76556a158',1,'Student']]],
+  ['getclassid_100',['getClassId',['../class_uc_class.html#aae87401ede4c340c5b8e9ac08e81d18a',1,'UcClass']]],
+  ['getdesiredclass_101',['getDesiredClass',['../class_request.html#aecc5fa02c7fc3ad1f32d5d2f431089ac',1,'Request']]],
+  ['getendtime_102',['getEndTime',['../class_slot.html#abf8b5b639de92285fb3f7d33a9994ec2',1,'Slot']]],
+  ['getid_103',['getId',['../class_student.html#a95c442551c1f34157e426b2a7dc9a36a',1,'Student']]],
+  ['getname_104',['getName',['../class_student.html#a1df6c28e6416e20d338b9ff11bdc1e04',1,'Student']]],
+  ['getnumstudents_105',['getNumStudents',['../class_class_schedule.html#ae72c146550491d43bb902672f7c254c7',1,'ClassSchedule']]],
+  ['getschedules_106',['getSchedules',['../class_schedule_manager.html#a22eb76ac709b9646df4329eb56722c49',1,'ScheduleManager']]],
+  ['getslots_107',['getSlots',['../class_class_schedule.html#adde4fc1fa0a2d164219c5e6a4e3bd15e',1,'ClassSchedule']]],
+  ['getstarttime_108',['getStartTime',['../class_slot.html#ac178cba185dd24ee80ca9e22602f4377',1,'Slot']]],
+  ['getstudent_109',['getStudent',['../class_request.html#aca583762dba5f3e7eb7ef915feebb65b',1,'Request']]],
+  ['getstudents_110',['getStudents',['../class_class_schedule.html#ae4245108e596be85e9b7449075781c92',1,'ClassSchedule::getStudents()'],['../class_schedule_manager.html#ac1aa79addc42d57321ef6abb7c77e872',1,'ScheduleManager::getStudents()']]],
+  ['gettype_111',['getType',['../class_slot.html#a9ab118706df0180c07fb4f9a7815e222',1,'Slot']]],
+  ['getucclass_112',['getUcClass',['../class_class_schedule.html#a533a549ea6583bc994167d863f4af916',1,'ClassSchedule']]],
+  ['getucid_113',['getUcId',['../class_uc_class.html#a02a6c12c91f70b797ba5384d2357b189',1,'UcClass']]],
+  ['getweekday_114',['getWeekDay',['../class_slot.html#a7f42ca3fce6295fa0db5c085e3c5d090',1,'Slot']]]
 ];
