@@ -125,6 +125,10 @@ void App::processPendingRequests() {
     manager.processRequests();
 }
 
+void App::saveInformation() {
+    manager.writeFiles();
+}
+
 /**
  * @brief Function that runs the application
  * @return 0 if the application was closed successfully
@@ -172,6 +176,7 @@ int App::run() {
                 break;
             }
             case 8: {
+                saveInformation();
                 return 0;
             }
             default:{

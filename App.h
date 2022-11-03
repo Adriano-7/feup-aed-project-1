@@ -60,6 +60,8 @@ class App {
          */
         void processPendingRequests();
 
+        void saveInformation();
+
         /**
         * @brief Function that makes the program wait for user input to continue
         */

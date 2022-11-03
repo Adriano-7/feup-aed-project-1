@@ -122,6 +122,7 @@ class ScheduleManager {
         bool acceptRequest(const Request &request) const;
         void processRequest(const Request &request);
         void processRequests();
+        void writeFiles();
 
     private:
         /** @brief Set that stores all the students */
