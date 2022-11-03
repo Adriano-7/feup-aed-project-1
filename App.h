@@ -21,7 +21,9 @@ class App {
         void waitForInput() const;
 
     private:
+        /** @brief ScheduleManager object that stores all students, schedules and requests */
         ScheduleManager manager;
+        /** @brief Variable that stores the suspend execution time in microseconds */
         int sleepTime;
 };
 
