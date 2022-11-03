@@ -411,8 +411,8 @@ void ScheduleManager::printStudentSchedule(const string &studentId) const {
  * @param classCode
  */
 void ScheduleManager::printClassSchedule(const string &classCode) const{
-    struct slotUcID{Slot slot; string ucID;};
     system("clear");
+    struct slotUcID{Slot slot; string ucID;};
     map<string, vector<slotUcID>> slots;
     const vector<ClassSchedule> check = schedules;
     for(const ClassSchedule &cs : schedules){
@@ -428,6 +428,7 @@ void ScheduleManager::printClassSchedule(const string &classCode) const{
         cout<<">> Class not found"<<endl;
         return;
     }
+
     cout << ">> The schedule for the class " << classCode << " is:" << endl;
     vector<string> weekdays {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday"};
     for(const string &weekday : weekdays){
@@ -447,6 +448,7 @@ void ScheduleManager::printClassSchedule(const string &classCode) const{
  * @param subjectCode
  */
 void ScheduleManager::printUcSchedule(const string &subjectCode) const{
+    system("clear");
     vector<ClassSchedule> schedulesUC;
     for (const ClassSchedule &cs: schedules) {
         if (cs.getUcClass().getUcId() == subjectCode) {
@@ -454,7 +456,7 @@ void ScheduleManager::printUcSchedule(const string &subjectCode) const{
         }
     }
     if(schedulesUC.empty()){
-        cout << ">> Subject not found" << endl;
+        cout << ">> Uc not found" << endl;
         return;
     }
     vector<vector<pair<string, Slot>>> weekdays(5);
@@ -469,7 +471,7 @@ void ScheduleManager::printUcSchedule(const string &subjectCode) const{
         insertIntoWeek(weekdays, slots);
         groupDuplicates(weekdays);
     }
-    cout << endl << ">> This UC schedule is:" << endl;
+    cout << endl << ">> The UC "<< subjectCode << " has the following schedule:" << endl;
 
     for (int i = 0; i < weekdays.size(); i++) {
         sort(weekdays[i].begin(), weekdays[i].end(), [](const pair<string, Slot> &a,const pair <string, Slot> &b) {
@@ -489,6 +491,7 @@ void ScheduleManager::printUcSchedule(const string &subjectCode) const{
  * @param ucId
  */
 void ScheduleManager::printUcStudents(const string &ucId) const {
+    system("clear");
     vector<Student> studentsVector = studentsOfSubject(ucId);
     if(studentsVector.empty()){
         cout << ">> Subject not found" << endl;
@@ -508,6 +511,7 @@ void ScheduleManager::printUcStudents(const string &ucId) const {
 * @brief Function that prints all requests in the queue
 */
 void ScheduleManager::printPendingRequests() const {
+    system("clear");
     queue<Request> pendingRequests = requests;
     cout << endl << ">> Pending requests:" << endl;
     while (!pendingRequests.empty()) {
@@ -520,6 +524,7 @@ void ScheduleManager::printPendingRequests() const {
  * @brief Function that prints all the rejected requests
  */
 void ScheduleManager::printRejectedRequests() const {
+    system("clear");
     cout << endl << ">> Rejected requests:" << endl;
     for (const Request &request: rejectedRequests) {
         cout << "   "; request.print();

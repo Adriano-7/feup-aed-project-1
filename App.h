@@ -8,8 +8,8 @@
 class App {
     public:
         explicit App(const ScheduleManager &manager);
-        int run();
         int optionsMenu() const;
+        int run();
         void checkStudentSchedule() const;
         void checkClassSchedule() const;
         void checkClassStudents() const;
