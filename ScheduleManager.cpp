@@ -431,3 +431,15 @@ const vector<ClassSchedule> &ScheduleManager::getSchedules() const {
 const set<Student> &ScheduleManager::getStudents() const {
     return students;
 }
+//I want to write all the students and classes in the student_classes.csv file
+void ScheduleManager:: writeFiles() const {
+    ofstream file;
+    file.open("../data/students_classes.csv");
+    file << "StudentCode,StudentName,UcCode,ClassCode" << endl;
+    for (const Student &s: students) {
+        for (const UcClass c: s.getClasses()) {
+            file << s.getId() << "," << s.getName() << "," << c.getUcId() << "," << c.getClassId() << endl;
+        }
+    }
+    file.close();
+}
