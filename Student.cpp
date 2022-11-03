@@ -37,6 +37,7 @@ UcClass Student::changeClass(const UcClass &newClass) {
             return oldClass;
         }
     }
+    return UcClass();
 }
 
 /** @brief Getter of the id
