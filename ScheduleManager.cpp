@@ -424,14 +424,6 @@ void ScheduleManager::printRejectedRequests() const {
     }
 }
 
-const vector<ClassSchedule> &ScheduleManager::getSchedules() const {
-    return schedules;
-}
-
-const set<Student> &ScheduleManager::getStudents() const {
-    return students;
-}
-//I want to write all the students and classes in the student_classes.csv file
 void ScheduleManager:: writeFiles() const {
     ofstream file;
     file.open("../data/students_classes.csv");

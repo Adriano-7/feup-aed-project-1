@@ -129,11 +129,6 @@ void App::saveInformation() {
     manager.writeFiles();
 }
 
-/**
- * @brief Function that runs the application
- * @return 0 if the application was closed successfully
- */
-
 int App::run() {
     manager.readFiles();
 

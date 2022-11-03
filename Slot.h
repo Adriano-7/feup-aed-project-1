@@ -15,8 +15,6 @@ using namespace std;
 
 class Slot {
     public:
-
-
         Slot(const string &weekDay, const float &beginTime, const float &duration, const string &type);
         string getWeekDay() const;
         string getType() const;

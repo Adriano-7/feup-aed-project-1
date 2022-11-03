@@ -10,7 +10,6 @@
 
 class Request{
     public:
-
         /**
         * @brief Constructor of the Request class
         * @param student Student that made the request

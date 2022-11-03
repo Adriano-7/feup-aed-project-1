@@ -49,7 +49,7 @@ set<Student> ClassSchedule::getStudents() const {
     return students;
 }
 
-bool ClassSchedule::sameUC(ClassSchedule other) const {
+bool ClassSchedule::sameUC(const ClassSchedule &other) const {
     return ucClass.sameUC(other.getUcClass());
 }
 

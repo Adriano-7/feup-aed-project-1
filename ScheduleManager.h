@@ -105,23 +105,58 @@ class ScheduleManager {
         ClassSchedule* findSchedule(const UcClass &ucClass) const;
 
         /**
-         * @brief Getter of the vector of ClassSchedules
+         * @brief Function that processes the requests in the queue
          */
-        const vector<ClassSchedule> &getSchedules() const;
+        void processRequest(const Request &request);
 
         /**
-         * @brief Getter of set of students
-         */
-        const set<Student> &getStudents() const;
-
+        * @brief Function that prints all requests in the queue
+        */
         void printPendingRequests() const;
+
+        /**
+         * @brief Function that prints all the rejected requests
+         */
         void printRejectedRequests() const;
+
+
+        /**
+         * @brief Function that gets all classes of a given subject
+         * @param subjectCode
+         * @return A vector with all the classes of a given subject
+         */
         vector<ClassSchedule> classesOfSubject(const string &ucId) const;
+
+        /**
+         * @brief Function that gets all students of a given subject
+         * @param subjectCode
+         * @return A vector with all the students of a given subject
+         */
         vector<Student> studentsOfSubject(const string &ucId) const;
+
+
+        /**
+         * @brief Function that verifies if a request doesn't exceed the maximum number of students which can be enrolled in a given class
+         * @param request
+         * @return boolean expression
+         */
         bool requestExceedsMaxStudents(const Request &request) const;
+
+        /**
+         * @brief Function that verifies if a request can be accepted
+         * @param request
+         * @return boolean expression
+         */
         bool acceptRequest(const Request &request) const;
-        void processRequest(const Request &request);
+
+        /**
+         * @brief Function that precosses all requests in the queue
+         */
         void processRequests();
+
+        /**
+         * @brief Function that writes all information to the files
+         */
         void writeFiles() const;
 
     private:

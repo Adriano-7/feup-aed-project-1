@@ -10,7 +10,6 @@
 /**
  * @brief Class that represents a schedule for a class in a given Course, with a vector of slots and a set of students
  */
-
 class ClassSchedule {
     public:
         /**Default Constructor, initialized with an empty vector of slots and students*/
@@ -82,7 +81,7 @@ class ClassSchedule {
         /**Bolean function that returns true if both ClassSchedule have the same UcId, false otherwise
          * @param other the other ClassSchedule
          */
-        bool sameUC(ClassSchedule other) const;
+        bool sameUC(const ClassSchedule &other) const;
 
         /** Minor operator
          * @param other The ClassSchedule to compare to

@@ -8,7 +8,7 @@
 class App {
     public:
         /**
-        * @brief Constructor, sleeptime is set to 800000
+        * @brief Constructor, sleepTime is set to 800000 ms
         * @param ScheduleManager manager
         */
         explicit App(const ScheduleManager &manager);
@@ -60,6 +60,9 @@ class App {
          */
         void processPendingRequests();
 
+        /**
+         * @brief Function that writes the information to the files before closing the program
+         */
         void saveInformation();
 
         /**
