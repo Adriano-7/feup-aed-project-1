@@ -17,6 +17,34 @@ App::App(const ScheduleManager &manager) {
 }
 
 /**
+* @brief Function that prints the main menu
+* @return the option chosen by the user
+*/
+int App::optionsMenu() const {
+
+    int option;
+    cout    << endl << "-------------- OPTIONS --------------" << endl
+            << "1 Check the schedule of a student" << endl
+            << "2 Check the schedule of a class" << endl
+            << "3 Check the schedule of a uc"<< endl
+            << "4 Check the students in class"<< endl
+            << "5 Check the students enrolled in a uc" << endl
+            << "6 Submit a changing request" << endl
+            << "7 Process changing requests" << endl
+            << "8 Exit" << endl
+            << "What would you like to do next? " ;
+    cin >> option;
+    cout << endl;
+    if (cin.fail()) {
+        throw invalid_argument(">> Please choose a valid number");
+    }
+    if(option < 1 || option > 8) {
+        return 0;
+    }
+    return option;
+}
+
+/**
 * @brief Function that runs the application, it calls the menu and the functions to read the files
 * @return 0 if the application was closed successfully
 */
@@ -75,34 +103,6 @@ int App::run() {
 }
 
 /**
-* @brief Function that prints the main menu
-* @return the option chosen by the user
-*/
-int App::optionsMenu() const {
-
-    int option;
-    cout    << endl << "-------------- OPTIONS --------------" << endl
-            << "1 Check the schedule of a student" << endl
-            << "2 Check the schedule of a class" << endl
-            << "3 Check the schedule of a subject"<< endl
-            << "4 Check the students in class"<< endl
-            << "5 Check the students enrolled in a subject" << endl
-            << "6 Submit a changing request" << endl
-            << "7 Process changing requests" << endl
-            << "8 Exit" << endl
-            << "What would you like to do next? " ;
-    cin >> option;
-    cout << endl;
-    if (cin.fail()) {
-        throw invalid_argument(">> Please choose a valid number");
-    }
-    if(option < 1 || option > 8) {
-        return 0;
-    }
-    return option;
-}
-
-/**
 * @brief Asks the user to input the students's UP number and prints the schedule of that student
 */
 void App::checkStudentSchedule() const {
@@ -124,7 +124,7 @@ void App::checkClassSchedule() const{
 */
 void App::checkClassStudents() const{
     string ucCode, classCode;
-    cout << "Please insert the subject code: "; cin >> ucCode;
+    cout << "Please insert the uc code: "; cin >> ucCode;
     cout << "Please insert the class code: "; cin >> classCode; cout << endl;
     ClassSchedule* cs = manager.findSchedule(UcClass(ucCode, classCode));
     if(cs == nullptr){
@@ -132,7 +132,31 @@ void App::checkClassStudents() const{
         usleep(900000);
         return;
     }
-    cs->printStudents();
+
+    cout << "You want to display the students in what order ?" << endl;
+    cout << "1 Alphabetical" << endl;
+    cout << "2 Alphabetical in reverse" << endl;
+    cout << "3 Numerical" << endl;
+    cout << "4 Numerical in reverse" << endl;
+    int option; cin >> option;
+    switch (option) {
+        case 1:
+            cs->printStudents("alphabetical");
+            break;
+        case 2:
+            cs->printStudents("reverse alphabetical");
+            break;
+        case 3:
+            cs->printStudents("numerical");
+            break;
+        case 4:
+            cs->printStudents("reverse numerical");
+            break;
+        default:
+            cout << ">> Please choose a valid option" << endl;
+            usleep(900000);
+            break;
+    }
 }
 
 /**
@@ -140,7 +164,7 @@ void App::checkClassStudents() const{
 */
 void App::checkUcSchedule() const {
     string subjectCode;
-    cout << "Insert the subject code: "; cin >> subjectCode; cout << endl;
+    cout << "Insert the Uc code: "; cin >> subjectCode; cout << endl;
     manager.printUcSchedule(subjectCode);
 }
 /**
@@ -159,10 +183,10 @@ void App::submitNewRequest() {
     student->print();
     cout << endl << "The following information is related to the class you want to change to, "
                     "for a certain curricular unit." << endl;
-    cout << "Please insert the subject code: ";
+    cout << "Please insert the uc code: ";
     cin >> ucCode;
     if(!student->isEnrolled(ucCode)){
-        cout << ">> This student is not enrolled in this subject." << endl;
+        cout << ">> This student is not enrolled in this uc." << endl;
         return;
     }
     cout << "Please insert the class code: ";
@@ -176,11 +200,11 @@ void App::submitNewRequest() {
     cout << ">> Request submitted successfully." << endl;
 }
 /**
-* @brief Function that prints the students enrolled in a subject
+* @brief Function that prints the students enrolled in a uc
 */
 void App::checkUcStudents() const{
     string ucCode;
-    cout << "Please insert the subject code: "; cin >> ucCode;
+    cout << "Please insert the uc code: "; cin >> ucCode;
     manager.printUcStudents(ucCode);
 }
 /**
