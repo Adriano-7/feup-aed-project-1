@@ -86,7 +86,6 @@ class ScheduleManager {
          */
         void addRequest(const Student &student, const UcClass &ucClass);
 
-
         /**
          * @brief Function that print the schedule of a given subject
          * @param subjectCode
