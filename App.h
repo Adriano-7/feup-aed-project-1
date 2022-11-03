@@ -17,6 +17,7 @@ class App {
         void checkUcSchedule() const;
         void submitNewRequest();
         void checkUcStudents() const;
+        void processPendingRequests();
         void waitForInput() const;
 
     private:

@@ -18,6 +18,7 @@ ScheduleManager::ScheduleManager() {
     this->students = set<Student>();
     this->schedules = vector<ClassSchedule>();
     this->requests = queue<Request>();
+    this->rejectedRequests = vector<Request>();
 }
 
 /**
@@ -237,10 +238,35 @@ bool ScheduleManager::requestExceedsMaxStudents(const Request &request) const {
     return schedule->getNumStudents() >= maxStudents;
 }
 
-bool ScheduleManager::processRequest(const Request &request) {
-    if(requestHasCollision(request)) return false;
-    if(requestExceedsMaxStudents(request)) return false;
-    return true;
+bool ScheduleManager::acceptRequest(const Request &request) const {
+    return !(requestHasCollision(request) || requestExceedsMaxStudents(request));
+}
+
+void ScheduleManager::processRequest(const Request &request) {
+    if(acceptRequest(request)){
+        Student* student = findStudent(request.getStudent().getId());
+        UcClass ucClass = findSchedule(request.getDesiredClass())->getUcClass();
+        UcClass oldClass = student->changeClass(ucClass);
+        findSchedule(request.getDesiredClass())->addStudent(*student);
+        findSchedule(oldClass)->removeStudent(*student);
+        cout << "   "; request.print();
+    }else{
+        rejectedRequests.push_back(request);
+    }
+}
+
+void ScheduleManager::processRequests() {
+    cout << ">> Accepted requests:" << endl;
+    while(!requests.empty()){
+        Request request = requests.front();
+        requests.pop();
+        processRequest(request);
+    }
+    if(!rejectedRequests.empty()){
+        printRejectedRequests();
+    }else{
+        cout << ">> All requests were accepted!" << endl;
+    }
 }
 
 void insertIntoWeek(vector<vector<pair<string, Slot>>> &weekdays , const vector<pair<string, Slot>> &slots){
@@ -416,6 +442,22 @@ void ScheduleManager::printUcStudents(const string &ucId) const {
     cout << ">> Students:" << endl;
     for (const Student &student: studentsVector) {
         cout << "   "; student.printHeader();
+    }
+}
+
+void ScheduleManager::printPendingRequests() const {
+    queue<Request> pendingRequests = requests;
+    cout << endl << ">> Pending requests:" << endl;
+    while (!pendingRequests.empty()) {
+        cout << "   "; pendingRequests.front().print();
+        pendingRequests.pop();
+    }
+}
+
+void ScheduleManager::printRejectedRequests() const {
+    cout << endl << ">> Rejected requests:" << endl;
+    for (const Request &request: rejectedRequests) {
+        cout << "   "; request.print();
     }
 }
 

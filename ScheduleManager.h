@@ -23,14 +23,19 @@ class ScheduleManager {
         bool requestHasCollision(const Request &request) const;
         bool requestExceedsMaxStudents(const Request &request) const;
         bool classesCollide(const UcClass &c1, const UcClass &c2) const;
+        void addRequest(const Student &student, const UcClass &ucClass);
+        void addRequest(const Request &request);
+        bool acceptRequest(const Request &request) const;
+        void processRequest(const Request &request);
+        void processRequests();
+
         void printStudentSchedule(const string &studentId) const;
         void printClassSchedule(const string &classCode) const;
         void printUcStudents(const string &ucId) const;
-        void addRequest(const Student &student, const UcClass &ucClass);
-        void addRequest(const Request &request);
-        bool processRequest(const Request &request);
-
         void printUcSchedule(const string &ucId) const;
+        void printPendingRequests() const;
+        void printRejectedRequests() const;
+
         Student* findStudent(const string &studentId) const;
         ClassSchedule* findSchedule(const UcClass &ucClass) const;
         vector<ClassSchedule> classesOfSubject(const string &ucId) const;
@@ -40,9 +45,10 @@ class ScheduleManager {
         const set<Student> &getStudents() const;
 
     private:
-        set <Student> students;
+        set<Student> students;
         vector<ClassSchedule> schedules;
         queue<Request> requests;
+        vector<Request> rejectedRequests;
 };
 
 

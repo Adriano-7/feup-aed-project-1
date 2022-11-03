@@ -29,6 +29,10 @@ void ClassSchedule::addStudent(const Student &student) {
     students.insert(student);
 }
 
+void ClassSchedule::removeStudent(const Student &student) {
+    students.erase(student);
+}
+
 UcClass ClassSchedule::getUcClass() const {
     return ucClass;
 }

@@ -18,6 +18,7 @@ class Student {
         string getName() const;
         vector<UcClass> getClasses() const;
         void addClass(const UcClass &newClass);
+        UcClass changeClass(const UcClass &newClass);
         bool isEnrolled(const string &ucCode) const;
         bool operator == (const Student &other) const;
         bool operator < (const Student &other) const;

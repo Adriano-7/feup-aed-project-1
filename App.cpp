@@ -30,7 +30,8 @@ int App::optionsMenu() const {
             << "4 Check the students in class"<< endl
             << "5 Check the students enrolled in a subject" << endl
             << "6 Submit a changing request" << endl
-            << "7 Exit" << endl
+            << "7 Process changing requests" << endl
+            << "8 Exit" << endl
             << "What would you like to do next? " ;
     cin >> option;
     cout << endl;
@@ -49,7 +50,7 @@ int App::optionsMenu() const {
 void App::waitForInput() const{
     usleep(sleepTime);
     string q;
-    cout << endl << "Insert any key to go back to the menu: ";
+    cout << endl << "Insert any key to continue: ";
     cin >> q;
     cout << endl;
     system("clear");
@@ -114,8 +115,8 @@ void App::submitNewRequest() {
         return;
     }
     student->print();
-    cout << "The following information is related to the class you want to change to, "
-            "for a certain curricular unit." << endl;
+    cout << endl << "The following information is related to the class you want to change to, "
+                    "for a certain curricular unit." << endl;
     cout << "Please insert the subject code: ";
     cin >> ucCode;
     if(!student->isEnrolled(ucCode)){
@@ -140,6 +141,16 @@ void App::checkUcStudents() const{
     string ucCode;
     cout << "Please insert the subject code: "; cin >> ucCode;
     manager.printUcStudents(ucCode);
+}
+
+void App::processPendingRequests() {
+    string s;
+    cout << "Do you want to see all pending requests first? (y/n) "; cin >> s; cout << endl;
+    if(s == "y" || s == "Y"){
+        manager.printPendingRequests();
+        waitForInput();
+    }
+    manager.processRequests();
 }
 
 /**
@@ -183,6 +194,11 @@ int App::run() {
                 break;
 
             case 7: {
+                processPendingRequests();
+                waitForInput();
+                break;
+            }
+            case 8: {
                 return 0;
             }
             default:{

@@ -20,6 +20,16 @@ void Student::addClass(const UcClass &newClass) {
     classes.push_back(newClass);
 }
 
+UcClass Student::changeClass(const UcClass &newClass) {
+    for (int i = 0; i < classes.size(); i++) {
+        if (classes.at(i).getUcId() == newClass.getUcId()) {
+            UcClass oldClass = classes.at(i);
+            classes.at(i) = newClass;
+            return oldClass;
+        }
+    }
+}
+
 string Student::getId() const {
     return id;
 }

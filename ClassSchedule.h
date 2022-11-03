@@ -72,6 +72,11 @@ class ClassSchedule {
          */
         void addStudent(const Student &student);
 
+        /** Remove a student from the set of students
+         * @param student the student to remove
+         */
+        void removeStudent(const Student &student);
+
         /**Bolean function that returns true if both ClassSchedule have the same UcId, false otherwise
          */
         bool sameUC(ClassSchedule other) const;
