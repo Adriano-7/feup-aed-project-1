@@ -34,6 +34,7 @@ class Slot {
          * @brief Type of the class
          * T - Teórica
          * P - Prática
+         * PL - Prática Laboratorial
          */
         string type;
 };

@@ -4,7 +4,7 @@ var searchData=
   ['schedulemanager_56',['ScheduleManager',['../class_schedule_manager.html',1,'ScheduleManager'],['../class_schedule_manager.html#a01e612817374dc034ba3869d5ab38afb',1,'ScheduleManager::ScheduleManager()']]],
   ['schedules_57',['schedules',['../class_schedule_manager.html#a75159b0ecd43c3efe0706310bd2ac178',1,'ScheduleManager']]],
   ['setschedules_58',['setSchedules',['../class_schedule_manager.html#aa9cd7c49b7db003fdec970845b7c72bf',1,'ScheduleManager']]],
-  ['slot_59',['Slot',['../class_slot.html',1,'Slot'],['../class_slot.html#a06a938e522fc7d42a849127007dbfe8b',1,'Slot::Slot()']]],
+  ['slot_59',['Slot',['../class_slot.html',1,'']]],
   ['slots_60',['slots',['../class_class_schedule.html#a2147fd37fe1d2171e877fe750b643533',1,'ClassSchedule']]],
   ['slotucid_61',['slotUcID',['../structslot_uc_i_d.html',1,'']]],
   ['student_62',['Student',['../class_student.html',1,'']]],
