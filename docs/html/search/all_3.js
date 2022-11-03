@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['findschedule_14',['findSchedule',['../class_schedule_manager.html#a6dc5261286d89b133d71d7f948c214da',1,'ScheduleManager']]],
-  ['findstudent_15',['findStudent',['../class_schedule_manager.html#a62ea845de4c37125119cb2dd5d8c9a34',1,'ScheduleManager']]]
+  ['desiredclass_17',['desiredClass',['../class_request.html#a6120fc8e94a5f8fe1e638ebe30dce1e6',1,'Request']]]
 ];

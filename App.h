@@ -61,6 +61,7 @@ class App {
         void waitForInput() const;
 
     private:
+
         ScheduleManager manager;
         int sleepTime;
 };

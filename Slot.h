@@ -30,6 +30,11 @@ class Slot {
         string weekDay;
         float startTime;
         float endTime;
+        /**
+         * @brief Type of the class
+         * T - Teórica
+         * P - Prática
+         */
         string type;
 };
 

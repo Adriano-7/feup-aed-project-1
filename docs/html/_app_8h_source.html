@@ -77,6 +77,7 @@ $(function() {
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <span class="keywordtype">int</span> <a class="code" href="class_app.html#a8d27eeb51b813760dc39425d7a9a37e2">run</a>();</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<<<<<<< HEAD
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="keywordtype">int</span> <a class="code" href="class_app.html#ab85daf15970621082d9b44ec93a3578b">optionsMenu</a>() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_app.html#a63a5258b2939395113de87e91a6e4fb4">checkStudentSchedule</a>() <span class="keyword">const</span>;</div>
@@ -113,6 +114,29 @@ $(function() {
 <div class="ttc" id="aclass_app_html_ab85daf15970621082d9b44ec93a3578b"><div class="ttname"><a href="class_app.html#ab85daf15970621082d9b44ec93a3578b">App::optionsMenu</a></div><div class="ttdeci">int optionsMenu() const</div><div class="ttdoc">Function that prints the main menu.</div><div class="ttdef"><b>Definition:</b> App.cpp:17</div></div>
 <div class="ttc" id="aclass_app_html_aeffbf7fd73e7ba02a5e74aecc2112177"><div class="ttname"><a href="class_app.html#aeffbf7fd73e7ba02a5e74aecc2112177">App::checkClassSchedule</a></div><div class="ttdeci">void checkClassSchedule() const</div><div class="ttdoc">Ask the user to insert the class code and prints the schedule of that class.</div><div class="ttdef"><b>Definition:</b> App.cpp:57</div></div>
 <div class="ttc" id="aclass_schedule_manager_html"><div class="ttname"><a href="class_schedule_manager.html">ScheduleManager</a></div><div class="ttdoc">Class to store the information about the schedules, requests and students.</div><div class="ttdef"><b>Definition:</b> ScheduleManager.h:14</div></div>
+=======
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <a class="code" href="class_schedule_manager.html">ScheduleManager</a> manager;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="keywordtype">int</span> sleepTime;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;};</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#endif </span><span class="comment">//TRABALHO_APP_H</span></div>
+<div class="ttc" id="aclass_app_html"><div class="ttname"><a href="class_app.html">App</a></div><div class="ttdoc">Class that represents the application.</div><div class="ttdef"><b>Definition:</b> App.h:9</div></div>
+<div class="ttc" id="aclass_app_html_a0f2394d1874d1d66bc6cf4150d15ad13"><div class="ttname"><a href="class_app.html#a0f2394d1874d1d66bc6cf4150d15ad13">App::checkClassStudents</a></div><div class="ttdeci">void checkClassStudents() const</div><div class="ttdoc">Function that checks the students in a class of a certain subject.</div><div class="ttdef"><b>Definition:</b> App.cpp:81</div></div>
+<div class="ttc" id="aclass_app_html_a2ab6ec40316e53aa924cfa3e5e8f4df4"><div class="ttname"><a href="class_app.html#a2ab6ec40316e53aa924cfa3e5e8f4df4">App::submitNewRequest</a></div><div class="ttdeci">void submitNewRequest()</div><div class="ttdoc">Function that submits a changing request.</div><div class="ttdef"><b>Definition:</b> App.cpp:106</div></div>
+<div class="ttc" id="aclass_app_html_a57df502b0662474037c5ec1ef026f2e7"><div class="ttname"><a href="class_app.html#a57df502b0662474037c5ec1ef026f2e7">App::waitForInput</a></div><div class="ttdeci">void waitForInput() const</div><div class="ttdoc">Function that makes the program wait for user input to continue.</div><div class="ttdef"><b>Definition:</b> App.cpp:49</div></div>
+<div class="ttc" id="aclass_app_html_a63a5258b2939395113de87e91a6e4fb4"><div class="ttname"><a href="class_app.html#a63a5258b2939395113de87e91a6e4fb4">App::checkStudentSchedule</a></div><div class="ttdeci">void checkStudentSchedule() const</div><div class="ttdoc">Function that checks the schedule of a student.</div><div class="ttdef"><b>Definition:</b> App.cpp:61</div></div>
+<div class="ttc" id="aclass_app_html_a8456cd592b321c96e23e88cc2b50cd6b"><div class="ttname"><a href="class_app.html#a8456cd592b321c96e23e88cc2b50cd6b">App::checkUcStudents</a></div><div class="ttdeci">void checkUcStudents() const</div><div class="ttdoc">Function that prints the students enrolled in a subject.</div><div class="ttdef"><b>Definition:</b> App.cpp:135</div></div>
+<div class="ttc" id="aclass_app_html_a8d27eeb51b813760dc39425d7a9a37e2"><div class="ttname"><a href="class_app.html#a8d27eeb51b813760dc39425d7a9a37e2">App::run</a></div><div class="ttdeci">int run()</div><div class="ttdoc">Function that runs the application.</div><div class="ttdef"><b>Definition:</b> App.cpp:145</div></div>
+<div class="ttc" id="aclass_app_html_aa12792a9dd31ca126f9cd937f95396ca"><div class="ttname"><a href="class_app.html#aa12792a9dd31ca126f9cd937f95396ca">App::App</a></div><div class="ttdeci">App(const ScheduleManager &amp;manager)</div><div class="ttdef"><b>Definition:</b> App.cpp:14</div></div>
+<div class="ttc" id="aclass_app_html_ab381040e8a2ccdc363c77dc6d1e01582"><div class="ttname"><a href="class_app.html#ab381040e8a2ccdc363c77dc6d1e01582">App::checkUcSchedule</a></div><div class="ttdeci">void checkUcSchedule() const</div><div class="ttdoc">Function that checks the schedule of a subject.</div><div class="ttdef"><b>Definition:</b> App.cpp:97</div></div>
+<div class="ttc" id="aclass_app_html_ab85daf15970621082d9b44ec93a3578b"><div class="ttname"><a href="class_app.html#ab85daf15970621082d9b44ec93a3578b">App::optionsMenu</a></div><div class="ttdeci">int optionsMenu() const</div><div class="ttdoc">Function that prints the main menu.</div><div class="ttdef"><b>Definition:</b> App.cpp:23</div></div>
+<div class="ttc" id="aclass_app_html_aeffbf7fd73e7ba02a5e74aecc2112177"><div class="ttname"><a href="class_app.html#aeffbf7fd73e7ba02a5e74aecc2112177">App::checkClassSchedule</a></div><div class="ttdeci">void checkClassSchedule() const</div><div class="ttdoc">Function that checks the schedule of a class.</div><div class="ttdef"><b>Definition:</b> App.cpp:71</div></div>
+<div class="ttc" id="aclass_schedule_manager_html"><div class="ttname"><a href="class_schedule_manager.html">ScheduleManager</a></div><div class="ttdoc">Class that represents the schedule manager.</div><div class="ttdef"><b>Definition:</b> ScheduleManager.h:14</div></div>
+>>>>>>> f2a17ba (Documentation done)
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

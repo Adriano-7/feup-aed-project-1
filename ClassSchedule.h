@@ -92,8 +92,11 @@ class ClassSchedule {
         bool operator == (const ClassSchedule &other) const;
 
     private:
+        /** @brief Information about the class and UC that the schedule is for */
         UcClass ucClass;
+        /** @brief Vector of slots that constitutes the schedule */
         vector<Slot> slots;
+        /** @brief Set of students that are enrolled in the class in this UC */
         set<Student> students;
 };
 

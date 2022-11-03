@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['ucclass_51',['UcClass',['../class_uc_class.html',1,'UcClass'],['../class_uc_class.html#adc1e42a30f0c9364683f4209a55314fb',1,'UcClass::UcClass()'],['../class_uc_class.html#a8623abd4b25901f6e712a5df24ecc686',1,'UcClass::UcClass(const string &amp;ucId, const string &amp;classId)']]]
+  ['type_67',['type',['../class_slot.html#a2724196d075f2b8abf68e51508d9edbf',1,'Slot']]]
 ];

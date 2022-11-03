@@ -121,8 +121,11 @@ class ScheduleManager {
         const set<Student> &getStudents() const;
 
     private:
+    /** @brief Set that stores all the students */
         set <Student> students;
+    /** @brief Vector that stores all the schedules */
         vector<ClassSchedule> schedules;
+    /** @brief Queue that stores all the requests */
         queue<Request> requests;
 };
 

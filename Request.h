@@ -36,7 +36,9 @@ class Request{
         void print() const;
 
     private:
+        /** @brief Student that made the request */
         Student student;
+        /** @brief Class that the student wants to enroll in */
         UcClass desiredClass;
 };
 

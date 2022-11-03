@@ -1,12 +1,5 @@
 var searchData=
 [
-  ['getclassid_16',['getClassId',['../class_uc_class.html#aae87401ede4c340c5b8e9ac08e81d18a',1,'UcClass']]],
-  ['getdesiredclass_17',['getDesiredClass',['../class_request.html#aecc5fa02c7fc3ad1f32d5d2f431089ac',1,'Request']]],
-  ['getnumstudents_18',['getNumStudents',['../class_class_schedule.html#ae72c146550491d43bb902672f7c254c7',1,'ClassSchedule']]],
-  ['getschedules_19',['getSchedules',['../class_schedule_manager.html#a22eb76ac709b9646df4329eb56722c49',1,'ScheduleManager']]],
-  ['getslots_20',['getSlots',['../class_class_schedule.html#adde4fc1fa0a2d164219c5e6a4e3bd15e',1,'ClassSchedule']]],
-  ['getstudent_21',['getStudent',['../class_request.html#aca583762dba5f3e7eb7ef915feebb65b',1,'Request']]],
-  ['getstudents_22',['getStudents',['../class_class_schedule.html#ae4245108e596be85e9b7449075781c92',1,'ClassSchedule::getStudents()'],['../class_schedule_manager.html#ac1aa79addc42d57321ef6abb7c77e872',1,'ScheduleManager::getStudents()']]],
-  ['getucclass_23',['getUcClass',['../class_class_schedule.html#a533a549ea6583bc994167d863f4af916',1,'ClassSchedule']]],
-  ['getucid_24',['getUcId',['../class_uc_class.html#a02a6c12c91f70b797ba5384d2357b189',1,'UcClass']]]
+  ['findschedule_18',['findSchedule',['../class_schedule_manager.html#a6dc5261286d89b133d71d7f948c214da',1,'ScheduleManager']]],
+  ['findstudent_19',['findStudent',['../class_schedule_manager.html#a62ea845de4c37125119cb2dd5d8c9a34',1,'ScheduleManager']]]
 ];

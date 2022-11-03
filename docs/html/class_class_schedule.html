@@ -81,7 +81,7 @@ $(function() {
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a8d88a9c41fde5818bb1a96af0382ba80"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_class_schedule.html#a8d88a9c41fde5818bb1a96af0382ba80">ClassSchedule</a> ()</td></tr>
 <tr class="separator:a8d88a9c41fde5818bb1a96af0382ba80"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a51d32d8db9c15b3385fd4947e1701e1e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_class_schedule.html#a51d32d8db9c15b3385fd4947e1701e1e">ClassSchedule</a> (const <a class="el" href="class_uc_class.html">UcClass</a> &amp;ucClass)</td></tr>
+<tr class="memitem:a51d32d8db9c15b3385fd4947e1701e1e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_class_schedule.html#a51d32d8db9c15b3385fd4947e1701e1e">ClassSchedule</a> (const <a class="el" href="class_uc_class.html">UcClass</a> &amp;<a class="el" href="class_class_schedule.html#a3417deb988f726397276236deb008817">ucClass</a>)</td></tr>
 <tr class="separator:a51d32d8db9c15b3385fd4947e1701e1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aecd3b3e3bfd27112ee78d916fcdb7cb9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_class_schedule.html#aecd3b3e3bfd27112ee78d916fcdb7cb9">ClassSchedule</a> (const string &amp;ucId, const string &amp;classId)</td></tr>
 <tr class="separator:aecd3b3e3bfd27112ee78d916fcdb7cb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -115,13 +115,16 @@ Public Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr class="memitem:a3417deb988f726397276236deb008817"><td class="memItemLeft" align="right" valign="top"><a id="a3417deb988f726397276236deb008817"></a>
-<a class="el" href="class_uc_class.html">UcClass</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ucClass</b></td></tr>
+<a class="el" href="class_uc_class.html">UcClass</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_class_schedule.html#a3417deb988f726397276236deb008817">ucClass</a></td></tr>
+<tr class="memdesc:a3417deb988f726397276236deb008817"><td class="mdescLeft">&#160;</td><td class="mdescRight">Information about the class and UC that the schedule is for. <br /></td></tr>
 <tr class="separator:a3417deb988f726397276236deb008817"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2147fd37fe1d2171e877fe750b643533"><td class="memItemLeft" align="right" valign="top"><a id="a2147fd37fe1d2171e877fe750b643533"></a>
-vector&lt; <a class="el" href="class_slot.html">Slot</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>slots</b></td></tr>
+vector&lt; <a class="el" href="class_slot.html">Slot</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_class_schedule.html#a2147fd37fe1d2171e877fe750b643533">slots</a></td></tr>
+<tr class="memdesc:a2147fd37fe1d2171e877fe750b643533"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vector of slots that constitutes the schedule. <br /></td></tr>
 <tr class="separator:a2147fd37fe1d2171e877fe750b643533"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af0ca603110a80d5ec0f5dd3040ce3e9f"><td class="memItemLeft" align="right" valign="top"><a id="af0ca603110a80d5ec0f5dd3040ce3e9f"></a>
-set&lt; <a class="el" href="class_student.html">Student</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>students</b></td></tr>
+set&lt; <a class="el" href="class_student.html">Student</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_class_schedule.html#af0ca603110a80d5ec0f5dd3040ce3e9f">students</a></td></tr>
+<tr class="memdesc:af0ca603110a80d5ec0f5dd3040ce3e9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set of students that are enrolled in the class in this UC. <br /></td></tr>
 <tr class="separator:af0ca603110a80d5ec0f5dd3040ce3e9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -162,7 +165,11 @@ set&lt; <a class="el" href="class_student.html">Student</a> &gt;&#160;</td><td c
 </div><div class="memdoc">
 <p>Constructor, sets ucClass to the given one. The vector of slots is set to empty. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
+<<<<<<< HEAD
     <tr><td class="paramname"><a class="el" href="class_uc_class.html" title="Class to store the information about a given class in a UC.">UcClass</a></td><td>the <a class="el" href="class_uc_class.html" title="Class to store the information about a given class in a UC.">UcClass</a> of the schedule </td></tr>
+=======
+    <tr><td class="paramname"><a class="el" href="class_uc_class.html" title="class to store the information about a given class in a UC">UcClass</a></td><td>the <a class="el" href="class_uc_class.html" title="class to store the information about a given class in a UC">UcClass</a> of the schedule </td></tr>
+>>>>>>> f2a17ba (Documentation done)
   </table>
   </dd>
 </dl>
@@ -322,7 +329,11 @@ set&lt; <a class="el" href="class_student.html">Student</a> &gt;&#160;</td><td c
         </tr>
       </table>
 </div><div class="memdoc">
+<<<<<<< HEAD
 <p>Get the <a class="el" href="class_uc_class.html" title="Class to store the information about a given class in a UC.">UcClass</a> </p>
+=======
+<p>Get the <a class="el" href="class_uc_class.html" title="class to store the information about a given class in a UC">UcClass</a> </p>
+>>>>>>> f2a17ba (Documentation done)
 
 </div>
 </div>
@@ -347,7 +358,11 @@ set&lt; <a class="el" href="class_student.html">Student</a> &gt;&#160;</td><td c
   </table>
   </dd>
 </dl>
+<<<<<<< HEAD
 <dl class="section return"><dt>Returns</dt><dd>true if the <a class="el" href="class_uc_class.html" title="Class to store the information about a given class in a UC.">UcClass</a> is smaller, false otherwise </dd></dl>
+=======
+<dl class="section return"><dt>Returns</dt><dd>true if the <a class="el" href="class_uc_class.html" title="class to store the information about a given class in a UC">UcClass</a> is smaller, false otherwise </dd></dl>
+>>>>>>> f2a17ba (Documentation done)
 
 </div>
 </div>
@@ -372,7 +387,11 @@ set&lt; <a class="el" href="class_student.html">Student</a> &gt;&#160;</td><td c
   </table>
   </dd>
 </dl>
+<<<<<<< HEAD
 <dl class="section return"><dt>Returns</dt><dd>true if the <a class="el" href="class_uc_class.html" title="Class to store the information about a given class in a UC.">UcClass</a> is equal, false otherwise </dd></dl>
+=======
+<dl class="section return"><dt>Returns</dt><dd>true if the <a class="el" href="class_uc_class.html" title="class to store the information about a given class in a UC">UcClass</a> is equal, false otherwise </dd></dl>
+>>>>>>> f2a17ba (Documentation done)
 
 </div>
 </div>

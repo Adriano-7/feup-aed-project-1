@@ -76,10 +76,16 @@ $(function() {
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
 <div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="class_uc_class.html">   12</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_uc_class.html">UcClass</a>{</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        <a class="code" href="class_uc_class.html">UcClass</a>();</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <a class="code" href="class_uc_class.html">UcClass</a>(<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;ucId, <span class="keyword">const</span> <span class="keywordtype">string</span> &amp;classId);</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        <a class="code" href="class_uc_class.html">UcClass</a>();</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        <a class="code" href="class_uc_class.html">UcClass</a>(<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;ucId, <span class="keyword">const</span> <span class="keywordtype">string</span> &amp;classId);</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        <span class="keywordtype">string</span> getUcId() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        <span class="keywordtype">string</span> getClassId() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        <span class="keywordtype">bool</span> operator ==(<span class="keyword">const</span> <a class="code" href="class_uc_class.html">UcClass</a> &amp;other) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        <span class="keywordtype">bool</span> sameUC(<span class="keyword">const</span> <a class="code" href="class_uc_class.html">UcClass</a> &amp;other) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <span class="keywordtype">bool</span> operator &lt; (<span class="keyword">const</span> <a class="code" href="class_uc_class.html">UcClass</a> &amp;other) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="keywordtype">bool</span> operator &gt; (<span class="keyword">const</span> <a class="code" href="class_uc_class.html">UcClass</a> &amp;other) <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<<<<<<< HEAD
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="keywordtype">string</span> getUcId() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="keywordtype">string</span> getClassId() <span class="keyword">const</span>;</div>
@@ -100,6 +106,17 @@ $(function() {
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="preprocessor">#endif </span><span class="comment">//TRABALHO_UCCLASS_H</span></div>
 <div class="ttc" id="aclass_uc_class_html"><div class="ttname"><a href="class_uc_class.html">UcClass</a></div><div class="ttdoc">Class to store the information about a given class in a UC.</div><div class="ttdef"><b>Definition:</b> UcClass.h:12</div></div>
+=======
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="class_uc_class.html#a40e6d524c783e56e5bcdd3b4e6558768">   25</a></span>&#160;        <span class="keywordtype">string</span> <a class="code" href="class_uc_class.html#a40e6d524c783e56e5bcdd3b4e6558768">ucId</a>;</div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="class_uc_class.html#ab8869b2401b071cd5a18197b109bd83e">   27</a></span>&#160;        <span class="keywordtype">string</span> <a class="code" href="class_uc_class.html#ab8869b2401b071cd5a18197b109bd83e">classId</a>;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;};</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#endif </span><span class="comment">//TRABALHO_UCCLASS_H</span></div>
+<div class="ttc" id="aclass_uc_class_html"><div class="ttname"><a href="class_uc_class.html">UcClass</a></div><div class="ttdoc">class to store the information about a given class in a UC</div><div class="ttdef"><b>Definition:</b> UcClass.h:12</div></div>
+<div class="ttc" id="aclass_uc_class_html_a40e6d524c783e56e5bcdd3b4e6558768"><div class="ttname"><a href="class_uc_class.html#a40e6d524c783e56e5bcdd3b4e6558768">UcClass::ucId</a></div><div class="ttdeci">string ucId</div><div class="ttdoc">Id of the UC.</div><div class="ttdef"><b>Definition:</b> UcClass.h:25</div></div>
+<div class="ttc" id="aclass_uc_class_html_ab8869b2401b071cd5a18197b109bd83e"><div class="ttname"><a href="class_uc_class.html#ab8869b2401b071cd5a18197b109bd83e">UcClass::classId</a></div><div class="ttdeci">string classId</div><div class="ttdoc">Id of the class.</div><div class="ttdef"><b>Definition:</b> UcClass.h:27</div></div>
+>>>>>>> f2a17ba (Documentation done)
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
