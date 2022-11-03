@@ -16,18 +16,21 @@ Slot::Slot(const string &weekDay, const float &startTime, const float &duration,
 string Slot::getWeekDay() const {
     return weekDay;
 }
-/** @brief Getter of the startTime
- * @return startTime
- */
-float Slot::getStartTime() const {
-    return startTime;
-}
+
 /** @brief Getter of the class time
  * @return type
  */
 string Slot::getType() const {
     return type;
 }
+
+/** @brief Getter of the startTime
+ * @return startTime
+ */
+float Slot::getStartTime() const {
+    return startTime;
+}
+
 /** @brief Getter of the endTime
  * @return endTime
  */

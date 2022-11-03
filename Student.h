@@ -18,18 +18,21 @@ class Student {
     public:
         Student();
         Student(const string &id, const string &name);
-        string getId() const;
-        string getName() const;
-        vector<UcClass> getClasses() const;
+
         void addClass(const UcClass &newClass);
         UcClass changeClass(const UcClass &newClass);
         bool isEnrolled(const string &ucCode) const;
-        bool operator == (const Student &other) const;
-        bool operator < (const Student &other) const;
-        bool operator > (const Student &other) const;
+
         void printHeader() const;
         void printClasses() const;
         void print() const;
+
+        string getId() const;
+        string getName() const;
+        vector<UcClass> getClasses() const;
+        bool operator == (const Student &other) const;
+        bool operator < (const Student &other) const;
+        bool operator > (const Student &other) const;
 
     private:
         string id;

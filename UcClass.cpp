@@ -18,6 +18,16 @@ UcClass::UcClass(const string &ucId, const string &classId) {
     this->ucId = ucId;
     this->classId = classId;
 }
+
+/**
+ * @brief Checks if two classes have the same UC
+ * @param other Class to compare
+ * @return true if they have the same UC, false otherwise
+ */
+bool UcClass::sameUC(const UcClass &other) const {
+    return this->ucId == other.ucId;
+}
+
 /**
  * @brief Getter of the UC id
  * @return ucId
@@ -32,14 +42,7 @@ string UcClass::getUcId() const {
 string UcClass::getClassId() const {
     return classId;
 }
-/**
- * @brief Checks if two classes have the same UC
- * @param other Class to compare
- * @return true if they have the same UC, false otherwise
- */
-bool UcClass::sameUC(const UcClass &other) const {
-    return this->ucId == other.ucId;
-}
+
 /**
  * @brief Checks if two classes are equal
  * @param other Class to compare

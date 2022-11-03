@@ -16,10 +16,10 @@ class UcClass{
     public:
         UcClass();
         UcClass(const string &ucId, const string &classId);
+        bool sameUC(const UcClass &other) const;
         string getUcId() const;
         string getClassId() const;
         bool operator ==(const UcClass &other) const;
-        bool sameUC(const UcClass &other) const;
         bool operator < (const UcClass &other) const;
         bool operator > (const UcClass &other) const;
 

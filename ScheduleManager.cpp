@@ -10,6 +10,10 @@
 
 #include "ScheduleManager.h"
 
+/**
+*@brief Schedule Manager constructor
+* @details Creates a Schedule Manager with an empty set of students, a empty vector of schedules and a empty queue of requests
+*/
 ScheduleManager::ScheduleManager() {
     this->students = set<Student>();
     this->schedules = vector<ClassSchedule>();
@@ -17,12 +21,18 @@ ScheduleManager::ScheduleManager() {
     this->rejectedRequests = vector<Request>();
 }
 
+/**
+*@brief Reads the files and creates the objects
+*/
 void ScheduleManager::readFiles() {
     createSchedules();
     setSchedules();
     createStudents();
 }
 
+/**
+*@brief Reads the file "classes_per_uc.csv" and creates a vector of schedules with only the uc code and the class code
+*/
 void ScheduleManager::createSchedules(){
     fstream file("../data/classes_per_uc.csv");
     file.ignore(1000, '\n');
@@ -41,6 +51,10 @@ void ScheduleManager::createSchedules(){
     }
 }
 
+/**
+* @brief Reads the file "classes.csv" and adds the slots to the schedules created in the previous function
+* @see createSchedules()
+*/
 void ScheduleManager::setSchedules() {
     fstream file("../data/classes.csv");
     file.ignore(1000, '\n');
@@ -64,6 +78,10 @@ void ScheduleManager::setSchedules() {
     }
 }
 
+/**
+* @brief Reads the students_classes.csv file and creates the students set
+* @details The students are created with the student id, name and the classes they are enrolled in
+*/
 void ScheduleManager::createStudents() {
     fstream file("../data/students_classes.csv");
     file.ignore(1000, '\n');
@@ -96,6 +114,13 @@ void ScheduleManager::createStudents() {
     }
 }
 
+/**
+* @brief Function that returns the index of the schedule with the ucClass passed as parameter
+* @param desiredUcCLass
+* @details Uses binary search to find the schedules
+* @return The index of the schedule with the ucClass passed as parameter
+ * @see Slot::collides()
+*/
 unsigned long ScheduleManager::binarySearchSchedules(const UcClass &desiredUcCLass) const{
     unsigned long left = 0, right = schedules.size() - 1, middle = (left + right) / 2;
 
@@ -114,6 +139,10 @@ unsigned long ScheduleManager::binarySearchSchedules(const UcClass &desiredUcCLa
     return -1;
 }
 
+/**
+* @brief Function that verifies if the schedule of two given classes have a conflict
+* @return true if the classes have a conflict, false otherwise
+*/
 bool ScheduleManager::classesCollide(const UcClass &c1, const UcClass &c2) const{
     if(c1.sameUC(c2)) return false;
     ClassSchedule* cs1 = findSchedule(c1);
@@ -126,6 +155,11 @@ bool ScheduleManager::classesCollide(const UcClass &c1, const UcClass &c2) const
     return false;
 }
 
+/**
+* @brief Function that verifies if a given request has a conflict with the schedule of a given student
+* @param request
+* @return true if the request has a conflict with the schedule of the student, false otherwise
+*/
 bool ScheduleManager::requestHasCollision(const Request &request) const{
     Student student = request.getStudent();
     UcClass desiredClass = request.getDesiredClass();
@@ -136,22 +170,30 @@ bool ScheduleManager::requestHasCollision(const Request &request) const{
     return false;
 }
 
+/**
+* @brief Function that returns the student with the ID passed as parameter
+* @param studentId
+*/
+Student* ScheduleManager::findStudent(const string &studentId) const{
+    auto student = students.find(Student(studentId, ""));
+    return student == students.end() ? nullptr : const_cast<Student*>(&(*student));
+}
 
+/**
+* @brief Function that returns the schedule with the ucClass passed as parameter
+* @param ucClass
+*/
 ClassSchedule* ScheduleManager::findSchedule(const UcClass &ucClass) const {
     unsigned long index = binarySearchSchedules(ucClass);
     if(index == -1) return nullptr;
     return const_cast<ClassSchedule*>(&schedules[index]);
 }
 
-Student* ScheduleManager::findStudent(const string &studentId) const{
-    auto student = students.find(Student(studentId, ""));
-    return student == students.end() ? nullptr : const_cast<Student*>(&(*student));
-}
-
-void ScheduleManager::addRequest(const Student &student, const UcClass &ucClass) {
-    requests.push(Request(student, ucClass));
-}
-
+/**
+ * @brief Function that gets all classes of a given subject
+ * @param subjectCode
+ * @return A vector with all the classes of a given subject
+ */
 vector<ClassSchedule> ScheduleManager::classesOfSubject(const string &ucId) const {
     vector<ClassSchedule> classes;
     for(const ClassSchedule &cs : schedules){
@@ -162,6 +204,11 @@ vector<ClassSchedule> ScheduleManager::classesOfSubject(const string &ucId) cons
     return classes;
 }
 
+/**
+ * @brief Function that gets all students of a given subject
+ * @param subjectCode
+ * @return A vector with all the students of a given subject
+ */
 vector<Student> ScheduleManager::studentsOfSubject(const string &ucId) const {
     vector<Student> subjectStudents;
     vector<ClassSchedule> subjectClasses = classesOfSubject(ucId);
@@ -173,6 +220,18 @@ vector<Student> ScheduleManager::studentsOfSubject(const string &ucId) const {
     return subjectStudents;
 }
 
+/**
+ * @brief Function that given a student id and the ucClass he wants to change to, adds the request to the queue of requests
+ */
+void ScheduleManager::addRequest(const Student &student, const UcClass &ucClass) {
+    requests.push(Request(student, ucClass));
+}
+
+/**
+ * @brief Function that verifies if a request doesn't exceed the maximum number of students which can be enrolled in a given class
+ * @param request
+ * @return boolean expression
+ */
 bool ScheduleManager::requestExceedsMaxStudents(const Request &request) const {
     string ucId = request.getDesiredClass().getUcId();
     vector<ClassSchedule> subjectClasses = classesOfSubject(ucId);
@@ -190,10 +249,18 @@ bool ScheduleManager::requestExceedsMaxStudents(const Request &request) const {
     return schedule->getNumStudents() >= maxStudents;
 }
 
+/**
+ * @brief Function that verifies if a request can be accepted
+ * @param request
+ * @return boolean expression
+ */
 bool ScheduleManager::acceptRequest(const Request &request) const {
     return !(requestHasCollision(request) || requestExceedsMaxStudents(request));
 }
 
+/**
+ * @brief Function that processes the requests in the queue
+ */
 void ScheduleManager::processRequest(const Request &request) {
     if(acceptRequest(request)){
         Student* student = findStudent(request.getStudent().getId());
@@ -207,6 +274,9 @@ void ScheduleManager::processRequest(const Request &request) {
     }
 }
 
+/**
+ * @brief Function that processes all requests in the queue
+ */
 void ScheduleManager::processRequests() {
     cout << ">> Accepted requests:" << endl;
     while(!requests.empty()){
@@ -219,6 +289,21 @@ void ScheduleManager::processRequests() {
     }else{
         cout << ">> All requests were accepted!" << endl;
     }
+}
+
+/**
+ * @brief Function that writes all information to the files
+ */
+void ScheduleManager:: writeFiles() const {
+    ofstream file;
+    file.open("../data/students_classes.csv");
+    file << "StudentCode,StudentName,UcCode,ClassCode" << endl;
+    for (const Student &s: students) {
+        for (const UcClass c: s.getClasses()) {
+            file << s.getId() << "," << s.getName() << "," << c.getUcId() << "," << c.getClassId() << endl;
+        }
+    }
+    file.close();
 }
 
 /**
@@ -275,6 +360,10 @@ string decimalToHours(int decimal){
     return hoursStr + ":" + minutesStr;
 }
 
+/**
+ * @brief Function that prints the schedule of a given student
+ * @param studentId
+ */
 void ScheduleManager::printStudentSchedule(const string &studentId) const {
     system("clear");
     Student* student = findStudent(studentId);
@@ -317,13 +406,12 @@ void ScheduleManager::printStudentSchedule(const string &studentId) const {
     }
 }
 
-
-struct slotUcID{
-    Slot slot;
-    string ucID;
-};
-
+/**
+ * @brief Function that prints the schedule of a given class
+ * @param classCode
+ */
 void ScheduleManager::printClassSchedule(const string &classCode) const{
+    struct slotUcID{Slot slot; string ucID;};
     system("clear");
     map<string, vector<slotUcID>> slots;
     const vector<ClassSchedule> check = schedules;
@@ -354,6 +442,10 @@ void ScheduleManager::printClassSchedule(const string &classCode) const{
     }
 }
 
+/**
+ * @brief Function that print the schedule of a given subject
+ * @param subjectCode
+ */
 void ScheduleManager::printUcSchedule(const string &subjectCode) const{
     vector<ClassSchedule> schedulesUC;
     for (const ClassSchedule &cs: schedules) {
@@ -392,6 +484,10 @@ void ScheduleManager::printUcSchedule(const string &subjectCode) const{
     }
 }
 
+/**
+ * @brief Function that prints the students enrolled a given uc
+ * @param ucId
+ */
 void ScheduleManager::printUcStudents(const string &ucId) const {
     vector<Student> studentsVector = studentsOfSubject(ucId);
     if(studentsVector.empty()){
@@ -408,6 +504,9 @@ void ScheduleManager::printUcStudents(const string &ucId) const {
     }
 }
 
+/**
+* @brief Function that prints all requests in the queue
+*/
 void ScheduleManager::printPendingRequests() const {
     queue<Request> pendingRequests = requests;
     cout << endl << ">> Pending requests:" << endl;
@@ -417,21 +516,12 @@ void ScheduleManager::printPendingRequests() const {
     }
 }
 
+/**
+ * @brief Function that prints all the rejected requests
+ */
 void ScheduleManager::printRejectedRequests() const {
     cout << endl << ">> Rejected requests:" << endl;
     for (const Request &request: rejectedRequests) {
         cout << "   "; request.print();
     }
-}
-
-void ScheduleManager:: writeFiles() const {
-    ofstream file;
-    file.open("../data/students_classes.csv");
-    file << "StudentCode,StudentName,UcCode,ClassCode" << endl;
-    for (const Student &s: students) {
-        for (const UcClass c: s.getClasses()) {
-            file << s.getId() << "," << s.getName() << "," << c.getUcId() << "," << c.getClassId() << endl;
-        }
-    }
-    file.close();
 }

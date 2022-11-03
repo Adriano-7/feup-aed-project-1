@@ -40,6 +40,43 @@ UcClass Student::changeClass(const UcClass &newClass) {
     return UcClass();
 }
 
+/** @brief Checks if the student is enrolled in a given UC
+ * @param ucCode UC code to check
+ * @return true if the student is enrolled, false otherwise
+ */
+bool Student::isEnrolled(const string &ucCode) const {
+    for (auto &i : classes) {
+        if (i.getUcId() == ucCode) {
+            return true;
+        }
+    }
+    return false;
+}
+
+/** @brief Prints the header of the student
+ */
+void Student::printHeader() const {
+    cout << name << " - " << id << endl;
+}
+
+/** @brief Prints the classes of the student
+ */
+void Student::printClasses() const {
+    int i = 0;
+    while(i < classes.size()-1){
+        cout << classes[i].getUcId() << " " << classes[i].getClassId() << "  |  ";
+        i++;
+    }
+    cout << classes[i].getUcId() << " " << classes[i].getClassId() << endl;
+}
+
+/** @brief Prints the student
+ */
+void Student::print() const {
+    cout << "Student: "; printHeader();
+    cout << "Classes: "; printClasses();
+}
+
 /** @brief Getter of the id
  * @return id
  */
@@ -57,15 +94,6 @@ string Student::getName() const {
  */
 vector <UcClass> Student::getClasses() const {
     return classes;
-}
-
-bool Student::isEnrolled(const string &ucCode) const {
-    for (auto &i : classes) {
-        if (i.getUcId() == ucCode) {
-            return true;
-        }
-    }
-    return false;
 }
 
 /** @brief Checks if two students have the same ID
@@ -88,26 +116,4 @@ bool Student::operator<(const Student &other) const {
  */
 bool Student::operator>(const Student &other) const {
     return this->id > other.getId();
-}
-/** @brief Prints the header of the student
- */
-void Student::printHeader() const {
-    cout << name << " - " << id << endl;
-}
-/** @brief Prints the classes of the student
- */
-void Student::printClasses() const {
-    int i = 0;
-    while(i < classes.size()-1){
-        cout << classes[i].getUcId() << " " << classes[i].getClassId() << "  |  ";
-        i++;
-    }
-    cout << classes[i].getUcId() << " " << classes[i].getClassId() << endl;
-}
-
-/** @brief Prints the student
- */
-void Student::print() const {
-    cout << "Student: "; printHeader();
-    cout << "Classes: "; printClasses();
 }

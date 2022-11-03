@@ -79,37 +79,62 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a8d88a9c41fde5818bb1a96af0382ba80"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_class_schedule.html#a8d88a9c41fde5818bb1a96af0382ba80">ClassSchedule</a> ()</td></tr>
+<tr class="memitem:a8d88a9c41fde5818bb1a96af0382ba80"><td class="memItemLeft" align="right" valign="top"><a id="a8d88a9c41fde5818bb1a96af0382ba80"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_class_schedule.html#a8d88a9c41fde5818bb1a96af0382ba80">ClassSchedule</a> ()</td></tr>
+<tr class="memdesc:a8d88a9c41fde5818bb1a96af0382ba80"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default Constructor, initialized with an empty vector of slots and students. <br /></td></tr>
 <tr class="separator:a8d88a9c41fde5818bb1a96af0382ba80"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a51d32d8db9c15b3385fd4947e1701e1e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_class_schedule.html#a51d32d8db9c15b3385fd4947e1701e1e">ClassSchedule</a> (const <a class="el" href="class_uc_class.html">UcClass</a> &amp;<a class="el" href="class_class_schedule.html#a3417deb988f726397276236deb008817">ucClass</a>)</td></tr>
+<tr class="memdesc:a51d32d8db9c15b3385fd4947e1701e1e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor, sets ucClass to the given one. The vector of slots is set to empty.  <a href="class_class_schedule.html#a51d32d8db9c15b3385fd4947e1701e1e">More...</a><br /></td></tr>
 <tr class="separator:a51d32d8db9c15b3385fd4947e1701e1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aecd3b3e3bfd27112ee78d916fcdb7cb9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_class_schedule.html#aecd3b3e3bfd27112ee78d916fcdb7cb9">ClassSchedule</a> (const string &amp;ucId, const string &amp;classId)</td></tr>
+<tr class="memdesc:aecd3b3e3bfd27112ee78d916fcdb7cb9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor, given a ucId and a classId, creates a <a class="el" href="class_class_schedule.html" title="Class that represents a schedule for a class in a given Course, with a vector of slots and a set of s...">ClassSchedule</a> with the the vector of slots empty.  <a href="class_class_schedule.html#aecd3b3e3bfd27112ee78d916fcdb7cb9">More...</a><br /></td></tr>
 <tr class="separator:aecd3b3e3bfd27112ee78d916fcdb7cb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3c3606b85246ee4c2247172165a35694"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_class_schedule.html#a3c3606b85246ee4c2247172165a35694">printHeader</a> () const</td></tr>
+<tr class="memitem:af6a739209d324916e2a62d886d7ec4e0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_class_schedule.html#af6a739209d324916e2a62d886d7ec4e0">addSlot</a> (const <a class="el" href="class_slot.html">Slot</a> &amp;slot)</td></tr>
+<tr class="memdesc:af6a739209d324916e2a62d886d7ec4e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a slot to the vector of slots.  <a href="class_class_schedule.html#af6a739209d324916e2a62d886d7ec4e0">More...</a><br /></td></tr>
+<tr class="separator:af6a739209d324916e2a62d886d7ec4e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a06148f11742f84b658853853e70ee6f3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_class_schedule.html#a06148f11742f84b658853853e70ee6f3">addStudent</a> (const <a class="el" href="class_student.html">Student</a> &amp;student)</td></tr>
+<tr class="memdesc:a06148f11742f84b658853853e70ee6f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a student to the set of students.  <a href="class_class_schedule.html#a06148f11742f84b658853853e70ee6f3">More...</a><br /></td></tr>
+<tr class="separator:a06148f11742f84b658853853e70ee6f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a15fe2f7af76202a0a787a73a33cd22c8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_class_schedule.html#a15fe2f7af76202a0a787a73a33cd22c8">removeStudent</a> (const <a class="el" href="class_student.html">Student</a> &amp;student)</td></tr>
+<tr class="memdesc:a15fe2f7af76202a0a787a73a33cd22c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove a student from the set of students.  <a href="class_class_schedule.html#a15fe2f7af76202a0a787a73a33cd22c8">More...</a><br /></td></tr>
+<tr class="separator:a15fe2f7af76202a0a787a73a33cd22c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac50e4034853f1693e43775c1055fd04b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_class_schedule.html#ac50e4034853f1693e43775c1055fd04b">sameUC</a> (const <a class="el" href="class_class_schedule.html">ClassSchedule</a> &amp;other) const</td></tr>
+<tr class="memdesc:ac50e4034853f1693e43775c1055fd04b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bolean function that returns true if both <a class="el" href="class_class_schedule.html" title="Class that represents a schedule for a class in a given Course, with a vector of slots and a set of s...">ClassSchedule</a> have the same UcId, false otherwise.  <a href="class_class_schedule.html#ac50e4034853f1693e43775c1055fd04b">More...</a><br /></td></tr>
+<tr class="separator:ac50e4034853f1693e43775c1055fd04b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c3606b85246ee4c2247172165a35694"><td class="memItemLeft" align="right" valign="top"><a id="a3c3606b85246ee4c2247172165a35694"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_class_schedule.html#a3c3606b85246ee4c2247172165a35694">printHeader</a> () const</td></tr>
+<tr class="memdesc:a3c3606b85246ee4c2247172165a35694"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints the ucId and classId. <br /></td></tr>
 <tr class="separator:a3c3606b85246ee4c2247172165a35694"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa271afe9f7a9b42c5be40a083d8dcb26"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_class_schedule.html#aa271afe9f7a9b42c5be40a083d8dcb26">printSlots</a> () const</td></tr>
+<tr class="memitem:aa271afe9f7a9b42c5be40a083d8dcb26"><td class="memItemLeft" align="right" valign="top"><a id="aa271afe9f7a9b42c5be40a083d8dcb26"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_class_schedule.html#aa271afe9f7a9b42c5be40a083d8dcb26">printSlots</a> () const</td></tr>
+<tr class="memdesc:aa271afe9f7a9b42c5be40a083d8dcb26"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints each slot (Weekday, Start time, End time, Type) <br /></td></tr>
 <tr class="separator:aa271afe9f7a9b42c5be40a083d8dcb26"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a49f6c1dec5edf6fabbc91591972b5d25"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_class_schedule.html#a49f6c1dec5edf6fabbc91591972b5d25">printStudents</a> (const string &amp;sortType=&quot;alphabetical&quot;) const</td></tr>
+<tr class="memdesc:a49f6c1dec5edf6fabbc91591972b5d25"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints the students in a given sortType.  <a href="class_class_schedule.html#a49f6c1dec5edf6fabbc91591972b5d25">More...</a><br /></td></tr>
 <tr class="separator:a49f6c1dec5edf6fabbc91591972b5d25"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1091607ad18551c206a815a8b823ed29"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_class_schedule.html#a1091607ad18551c206a815a8b823ed29">print</a> () const</td></tr>
+<tr class="memitem:a1091607ad18551c206a815a8b823ed29"><td class="memItemLeft" align="right" valign="top"><a id="a1091607ad18551c206a815a8b823ed29"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_class_schedule.html#a1091607ad18551c206a815a8b823ed29">print</a> () const</td></tr>
+<tr class="memdesc:a1091607ad18551c206a815a8b823ed29"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints the <a class="el" href="class_class_schedule.html" title="Class that represents a schedule for a class in a given Course, with a vector of slots and a set of s...">ClassSchedule(calls printHeader, printSlots and printStudents)</a> <br /></td></tr>
 <tr class="separator:a1091607ad18551c206a815a8b823ed29"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a533a549ea6583bc994167d863f4af916"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_uc_class.html">UcClass</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_class_schedule.html#a533a549ea6583bc994167d863f4af916">getUcClass</a> () const</td></tr>
+<tr class="memitem:a533a549ea6583bc994167d863f4af916"><td class="memItemLeft" align="right" valign="top"><a id="a533a549ea6583bc994167d863f4af916"></a>
+<a class="el" href="class_uc_class.html">UcClass</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_class_schedule.html#a533a549ea6583bc994167d863f4af916">getUcClass</a> () const</td></tr>
+<tr class="memdesc:a533a549ea6583bc994167d863f4af916"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the <a class="el" href="class_uc_class.html" title="Class to store the information about a given class in a UC.">UcClass</a>. <br /></td></tr>
 <tr class="separator:a533a549ea6583bc994167d863f4af916"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae4245108e596be85e9b7449075781c92"><td class="memItemLeft" align="right" valign="top">set&lt; <a class="el" href="class_student.html">Student</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_class_schedule.html#ae4245108e596be85e9b7449075781c92">getStudents</a> () const</td></tr>
-<tr class="separator:ae4245108e596be85e9b7449075781c92"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af6a739209d324916e2a62d886d7ec4e0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_class_schedule.html#af6a739209d324916e2a62d886d7ec4e0">addSlot</a> (const <a class="el" href="class_slot.html">Slot</a> &amp;slot)</td></tr>
-<tr class="separator:af6a739209d324916e2a62d886d7ec4e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adde4fc1fa0a2d164219c5e6a4e3bd15e"><td class="memItemLeft" align="right" valign="top">const vector&lt; <a class="el" href="class_slot.html">Slot</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_class_schedule.html#adde4fc1fa0a2d164219c5e6a4e3bd15e">getSlots</a> () const</td></tr>
-<tr class="separator:adde4fc1fa0a2d164219c5e6a4e3bd15e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae72c146550491d43bb902672f7c254c7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_class_schedule.html#ae72c146550491d43bb902672f7c254c7">getNumStudents</a> () const</td></tr>
+<tr class="memdesc:ae72c146550491d43bb902672f7c254c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the number of students in the class.  <a href="class_class_schedule.html#ae72c146550491d43bb902672f7c254c7">More...</a><br /></td></tr>
 <tr class="separator:ae72c146550491d43bb902672f7c254c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a06148f11742f84b658853853e70ee6f3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_class_schedule.html#a06148f11742f84b658853853e70ee6f3">addStudent</a> (const <a class="el" href="class_student.html">Student</a> &amp;student)</td></tr>
-<tr class="separator:a06148f11742f84b658853853e70ee6f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a17032a7764a6787cdf37e085a1985f01"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_class_schedule.html#a17032a7764a6787cdf37e085a1985f01">sameUC</a> (<a class="el" href="class_class_schedule.html">ClassSchedule</a> other) const</td></tr>
-<tr class="separator:a17032a7764a6787cdf37e085a1985f01"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adde4fc1fa0a2d164219c5e6a4e3bd15e"><td class="memItemLeft" align="right" valign="top">const vector&lt; <a class="el" href="class_slot.html">Slot</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_class_schedule.html#adde4fc1fa0a2d164219c5e6a4e3bd15e">getSlots</a> () const</td></tr>
+<tr class="memdesc:adde4fc1fa0a2d164219c5e6a4e3bd15e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the slots.  <a href="class_class_schedule.html#adde4fc1fa0a2d164219c5e6a4e3bd15e">More...</a><br /></td></tr>
+<tr class="separator:adde4fc1fa0a2d164219c5e6a4e3bd15e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae4245108e596be85e9b7449075781c92"><td class="memItemLeft" align="right" valign="top"><a id="ae4245108e596be85e9b7449075781c92"></a>
+set&lt; <a class="el" href="class_student.html">Student</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_class_schedule.html#ae4245108e596be85e9b7449075781c92">getStudents</a> () const</td></tr>
+<tr class="memdesc:ae4245108e596be85e9b7449075781c92"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get students. <br /></td></tr>
+<tr class="separator:ae4245108e596be85e9b7449075781c92"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab74d241bc5886d6dd76ab4b97ca31423"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_class_schedule.html#ab74d241bc5886d6dd76ab4b97ca31423">operator&lt;</a> (const <a class="el" href="class_class_schedule.html">ClassSchedule</a> &amp;other) const</td></tr>
+<tr class="memdesc:ab74d241bc5886d6dd76ab4b97ca31423"><td class="mdescLeft">&#160;</td><td class="mdescRight">Minor operator.  <a href="class_class_schedule.html#ab74d241bc5886d6dd76ab4b97ca31423">More...</a><br /></td></tr>
 <tr class="separator:ab74d241bc5886d6dd76ab4b97ca31423"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ade0af259e5e109dd3b38d78408677237"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_class_schedule.html#ade0af259e5e109dd3b38d78408677237">operator==</a> (const <a class="el" href="class_class_schedule.html">ClassSchedule</a> &amp;other) const</td></tr>
+<tr class="memdesc:ade0af259e5e109dd3b38d78408677237"><td class="mdescLeft">&#160;</td><td class="mdescRight">Equality operator.  <a href="class_class_schedule.html#ade0af259e5e109dd3b38d78408677237">More...</a><br /></td></tr>
 <tr class="separator:ade0af259e5e109dd3b38d78408677237"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
@@ -130,26 +155,8 @@ set&lt; <a class="el" href="class_student.html">Student</a> &gt;&#160;</td><td c
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Class that represents a schedule for a class in a given Course, with a vector of slots and a set of students. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a8d88a9c41fde5818bb1a96af0382ba80"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8d88a9c41fde5818bb1a96af0382ba80">&#9670;&nbsp;</a></span>ClassSchedule() <span class="overload">[1/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">ClassSchedule::ClassSchedule </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Default Constructor, initialized with an empty vector of slots and students </p>
-
-</div>
-</div>
 <a id="a51d32d8db9c15b3385fd4947e1701e1e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a51d32d8db9c15b3385fd4947e1701e1e">&#9670;&nbsp;</a></span>ClassSchedule() <span class="overload">[2/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a51d32d8db9c15b3385fd4947e1701e1e">&#9670;&nbsp;</a></span>ClassSchedule() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -163,7 +170,9 @@ set&lt; <a class="el" href="class_student.html">Student</a> &gt;&#160;</td><td c
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Constructor, sets ucClass to the given one. The vector of slots is set to empty. </p><dl class="params"><dt>Parameters</dt><dd>
+
+<p>Constructor, sets ucClass to the given one. The vector of slots is set to empty. </p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname"><a class="el" href="class_uc_class.html" title="Class to store the information about a given class in a UC.">UcClass</a></td><td>the <a class="el" href="class_uc_class.html" title="Class to store the information about a given class in a UC.">UcClass</a> of the schedule </td></tr>
   </table>
@@ -173,7 +182,7 @@ set&lt; <a class="el" href="class_student.html">Student</a> &gt;&#160;</td><td c
 </div>
 </div>
 <a id="aecd3b3e3bfd27112ee78d916fcdb7cb9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aecd3b3e3bfd27112ee78d916fcdb7cb9">&#9670;&nbsp;</a></span>ClassSchedule() <span class="overload">[3/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aecd3b3e3bfd27112ee78d916fcdb7cb9">&#9670;&nbsp;</a></span>ClassSchedule() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -197,7 +206,8 @@ set&lt; <a class="el" href="class_student.html">Student</a> &gt;&#160;</td><td c
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Constructor, given a ucId and a classId, creates a <a class="el" href="class_class_schedule.html" title="Class that represents a schedule for a class in a given Course, with a vector of slots and a set of s...">ClassSchedule</a> with the the vector of slots empty</p>
+
+<p>Constructor, given a ucId and a classId, creates a <a class="el" href="class_class_schedule.html" title="Class that represents a schedule for a class in a given Course, with a vector of slots and a set of s...">ClassSchedule</a> with the the vector of slots empty. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">ucId</td><td></td></tr>
@@ -224,7 +234,9 @@ set&lt; <a class="el" href="class_student.html">Student</a> &gt;&#160;</td><td c
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Add a slot to the vector of slots </p><dl class="params"><dt>Parameters</dt><dd>
+
+<p>Add a slot to the vector of slots. </p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">slot</td><td>the slot to be added </td></tr>
   </table>
@@ -248,7 +260,9 @@ set&lt; <a class="el" href="class_student.html">Student</a> &gt;&#160;</td><td c
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Add a student to the set of students </p><dl class="params"><dt>Parameters</dt><dd>
+
+<p>Add a student to the set of students. </p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">student</td><td>the student to add </td></tr>
   </table>
@@ -271,7 +285,9 @@ set&lt; <a class="el" href="class_student.html">Student</a> &gt;&#160;</td><td c
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Get the number of students in the class </p><dl class="section return"><dt>Returns</dt><dd>the number of students </dd></dl>
+
+<p>Get the number of students in the class. </p>
+<dl class="section return"><dt>Returns</dt><dd>the number of students </dd></dl>
 
 </div>
 </div>
@@ -289,43 +305,9 @@ set&lt; <a class="el" href="class_student.html">Student</a> &gt;&#160;</td><td c
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Get the slots </p><dl class="section return"><dt>Returns</dt><dd>the reference to the vector of slots </dd></dl>
 
-</div>
-</div>
-<a id="ae4245108e596be85e9b7449075781c92"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae4245108e596be85e9b7449075781c92">&#9670;&nbsp;</a></span>getStudents()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">set&lt; <a class="el" href="class_student.html">Student</a> &gt; ClassSchedule::getStudents </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Get students </p>
-
-</div>
-</div>
-<a id="a533a549ea6583bc994167d863f4af916"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a533a549ea6583bc994167d863f4af916">&#9670;&nbsp;</a></span>getUcClass()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_uc_class.html">UcClass</a> ClassSchedule::getUcClass </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Get the <a class="el" href="class_uc_class.html" title="Class to store the information about a given class in a UC.">UcClass</a> </p>
+<p>Get the slots. </p>
+<dl class="section return"><dt>Returns</dt><dd>the reference to the vector of slots </dd></dl>
 
 </div>
 </div>
@@ -344,7 +326,9 @@ set&lt; <a class="el" href="class_student.html">Student</a> &gt;&#160;</td><td c
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Minor operator </p><dl class="params"><dt>Parameters</dt><dd>
+
+<p>Minor operator. </p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">other</td><td>The <a class="el" href="class_class_schedule.html" title="Class that represents a schedule for a class in a given Course, with a vector of slots and a set of s...">ClassSchedule</a> to compare to </td></tr>
   </table>
@@ -369,67 +353,15 @@ set&lt; <a class="el" href="class_student.html">Student</a> &gt;&#160;</td><td c
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Equality operator </p><dl class="params"><dt>Parameters</dt><dd>
+
+<p>Equality operator. </p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">other</td><td>The <a class="el" href="class_class_schedule.html" title="Class that represents a schedule for a class in a given Course, with a vector of slots and a set of s...">ClassSchedule</a> to compare to </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true if the <a class="el" href="class_uc_class.html" title="Class to store the information about a given class in a UC.">UcClass</a> is equal, false otherwise </dd></dl>
-
-</div>
-</div>
-<a id="a1091607ad18551c206a815a8b823ed29"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1091607ad18551c206a815a8b823ed29">&#9670;&nbsp;</a></span>print()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void ClassSchedule::print </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Prints the <a class="el" href="class_class_schedule.html" title="Class that represents a schedule for a class in a given Course, with a vector of slots and a set of s...">ClassSchedule(calls printHeader, printSlots and printStudents)</a> </p>
-
-</div>
-</div>
-<a id="a3c3606b85246ee4c2247172165a35694"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3c3606b85246ee4c2247172165a35694">&#9670;&nbsp;</a></span>printHeader()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void ClassSchedule::printHeader </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Prints the ucId and classId </p>
-
-</div>
-</div>
-<a id="aa271afe9f7a9b42c5be40a083d8dcb26"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa271afe9f7a9b42c5be40a083d8dcb26">&#9670;&nbsp;</a></span>printSlots()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void ClassSchedule::printSlots </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Prints each slot (Weekday, Start time, End time, Type) </p>
 
 </div>
 </div>
@@ -448,7 +380,9 @@ set&lt; <a class="el" href="class_student.html">Student</a> &gt;&#160;</td><td c
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Prints the students in a given sortType </p><dl class="params"><dt>Parameters</dt><dd>
+
+<p>Prints the students in a given sortType. </p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">sortType</td><td>the type of sort, it can be alphabetical, reverse alphabetical, numerical, reverse numerical </td></tr>
   </table>
@@ -457,8 +391,34 @@ set&lt; <a class="el" href="class_student.html">Student</a> &gt;&#160;</td><td c
 
 </div>
 </div>
-<a id="a17032a7764a6787cdf37e085a1985f01"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a17032a7764a6787cdf37e085a1985f01">&#9670;&nbsp;</a></span>sameUC()</h2>
+<a id="a15fe2f7af76202a0a787a73a33cd22c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a15fe2f7af76202a0a787a73a33cd22c8">&#9670;&nbsp;</a></span>removeStudent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ClassSchedule::removeStudent </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_student.html">Student</a> &amp;&#160;</td>
+          <td class="paramname"><em>student</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Remove a student from the set of students. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">student</td><td>the student to remove </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ac50e4034853f1693e43775c1055fd04b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac50e4034853f1693e43775c1055fd04b">&#9670;&nbsp;</a></span>sameUC()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -466,13 +426,15 @@ set&lt; <a class="el" href="class_student.html">Student</a> &gt;&#160;</td><td c
         <tr>
           <td class="memname">bool ClassSchedule::sameUC </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_class_schedule.html">ClassSchedule</a>&#160;</td>
+          <td class="paramtype">const <a class="el" href="class_class_schedule.html">ClassSchedule</a> &amp;&#160;</td>
           <td class="paramname"><em>other</em></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Bolean function that returns true if both <a class="el" href="class_class_schedule.html" title="Class that represents a schedule for a class in a given Course, with a vector of slots and a set of s...">ClassSchedule</a> have the same UcId, false otherwise </p><dl class="params"><dt>Parameters</dt><dd>
+
+<p>Bolean function that returns true if both <a class="el" href="class_class_schedule.html" title="Class that represents a schedule for a class in a given Course, with a vector of slots and a set of s...">ClassSchedule</a> have the same UcId, false otherwise. </p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">other</td><td>the other <a class="el" href="class_class_schedule.html" title="Class that represents a schedule for a class in a given Course, with a vector of slots and a set of s...">ClassSchedule</a> </td></tr>
   </table>

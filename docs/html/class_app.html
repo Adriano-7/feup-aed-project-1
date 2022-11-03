@@ -80,7 +80,7 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aa12792a9dd31ca126f9cd937f95396ca"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_app.html#aa12792a9dd31ca126f9cd937f95396ca">App</a> (const <a class="el" href="class_schedule_manager.html">ScheduleManager</a> &amp;manager)</td></tr>
-<tr class="memdesc:aa12792a9dd31ca126f9cd937f95396ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor, sleeptime is set to 800000.  <a href="class_app.html#aa12792a9dd31ca126f9cd937f95396ca">More...</a><br /></td></tr>
+<tr class="memdesc:aa12792a9dd31ca126f9cd937f95396ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor, sleepTime is set to 800000 ms.  <a href="class_app.html#aa12792a9dd31ca126f9cd937f95396ca">More...</a><br /></td></tr>
 <tr class="separator:aa12792a9dd31ca126f9cd937f95396ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8d27eeb51b813760dc39425d7a9a37e2"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_app.html#a8d27eeb51b813760dc39425d7a9a37e2">run</a> ()</td></tr>
 <tr class="memdesc:a8d27eeb51b813760dc39425d7a9a37e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that runs the application, it calls the menu and the functions to read the files.  <a href="class_app.html#a8d27eeb51b813760dc39425d7a9a37e2">More...</a><br /></td></tr>
@@ -112,6 +112,14 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_app.html#a8456cd592b321c96e23e88cc2b50cd6b">checkUcStudents</a> () const</td></tr>
 <tr class="memdesc:a8456cd592b321c96e23e88cc2b50cd6b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that prints the students enrolled in a subject. <br /></td></tr>
 <tr class="separator:a8456cd592b321c96e23e88cc2b50cd6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6fc0a750bc85d930729b605252b3202b"><td class="memItemLeft" align="right" valign="top"><a id="a6fc0a750bc85d930729b605252b3202b"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_app.html#a6fc0a750bc85d930729b605252b3202b">processPendingRequests</a> ()</td></tr>
+<tr class="memdesc:a6fc0a750bc85d930729b605252b3202b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that processes all pending requests. <br /></td></tr>
+<tr class="separator:a6fc0a750bc85d930729b605252b3202b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3849ad0c655f662f2307317649be53aa"><td class="memItemLeft" align="right" valign="top"><a id="a3849ad0c655f662f2307317649be53aa"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_app.html#a3849ad0c655f662f2307317649be53aa">saveInformation</a> ()</td></tr>
+<tr class="memdesc:a3849ad0c655f662f2307317649be53aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that writes the information to the files before closing the program. <br /></td></tr>
+<tr class="separator:a3849ad0c655f662f2307317649be53aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a57df502b0662474037c5ec1ef026f2e7"><td class="memItemLeft" align="right" valign="top"><a id="a57df502b0662474037c5ec1ef026f2e7"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_app.html#a57df502b0662474037c5ec1ef026f2e7">waitForInput</a> () const</td></tr>
 <tr class="memdesc:a57df502b0662474037c5ec1ef026f2e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that makes the program wait for user input to continue. <br /></td></tr>
@@ -153,7 +161,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>sleepTime</b></td></tr
 </table>
 </div><div class="memdoc">
 
-<p>Constructor, sleeptime is set to 800000. </p>
+<p>Constructor, sleepTime is set to 800000 ms. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname"><a class="el" href="class_schedule_manager.html" title="Class to store the information about the schedules, requests and students.">ScheduleManager</a></td><td>manager </td></tr>
