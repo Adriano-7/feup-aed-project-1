@@ -1,6 +1,7 @@
 #include "UcClass.h"
 
 /** @brief Standard constructor of the UcClass class
+ * @details Time complexity: O(1)
  */
 UcClass::UcClass() {
     this->ucId = "";
@@ -9,6 +10,7 @@ UcClass::UcClass() {
 
 /**
  * @brief Constructor of the UcClass class
+ * @details Time complexity: O(1)
  * @param ucId Id of the UC
  * @param classId Id of the class
  * @param capacity Capacity of the class
@@ -21,6 +23,7 @@ UcClass::UcClass(const string &ucId, const string &classId) {
 
 /**
  * @brief Checks if two classes have the same UC
+ * @details Time complexity: O(1)
  * @param other Class to compare
  * @return true if they have the same UC, false otherwise
  */
@@ -30,6 +33,7 @@ bool UcClass::sameUC(const UcClass &other) const {
 
 /**
  * @brief Getter of the UC id
+ * @details Time complexity: O(1)
  * @return ucId
  */
 string UcClass::getUcId() const {
@@ -37,6 +41,7 @@ string UcClass::getUcId() const {
 }
 /**
  * @brief Getter of the class id
+ * @details Time complexity: O(1)
  * @return classId
  */
 string UcClass::getClassId() const {
@@ -45,6 +50,7 @@ string UcClass::getClassId() const {
 
 /**
  * @brief Checks if two classes are equal
+ * @details Time complexity: O(1)
  * @param other Class to compare
  * @return true if they are equal, false otherwise
  */
@@ -53,6 +59,7 @@ bool UcClass::operator == (const UcClass &other) const {
 }
 /**
  * @brief Checks if a class ID is less than another
+ * @details Time complexity: O(1)
  * @param other Class to compare
  * @return true if it is less than, false otherwise
  */
@@ -62,6 +69,7 @@ bool UcClass::operator < (const UcClass &other) const {
 }
 /**
  * @brief Checks if a class ID is greater than another
+ * @details Time complexity: O(1)
  * @param other Class to compare
  * @return true if it is greater than, false otherwise
  */
