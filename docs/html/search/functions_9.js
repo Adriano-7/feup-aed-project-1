@@ -4,7 +4,8 @@ var searchData=
   ['saveinformation_161',['saveInformation',['../class_app.html#a3849ad0c655f662f2307317649be53aa',1,'App']]],
   ['schedulemanager_162',['ScheduleManager',['../class_schedule_manager.html#a01e612817374dc034ba3869d5ab38afb',1,'ScheduleManager']]],
   ['setschedules_163',['setSchedules',['../class_schedule_manager.html#aa9cd7c49b7db003fdec970845b7c72bf',1,'ScheduleManager']]],
-  ['student_164',['Student',['../class_student.html#af9168cedbfa5565cf0b20c1a9d3f5c9d',1,'Student::Student()'],['../class_student.html#a7feba9a36b0af8915a548fa0cccf97b7',1,'Student::Student(const string &amp;id, const string &amp;name)']]],
-  ['studentsofsubject_165',['studentsOfSubject',['../class_schedule_manager.html#a43681627db826c08d9ac4f2bd5aa898d',1,'ScheduleManager']]],
-  ['submitnewrequest_166',['submitNewRequest',['../class_app.html#a2e8d791189a2c12508bacdf376c13f39',1,'App']]]
+  ['slot_164',['Slot',['../class_slot.html#a06a938e522fc7d42a849127007dbfe8b',1,'Slot']]],
+  ['student_165',['Student',['../class_student.html#af9168cedbfa5565cf0b20c1a9d3f5c9d',1,'Student::Student()'],['../class_student.html#a7feba9a36b0af8915a548fa0cccf97b7',1,'Student::Student(const string &amp;id, const string &amp;name)']]],
+  ['studentsofsubject_166',['studentsOfSubject',['../class_schedule_manager.html#a43681627db826c08d9ac4f2bd5aa898d',1,'ScheduleManager']]],
+  ['submitnewrequest_167',['submitNewRequest',['../class_app.html#a2e8d791189a2c12508bacdf376c13f39',1,'App']]]
 ];
