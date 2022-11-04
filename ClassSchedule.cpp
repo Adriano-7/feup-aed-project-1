@@ -85,7 +85,6 @@ void ClassSchedule::printSlots() const {
  * @param sortType the type of sort, it can be alphabetical, reverse alphabetical, numerical, reverse numerical
  */
 void ClassSchedule::printStudents(const string &sortType) const{
-    system("clear");
     auto studentsVector = new vector<Student>(students.begin(), students.end());            //O(n)
     if (sortType == "alphabetical") {
         sort(studentsVector->begin(), studentsVector->end(), [](const Student &a, const Student &b) { return a.getName() < b.getName(); }); //O(n logN)
@@ -99,7 +98,6 @@ void ClassSchedule::printStudents(const string &sortType) const{
         cout << "Invalid sortType" << endl;
         return;
     }
-
     cout << ">> Number of students: " << students.size() << endl;
     cout << ">> Students:" << endl;
     for(const Student &student: *studentsVector){   //O(n)

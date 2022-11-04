@@ -1,3 +1,4 @@
+#include <map>
 #include "UcClass.h"
 
 /** @brief Standard constructor of the UcClass class

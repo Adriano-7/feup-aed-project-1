@@ -14,7 +14,6 @@ using namespace std;
 App::App(const ScheduleManager &manager) {
     this->manager = manager;
     this->sleepTime = 800000;
-    cout << ">> Schedule manager is online" << endl;
 }
 
 /**
@@ -24,17 +23,17 @@ App::App(const ScheduleManager &manager) {
 int App::optionsMenu() const {
 
     int option;
-    cout    << endl << "-------------- OPTIONS --------------" << endl
-            << "1 Check the schedule of a student" << endl
-            << "2 Check the schedule of a class" << endl
-            << "3 Check the schedule of a subject"<< endl
-            << "4 Check the students in a class"<< endl
-            << "5 Check the students enrolled in a subject" << endl
-            << "6 Submit a request" << endl
-            << "7 Print pending requests" << endl
-            << "8 Process requests" << endl
-            << "9 Exit" << endl
-            << "What would you like to do next? " ;
+    cout    << endl << "----------------------- OPTIONS -----------------------" << endl <<"\n"
+                    << "1 Check the schedule of a student" << endl
+                    << "2 Check the schedule of a class" << endl
+                    << "3 Check the schedule of a uc"<< endl
+                    << "4 Check the students enrolled in a class of a given uc"<< endl
+                    << "5 Check the students enrolled in a uc" << endl
+                    << "6 Submit a request" << endl
+                    << "7 Print pending requests" << endl
+                    << "8 Process requests" << endl
+                    << "9 Exit" << endl << "\n"
+                    << "What would you like to do next? " ;
     cin >> option; cout << endl;
     if (cin.fail()) {
         throw invalid_argument(">> Invalid number");
@@ -150,7 +149,7 @@ int App::sortingMenu() const {
 void App::checkClassStudents() const {
     int option = sortingMenu();
     string ucCode, classCode;
-    cout << "Please insert the subject code: ";
+    cout << "Please insert the uc code: ";
     cin >> ucCode;
     cout << "Please insert the class code: ";
     cin >> classCode;
@@ -175,13 +174,13 @@ void App::checkClassStudents() const {
 }
 
 /**
-* @brief Asks the user to insert the ucId and prints the schedule of that subject
+* @brief Asks the user to insert the ucId and prints the schedule of that uc
  * @details Time complexity: O(n³)
 */
 void App::checkUcSchedule() const {
-    string subjectCode;
-    cout << "Insert the subject code: "; cin >> subjectCode; cout << endl;
-    manager.printUcSchedule(subjectCode);
+    string ucCode;
+    cout << "Insert the uc code: "; cin >> ucCode; cout << endl;
+    manager.printUcSchedule(ucCode);
 }
 
 /**
@@ -192,8 +191,8 @@ int App::requestsMenu() const {
     int option;
     cout << "There are 3 types of requests:" << endl;
     cout << "1 - Change class" << endl;
-    cout << "2 - Enroll in a new subject" << endl;
-    cout << "3 - Cancel a subject registration" << endl;
+    cout << "2 - Enroll in a new uc" << endl;
+    cout << "3 - Cancel a uc registration" << endl;
     cout << "4 - Go back" << endl;
     cout << "What type of request do you want to submit? ";
     cin >> option;
@@ -214,10 +213,10 @@ void App::submitChangingRequest(Student* student) {
     string ucCode, classCode;
     cout << endl << "The following information is related to the class you want to change to, "
                     "for a certain curricular unit." << endl;
-    cout << "Please insert the subject code: ";
+    cout << "Please insert the uc code: ";
     cin >> ucCode;
     if(!student->isEnrolled(ucCode)){
-        cout << ">> This student is not enrolled in this subject." << endl;
+        cout << ">> This student is not enrolled in this uc." << endl;
         return;
     }
     cout << "Please insert the class code: ";
@@ -232,16 +231,16 @@ void App::submitChangingRequest(Student* student) {
 }
 
 /**
- * @brief Asks the user to insert the subject code he wants to enroll into
+ * @brief Asks the user to insert the uc code he wants to enroll into
  * @details Time complexity: O(log n)
  */
 void App::submitEnrollmentRequest(Student *student) {
     string ucCode, classCode;
-    cout << endl << "The following information is related to the subject and the class you want to enroll in." << endl;
-    cout << "Please insert the subject code: ";
+    cout << endl << "The following information is related to the uc and the class you want to enroll in." << endl;
+    cout << "Please insert the uc code: ";
     cin >> ucCode;
     if(student->isEnrolled(ucCode)){
-        cout << ">> This student is already enrolled in this subject." << endl;
+        cout << ">> This student is already enrolled in this uc." << endl;
         return;
     }
     cout << "Please insert the class code: ";
@@ -256,16 +255,16 @@ void App::submitEnrollmentRequest(Student *student) {
 }
 
 /**
- * @brief Asks the user to insert the subject code he wants to cancel
+ * @brief Asks the user to insert the uc code he wants to cancel
  * @details Time complexity: O(log n)
  */
 void App::submitRemovalRequest(Student *student) {
     string ucCode;
-    cout << endl << "The following information is related to the subject you want to remove." << endl;
-    cout << "Please insert the subject code: ";
+    cout << endl << "The following information is related to the uc you want to remove." << endl;
+    cout << "Please insert the uc code: ";
     cin >> ucCode;
     if(!student->isEnrolled(ucCode)){
-        cout << ">> This student is not enrolled in this subject." << endl;
+        cout << ">> This student is not enrolled in this uc." << endl;
         return;
     }
     for(UcClass &i : student->getClasses()){
@@ -315,7 +314,7 @@ void App::submitNewRequest(int option) {
 void App::checkUcStudents() const{
     int option = sortingMenu();
     string ucCode;
-    cout << "Please insert the subject code: "; cin >> ucCode;
+    cout << "Please insert the uc code: "; cin >> ucCode;
     switch (option) {
         case 1:
             manager.printUcStudents(ucCode, "alphabetical");
