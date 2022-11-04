@@ -21,6 +21,8 @@ class Student {
 
         void addClass(const UcClass &newClass);
         UcClass changeClass(const UcClass &newClass);
+        void removeSubject(const string &ucCode);
+        void addSubject(const UcClass &newClass);
         bool isEnrolled(const string &ucCode) const;
 
         void printHeader() const;
@@ -30,6 +32,7 @@ class Student {
         string getId() const;
         string getName() const;
         vector<UcClass> getClasses() const;
+
         bool operator == (const Student &other) const;
         bool operator < (const Student &other) const;
         bool operator > (const Student &other) const;

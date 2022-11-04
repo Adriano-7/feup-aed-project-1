@@ -12,13 +12,15 @@
 
 /**
 *@brief Schedule Manager constructor
-* @details Creates a Schedule Manager with an empty set of students, a empty vector of schedules and a empty queue of requests
+* @details Creates a Schedule Manager with an empty set of students, a empty vector of schedules and a empty queue of changingRequests
 */
 ScheduleManager::ScheduleManager() {
     this->students = set<Student>();
     this->schedules = vector<ClassSchedule>();
-    this->requests = queue<Request>();
-    this->rejectedRequests = vector<Request>();
+    this->changingRequests = queue<Request>();
+    this->removalRequests = queue<Request>();
+    this->enrollmentRequests = queue<Request>();
+    this->rejectedRequests = vector<pair<Request, string>>();
 }
 
 /**
@@ -221,10 +223,18 @@ vector<Student> ScheduleManager::studentsOfSubject(const string &ucId) const {
 }
 
 /**
- * @brief Function that given a student id and the ucClass he wants to change to, adds the request to the queue of requests
+ * @brief Function that given a student id and the ucClass he wants to change to, adds the request to the queue of changingRequests
  */
-void ScheduleManager::addRequest(const Student &student, const UcClass &ucClass) {
-    requests.push(Request(student, ucClass));
+void ScheduleManager::addChangingRequest(const Student &student, const UcClass &ucClass) {
+    changingRequests.push(Request(student, ucClass, "Changing"));
+}
+
+void ScheduleManager::addRemovalRequest(const Student &student, const UcClass &ucClass) {
+    removalRequests.push(Request(student, ucClass, "Removal"));
+}
+
+void ScheduleManager::addEnrollmentRequest(const Student &student, const UcClass &ucClass) {
+    enrollmentRequests.push(Request(student, ucClass, "Enrollment"));
 }
 
 /**
@@ -250,56 +260,92 @@ bool ScheduleManager::requestExceedsMaxStudents(const Request &request) const {
 }
 
 /**
- * @brief Function that verifies if a request can be accepted
- * @param request
- * @return boolean expression
+ * @brief Function that processes the changingRequests in the queue
  */
-bool ScheduleManager::acceptRequest(const Request &request) const {
-    return !(requestHasCollision(request) || requestExceedsMaxStudents(request));
-}
-
-/**
- * @brief Function that processes the requests in the queue
- */
-void ScheduleManager::processRequest(const Request &request) {
-    if(acceptRequest(request)){
+void ScheduleManager::processChangingRequest(const Request &request) {
+    if(requestHasCollision(request)){
+        rejectedRequests.emplace_back(request, "Collision in the students' schedule");
+    }
+    else if(requestExceedsMaxStudents(request)){
+        rejectedRequests.emplace_back(request, "Exceeds maximum number of students in the class");
+    }
+    else{
         Student* student = findStudent(request.getStudent().getId());
         UcClass ucClass = findSchedule(request.getDesiredClass())->getUcClass();
         UcClass oldClass = student->changeClass(ucClass);
         findSchedule(request.getDesiredClass())->addStudent(*student);
         findSchedule(oldClass)->removeStudent(*student);
-        cout << "   "; request.print();
-    }else{
-        rejectedRequests.push_back(request);
+        cout << "   "; request.printHeader();
+    }
+}
+
+void ScheduleManager::processRemovalRequest(const Request &request) {
+    Student* student = findStudent(request.getStudent().getId());
+    UcClass ucClass = findSchedule(request.getDesiredClass())->getUcClass();
+    student->removeSubject(ucClass.getUcId());
+    findSchedule(ucClass)->removeStudent(*student);
+    cout << "   "; cout << request.getDesiredClass().getUcId() << endl;
+}
+
+void ScheduleManager::processEnrollmentRequest(const Request &request) {
+    if(requestHasCollision(request)){
+        rejectedRequests.emplace_back(request, "Collision in the students' schedule");
+    }
+    else if(requestExceedsMaxStudents(request)){
+        rejectedRequests.emplace_back(request, "Exceeds maximum number of students in the class");
+    }
+    else{
+        Student* student = findStudent(request.getStudent().getId());
+        UcClass ucClass = findSchedule(request.getDesiredClass())->getUcClass();
+        student->addSubject(ucClass);
+        findSchedule(ucClass)->addStudent(*student);
+        cout << "   "; request.printHeader();
     }
 }
 
 /**
- * @brief Function that processes all requests in the queue
+ * @brief Function that processes all changingRequests in the queue
  */
 void ScheduleManager::processRequests() {
-    cout << ">> Accepted requests:" << endl;
-    while(!requests.empty()){
-        Request request = requests.front();
-        requests.pop();
-        processRequest(request);
+    cout << ">> Accepted removal requests:" << endl;
+    while(!removalRequests.empty()){
+        Request request = removalRequests.front();
+        removalRequests.pop();
+        processRemovalRequest(request);
+    }
+    cout << ">> Accepted changing requests:" << endl;
+    while(!changingRequests.empty()){
+        Request request = changingRequests.front();
+        changingRequests.pop();
+        processChangingRequest(request);
+    }
+    cout << ">> Accepted enrollment requests:" << endl;
+    while(!enrollmentRequests.empty()){
+        Request request = enrollmentRequests.front();
+        enrollmentRequests.pop();
+        processEnrollmentRequest(request);
     }
     if(!rejectedRequests.empty()){
         printRejectedRequests();
     }else{
-        cout << ">> All requests were accepted!" << endl;
+        cout << ">> All changingRequests were accepted!" << endl;
     }
+    string q;
+    cout << endl << "Insert any key to continue: ";
+    cin >> q;
+    cout << endl;
+    system("clear");
 }
 
 /**
  * @brief Function that writes all information to the files
  */
-void ScheduleManager:: writeFiles() const {
+void ScheduleManager::writeFiles() const {
     ofstream file;
     file.open("../data/students_classes.csv");
     file << "StudentCode,StudentName,UcCode,ClassCode" << endl;
     for (const Student &s: students) {
-        for (const UcClass c: s.getClasses()) {
+        for (const UcClass &c: s.getClasses()) {
             file << s.getId() << "," << s.getName() << "," << c.getUcId() << "," << c.getClassId() << endl;
         }
     }
@@ -456,7 +502,7 @@ void ScheduleManager::printUcSchedule(const string &subjectCode) const{
         }
     }
     if(schedulesUC.empty()){
-        cout << ">> Uc not found" << endl;
+        cout << ">> Subject not found" << endl;
         return;
     }
     vector<vector<pair<string, Slot>>> weekdays(5);
@@ -471,7 +517,7 @@ void ScheduleManager::printUcSchedule(const string &subjectCode) const{
         insertIntoWeek(weekdays, slots);
         groupDuplicates(weekdays);
     }
-    cout << endl << ">> The UC "<< subjectCode << " has the following schedule:" << endl;
+    cout << endl << ">> The subject "<< subjectCode << " has the following schedule:" << endl;
 
     for (int i = 0; i < weekdays.size(); i++) {
         sort(weekdays[i].begin(), weekdays[i].end(), [](const pair<string, Slot> &a,const pair <string, Slot> &b) {
@@ -486,15 +532,36 @@ void ScheduleManager::printUcSchedule(const string &subjectCode) const{
     }
 }
 
+void ScheduleManager::printClassStudents(const UcClass &ucClass, const string &orderType) const{
+    ClassSchedule* cs = findSchedule(ucClass);
+    if(cs == nullptr){
+        cout << ">> Class not found" << endl;
+        return;
+    }
+    cs->printStudents(orderType);
+}
+
 /**
  * @brief Function that prints the students enrolled a given uc
  * @param ucId
  */
-void ScheduleManager::printUcStudents(const string &ucId) const {
+void ScheduleManager::printUcStudents(const string &ucId, const string &sortType) const {
     system("clear");
     vector<Student> studentsVector = studentsOfSubject(ucId);
     if(studentsVector.empty()){
         cout << ">> Subject not found" << endl;
+        return;
+    }
+    if (sortType == "alphabetical") {
+        sort(studentsVector.begin(), studentsVector.end(), [](const Student &a, const Student &b) { return a.getName() < b.getName(); });
+    } else if (sortType == "reverse alphabetical") {
+        sort(studentsVector.rbegin(), studentsVector.rend(), [](const Student &a, const Student &b) { return a.getName() < b.getName(); });
+    } else if (sortType == "numerical") {
+        sort(studentsVector.begin(), studentsVector.end());
+    } else if (sortType == "reverse numerical") {
+        sort(studentsVector.rbegin(), studentsVector.rend());
+    } else {
+        cout << "Invalid sortType" << endl;
         return;
     }
     sort(studentsVector.begin(), studentsVector.end(), [](const Student &s1, const Student &s2) {
@@ -508,25 +575,37 @@ void ScheduleManager::printUcStudents(const string &ucId) const {
 }
 
 /**
-* @brief Function that prints all requests in the queue
+* @brief Function that prints all changingRequests in the queue
 */
 void ScheduleManager::printPendingRequests() const {
     system("clear");
-    queue<Request> pendingRequests = requests;
-    cout << endl << ">> Pending requests:" << endl;
-    while (!pendingRequests.empty()) {
-        cout << "   "; pendingRequests.front().print();
-        pendingRequests.pop();
+    queue<Request> pendingChangingRequests = changingRequests;
+    cout << endl << ">> Pending changing requests:" << endl;
+    while (!pendingChangingRequests.empty()) {
+        cout << "   "; pendingChangingRequests.front().print();
+        pendingChangingRequests.pop();
+    }
+    queue<Request> pendingRemovalRequests = removalRequests;
+    cout << endl << ">> Pending removal requests:" << endl;
+    while (!pendingRemovalRequests.empty()) {
+        cout << "   "; pendingRemovalRequests.front().print();
+        pendingRemovalRequests.pop();
+    }
+    queue<Request> pendingEnrollmentRequests = enrollmentRequests;
+    cout << endl << ">> Pending enrollment requests:" << endl;
+    while (!pendingEnrollmentRequests.empty()) {
+        cout << "   "; pendingEnrollmentRequests.front().print();
+        pendingEnrollmentRequests.pop();
     }
 }
 
 /**
- * @brief Function that prints all the rejected requests
+ * @brief Function that prints all the rejected changingRequests
  */
 void ScheduleManager::printRejectedRequests() const {
     system("clear");
     cout << endl << ">> Rejected requests:" << endl;
-    for (const Request &request: rejectedRequests) {
-        cout << "   "; request.print();
+    for (const pair<Request, string> &p: rejectedRequests) {
+        cout << "   >> "; p.first.print(); cout <<  "      Reason: " << p.second << endl;
     }
 }

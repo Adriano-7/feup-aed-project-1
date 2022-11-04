@@ -88,7 +88,7 @@ void ClassSchedule::printStudents(const string &sortType) const{
         cout << "Invalid sortType" << endl;
         return;
     }
-    cout << "  " << ucClass.getUcId() << " " << ucClass.getClassId() << endl;
+
     cout << ">> Number of students: " << students.size() << endl;
     cout << ">> Students:" << endl;
     for(const Student &student: *studentsVector){

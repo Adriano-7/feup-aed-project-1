@@ -10,7 +10,8 @@
 
 class Request{
     public:
-        Request(const Student &student, const UcClass &desiredClass);
+        Request(const Student &student, const UcClass &desiredClass, const string &type);
+        void printHeader() const;
         void print() const;
         Student getStudent() const;
         UcClass getDesiredClass() const;
@@ -20,6 +21,8 @@ class Request{
         Student student;
         /** @brief Class that the student wants to enroll in */
         UcClass desiredClass;
+        /** @brief Type of the request: Changing, Removal, Enrollment */
+        string type;
 };
 
 #endif //TRABALHO_REQUEST_H

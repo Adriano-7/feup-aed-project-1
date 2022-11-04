@@ -37,7 +37,20 @@ UcClass Student::changeClass(const UcClass &newClass) {
             return oldClass;
         }
     }
-    return UcClass();
+    return {};
+}
+
+void Student::removeSubject(const string &ucCode) {
+    for (int i = 0; i < classes.size(); i++) {
+        if (classes.at(i).getUcId() == ucCode) {
+            classes.erase(classes.begin() + i);
+            return;
+        }
+    }
+}
+
+void Student::addSubject(const UcClass &newClass) {
+    classes.push_back(newClass);
 }
 
 /** @brief Checks if the student is enrolled in a given UC

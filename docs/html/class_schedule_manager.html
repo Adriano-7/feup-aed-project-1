@@ -72,7 +72,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Class to store the information about the schedules, requests and students.  
+<p>Class to store the information about the schedules, changingRequests and students.
  <a href="class_schedule_manager.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_schedule_manager_8h_source.html">ScheduleManager.h</a>&gt;</code></p>
@@ -119,7 +119,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="separator:a43681627db826c08d9ac4f2bd5aa898d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad2210b03f039fdeec65168fb069b0bc6"><td class="memItemLeft" align="right" valign="top"><a id="ad2210b03f039fdeec65168fb069b0bc6"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_schedule_manager.html#ad2210b03f039fdeec65168fb069b0bc6">addRequest</a> (const <a class="el" href="class_student.html">Student</a> &amp;student, const <a class="el" href="class_uc_class.html">UcClass</a> &amp;ucClass)</td></tr>
-<tr class="memdesc:ad2210b03f039fdeec65168fb069b0bc6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that given a student id and the ucClass he wants to change to, adds the request to the queue of requests. <br /></td></tr>
+<tr class="memdesc:ad2210b03f039fdeec65168fb069b0bc6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that given a student id and the ucClass he wants to change to, adds the request to the queue of changingRequests. <br /></td></tr>
 <tr class="separator:ad2210b03f039fdeec65168fb069b0bc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a178b3aba9dcd016bfa6fbbdfba42dc73"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_schedule_manager.html#a178b3aba9dcd016bfa6fbbdfba42dc73">requestExceedsMaxStudents</a> (const <a class="el" href="class_request.html">Request</a> &amp;request) const</td></tr>
 <tr class="memdesc:a178b3aba9dcd016bfa6fbbdfba42dc73"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that verifies if a request doesn't exceed the maximum number of students which can be enrolled in a given class.  <a href="class_schedule_manager.html#a178b3aba9dcd016bfa6fbbdfba42dc73">More...</a><br /></td></tr>
@@ -129,11 +129,11 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="separator:a02625d08dfa078b54905bc81af1c3684"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac76a9aea05aa1469f0ddf53764571f56"><td class="memItemLeft" align="right" valign="top"><a id="ac76a9aea05aa1469f0ddf53764571f56"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_schedule_manager.html#ac76a9aea05aa1469f0ddf53764571f56">processRequest</a> (const <a class="el" href="class_request.html">Request</a> &amp;request)</td></tr>
-<tr class="memdesc:ac76a9aea05aa1469f0ddf53764571f56"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that processes the requests in the queue. <br /></td></tr>
+<tr class="memdesc:ac76a9aea05aa1469f0ddf53764571f56"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that processes the changingRequests in the queue. <br /></td></tr>
 <tr class="separator:ac76a9aea05aa1469f0ddf53764571f56"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a79ee65db8004ceaf84b8cc46ba9d22ca"><td class="memItemLeft" align="right" valign="top"><a id="a79ee65db8004ceaf84b8cc46ba9d22ca"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_schedule_manager.html#a79ee65db8004ceaf84b8cc46ba9d22ca">processRequests</a> ()</td></tr>
-<tr class="memdesc:a79ee65db8004ceaf84b8cc46ba9d22ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that processes all requests in the queue. <br /></td></tr>
+<tr class="memdesc:a79ee65db8004ceaf84b8cc46ba9d22ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that processes all changingRequests in the queue. <br /></td></tr>
 <tr class="separator:a79ee65db8004ceaf84b8cc46ba9d22ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4f4d6a4b366686c9767f9e227f474ee9"><td class="memItemLeft" align="right" valign="top"><a id="a4f4d6a4b366686c9767f9e227f474ee9"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_schedule_manager.html#a4f4d6a4b366686c9767f9e227f474ee9">writeFiles</a> () const</td></tr>
@@ -153,11 +153,11 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="separator:adc110193c9c8b1fcf448df7233757c93"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7f7aaea01f9ef0bf41268439f9f349b3"><td class="memItemLeft" align="right" valign="top"><a id="a7f7aaea01f9ef0bf41268439f9f349b3"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_schedule_manager.html#a7f7aaea01f9ef0bf41268439f9f349b3">printPendingRequests</a> () const</td></tr>
-<tr class="memdesc:a7f7aaea01f9ef0bf41268439f9f349b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that prints all requests in the queue. <br /></td></tr>
+<tr class="memdesc:a7f7aaea01f9ef0bf41268439f9f349b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that prints all changingRequests in the queue. <br /></td></tr>
 <tr class="separator:a7f7aaea01f9ef0bf41268439f9f349b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aacf23097e3a0842a70661a610b709c41"><td class="memItemLeft" align="right" valign="top"><a id="aacf23097e3a0842a70661a610b709c41"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_schedule_manager.html#aacf23097e3a0842a70661a610b709c41">printRejectedRequests</a> () const</td></tr>
-<tr class="memdesc:aacf23097e3a0842a70661a610b709c41"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that prints all the rejected requests. <br /></td></tr>
+<tr class="memdesc:aacf23097e3a0842a70661a610b709c41"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that prints all the rejected changingRequests. <br /></td></tr>
 <tr class="separator:aacf23097e3a0842a70661a610b709c41"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
@@ -171,16 +171,16 @@ vector&lt; <a class="el" href="class_class_schedule.html">ClassSchedule</a> &gt;
 <tr class="memdesc:a75159b0ecd43c3efe0706310bd2ac178"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vector that stores all the schedules. <br /></td></tr>
 <tr class="separator:a75159b0ecd43c3efe0706310bd2ac178"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a22cfea4c8bfdbb639fda3465da17bb02"><td class="memItemLeft" align="right" valign="top"><a id="a22cfea4c8bfdbb639fda3465da17bb02"></a>
-queue&lt; <a class="el" href="class_request.html">Request</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_schedule_manager.html#a22cfea4c8bfdbb639fda3465da17bb02">requests</a></td></tr>
-<tr class="memdesc:a22cfea4c8bfdbb639fda3465da17bb02"><td class="mdescLeft">&#160;</td><td class="mdescRight">Queue that stores all the requests. <br /></td></tr>
+queue&lt; <a class="el" href="class_request.html">Request</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_schedule_manager.html#a22cfea4c8bfdbb639fda3465da17bb02">changingRequests</a></td></tr>
+<tr class="memdesc:a22cfea4c8bfdbb639fda3465da17bb02"><td class="mdescLeft">&#160;</td><td class="mdescRight">Queue that stores all the changingRequests. <br /></td></tr>
 <tr class="separator:a22cfea4c8bfdbb639fda3465da17bb02"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a60264dde12f68ce9f85249bb38973a16"><td class="memItemLeft" align="right" valign="top"><a id="a60264dde12f68ce9f85249bb38973a16"></a>
 vector&lt; <a class="el" href="class_request.html">Request</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_schedule_manager.html#a60264dde12f68ce9f85249bb38973a16">rejectedRequests</a></td></tr>
-<tr class="memdesc:a60264dde12f68ce9f85249bb38973a16"><td class="mdescLeft">&#160;</td><td class="mdescRight">Queue that stores all the rejected requests. <br /></td></tr>
+<tr class="memdesc:a60264dde12f68ce9f85249bb38973a16"><td class="mdescLeft">&#160;</td><td class="mdescRight">Queue that stores all the rejected changingRequests. <br /></td></tr>
 <tr class="separator:a60264dde12f68ce9f85249bb38973a16"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Class to store the information about the schedules, requests and students. </p>
+<div class="textblock"><p>Class to store the information about the schedules, changingRequests and students. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a01e612817374dc034ba3869d5ab38afb"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a01e612817374dc034ba3869d5ab38afb">&#9670;&nbsp;</a></span>ScheduleManager()</h2>
@@ -198,7 +198,7 @@ vector&lt; <a class="el" href="class_request.html">Request</a> &gt;&#160;</td><t
 </div><div class="memdoc">
 
 <p>Schedule Manager constructor. </p>
-<p>Creates a Schedule Manager with an empty set of students, a empty vector of schedules and a empty queue of requests </p>
+<p>Creates a Schedule Manager with an empty set of students, a empty vector of schedules and a empty queue of changingRequests </p>
 
 </div>
 </div>

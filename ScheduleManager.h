@@ -8,7 +8,7 @@
 #include "Request.h"
 
 /**
- * @brief Class to store the information about the schedules, requests and students.
+ * @brief Class to store the information about the schedules, changingRequests and students.
  */
 
 class ScheduleManager {
@@ -27,17 +27,22 @@ class ScheduleManager {
         ClassSchedule* findSchedule(const UcClass &ucClass) const;
         vector<ClassSchedule> classesOfSubject(const string &ucId) const;
         vector<Student> studentsOfSubject(const string &ucId) const;
-        void addRequest(const Student &student, const UcClass &ucClass);
+        void addChangingRequest(const Student &student, const UcClass &ucClass);
+        void addEnrollmentRequest(const Student &student, const UcClass &ucClass);
+        void addRemovalRequest(const Student &student, const UcClass &ucClass);
         bool requestExceedsMaxStudents(const Request &request) const;
         bool acceptRequest(const Request &request) const;
-        void processRequest(const Request &request);
+        void processChangingRequest(const Request &request);
+        void processEnrollmentRequest(const Request &request);
+        void processRemovalRequest(const Request &request);
         void processRequests();
         void writeFiles() const;
 
         void printStudentSchedule(const string &studentId) const;
         void printClassSchedule(const string &classCode) const;
         void printUcSchedule(const string &ucId) const;
-        void printUcStudents(const string &ucId) const;
+        void printClassStudents(const UcClass &ucClass, const string &orderType) const;
+        void printUcStudents(const string &ucId,  const string &sortType) const;
         void printPendingRequests() const;
         void printRejectedRequests() const;
 
@@ -46,10 +51,14 @@ class ScheduleManager {
         set<Student> students;
         /** @brief Vector that stores all the schedules */
         vector<ClassSchedule> schedules;
-        /** @brief Queue that stores all the requests */
-        queue<Request> requests;
-        /** @brief Queue that stores all the rejected requests */
-        vector<Request> rejectedRequests;
+        /** @brief Queue that stores all the changing requests */
+        queue<Request> changingRequests;
+        /** @brief Queue that stores all the removal requests */
+        queue<Request> removalRequests;
+        /** @brief Queue that stores all the enrollment requests */
+        queue<Request> enrollmentRequests;
+        /** @brief Queue that stores all the rejected changingRequests */
+        vector<pair<Request, string>> rejectedRequests;
 };
 
 
