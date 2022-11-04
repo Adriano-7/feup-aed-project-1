@@ -91,12 +91,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a35d53da212d9683f5d48843984c22f93"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_uc_class.html">UcClass</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_student.html#a35d53da212d9683f5d48843984c22f93">changeClass</a> (const <a class="el" href="class_uc_class.html">UcClass</a> &amp;newClass)</td></tr>
 <tr class="memdesc:a35d53da212d9683f5d48843984c22f93"><td class="mdescLeft">&#160;</td><td class="mdescRight">Changes a class of the student.  <a href="class_student.html#a35d53da212d9683f5d48843984c22f93">More...</a><br /></td></tr>
 <tr class="separator:a35d53da212d9683f5d48843984c22f93"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9ef6530120a591e0b47dd70e804daf0d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_student.html#a9ef6530120a591e0b47dd70e804daf0d">removeSubject</a> (const string &amp;ucCode)</td></tr>
-<tr class="memdesc:a9ef6530120a591e0b47dd70e804daf0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes a subject(uc) from the student.  <a href="class_student.html#a9ef6530120a591e0b47dd70e804daf0d">More...</a><br /></td></tr>
-<tr class="separator:a9ef6530120a591e0b47dd70e804daf0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1f2e6d63288d6f4a22f65607ff905eae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_student.html#a1f2e6d63288d6f4a22f65607ff905eae">addSubject</a> (const <a class="el" href="class_uc_class.html">UcClass</a> &amp;newClass)</td></tr>
-<tr class="memdesc:a1f2e6d63288d6f4a22f65607ff905eae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a subject(uc) to the student.  <a href="class_student.html#a1f2e6d63288d6f4a22f65607ff905eae">More...</a><br /></td></tr>
-<tr class="separator:a1f2e6d63288d6f4a22f65607ff905eae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a297690837fd02332dc0f4daac79f2330"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_student.html#a297690837fd02332dc0f4daac79f2330">removeUc</a> (const string &amp;ucCode)</td></tr>
+<tr class="memdesc:a297690837fd02332dc0f4daac79f2330"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes a uc from the student.  <a href="class_student.html#a297690837fd02332dc0f4daac79f2330">More...</a><br /></td></tr>
+<tr class="separator:a297690837fd02332dc0f4daac79f2330"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae1331012cdfff868bcd2e241034ec1b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_student.html#aae1331012cdfff868bcd2e241034ec1b">addUc</a> (const <a class="el" href="class_uc_class.html">UcClass</a> &amp;newClass)</td></tr>
+<tr class="memdesc:aae1331012cdfff868bcd2e241034ec1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a uc to the student.  <a href="class_student.html#aae1331012cdfff868bcd2e241034ec1b">More...</a><br /></td></tr>
+<tr class="separator:aae1331012cdfff868bcd2e241034ec1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a77fda97f04e2a7e47e4a7cc6cd4cea47"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_student.html#a77fda97f04e2a7e47e4a7cc6cd4cea47">isEnrolled</a> (const string &amp;ucCode) const</td></tr>
 <tr class="memdesc:a77fda97f04e2a7e47e4a7cc6cd4cea47"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the student is enrolled in a given UC.  <a href="class_student.html#a77fda97f04e2a7e47e4a7cc6cd4cea47">More...</a><br /></td></tr>
 <tr class="separator:a77fda97f04e2a7e47e4a7cc6cd4cea47"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -216,14 +216,14 @@ vector&lt; <a class="el" href="class_uc_class.html">UcClass</a> &gt;&#160;</td><
 
 </div>
 </div>
-<a id="a1f2e6d63288d6f4a22f65607ff905eae"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1f2e6d63288d6f4a22f65607ff905eae">&#9670;&nbsp;</a></span>addSubject()</h2>
+<a id="aae1331012cdfff868bcd2e241034ec1b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aae1331012cdfff868bcd2e241034ec1b">&#9670;&nbsp;</a></span>addUc()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Student::addSubject </td>
+          <td class="memname">void Student::addUc </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="class_uc_class.html">UcClass</a> &amp;&#160;</td>
           <td class="paramname"><em>newClass</em></td><td>)</td>
@@ -232,7 +232,7 @@ vector&lt; <a class="el" href="class_uc_class.html">UcClass</a> &gt;&#160;</td><
       </table>
 </div><div class="memdoc">
 
-<p>Adds a subject(uc) to the student. </p>
+<p>Adds a uc to the student. </p>
 <p>Time complexity: O(nlogN) </p>
 
 </div>
@@ -486,14 +486,14 @@ vector&lt; <a class="el" href="class_uc_class.html">UcClass</a> &gt;&#160;</td><
 
 </div>
 </div>
-<a id="a9ef6530120a591e0b47dd70e804daf0d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9ef6530120a591e0b47dd70e804daf0d">&#9670;&nbsp;</a></span>removeSubject()</h2>
+<a id="a297690837fd02332dc0f4daac79f2330"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a297690837fd02332dc0f4daac79f2330">&#9670;&nbsp;</a></span>removeUc()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Student::removeSubject </td>
+          <td class="memname">void Student::removeUc </td>
           <td>(</td>
           <td class="paramtype">const string &amp;&#160;</td>
           <td class="paramname"><em>ucCode</em></td><td>)</td>
@@ -502,7 +502,7 @@ vector&lt; <a class="el" href="class_uc_class.html">UcClass</a> &gt;&#160;</td><
       </table>
 </div><div class="memdoc">
 
-<p>Removes a subject(uc) from the student. </p>
+<p>Removes a uc from the student. </p>
 <p>Time complexity: O(n) </p>
 
 </div>

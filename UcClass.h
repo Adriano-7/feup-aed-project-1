@@ -15,6 +15,7 @@ class UcClass{
         bool sameUC(const UcClass &other) const;
         string getUcId() const;
         string getClassId() const;
+        string ucIdToString() const;
         bool operator ==(const UcClass &other) const;
         bool operator < (const UcClass &other) const;
         bool operator > (const UcClass &other) const;

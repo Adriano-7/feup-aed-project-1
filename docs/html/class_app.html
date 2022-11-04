@@ -107,7 +107,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a0f2394d1874d1d66bc6cf4150d15ad13"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asks the user to insert the ucCode and classCode and prints the students enrolled.  <a href="class_app.html#a0f2394d1874d1d66bc6cf4150d15ad13">More...</a><br /></td></tr>
 <tr class="separator:a0f2394d1874d1d66bc6cf4150d15ad13"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab381040e8a2ccdc363c77dc6d1e01582"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_app.html#ab381040e8a2ccdc363c77dc6d1e01582">checkUcSchedule</a> () const</td></tr>
-<tr class="memdesc:ab381040e8a2ccdc363c77dc6d1e01582"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asks the user to insert the ucId and prints the schedule of that subject.  <a href="class_app.html#ab381040e8a2ccdc363c77dc6d1e01582">More...</a><br /></td></tr>
+<tr class="memdesc:ab381040e8a2ccdc363c77dc6d1e01582"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asks the user to insert the ucId and prints the schedule of that uc.  <a href="class_app.html#ab381040e8a2ccdc363c77dc6d1e01582">More...</a><br /></td></tr>
 <tr class="separator:ab381040e8a2ccdc363c77dc6d1e01582"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8456cd592b321c96e23e88cc2b50cd6b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_app.html#a8456cd592b321c96e23e88cc2b50cd6b">checkUcStudents</a> () const</td></tr>
 <tr class="memdesc:a8456cd592b321c96e23e88cc2b50cd6b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that prints the students enrolled in a uc.  <a href="class_app.html#a8456cd592b321c96e23e88cc2b50cd6b">More...</a><br /></td></tr>
@@ -119,10 +119,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a57df9e3bf20427a56769ac44f776bd43"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asks the user to insert the class code he wants to change into.  <a href="class_app.html#a57df9e3bf20427a56769ac44f776bd43">More...</a><br /></td></tr>
 <tr class="separator:a57df9e3bf20427a56769ac44f776bd43"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab8eac7dd59e9efe345f1306c5040894f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_app.html#ab8eac7dd59e9efe345f1306c5040894f">submitRemovalRequest</a> (<a class="el" href="class_student.html">Student</a> *student)</td></tr>
-<tr class="memdesc:ab8eac7dd59e9efe345f1306c5040894f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asks the user to insert the subject code he wants to cancel.  <a href="class_app.html#ab8eac7dd59e9efe345f1306c5040894f">More...</a><br /></td></tr>
+<tr class="memdesc:ab8eac7dd59e9efe345f1306c5040894f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asks the user to insert the uc code he wants to cancel.  <a href="class_app.html#ab8eac7dd59e9efe345f1306c5040894f">More...</a><br /></td></tr>
 <tr class="separator:ab8eac7dd59e9efe345f1306c5040894f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a820a281d4b31ce00fec88f010f17de0a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_app.html#a820a281d4b31ce00fec88f010f17de0a">submitEnrollmentRequest</a> (<a class="el" href="class_student.html">Student</a> *student)</td></tr>
-<tr class="memdesc:a820a281d4b31ce00fec88f010f17de0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asks the user to insert the subject code he wants to enroll into.  <a href="class_app.html#a820a281d4b31ce00fec88f010f17de0a">More...</a><br /></td></tr>
+<tr class="memdesc:a820a281d4b31ce00fec88f010f17de0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asks the user to insert the uc code he wants to enroll into.  <a href="class_app.html#a820a281d4b31ce00fec88f010f17de0a">More...</a><br /></td></tr>
 <tr class="separator:a820a281d4b31ce00fec88f010f17de0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6fc0a750bc85d930729b605252b3202b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_app.html#a6fc0a750bc85d930729b605252b3202b">processPendingRequests</a> ()</td></tr>
 <tr class="memdesc:a6fc0a750bc85d930729b605252b3202b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that processes all pending changingRequests.  <a href="class_app.html#a6fc0a750bc85d930729b605252b3202b">More...</a><br /></td></tr>
@@ -258,7 +258,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
       </table>
 </div><div class="memdoc">
 
-<p>Asks the user to insert the ucId and prints the schedule of that subject. </p>
+<p>Asks the user to insert the ucId and prints the schedule of that uc. </p>
 <p>Time complexity: O(n³) </p>
 
 </div>
@@ -460,7 +460,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
       </table>
 </div><div class="memdoc">
 
-<p>Asks the user to insert the subject code he wants to enroll into. </p>
+<p>Asks the user to insert the uc code he wants to enroll into. </p>
 <p>Time complexity: O(log n) </p>
 
 </div>
@@ -502,7 +502,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
       </table>
 </div><div class="memdoc">
 
-<p>Asks the user to insert the subject code he wants to cancel. </p>
+<p>Asks the user to insert the uc code he wants to cancel. </p>
 <p>Time complexity: O(log n) </p>
 
 </div>

@@ -1,0 +1,16 @@
+digraph "ClassSchedule"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="{ClassSchedule\n||+ ClassSchedule()\l+ ClassSchedule()\l+ ClassSchedule()\l+ addSlot()\l+ addStudent()\l+ removeStudent()\l+ sameUC()\l+ printHeader()\l+ printSlots()\l+ printStudents()\l+ print()\l+ getUcClass()\l+ getNumStudents()\l+ getSlots()\l+ getStudents()\l+ operator\<()\l+ operator==()\l}",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Class that represents a schedule for a class in a given Course, with a vector of slots and a set of s..."];
+  Node2 -> Node1 [color="grey25",fontsize="10",style="solid",label=" -slots" ,arrowhead="odiamond",fontname="Helvetica"];
+  Node2 [label="{vector\< Slot \>\n||}",height=0.2,width=0.4,color="grey75",tooltip=" "];
+  Node3 -> Node1 [color="grey25",fontsize="10",style="solid",label=" -students" ,arrowhead="odiamond",fontname="Helvetica"];
+  Node3 [label="{set\< Student \>\n||}",height=0.2,width=0.4,color="grey75",tooltip=" "];
+  Node4 -> Node1 [color="grey25",fontsize="10",style="solid",label=" -ucClass" ,arrowhead="odiamond",fontname="Helvetica"];
+  Node4 [label="{UcClass\n||+ UcClass()\l+ UcClass()\l+ sameUC()\l+ getUcId()\l+ getClassId()\l+ operator==()\l+ operator\<()\l+ operator\>()\l}",height=0.2,width=0.4,color="black",URL="$class_uc_class.html",tooltip="Class to store the information about a given class in a UC."];
+  Node5 -> Node4 [color="grey25",fontsize="10",style="solid",label=" -classId\n-ucId" ,arrowhead="odiamond",fontname="Helvetica"];
+  Node5 [label="{string\n||}",height=0.2,width=0.4,color="grey75",tooltip=" "];
+}

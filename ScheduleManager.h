@@ -25,8 +25,8 @@ class ScheduleManager {
         bool requestHasCollision(const Request &request) const;
         Student* findStudent(const string &studentId) const;
         ClassSchedule* findSchedule(const UcClass &ucClass) const;
-        vector<ClassSchedule> classesOfSubject(const string &ucId) const;
-        vector<Student> studentsOfSubject(const string &ucId) const;
+        vector<ClassSchedule> classesOfUc(const string &ucId) const;
+        vector<Student> studentsOfUc(const string &ucId) const;
         void addChangingRequest(const Student &student, const UcClass &ucClass);
         void addEnrollmentRequest(const Student &student, const UcClass &ucClass);
         void addRemovalRequest(const Student &student, const UcClass &ucClass);

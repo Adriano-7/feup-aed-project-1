@@ -17,8 +17,8 @@ class Student {
 
         void addClass(const UcClass &newClass);
         UcClass changeClass(const UcClass &newClass);
-        void removeSubject(const string &ucCode);
-        void addSubject(const UcClass &newClass);
+        void removeUc(const string &ucCode);
+        void addUc(const UcClass &newClass);
         bool isEnrolled(const string &ucCode) const;
 
         void printHeader() const;

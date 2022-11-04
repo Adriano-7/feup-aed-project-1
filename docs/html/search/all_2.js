@@ -8,7 +8,7 @@ var searchData=
   ['checkucschedule_14',['checkUcSchedule',['../class_app.html#ab381040e8a2ccdc363c77dc6d1e01582',1,'App']]],
   ['checkucstudents_15',['checkUcStudents',['../class_app.html#a8456cd592b321c96e23e88cc2b50cd6b',1,'App']]],
   ['classescollide_16',['classesCollide',['../class_schedule_manager.html#a3baee18c837ff981d35dc965ba0f4ef2',1,'ScheduleManager']]],
-  ['classesofsubject_17',['classesOfSubject',['../class_schedule_manager.html#a9a30926d32e12b5618455b57c8629c4f',1,'ScheduleManager']]],
+  ['classesofuc_17',['classesOfUc',['../class_schedule_manager.html#a75eacc548d27f7eca10630a3da004e8b',1,'ScheduleManager']]],
   ['classid_18',['classId',['../class_uc_class.html#ab8869b2401b071cd5a18197b109bd83e',1,'UcClass']]],
   ['classschedule_19',['ClassSchedule',['../class_class_schedule.html',1,'ClassSchedule'],['../class_class_schedule.html#a8d88a9c41fde5818bb1a96af0382ba80',1,'ClassSchedule::ClassSchedule()'],['../class_class_schedule.html#a51d32d8db9c15b3385fd4947e1701e1e',1,'ClassSchedule::ClassSchedule(const UcClass &amp;ucClass)'],['../class_class_schedule.html#aecd3b3e3bfd27112ee78d916fcdb7cb9',1,'ClassSchedule::ClassSchedule(const string &amp;ucId, const string &amp;classId)']]],
   ['collides_20',['collides',['../class_slot.html#a37f6b9454cc33928f757960ca5c45617',1,'Slot']]],

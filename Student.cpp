@@ -43,10 +43,10 @@ UcClass Student::changeClass(const UcClass &newClass) {
     return {};
 }
 
-/** @brief Removes a subject(uc) from the student
+/** @brief Removes a uc from the student
  *  @details Time complexity: O(n)
  */
-void Student::removeSubject(const string &ucCode) {
+void Student::removeUc(const string &ucCode) {
     for (int i = 0; i < classes.size(); i++) {
         if (classes.at(i).getUcId() == ucCode) {
             classes.erase(classes.begin() + i);
@@ -55,10 +55,10 @@ void Student::removeSubject(const string &ucCode) {
     }
 }
 
-/** @brief Adds a subject(uc) to the student
+/** @brief Adds a uc to the student
  *  @details Time complexity: O(nlogN)
  */
-void Student::addSubject(const UcClass &newClass) {
+void Student::addUc(const UcClass &newClass) {
     classes.push_back(newClass);
     sort(classes.begin(), classes.end());
 }
