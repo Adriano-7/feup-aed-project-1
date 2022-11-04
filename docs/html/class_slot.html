@@ -103,6 +103,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:accdfae8201edfd784fea2c95dfbae747"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_slot.html#accdfae8201edfd784fea2c95dfbae747">operator==</a> (const <a class="el" href="class_slot.html">Slot</a> &amp;other) const</td></tr>
 <tr class="memdesc:accdfae8201edfd784fea2c95dfbae747"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if two slots are equal, when they have the same start time, end time and type.  <a href="class_slot.html#accdfae8201edfd784fea2c95dfbae747">More...</a><br /></td></tr>
 <tr class="separator:accdfae8201edfd784fea2c95dfbae747"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3dab3f5f800194753dea1712b1392eed"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_slot.html#a3dab3f5f800194753dea1712b1392eed">operator&lt;</a> (const <a class="el" href="class_slot.html">Slot</a> &amp;other) const</td></tr>
+<tr class="memdesc:a3dab3f5f800194753dea1712b1392eed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if a slot is less than another, when it has a smaller start time.  <a href="class_slot.html#a3dab3f5f800194753dea1712b1392eed">More...</a><br /></td></tr>
+<tr class="separator:a3dab3f5f800194753dea1712b1392eed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -298,6 +301,33 @@ string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true if they are different, false otherwise </dd></dl>
+
+</div>
+</div>
+<a id="a3dab3f5f800194753dea1712b1392eed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3dab3f5f800194753dea1712b1392eed">&#9670;&nbsp;</a></span>operator&lt;()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Slot::operator&lt; </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_slot.html">Slot</a> &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks if a slot is less than another, when it has a smaller start time. </p>
+<p>Time complexity: O(1) </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td><a class="el" href="class_slot.html" title="Class that represents a slot (time and day) in which a class of a given course is held.">Slot</a> to compare </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if it is less than the other, false otherwise </dd></dl>
 
 </div>
 </div>

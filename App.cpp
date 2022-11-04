@@ -8,6 +8,7 @@ using namespace std;
 
 /**
 * @brief Constructor, sleepTime is set to 800000 ms
+* @details Time complexity: O(1)
 * @param ScheduleManager manager
 */
 App::App(const ScheduleManager &manager) {
@@ -106,6 +107,7 @@ int App::run() {
 
 /**
 * @brief Asks the user to input the students's UP number and prints the schedule of that student
+ * @details Time complexity: O(n²log n)
 */
 void App::checkStudentSchedule() const {
     string upNumber;
@@ -115,6 +117,7 @@ void App::checkStudentSchedule() const {
 }
 /**
 * @brief Ask the user to insert the class code and prints the schedule of that class
+ * @details Time complexity: O(n²log n)
 */
 void App::checkClassSchedule() const{
     string classCode;
@@ -122,6 +125,10 @@ void App::checkClassSchedule() const{
     manager.printClassSchedule(classCode);
 }
 
+/**
+ * @brief Ask the user to insert the sorting option
+ * @return sorting option
+ */
 int App::sortingMenu() const {
     cout << "1 Alphabetical" << endl;
     cout << "2 Alphabetical in reverse" << endl;
@@ -138,6 +145,7 @@ int App::sortingMenu() const {
 }
 /**
 * @brief Asks the user to insert the ucCode and classCode and prints the students enrolled
+ * @details Time complexity: O(n log n)
 */
 void App::checkClassStudents() const {
     int option = sortingMenu();
@@ -168,6 +176,7 @@ void App::checkClassStudents() const {
 
 /**
 * @brief Asks the user to insert the ucId and prints the schedule of that subject
+ * @details Time complexity: O(n³)
 */
 void App::checkUcSchedule() const {
     string subjectCode;
@@ -175,6 +184,10 @@ void App::checkUcSchedule() const {
     manager.printUcSchedule(subjectCode);
 }
 
+/**
+ * @brief Asks the user to insert the type of request
+ * @details Time complexity: O(1)
+ */
 int App::requestsMenu() const {
     int option;
     cout << "There are 3 types of requests:" << endl;
@@ -193,6 +206,10 @@ int App::requestsMenu() const {
     return option;
 }
 
+/**
+ * @brief Asks the user to insert the class code he wants to change into
+ * @details Time complexity: O(n log n)
+ */
 void App::submitChangingRequest(Student* student) {
     string ucCode, classCode;
     cout << endl << "The following information is related to the class you want to change to, "
@@ -214,6 +231,10 @@ void App::submitChangingRequest(Student* student) {
     cout << ">> Request submitted successfully." << endl;
 }
 
+/**
+ * @brief Asks the user to insert the subject code he wants to enroll into
+ * @details Time complexity: O(log n)
+ */
 void App::submitEnrollmentRequest(Student *student) {
     string ucCode, classCode;
     cout << endl << "The following information is related to the subject and the class you want to enroll in." << endl;
@@ -234,6 +255,10 @@ void App::submitEnrollmentRequest(Student *student) {
     cout << ">> Request submitted successfully." << endl;
 }
 
+/**
+ * @brief Asks the user to insert the subject code he wants to cancel
+ * @details Time complexity: O(log n)
+ */
 void App::submitRemovalRequest(Student *student) {
     string ucCode;
     cout << endl << "The following information is related to the subject you want to remove." << endl;
@@ -256,6 +281,7 @@ void App::submitRemovalRequest(Student *student) {
 
 /**
 * @brief Function that allows the student to submit a request to change a class
+ * @details Time complexity: O(n log n)
 */
 void App::submitNewRequest(int option) {
     string upNumber;
@@ -284,6 +310,7 @@ void App::submitNewRequest(int option) {
 }
 /**
 * @brief Function that prints the students enrolled in a uc
+ * @details Time complexity: O(n²)
 */
 void App::checkUcStudents() const{
     int option = sortingMenu();
@@ -308,6 +335,7 @@ void App::checkUcStudents() const{
 }
 /**
  * @brief Function that processes all pending changingRequests
+ * @details Time complexity: O(n³)
  */
 void App::processPendingRequests() {
     string s;
@@ -321,6 +349,7 @@ void App::processPendingRequests() {
 
 /**
  * @brief Function that writes the information to the files before closing the program
+ * @details Time complexity: O(n²)
  */
 void App::saveInformation() {
     manager.writeFiles();
@@ -328,6 +357,7 @@ void App::saveInformation() {
 
 /**
 * @brief Function that makes the program wait for user input to continue
+ * @details Time complexity: O(1)
 */
 void App::waitForInput() const{
     usleep(sleepTime);
@@ -338,6 +368,10 @@ void App::waitForInput() const{
     system("clear");
 }
 
+/**
+ * @brief Function to print the pending requests
+ * @details Time complexity: O(n log n)
+ */
 void App::printPendingRequests() const {
     manager.printPendingRequests();
 }

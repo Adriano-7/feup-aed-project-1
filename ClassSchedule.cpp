@@ -32,7 +32,7 @@ ClassSchedule::ClassSchedule(const string &ucId, const string &classId) {
 }
 
 /** @brief Add a slot to the vector of slots
- * @details Time complexity: O()
+ * @details Time complexity: O(1)
  * @param slot the slot to be added
 */
 void ClassSchedule::addSlot(const Slot &slot) {
