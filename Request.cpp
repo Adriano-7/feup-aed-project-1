@@ -3,6 +3,7 @@
 
 /**
 * @brief Constructor of the Request class
+* @details Time complexity: O(1)
 * @param student Student that made the request
 * @param desiredClass Class that the student wants to enroll in
 */
@@ -12,6 +13,11 @@ Request::Request(const Student &student, const UcClass &desiredClass, const stri
     this->desiredClass = desiredClass;
     this->type = type;
 }
+
+/**
+ * @brief Prints the header of the request (student name, student number, if type is removal -> Requested subject, else requested class)
+ * @details Time complexity: O(1)
+ */
 
 void Request::printHeader() const{
     cout << "Student: " << student.getName() << " - "<< student.getId() <<  "  |  ";
@@ -23,7 +29,8 @@ void Request::printHeader() const{
 
 /**
  * @brief Prints the request
-*/
+ * @details Time complexity: O(1)
+ */
 void Request::print() const {
     printHeader();
     cout << "  |  " << "Type: " << type << endl;
@@ -31,6 +38,7 @@ void Request::print() const {
 
 /**
 * @brief Getter of the student that made the request
+* @details Time complexity: O(1)
 * @return Student that made the request
 */
 Student Request::getStudent() const {
@@ -39,6 +47,7 @@ Student Request::getStudent() const {
 
 /**
 * @brief Getter of the class that the student wants to enroll in
+* @details Time complexity: O(1)
 * @return Class that the student wants to enroll in
 */
 UcClass Request::getDesiredClass() const {

@@ -82,12 +82,11 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a95d5d018df2156f3aae0e097da3780a1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_request.html#a95d5d018df2156f3aae0e097da3780a1">Request</a> (const <a class="el" href="class_student.html">Student</a> &amp;<a class="el" href="class_request.html#a4dcb47d69e7cbe5135ae2739e49e0691">student</a>, const <a class="el" href="class_uc_class.html">UcClass</a> &amp;<a class="el" href="class_request.html#a6120fc8e94a5f8fe1e638ebe30dce1e6">desiredClass</a>, const string &amp;<a class="el" href="class_request.html#a12ab8f91615afa457a497f292a6d8cb0">type</a>)</td></tr>
 <tr class="memdesc:a95d5d018df2156f3aae0e097da3780a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor of the <a class="el" href="class_request.html" title="Class to store the information about a given request.">Request</a> class.  <a href="class_request.html#a95d5d018df2156f3aae0e097da3780a1">More...</a><br /></td></tr>
 <tr class="separator:a95d5d018df2156f3aae0e097da3780a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a787699a9b1a03589016c70abf3ffd2de"><td class="memItemLeft" align="right" valign="top"><a id="a787699a9b1a03589016c70abf3ffd2de"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>printHeader</b> () const</td></tr>
+<tr class="memitem:a787699a9b1a03589016c70abf3ffd2de"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_request.html#a787699a9b1a03589016c70abf3ffd2de">printHeader</a> () const</td></tr>
+<tr class="memdesc:a787699a9b1a03589016c70abf3ffd2de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints the header of the request (student name, student number, if type is removal -&gt; Requested subject, else requested class)  <a href="class_request.html#a787699a9b1a03589016c70abf3ffd2de">More...</a><br /></td></tr>
 <tr class="separator:a787699a9b1a03589016c70abf3ffd2de"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abd45c81acc563acba456eebc85eb5ec5"><td class="memItemLeft" align="right" valign="top"><a id="abd45c81acc563acba456eebc85eb5ec5"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_request.html#abd45c81acc563acba456eebc85eb5ec5">print</a> () const</td></tr>
-<tr class="memdesc:abd45c81acc563acba456eebc85eb5ec5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints the request. <br /></td></tr>
+<tr class="memitem:abd45c81acc563acba456eebc85eb5ec5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_request.html#abd45c81acc563acba456eebc85eb5ec5">print</a> () const</td></tr>
+<tr class="memdesc:abd45c81acc563acba456eebc85eb5ec5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints the request.  <a href="class_request.html#abd45c81acc563acba456eebc85eb5ec5">More...</a><br /></td></tr>
 <tr class="separator:abd45c81acc563acba456eebc85eb5ec5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aca583762dba5f3e7eb7ef915feebb65b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_student.html">Student</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_request.html#aca583762dba5f3e7eb7ef915feebb65b">getStudent</a> () const</td></tr>
 <tr class="memdesc:aca583762dba5f3e7eb7ef915feebb65b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter of the student that made the request.  <a href="class_request.html#aca583762dba5f3e7eb7ef915feebb65b">More...</a><br /></td></tr>
@@ -147,7 +146,7 @@ string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 </div><div class="memdoc">
 
 <p>Constructor of the <a class="el" href="class_request.html" title="Class to store the information about a given request.">Request</a> class. </p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>Time complexity: O(1) </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">student</td><td><a class="el" href="class_student.html" title="Class to store the information about a given student.">Student</a> that made the request </td></tr>
     <tr><td class="paramname">desiredClass</td><td>Class that the student wants to enroll in </td></tr>
@@ -174,7 +173,7 @@ string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 </div><div class="memdoc">
 
 <p>Getter of the class that the student wants to enroll in. </p>
-<dl class="section return"><dt>Returns</dt><dd>Class that the student wants to enroll in </dd></dl>
+<p>Time complexity: O(1) </p><dl class="section return"><dt>Returns</dt><dd>Class that the student wants to enroll in </dd></dl>
 
 </div>
 </div>
@@ -194,7 +193,47 @@ string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 </div><div class="memdoc">
 
 <p>Getter of the student that made the request. </p>
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_student.html" title="Class to store the information about a given student.">Student</a> that made the request </dd></dl>
+<p>Time complexity: O(1) </p><dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_student.html" title="Class to store the information about a given student.">Student</a> that made the request </dd></dl>
+
+</div>
+</div>
+<a id="abd45c81acc563acba456eebc85eb5ec5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abd45c81acc563acba456eebc85eb5ec5">&#9670;&nbsp;</a></span>print()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Request::print </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Prints the request. </p>
+<p>Time complexity: O(1) </p>
+
+</div>
+</div>
+<a id="a787699a9b1a03589016c70abf3ffd2de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a787699a9b1a03589016c70abf3ffd2de">&#9670;&nbsp;</a></span>printHeader()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Request::printHeader </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Prints the header of the request (student name, student number, if type is removal -&gt; Requested subject, else requested class) </p>
+<p>Time complexity: O(1) </p>
 
 </div>
 </div>
