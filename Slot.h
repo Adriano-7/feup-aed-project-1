@@ -7,10 +7,6 @@
 using namespace std;
 /**
  * @brief Class that represents a slot (time and day) in which a class of a given course is held.
- * @param duration
- * @param startTime
- * @param endTime
- * @param type
  */
 
 class Slot {
