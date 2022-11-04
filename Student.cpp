@@ -51,6 +51,7 @@ void Student::removeSubject(const string &ucCode) {
 
 void Student::addSubject(const UcClass &newClass) {
     classes.push_back(newClass);
+    sort(classes.begin(), classes.end());
 }
 
 /** @brief Checks if the student is enrolled in a given UC

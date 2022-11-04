@@ -249,14 +249,7 @@ bool ScheduleManager::requestExceedsMaxStudents(const Request &request) const {
         return cs1.getNumStudents() < cs2.getNumStudents();
     });
     int maxDifference = subjectClasses[subjectClasses.size() - 1].getNumStudents() - subjectClasses[0].getNumStudents();
-    if(maxDifference >= 4) return true;
-    unsigned long enrolledSubjectStudents = 0;
-    for(const ClassSchedule &cs : subjectClasses){
-        enrolledSubjectStudents += cs.getNumStudents();
-    }
-    unsigned long maxStudents = enrolledSubjectStudents/16 + 4;
-    ClassSchedule* schedule = findSchedule(request.getDesiredClass());
-    return schedule->getNumStudents() >= maxStudents;
+    return maxDifference >= 4;
 }
 
 /**
@@ -284,15 +277,12 @@ void ScheduleManager::processRemovalRequest(const Request &request) {
     UcClass ucClass = findSchedule(request.getDesiredClass())->getUcClass();
     student->removeSubject(ucClass.getUcId());
     findSchedule(ucClass)->removeStudent(*student);
-    cout << "   "; cout << request.getDesiredClass().getUcId() << endl;
+    cout << "   "; request.printHeader(); cout << endl;
 }
 
 void ScheduleManager::processEnrollmentRequest(const Request &request) {
     if(requestHasCollision(request)){
         rejectedRequests.emplace_back(request, "Collision in the students' schedule");
-    }
-    else if(requestExceedsMaxStudents(request)){
-        rejectedRequests.emplace_back(request, "Exceeds maximum number of students in the class");
     }
     else{
         Student* student = findStudent(request.getStudent().getId());
@@ -301,6 +291,7 @@ void ScheduleManager::processEnrollmentRequest(const Request &request) {
         findSchedule(ucClass)->addStudent(*student);
         cout << "   "; request.printHeader();
     }
+    cout << endl;
 }
 
 /**
@@ -579,22 +570,22 @@ void ScheduleManager::printUcStudents(const string &ucId, const string &sortType
 */
 void ScheduleManager::printPendingRequests() const {
     system("clear");
-    queue<Request> pendingChangingRequests = changingRequests;
-    cout << endl << ">> Pending changing requests:" << endl;
-    while (!pendingChangingRequests.empty()) {
-        cout << "   "; pendingChangingRequests.front().print();
-        pendingChangingRequests.pop();
-    }
     queue<Request> pendingRemovalRequests = removalRequests;
     cout << endl << ">> Pending removal requests:" << endl;
     while (!pendingRemovalRequests.empty()) {
-        cout << "   "; pendingRemovalRequests.front().print();
+        cout << "   "; pendingRemovalRequests.front().printHeader();
         pendingRemovalRequests.pop();
+    }
+    queue<Request> pendingChangingRequests = changingRequests;
+    cout << endl << ">> Pending changing requests:" << endl;
+    while (!pendingChangingRequests.empty()) {
+        cout << "   "; pendingChangingRequests.front().printHeader();
+        pendingChangingRequests.pop();
     }
     queue<Request> pendingEnrollmentRequests = enrollmentRequests;
     cout << endl << ">> Pending enrollment requests:" << endl;
     while (!pendingEnrollmentRequests.empty()) {
-        cout << "   "; pendingEnrollmentRequests.front().print();
+        cout << "   "; pendingEnrollmentRequests.front().printHeader();
         pendingEnrollmentRequests.pop();
     }
 }

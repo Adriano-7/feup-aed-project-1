@@ -31,7 +31,6 @@ class ScheduleManager {
         void addEnrollmentRequest(const Student &student, const UcClass &ucClass);
         void addRemovalRequest(const Student &student, const UcClass &ucClass);
         bool requestExceedsMaxStudents(const Request &request) const;
-        bool acceptRequest(const Request &request) const;
         void processChangingRequest(const Request &request);
         void processEnrollmentRequest(const Request &request);
         void processRemovalRequest(const Request &request);

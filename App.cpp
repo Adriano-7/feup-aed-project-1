@@ -27,7 +27,7 @@ int App::optionsMenu() const {
             << "1 Check the schedule of a student" << endl
             << "2 Check the schedule of a class" << endl
             << "3 Check the schedule of a subject"<< endl
-            << "4 Check the students in class"<< endl
+            << "4 Check the students in a class"<< endl
             << "5 Check the students enrolled in a subject" << endl
             << "6 Submit a request" << endl
             << "7 Print pending requests" << endl
