@@ -12,7 +12,8 @@
 
 /**
 *@brief Schedule Manager constructor
-* @details Creates a Schedule Manager with an empty set of students, a empty vector of schedules and a empty queue of changingRequests
+*@details Creates a Schedule Manager with an empty set of students, a empty vector of schedules and empty queues\n
+*Time complexity: O(1)
 */
 ScheduleManager::ScheduleManager() {
     this->students = set<Student>();
@@ -34,6 +35,7 @@ void ScheduleManager::readFiles() {
 
 /**
 *@brief Reads the file "classes_per_uc.csv" and creates a vector of schedules with only the uc code and the class code
+*@details Time complexity: O()
 */
 void ScheduleManager::createSchedules(){
     fstream file("../data/classes_per_uc.csv");
@@ -55,6 +57,7 @@ void ScheduleManager::createSchedules(){
 
 /**
 * @brief Reads the file "classes.csv" and adds the slots to the schedules created in the previous function
+* @details Time complexity: O()
 * @see createSchedules()
 */
 void ScheduleManager::setSchedules() {
@@ -82,7 +85,8 @@ void ScheduleManager::setSchedules() {
 
 /**
 * @brief Reads the students_classes.csv file and creates the students set
-* @details The students are created with the student id, name and the classes they are enrolled in
+* @details The students are created with the student id, name and the classes they are enrolled in\n
+* Time complexity: O()
 */
 void ScheduleManager::createStudents() {
     fstream file("../data/students_classes.csv");
@@ -119,9 +123,10 @@ void ScheduleManager::createStudents() {
 /**
 * @brief Function that returns the index of the schedule with the ucClass passed as parameter
 * @param desiredUcCLass
-* @details Uses binary search to find the schedules
+* @details Uses binary search to find the schedules \n
+* Time complexity: O(log n)
 * @return The index of the schedule with the ucClass passed as parameter
- * @see Slot::collides()
+* @see Slot::collides()
 */
 unsigned long ScheduleManager::binarySearchSchedules(const UcClass &desiredUcCLass) const{
     unsigned long left = 0, right = schedules.size() - 1, middle = (left + right) / 2;
@@ -143,13 +148,14 @@ unsigned long ScheduleManager::binarySearchSchedules(const UcClass &desiredUcCLa
 
 /**
 * @brief Function that verifies if the schedule of two given classes have a conflict
+* @details Time complexity: O(n²)
 * @return true if the classes have a conflict, false otherwise
 */
 bool ScheduleManager::classesCollide(const UcClass &c1, const UcClass &c2) const{
-    if(c1.sameUC(c2)) return false;
-    ClassSchedule* cs1 = findSchedule(c1);
-    ClassSchedule* cs2 = findSchedule(c2);
-    for(const Slot &slot1 : cs1->getSlots()){
+    if(c1.sameUC(c2)) return false; //O(1)
+    ClassSchedule* cs1 = findSchedule(c1); //O(log n)
+    ClassSchedule* cs2 = findSchedule(c2); //O(log n)
+    for(const Slot &slot1 : cs1->getSlots()){   //O(n²)
         for(const Slot &slot2 : cs2->getSlots()){
             if(slot1.collides(slot2)) return true;
         }
@@ -163,17 +169,18 @@ bool ScheduleManager::classesCollide(const UcClass &c1, const UcClass &c2) const
 * @return true if the request has a conflict with the schedule of the student, false otherwise
 */
 bool ScheduleManager::requestHasCollision(const Request &request) const{
-    Student student = request.getStudent();
-    UcClass desiredClass = request.getDesiredClass();
-    vector<UcClass> studentClasses = student.getClasses();
+    Student student = request.getStudent(); //O(1)
+    UcClass desiredClass = request.getDesiredClass(); //O(1)
+    vector<UcClass> studentClasses = student.getClasses(); //O(1)
     for (const UcClass &ucClass : studentClasses){
-        if(classesCollide(ucClass, desiredClass)) return true;
+        if(classesCollide(ucClass, desiredClass)) return true; //O(n²)
     }
     return false;
 }
 
 /**
 * @brief Function that returns the student with the ID passed as parameter
+ * @details Time complexity: O(log n)
 * @param studentId
 */
 Student* ScheduleManager::findStudent(const string &studentId) const{
@@ -183,6 +190,7 @@ Student* ScheduleManager::findStudent(const string &studentId) const{
 
 /**
 * @brief Function that returns the schedule with the ucClass passed as parameter
+ * @details Time complexity: O(log n)
 * @param ucClass
 */
 ClassSchedule* ScheduleManager::findSchedule(const UcClass &ucClass) const {
@@ -193,6 +201,7 @@ ClassSchedule* ScheduleManager::findSchedule(const UcClass &ucClass) const {
 
 /**
  * @brief Function that gets all classes of a given subject
+ * @details Time complexity: O(n)
  * @param subjectCode
  * @return A vector with all the classes of a given subject
  */
@@ -208,12 +217,13 @@ vector<ClassSchedule> ScheduleManager::classesOfSubject(const string &ucId) cons
 
 /**
  * @brief Function that gets all students of a given subject
+ * @details Time complexity: O(n²)
  * @param subjectCode
  * @return A vector with all the students of a given subject
  */
 vector<Student> ScheduleManager::studentsOfSubject(const string &ucId) const {
     vector<Student> subjectStudents;
-    vector<ClassSchedule> subjectClasses = classesOfSubject(ucId);
+    vector<ClassSchedule> subjectClasses = classesOfSubject(ucId); //O(n)
     for(const ClassSchedule &cs : subjectClasses){
         for(const Student &student : cs.getStudents()){
             subjectStudents.push_back(student);
@@ -223,16 +233,25 @@ vector<Student> ScheduleManager::studentsOfSubject(const string &ucId) const {
 }
 
 /**
- * @brief Function that given a student id and the ucClass he wants to change to, adds the request to the queue of changingRequests
+ * @brief Function that given a student and the ucClass he wants to change to, adds the request to the queue of changingRequests
+ * @details Time complexity: O(log n)
  */
 void ScheduleManager::addChangingRequest(const Student &student, const UcClass &ucClass) {
     changingRequests.push(Request(student, ucClass, "Changing"));
 }
 
+/**
+ * @brief Function that given a student and the ucClass he wants to withdraw from, adds the request to the queue of removalRequests
+ * @details Time complexity: O(log n)
+ */
 void ScheduleManager::addRemovalRequest(const Student &student, const UcClass &ucClass) {
     removalRequests.push(Request(student, ucClass, "Removal"));
 }
 
+/**
+ * @brief Function that given a student and the ucClass he wants to enroll in, adds the request to the queue of enrollmentRequests
+ * @details Time complexity: O(log n)
+ */
 void ScheduleManager::addEnrollmentRequest(const Student &student, const UcClass &ucClass) {
     enrollmentRequests.push(Request(student, ucClass, "Enrollment"));
 }
@@ -348,7 +367,7 @@ void ScheduleManager::writeFiles() const {
  * @details The slots are organized in a vector in which the index is associated with the weekday.
  * The index 0 is associated with Monday, 1 with Tuesday, 2 with Wednesday...
  */
-void insertIntoWeek(vector<vector<pair<string, Slot>>> &weekdays , const vector<pair<string, Slot>> &slots){
+void insertIntoWeek(vector<vector<pair<string, Slot>>> &weekdays , const vector<pair<string, Slot>> &slots) {
     for (const pair<string, Slot> &slot: slots) {
         if (slot.second.getWeekDay() == "Monday") {
             weekdays[0].push_back(slot);
@@ -363,27 +382,12 @@ void insertIntoWeek(vector<vector<pair<string, Slot>>> &weekdays , const vector<
         }
     }
 }
-/**
- * @brief Function that organizes the slots by weekday
- * @param weekdays
- */
-void groupDuplicates(vector<vector<pair<string, Slot>>> &weekdays){
-    for (int i = 0; i < weekdays.size(); i++) {
-        for (int j = 0; j < weekdays[i].size(); j++) {
-            for (int k = j + 1; k < weekdays[i].size(); k++) {
-                if (weekdays[i][j].second == weekdays[i][k].second) {
-                    weekdays[i][j].first += ", " + weekdays[i][k].first;
-                    weekdays[i].erase(weekdays[i].begin() + k);
-                    k--;
-                }
-            }
-        }
-    }
-}
+
+
 /**
  * @brief  Function converts decimal time to string
+ * @details Time complexity: O(1)
  * @param weekdays
- *
  */
 string decimalToHours(int decimal){
     double time = decimal;
@@ -443,6 +447,15 @@ void ScheduleManager::printStudentSchedule(const string &studentId) const {
     }
 }
 
+struct compareDayWeek
+{
+    bool operator()(const string d1, const string d2) const
+    {
+        map <string, int> days = {{"Monday", 1}, {"Tuesday", 2}, {"Wednesday", 3}, {"Thursday", 4}, {"Friday", 5}};
+        return days[d1] < days[d2];
+    }
+};
+
 /**
  * @brief Function that prints the schedule of a given class
  * @param classCode
@@ -450,8 +463,7 @@ void ScheduleManager::printStudentSchedule(const string &studentId) const {
 void ScheduleManager::printClassSchedule(const string &classCode) const{
     system("clear");
     struct slotUcID{Slot slot; string ucID;};
-    map<string, vector<slotUcID>> slots;
-    const vector<ClassSchedule> check = schedules;
+    map<string, vector<slotUcID>, compareDayWeek> slots;
     for(const ClassSchedule &cs : schedules){
         if(cs.getUcClass().getClassId() == classCode){
             for(const Slot &slot : cs.getSlots()){
@@ -480,111 +492,108 @@ void ScheduleManager::printClassSchedule(const string &classCode) const{
     }
 }
 
+
 /**
  * @brief Function that print the schedule of a given subject
  * @param subjectCode
  */
 void ScheduleManager::printUcSchedule(const string &subjectCode) const{
     system("clear");
-    vector<ClassSchedule> schedulesUC;
-    for (const ClassSchedule &cs: schedules) {
-        if (cs.getUcClass().getUcId() == subjectCode) {
-            schedulesUC.push_back(cs);
+
+    map<string, map<Slot, vector<string>>, compareDayWeek> days;
+    for(const ClassSchedule &cs : schedules){
+        if(cs.getUcClass().getUcId() == subjectCode){
+            for(const Slot &slot : cs.getSlots()){
+                days[slot.getWeekDay()][slot].push_back(cs.getUcClass().getClassId());
+            }
         }
     }
-    if(schedulesUC.empty()){
+    if(days.empty()){
         cout << ">> Subject not found" << endl;
         return;
     }
-    vector<vector<pair<string, Slot>>> weekdays(5);
-    vector<string> weekdaysNames = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday"};
 
-    for (auto it = schedulesUC.begin(); it != schedulesUC.end(); it++) {
-        vector <pair<string, Slot>> slots;
-        for (const Slot &slot: it->getSlots()) {
-            slots.emplace_back(it->getUcClass().getClassId(), slot);
-        }
-
-        insertIntoWeek(weekdays, slots);
-        groupDuplicates(weekdays);
-    }
-    cout << endl << ">> The subject "<< subjectCode << " has the following schedule:" << endl;
-
-    for (int i = 0; i < weekdays.size(); i++) {
-        sort(weekdays[i].begin(), weekdays[i].end(), [](const pair<string, Slot> &a,const pair <string, Slot> &b) {
-            return a.second.getStartTime() < b.second.getStartTime();
-        });
-        cout << "   >> " << weekdaysNames[i] << ": " << endl;
-
-        for (const pair<string, Slot> &slot: weekdays[i]) {
-            cout << "      " << decimalToHours(slot.second.getStartTime()) << " to "
-                             << decimalToHours(slot.second.getEndTime()) << "\t" << slot.second.getType() << "\t" << slot.first << endl;
+    cout << ">> The schedule for the subject " << subjectCode << " is:" << endl;
+    for(const auto &day: days){
+        cout << "   >> " << day.first << ": " << endl;
+        for(const auto &slot: day.second){
+            cout << "      " << decimalToHours(slot.first.getStartTime()) << " to " << decimalToHours(slot.first.getEndTime()) << "\t" << slot.first.getType() << "\t";
+            for(const string &classcode: slot.second){
+                cout << classcode << " ";
+            }
+            cout << endl;
         }
     }
 }
 
+/**
+ * @brief Function that prints the students of a given class
+ * @details Time complexity: O(n log n)
+ */
 void ScheduleManager::printClassStudents(const UcClass &ucClass, const string &orderType) const{
-    ClassSchedule* cs = findSchedule(ucClass);
+    ClassSchedule* cs = findSchedule(ucClass); //O(n log n)
     if(cs == nullptr){
         cout << ">> Class not found" << endl;
         return;
     }
-    cs->printStudents(orderType);
+    cs->printStudents(orderType);   //O(n log n)
 }
 
 /**
  * @brief Function that prints the students enrolled a given uc
+ * @details Time complexity O(n²)
  * @param ucId
  */
 void ScheduleManager::printUcStudents(const string &ucId, const string &sortType) const {
     system("clear");
-    vector<Student> studentsVector = studentsOfSubject(ucId);
+    vector<Student> studentsVector = studentsOfSubject(ucId);   //O(n²)
     if(studentsVector.empty()){
         cout << ">> Subject not found" << endl;
         return;
     }
     if (sortType == "alphabetical") {
-        sort(studentsVector.begin(), studentsVector.end(), [](const Student &a, const Student &b) { return a.getName() < b.getName(); });
+        sort(studentsVector.begin(), studentsVector.end(), [](const Student &a, const Student &b) { return a.getName() < b.getName(); });   //O(n logN)
     } else if (sortType == "reverse alphabetical") {
-        sort(studentsVector.rbegin(), studentsVector.rend(), [](const Student &a, const Student &b) { return a.getName() < b.getName(); });
+        sort(studentsVector.rbegin(), studentsVector.rend(), [](const Student &a, const Student &b) { return a.getName() < b.getName(); }); //O(n logN)
     } else if (sortType == "numerical") {
-        sort(studentsVector.begin(), studentsVector.end());
+        sort(studentsVector.begin(), studentsVector.end()); //O(n logN)
     } else if (sortType == "reverse numerical") {
-        sort(studentsVector.rbegin(), studentsVector.rend());
+        sort(studentsVector.rbegin(), studentsVector.rend()); //O(n logN)
     } else {
         cout << "Invalid sortType" << endl;
         return;
     }
-    sort(studentsVector.begin(), studentsVector.end(), [](const Student &s1, const Student &s2) {
+    sort(studentsVector.begin(), studentsVector.end(), [](const Student &s1, const Student &s2) { //O(n logN)
         return s1.getName() < s2.getName();
     });
     cout << endl << ">> Number of students: " << studentsVector.size() << endl;
     cout << ">> Students:" << endl;
-    for (const Student &student: studentsVector) {
-        cout << "   "; student.printHeader();
+    for (const Student &student: studentsVector) { //O(n)
+        cout << "   "; student.printHeader();   //O(1)
     }
 }
 
 /**
 * @brief Function that prints all changingRequests in the queue
+ * @details Time complexity: O(n log n)
 */
 void ScheduleManager::printPendingRequests() const {
     system("clear");
     queue<Request> pendingRemovalRequests = removalRequests;
     cout << endl << ">> Pending removal requests:" << endl;
-    while (!pendingRemovalRequests.empty()) {
+    while (!pendingRemovalRequests.empty()) {                       //O(n log n)
         cout << "   "; pendingRemovalRequests.front().printHeader();
-        pendingRemovalRequests.pop();
+        pendingRemovalRequests.pop(); //O(log n)
     }
     queue<Request> pendingChangingRequests = changingRequests;
     cout << endl << ">> Pending changing requests:" << endl;
-    while (!pendingChangingRequests.empty()) {
+    while (!pendingChangingRequests.empty()) {                      //O(n log n)
         cout << "   "; pendingChangingRequests.front().printHeader();
         pendingChangingRequests.pop();
     }
     queue<Request> pendingEnrollmentRequests = enrollmentRequests;
     cout << endl << ">> Pending enrollment requests:" << endl;
-    while (!pendingEnrollmentRequests.empty()) {
+    while (!pendingEnrollmentRequests.empty()) {                    //O(n log n)
         cout << "   "; pendingEnrollmentRequests.front().printHeader();
         pendingEnrollmentRequests.pop();
     }
@@ -592,6 +601,7 @@ void ScheduleManager::printPendingRequests() const {
 
 /**
  * @brief Function that prints all the rejected changingRequests
+ * @details Time complexity: O(n)
  */
 void ScheduleManager::printRejectedRequests() const {
     system("clear");

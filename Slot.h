@@ -19,6 +19,7 @@ class Slot {
         bool collides(const Slot &other) const;
         bool operator !=(const Slot &other) const;
         bool operator ==(const Slot &other) const;
+        bool operator < (const Slot &other) const;
 
     private:
         string weekDay;

@@ -76,5 +76,20 @@ bool Slot::operator!=(const Slot &other) const {
  * @return true if they are equal, false otherwise
  */
 bool Slot::operator==(const Slot &other) const {
-    return this->startTime == other.getStartTime() && this->endTime == other.getEndTime() && this->type == other.getType();
+    return this->startTime == other.getStartTime() && this->endTime == other.getEndTime() && this->type == other.getType() && this->weekDay==other.getWeekDay();
+}
+
+/** @brief Checks if a slot is less than another, when it has a smaller start time
+ * @details Time complexity: O(1)
+ * @param other Slot to compare
+ * @return true if it is less than the other, false otherwise
+ */
+bool Slot::operator<(const Slot &other) const {
+    if(this->startTime == other.getStartTime()){
+        if(this->endTime == other.getEndTime()){
+            return this->type < other.getType();
+        }
+        return this->endTime < other.getEndTime();
+    }
+    return this->startTime < other.getStartTime();
 }
