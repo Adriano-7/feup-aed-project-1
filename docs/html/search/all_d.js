@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['waitforinput_83',['waitForInput',['../class_app.html#a57df502b0662474037c5ec1ef026f2e7',1,'App']]],
-  ['writefiles_84',['writeFiles',['../class_schedule_manager.html#a4f4d6a4b366686c9767f9e227f474ee9',1,'ScheduleManager']]]
+  ['type_84',['type',['../class_request.html#a12ab8f91615afa457a497f292a6d8cb0',1,'Request::type()'],['../class_slot.html#a2724196d075f2b8abf68e51508d9edbf',1,'Slot::type()']]]
 ];

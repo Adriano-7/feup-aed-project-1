@@ -74,28 +74,28 @@ $(function() {
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">using namespace </span>std;</div>
-<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="class_slot.html">   16</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_slot.html">Slot</a> {</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        <a class="code" href="class_slot.html">Slot</a>(<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;weekDay, <span class="keyword">const</span> <span class="keywordtype">float</span> &amp;beginTime, <span class="keyword">const</span> <span class="keywordtype">float</span> &amp;duration, <span class="keyword">const</span> <span class="keywordtype">string</span> &amp;type);</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        <span class="keywordtype">string</span> getWeekDay() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <span class="keywordtype">string</span> getType() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="keywordtype">float</span> getStartTime() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <span class="keywordtype">float</span> getEndTime() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <span class="keywordtype">bool</span> collides(<span class="keyword">const</span> <a class="code" href="class_slot.html">Slot</a> &amp;other) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="keywordtype">bool</span> operator !=(<span class="keyword">const</span> <a class="code" href="class_slot.html">Slot</a> &amp;other) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="keywordtype">bool</span> operator ==(<span class="keyword">const</span> <a class="code" href="class_slot.html">Slot</a> &amp;other) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <span class="keywordtype">string</span> weekDay;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="keywordtype">float</span> startTime;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="keywordtype">float</span> endTime;</div>
-<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="class_slot.html#a2724196d075f2b8abf68e51508d9edbf">   37</a></span>&#160;        <span class="keywordtype">string</span> <a class="code" href="class_slot.html#a2724196d075f2b8abf68e51508d9edbf">type</a>;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;};</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor">#endif </span><span class="comment">//TRABALHO_SLOT_H</span></div>
-<div class="ttc" id="aclass_slot_html"><div class="ttname"><a href="class_slot.html">Slot</a></div><div class="ttdoc">Class that represents a slot (time and day) in which a class of a given course is held.</div><div class="ttdef"><b>Definition:</b> Slot.h:16</div></div>
-<div class="ttc" id="aclass_slot_html_a2724196d075f2b8abf68e51508d9edbf"><div class="ttname"><a href="class_slot.html#a2724196d075f2b8abf68e51508d9edbf">Slot::type</a></div><div class="ttdeci">string type</div><div class="ttdoc">Type of the class T - Teórica P - Prática PL - Prática Laboratorial.</div><div class="ttdef"><b>Definition:</b> Slot.h:37</div></div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="class_slot.html">   12</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_slot.html">Slot</a> {</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        <a class="code" href="class_slot.html">Slot</a>(<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;weekDay, <span class="keyword">const</span> <span class="keywordtype">float</span> &amp;beginTime, <span class="keyword">const</span> <span class="keywordtype">float</span> &amp;duration, <span class="keyword">const</span> <span class="keywordtype">string</span> &amp;type);</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        <span class="keywordtype">string</span> getWeekDay() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        <span class="keywordtype">string</span> getType() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        <span class="keywordtype">float</span> getStartTime() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        <span class="keywordtype">float</span> getEndTime() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        <span class="keywordtype">bool</span> collides(<span class="keyword">const</span> <a class="code" href="class_slot.html">Slot</a> &amp;other) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <span class="keywordtype">bool</span> operator !=(<span class="keyword">const</span> <a class="code" href="class_slot.html">Slot</a> &amp;other) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="keywordtype">bool</span> operator ==(<span class="keyword">const</span> <a class="code" href="class_slot.html">Slot</a> &amp;other) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="keywordtype">string</span> weekDay;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="keywordtype">float</span> startTime;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="keywordtype">float</span> endTime;</div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="class_slot.html#a2724196d075f2b8abf68e51508d9edbf">   33</a></span>&#160;        <span class="keywordtype">string</span> <a class="code" href="class_slot.html#a2724196d075f2b8abf68e51508d9edbf">type</a>;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;};</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#endif </span><span class="comment">//TRABALHO_SLOT_H</span></div>
+<div class="ttc" id="aclass_slot_html"><div class="ttname"><a href="class_slot.html">Slot</a></div><div class="ttdoc">Class that represents a slot (time and day) in which a class of a given course is held.</div><div class="ttdef"><b>Definition:</b> Slot.h:12</div></div>
+<div class="ttc" id="aclass_slot_html_a2724196d075f2b8abf68e51508d9edbf"><div class="ttname"><a href="class_slot.html#a2724196d075f2b8abf68e51508d9edbf">Slot::type</a></div><div class="ttdeci">string type</div><div class="ttdoc">Type of the class T - Teórica P - Prática PL - Prática Laboratorial.</div><div class="ttdef"><b>Definition:</b> Slot.h:33</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

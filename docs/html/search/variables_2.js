@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['rejectedrequests_166',['rejectedRequests',['../class_schedule_manager.html#a60264dde12f68ce9f85249bb38973a16',1,'ScheduleManager']]],
-  ['requests_167',['requests',['../class_schedule_manager.html#a22cfea4c8bfdbb639fda3465da17bb02',1,'ScheduleManager']]]
+  ['enrollmentrequests_173',['enrollmentRequests',['../class_schedule_manager.html#a0c2141275d5fcce92420246152a2ce4d',1,'ScheduleManager']]]
 ];

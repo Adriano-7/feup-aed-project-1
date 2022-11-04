@@ -1,15 +1,17 @@
 var searchData=
 [
-  ['sameuc_67',['sameUC',['../class_class_schedule.html#ac50e4034853f1693e43775c1055fd04b',1,'ClassSchedule::sameUC()'],['../class_uc_class.html#ad9a17a3bb33b701aee967f94e5bec861',1,'UcClass::sameUC()']]],
-  ['saveinformation_68',['saveInformation',['../class_app.html#a3849ad0c655f662f2307317649be53aa',1,'App']]],
-  ['schedulemanager_69',['ScheduleManager',['../class_schedule_manager.html',1,'ScheduleManager'],['../class_schedule_manager.html#a01e612817374dc034ba3869d5ab38afb',1,'ScheduleManager::ScheduleManager()']]],
-  ['schedules_70',['schedules',['../class_schedule_manager.html#a75159b0ecd43c3efe0706310bd2ac178',1,'ScheduleManager']]],
-  ['setschedules_71',['setSchedules',['../class_schedule_manager.html#aa9cd7c49b7db003fdec970845b7c72bf',1,'ScheduleManager']]],
-  ['slot_72',['Slot',['../class_slot.html',1,'']]],
-  ['slots_73',['slots',['../class_class_schedule.html#a2147fd37fe1d2171e877fe750b643533',1,'ClassSchedule']]],
-  ['student_74',['Student',['../class_student.html',1,'Student'],['../class_student.html#af9168cedbfa5565cf0b20c1a9d3f5c9d',1,'Student::Student()'],['../class_student.html#a7feba9a36b0af8915a548fa0cccf97b7',1,'Student::Student(const string &amp;id, const string &amp;name)']]],
-  ['student_75',['student',['../class_request.html#a4dcb47d69e7cbe5135ae2739e49e0691',1,'Request']]],
-  ['students_76',['students',['../class_class_schedule.html#af0ca603110a80d5ec0f5dd3040ce3e9f',1,'ClassSchedule::students()'],['../class_schedule_manager.html#ad68ffbb401cf28ba7e79afa05f0db3b1',1,'ScheduleManager::students()']]],
-  ['studentsofsubject_77',['studentsOfSubject',['../class_schedule_manager.html#a43681627db826c08d9ac4f2bd5aa898d',1,'ScheduleManager']]],
-  ['submitnewrequest_78',['submitNewRequest',['../class_app.html#a2ab6ec40316e53aa924cfa3e5e8f4df4',1,'App']]]
+  ['print_48',['print',['../class_request.html#abd45c81acc563acba456eebc85eb5ec5',1,'Request::print()'],['../class_student.html#abdbb14cd83ef23c09f811bd1e30ddd4f',1,'Student::print()'],['../class_class_schedule.html#a1091607ad18551c206a815a8b823ed29',1,'ClassSchedule::print()']]],
+  ['printclasses_49',['printClasses',['../class_student.html#a0a5130adbe6997ac6d7e737f3b693cd7',1,'Student']]],
+  ['printclassschedule_50',['printClassSchedule',['../class_schedule_manager.html#ac73373a2b256ca35e589d2ddd69048d2',1,'ScheduleManager']]],
+  ['printheader_51',['printHeader',['../class_class_schedule.html#a3c3606b85246ee4c2247172165a35694',1,'ClassSchedule::printHeader()'],['../class_student.html#a962ad067dc64c9ed0f5e48dc1241bb09',1,'Student::printHeader()']]],
+  ['printpendingrequests_52',['printPendingRequests',['../class_schedule_manager.html#a7f7aaea01f9ef0bf41268439f9f349b3',1,'ScheduleManager']]],
+  ['printrejectedrequests_53',['printRejectedRequests',['../class_schedule_manager.html#aacf23097e3a0842a70661a610b709c41',1,'ScheduleManager']]],
+  ['printslots_54',['printSlots',['../class_class_schedule.html#aa271afe9f7a9b42c5be40a083d8dcb26',1,'ClassSchedule']]],
+  ['printstudents_55',['printStudents',['../class_class_schedule.html#a49f6c1dec5edf6fabbc91591972b5d25',1,'ClassSchedule']]],
+  ['printstudentschedule_56',['printStudentSchedule',['../class_schedule_manager.html#a123d9c735c3b5b305675d4a00fcf82c9',1,'ScheduleManager']]],
+  ['printucschedule_57',['printUcSchedule',['../class_schedule_manager.html#a986815717f5c3934a59b8346f7cb4d61',1,'ScheduleManager']]],
+  ['printucstudents_58',['printUcStudents',['../class_schedule_manager.html#a3eb595f2d2dfe5b2319cb284b5f629ee',1,'ScheduleManager']]],
+  ['processchangingrequest_59',['processChangingRequest',['../class_schedule_manager.html#a6bab908dbff8b7c8c587a3f982f6fea0',1,'ScheduleManager']]],
+  ['processpendingrequests_60',['processPendingRequests',['../class_app.html#a6fc0a750bc85d930729b605252b3202b',1,'App']]],
+  ['processrequests_61',['processRequests',['../class_schedule_manager.html#a79ee65db8004ceaf84b8cc46ba9d22ca',1,'ScheduleManager']]]
 ];

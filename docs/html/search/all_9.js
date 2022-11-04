@@ -1,11 +1,8 @@
 var searchData=
 [
-  ['readfiles_59',['readFiles',['../class_schedule_manager.html#ac323a75c9918f4c429cde88103f99ad0',1,'ScheduleManager']]],
-  ['rejectedrequests_60',['rejectedRequests',['../class_schedule_manager.html#a60264dde12f68ce9f85249bb38973a16',1,'ScheduleManager']]],
-  ['removestudent_61',['removeStudent',['../class_class_schedule.html#a15fe2f7af76202a0a787a73a33cd22c8',1,'ClassSchedule']]],
-  ['request_62',['Request',['../class_request.html',1,'Request'],['../class_request.html#a2b294df99e88bc02935b0827d0c115a1',1,'Request::Request()']]],
-  ['requestexceedsmaxstudents_63',['requestExceedsMaxStudents',['../class_schedule_manager.html#a178b3aba9dcd016bfa6fbbdfba42dc73',1,'ScheduleManager']]],
-  ['requesthascollision_64',['requestHasCollision',['../class_schedule_manager.html#a0b8d401656962163906cbbce56d6aaa9',1,'ScheduleManager']]],
-  ['requests_65',['requests',['../class_schedule_manager.html#a22cfea4c8bfdbb639fda3465da17bb02',1,'ScheduleManager']]],
-  ['run_66',['run',['../class_app.html#a8d27eeb51b813760dc39425d7a9a37e2',1,'App']]]
+  ['operator_21_3d_43',['operator!=',['../class_slot.html#a81ac402d57ed170085876894febe977d',1,'Slot']]],
+  ['operator_3c_44',['operator&lt;',['../class_class_schedule.html#ab74d241bc5886d6dd76ab4b97ca31423',1,'ClassSchedule::operator&lt;()'],['../class_student.html#a44b0dc0efbc95f687706f28363e897db',1,'Student::operator&lt;()'],['../class_uc_class.html#a49201ecbd1442a53b354aa0604e431b6',1,'UcClass::operator&lt;()']]],
+  ['operator_3d_3d_45',['operator==',['../class_class_schedule.html#ade0af259e5e109dd3b38d78408677237',1,'ClassSchedule::operator==()'],['../class_slot.html#accdfae8201edfd784fea2c95dfbae747',1,'Slot::operator==()'],['../class_student.html#a8f7c31ed0e331481ac58f12b2e822047',1,'Student::operator==()'],['../class_uc_class.html#a3dccc3ab7c4634e47b8ca783e08c3914',1,'UcClass::operator==()']]],
+  ['operator_3e_46',['operator&gt;',['../class_student.html#a8ed21df54035f4067179661924875aac',1,'Student::operator&gt;()'],['../class_uc_class.html#ab8f03f400aed740a16f78dff819b582e',1,'UcClass::operator&gt;()']]],
+  ['optionsmenu_47',['optionsMenu',['../class_app.html#ab85daf15970621082d9b44ec93a3578b',1,'App']]]
 ];

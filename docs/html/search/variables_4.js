@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['type_172',['type',['../class_slot.html#a2724196d075f2b8abf68e51508d9edbf',1,'Slot']]]
+  ['rejectedrequests_175',['rejectedRequests',['../class_schedule_manager.html#af0cd0dbb9c14f6cf6091e92c2d92ec8f',1,'ScheduleManager']]],
+  ['removalrequests_176',['removalRequests',['../class_schedule_manager.html#ac8540624db84b5507b8af553a8b15df7',1,'ScheduleManager']]]
 ];
