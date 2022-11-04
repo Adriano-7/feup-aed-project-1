@@ -6,6 +6,6 @@ var searchData=
   ['addremovalrequest_3',['addRemovalRequest',['../class_schedule_manager.html#a799e7c30e9ddd9da109eee350e2df476',1,'ScheduleManager']]],
   ['addslot_4',['addSlot',['../class_class_schedule.html#af6a739209d324916e2a62d886d7ec4e0',1,'ClassSchedule']]],
   ['addstudent_5',['addStudent',['../class_class_schedule.html#a06148f11742f84b658853853e70ee6f3',1,'ClassSchedule']]],
-  ['addsubject_6',['addSubject',['../class_student.html#a1f2e6d63288d6f4a22f65607ff905eae',1,'Student']]],
+  ['adduc_6',['addUc',['../class_student.html#aae1331012cdfff868bcd2e241034ec1b',1,'Student']]],
   ['app_7',['App',['../class_app.html',1,'App'],['../class_app.html#aa12792a9dd31ca126f9cd937f95396ca',1,'App::App()']]]
 ];

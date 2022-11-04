@@ -460,7 +460,7 @@ void ScheduleManager::printStudentSchedule(const string &studentId) const {
         sort(weekdays[i].begin(), weekdays[i].end(), [](const pair<string, Slot> &a, const pair<string, Slot> &b) { // O(n log n)
             return a.second.getStartTime() < b.second.getStartTime();
         });
-        cout << "   >> " << weekdaysNames[i] << ": \n" << endl;
+        cout << "   >> " << weekdaysNames[i] << ": " << endl;
 
         for (const pair<string, Slot> &slot: weekdays[i]) { // O(n)
             cout << "      " << slot.first<< " - " << ucIdToString(slot.first) << "   " << decimalToHours(slot.second.getStartTime()) << " to "

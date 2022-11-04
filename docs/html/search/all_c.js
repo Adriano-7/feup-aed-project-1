@@ -12,7 +12,7 @@ var searchData=
   ['student_86',['Student',['../class_student.html',1,'Student'],['../class_student.html#af9168cedbfa5565cf0b20c1a9d3f5c9d',1,'Student::Student()'],['../class_student.html#a7feba9a36b0af8915a548fa0cccf97b7',1,'Student::Student(const string &amp;id, const string &amp;name)']]],
   ['student_87',['student',['../class_request.html#a4dcb47d69e7cbe5135ae2739e49e0691',1,'Request']]],
   ['students_88',['students',['../class_class_schedule.html#af0ca603110a80d5ec0f5dd3040ce3e9f',1,'ClassSchedule::students()'],['../class_schedule_manager.html#ad68ffbb401cf28ba7e79afa05f0db3b1',1,'ScheduleManager::students()']]],
-  ['studentsofsubject_89',['studentsOfSubject',['../class_schedule_manager.html#a43681627db826c08d9ac4f2bd5aa898d',1,'ScheduleManager']]],
+  ['studentsofuc_89',['studentsOfUc',['../class_schedule_manager.html#a0d9fa79d84f745bdf79c8eb0a775e71f',1,'ScheduleManager']]],
   ['submitchangingrequest_90',['submitChangingRequest',['../class_app.html#a57df9e3bf20427a56769ac44f776bd43',1,'App']]],
   ['submitenrollmentrequest_91',['submitEnrollmentRequest',['../class_app.html#a820a281d4b31ce00fec88f010f17de0a',1,'App']]],
   ['submitnewrequest_92',['submitNewRequest',['../class_app.html#a2e8d791189a2c12508bacdf376c13f39',1,'App']]],
