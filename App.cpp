@@ -52,6 +52,7 @@ int App::run() {
     manager.readFiles();
 
     while (true) {
+        system("clear");
         int option = optionsMenu();
         switch (option) {
             case 1: {
@@ -188,6 +189,7 @@ void App::checkUcSchedule() const {
  * @details Time complexity: O(1)
  */
 int App::requestsMenu() const {
+    system("clear");
     int option;
     cout << "There are 3 types of requests:" << endl;
     cout << "1 - Change class" << endl;
@@ -373,4 +375,5 @@ void App::waitForInput() const{
  */
 void App::printPendingRequests() const {
     manager.printPendingRequests();
+    waitForInput();
 }

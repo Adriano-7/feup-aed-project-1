@@ -76,6 +76,19 @@ bool Student::isEnrolled(const string &ucCode) const {
     }
     return false;
 }
+/** @brief Given a UC finds the pair Uc / class of the student
+ * @details Time complexity: O(n)
+ * @param ucCode UC code to check
+ * @return The class of the UC
+ */
+UcClass Student::findUcClass(const string &ucCode) const {
+    for (const UcClass &i : classes) {
+        if (i.getUcId() == ucCode) {
+            return i;
+        }
+    }
+    return {};
+}
 
 /** @brief Prints the header of the student
  * @details Time complexity: O(1)

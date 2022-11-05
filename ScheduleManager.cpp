@@ -260,18 +260,19 @@ void ScheduleManager::addEnrollmentRequest(const Student &student, const UcClass
 
 /**
  * @brief Function that verifies if a request doesn't exceed the maximum number of students which can be enrolled in a given class
- * @details Time complexity: O(n log n)
+ * @details
+ * Time complexity: O(n)
  * @param request
  * @return boolean expression
  */
 bool ScheduleManager::requestExceedsMaxStudents(const Request &request) const {
-    string ucId = request.getDesiredClass().getUcId();
-    vector<ClassSchedule> ucClasses = classesOfUc(ucId);
-    sort(ucClasses.begin(), ucClasses.end(), [](const ClassSchedule &cs1, const ClassSchedule &cs2){ //O(n log n)
-        return cs1.getNumStudents() < cs2.getNumStudents();
-    });
-    int maxDifference = ucClasses[ucClasses.size() - 1].getNumStudents() - ucClasses[0].getNumStudents();
-    return maxDifference >= 4;
+    UcClass desired = findSchedule(request.getDesiredClass())->getUcClass(); //O(log n)
+    UcClass current = request.getStudent().findUcClass(request.getDesiredClass().getUcId()); //O(n)
+
+    int currentStudents = findSchedule(current)->getStudents().size() - 1; //Vai perder um aluno
+    int desiredStudents = findSchedule(desired)->getStudents().size() + 1; // Vai ganhar um aluno
+
+    return abs(currentStudents - desiredStudents) >= 4;
 }
 
 /**
@@ -357,7 +358,6 @@ void ScheduleManager::processRequests() {
     cout << endl << "Insert any key to continue: ";
     cin >> q;
     cout << endl;
-    system("clear");
 }
 
 /**

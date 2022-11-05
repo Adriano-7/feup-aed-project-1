@@ -20,6 +20,7 @@ class Student {
         void removeUc(const string &ucCode);
         void addUc(const UcClass &newClass);
         bool isEnrolled(const string &ucCode) const;
+        UcClass findUcClass(const string &ucCode) const;
 
         void printHeader() const;
         void printClasses() const;

@@ -100,6 +100,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a77fda97f04e2a7e47e4a7cc6cd4cea47"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_student.html#a77fda97f04e2a7e47e4a7cc6cd4cea47">isEnrolled</a> (const string &amp;ucCode) const</td></tr>
 <tr class="memdesc:a77fda97f04e2a7e47e4a7cc6cd4cea47"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the student is enrolled in a given UC.  <a href="class_student.html#a77fda97f04e2a7e47e4a7cc6cd4cea47">More...</a><br /></td></tr>
 <tr class="separator:a77fda97f04e2a7e47e4a7cc6cd4cea47"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab69cb3eb50c79c250528bda863428fa0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_uc_class.html">UcClass</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_student.html#ab69cb3eb50c79c250528bda863428fa0">findUcClass</a> (const string &amp;ucCode) const</td></tr>
+<tr class="memdesc:ab69cb3eb50c79c250528bda863428fa0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Given a UC finds the pair Uc / class of the student.  <a href="class_student.html#ab69cb3eb50c79c250528bda863428fa0">More...</a><br /></td></tr>
+<tr class="separator:ab69cb3eb50c79c250528bda863428fa0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a962ad067dc64c9ed0f5e48dc1241bb09"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_student.html#a962ad067dc64c9ed0f5e48dc1241bb09">printHeader</a> () const</td></tr>
 <tr class="memdesc:a962ad067dc64c9ed0f5e48dc1241bb09"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints the header of the student.  <a href="class_student.html#a962ad067dc64c9ed0f5e48dc1241bb09">More...</a><br /></td></tr>
 <tr class="separator:a962ad067dc64c9ed0f5e48dc1241bb09"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -255,6 +258,33 @@ vector&lt; <a class="el" href="class_uc_class.html">UcClass</a> &gt;&#160;</td><
 
 <p>Changes a class of the student. </p>
 <p>Time complexity: O(n) </p><dl class="section return"><dt>Returns</dt><dd>The class that was changed </dd></dl>
+
+</div>
+</div>
+<a id="ab69cb3eb50c79c250528bda863428fa0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab69cb3eb50c79c250528bda863428fa0">&#9670;&nbsp;</a></span>findUcClass()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_uc_class.html">UcClass</a> Student::findUcClass </td>
+          <td>(</td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>ucCode</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Given a UC finds the pair Uc / class of the student. </p>
+<p>Time complexity: O(n) </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ucCode</td><td>UC code to check </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The class of the UC </dd></dl>
 
 </div>
 </div>
