@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['desiredclass_196',['desiredClass',['../class_request.html#a6120fc8e94a5f8fe1e638ebe30dce1e6',1,'Request']]]
+  ['desireducclass_204',['desiredUcClass',['../class_request.html#a2e291312ac9d16bb0bda39a81bf0380d',1,'Request']]]
 ];

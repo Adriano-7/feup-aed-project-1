@@ -21,31 +21,37 @@ class ScheduleManager {
         void createStudents();
 
         unsigned long binarySearchSchedules(const UcClass &desiredUcCLass) const;
-        bool classesCollide(const UcClass &c1, const UcClass &c2) const;
-        bool requestHasCollision(const Request &request) const;
         Student* findStudent(const string &studentId) const;
         ClassSchedule* findSchedule(const UcClass &ucClass) const;
         vector<ClassSchedule> classesOfUc(const string &ucId) const;
         vector<Student> studentsOfUc(const string &ucId) const;
+        int getNumberOfStudentsUc(const string &ucId) const;
+        int getNumberOfStudentsUcClass(const UcClass &ucClass) const;
+        UcClass getFormerClass(const Request &request) const;
+
         void addChangingRequest(const Student &student, const UcClass &ucClass);
         void addEnrollmentRequest(const Student &student, const UcClass &ucClass);
         void addRemovalRequest(const Student &student, const UcClass &ucClass);
-        bool requestExceedsMaxStudents(const Request &request) const;
+        bool classesCollide(const UcClass &c1, const UcClass &c2) const;
+        bool requestHasCollision(const Request &request) const;
+        bool requestExceedsCap(const Request &request) const;
+        bool requestProvokesDisequilibrium(const Request &request) const;
         void processChangingRequest(const Request &request);
-        void processEnrollmentRequest(const Request &request);
         void processRemovalRequest(const Request &request);
+        void processEnrollmentRequest(const Request &request);
         void processRequests();
         void writeFiles() const;
+        void printPendingRequests() const;
+        void printRejectedRequests() const;
 
         void printStudentSchedule(const string &studentId) const;
         void printClassSchedule(const string &classCode) const;
         void printUcSchedule(const string &ucId) const;
         void printClassStudents(const UcClass &ucClass, const string &orderType) const;
         void printUcStudents(const string &ucId,  const string &sortType) const;
-        void printPendingRequests() const;
-        void printRejectedRequests() const;
 
-    private:
+
+private:
         /** @brief Set that stores all the students */
         set<Student> students;
         /** @brief Vector that stores all the schedules */

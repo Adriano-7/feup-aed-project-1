@@ -14,13 +14,13 @@ class Request{
         void printHeader() const;
         void print() const;
         Student getStudent() const;
-        UcClass getDesiredClass() const;
+        UcClass getDesiredUcClass() const;
 
     private:
         /** @brief Student that made the request */
         Student student;
         /** @brief Class that the student wants to enroll in */
-        UcClass desiredClass;
+        UcClass desiredUcClass;
         /** @brief Type of the request: Changing, Removal, Enrollment */
         string type;
 };

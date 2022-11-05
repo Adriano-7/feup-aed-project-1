@@ -49,6 +49,7 @@ int App::optionsMenu() const {
 * @return 0 if the application was closed successfully
 */
 int App::run() {
+    system("clear");
     manager.readFiles();
 
     while (true) {
@@ -219,6 +220,7 @@ void App::submitChangingRequest(Student* student) {
     cin >> ucCode;
     if(!student->isEnrolled(ucCode)){
         cout << ">> This student is not enrolled in this uc." << endl;
+        waitForInput();
         return;
     }
     cout << "Please insert the class code: ";
@@ -226,6 +228,7 @@ void App::submitChangingRequest(Student* student) {
     ClassSchedule *cs = manager.findSchedule(UcClass(ucCode, classCode));
     if (cs == nullptr) {
         cout << ">> Class not found." << endl;
+        waitForInput();
         return;
     }
     manager.addChangingRequest(*student, UcClass(ucCode, classCode));
@@ -243,6 +246,7 @@ void App::submitEnrollmentRequest(Student *student) {
     cin >> ucCode;
     if(student->isEnrolled(ucCode)){
         cout << ">> This student is already enrolled in this uc." << endl;
+        waitForInput();
         return;
     }
     cout << "Please insert the class code: ";
@@ -250,6 +254,7 @@ void App::submitEnrollmentRequest(Student *student) {
     ClassSchedule *cs = manager.findSchedule(UcClass(ucCode, classCode));
     if (cs == nullptr) {
         cout << ">> Class not found." << endl;
+        waitForInput();
         return;
     }
     manager.addEnrollmentRequest(*student, UcClass(ucCode, classCode));
@@ -267,6 +272,7 @@ void App::submitRemovalRequest(Student *student) {
     cin >> ucCode;
     if(!student->isEnrolled(ucCode)){
         cout << ">> This student is not enrolled in this uc." << endl;
+        waitForInput();
         return;
     }
     for(UcClass &i : student->getClasses()){
@@ -292,6 +298,7 @@ void App::submitNewRequest(int option) {
     Student *student = manager.findStudent(upNumber);
     if (student == nullptr) {
         cout << ">> Student not found." << endl;
+        waitForInput();
         return;
     }
     student->print();

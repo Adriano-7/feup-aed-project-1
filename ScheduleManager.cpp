@@ -148,39 +148,6 @@ unsigned long ScheduleManager::binarySearchSchedules(const UcClass &desiredUcCLa
 }
 
 /**
-* @brief Function that verifies if the schedule of two given classes have a conflict
-* @details Time complexity: O(n²)
-* @return true if the classes have a conflict, false otherwise
-*/
-bool ScheduleManager::classesCollide(const UcClass &c1, const UcClass &c2) const{
-    if(c1.sameUC(c2)) return false; //O(1)
-    ClassSchedule* cs1 = findSchedule(c1); //O(log n)
-    ClassSchedule* cs2 = findSchedule(c2); //O(log n)
-    for(const Slot &slot1 : cs1->getSlots()){   //O(n²)
-        for(const Slot &slot2 : cs2->getSlots()){
-            if(slot1.collides(slot2)) return true;
-        }
-    }
-    return false;
-}
-
-/**
-* @brief Function that verifies if a given request has a conflict with the schedule of a given student
-* @details Time complexity: O(n³)
-* @param request
-* @return true if the request has a conflict with the schedule of the student, false otherwise
-*/
-bool ScheduleManager::requestHasCollision(const Request &request) const{
-    Student student = request.getStudent(); //O(1)
-    UcClass desiredClass = request.getDesiredClass(); //O(1)
-    vector<UcClass> studentClasses = student.getClasses(); //O(1)
-    for (const UcClass &ucClass : studentClasses){
-        if(classesCollide(ucClass, desiredClass)) return true; //O(n²)
-    }
-    return false;
-}
-
-/**
 * @brief Function that returns the student with the ID passed as parameter
  * @details Time complexity: O(log n)
 * @param studentId
@@ -235,19 +202,35 @@ vector<Student> ScheduleManager::studentsOfUc(const string &ucId) const {
 }
 
 /**
+ * @brief Function that gets the number of students in a given uc
+ * @details Time complexity: O(n²)
+ */
+int ScheduleManager::getNumberOfStudentsUc(const std::string &ucId) const {
+    return studentsOfUc(ucId).size();
+}
+
+/**
+ * @brief Function that gets the number of students in a given class of a given uc
+ * @details Time complexity: O(log n)
+ */
+int ScheduleManager::getNumberOfStudentsUcClass(const UcClass &ucClass) const{
+    return findSchedule(ucClass)->getStudents().size();
+}
+
+/**
+ * @brief Function that returns the UcClass that the student is currently enrolled in
+ * @details Time complexity: O(n)
+ */
+UcClass ScheduleManager::getFormerClass(const Request &request) const {
+    return request.getStudent().findUcClass(request.getDesiredUcClass().getUcId()); //UcCLass que o student está inscrito
+}
+
+/**
  * @brief Function that given a student and the ucClass he wants to change to, adds the request to the queue of changingRequests
  * @details Time complexity: O(log n)
  */
 void ScheduleManager::addChangingRequest(const Student &student, const UcClass &ucClass) {
     changingRequests.push(Request(student, ucClass, "Changing"));
-}
-
-/**
- * @brief Function that given a student and the ucClass he wants to withdraw from, adds the request to the queue of removalRequests
- * @details Time complexity: O(log n)
- */
-void ScheduleManager::addRemovalRequest(const Student &student, const UcClass &ucClass) {
-    removalRequests.push(Request(student, ucClass, "Removal"));
 }
 
 /**
@@ -259,38 +242,97 @@ void ScheduleManager::addEnrollmentRequest(const Student &student, const UcClass
 }
 
 /**
- * @brief Function that verifies if a request doesn't exceed the maximum number of students which can be enrolled in a given class
- * @details
- * Time complexity: O(n)
- * @param request
- * @return boolean expression
+ * @brief Function that given a student and the ucClass he wants to withdraw from, adds the request to the queue of removalRequests
+ * @details Time complexity: O(log n)
  */
-bool ScheduleManager::requestExceedsMaxStudents(const Request &request) const {
-    UcClass desired = findSchedule(request.getDesiredClass())->getUcClass(); //O(log n)
-    UcClass current = request.getStudent().findUcClass(request.getDesiredClass().getUcId()); //O(n)
+void ScheduleManager::addRemovalRequest(const Student &student, const UcClass &ucClass) {
+    removalRequests.push(Request(student, ucClass, "Removal"));
+}
 
-    int currentStudents = findSchedule(current)->getStudents().size() - 1; //Vai perder um aluno
-    int desiredStudents = findSchedule(desired)->getStudents().size() + 1; // Vai ganhar um aluno
+/**
+* @brief Function that verifies if the schedule of two given classes have a conflict
+* @details Time complexity: O(n²)
+* @return true if the classes have a conflict, false otherwise
+*/
+bool ScheduleManager::classesCollide(const UcClass &c1, const UcClass &c2) const{
+    if(c1.sameUC(c2)) return false; //O(1)
+    ClassSchedule* cs1 = findSchedule(c1); //O(log n)
+    ClassSchedule* cs2 = findSchedule(c2); //O(log n)
+    for(const Slot &slot1 : cs1->getSlots()){   //O(n²)
+        for(const Slot &slot2 : cs2->getSlots()){
+            if(slot1.collides(slot2)) return true;
+        }
+    }
+    return false;
+}
 
-    return abs(currentStudents - desiredStudents) >= 4;
+/**
+* @brief Function that verifies if a given request has a conflict with the schedule of a given student
+* @details A request has a conflict with the schedule if the class of the request has a conflict with any of the current classes of the student\n
+ * Time complexity: O(n³)
+* @param request
+* @return true if the request has a conflict with the schedule of the student, false otherwise
+*/
+bool ScheduleManager::requestHasCollision(const Request &request) const{
+    Student student = request.getStudent(); //O(1)
+    UcClass desiredClass = request.getDesiredUcClass(); //O(1)
+    vector<UcClass> studentClasses = student.getClasses(); //O(1)
+    for (const UcClass &ucClass : studentClasses){
+        if(classesCollide(ucClass, desiredClass)) return true; //O(n²)
+    }
+    return false;
+}
+
+/**
+ * @brief Function that verifies if by changing to the new class, the student will exceed the cap.
+ *@details Each Uc has a maximum number of students that can be enrolled in a class(Cap). In our program we set the cap to be the maximum number of students currently enrolled in a single class of a given Uc.\n
+ * Time complexity: O(nlog n)
+ */
+bool ScheduleManager::requestExceedsCap(const Request &request) const{
+    vector < ClassSchedule> classesUc = classesOfUc(request.getDesiredUcClass().getUcId());  //O(n)
+    sort(classesUc.begin(), classesUc.end(), [](const ClassSchedule &c1, const ClassSchedule &c2){  //O(nlog n)
+                                            return c1.getStudents().size() < c2.getStudents().size();
+    });
+
+    int cap = classesUc.back().getNumStudents();
+    return cap < getNumberOfStudentsUcClass(request.getDesiredUcClass()) + 1;
+}
+
+
+/**
+ * @brief Function that verifies if the change to the new class provokes disequilibrium.
+ * @details In our program we say disequilibrium occurs if by changing to the new class the
+ * difference between the number of students of the classes he comes from and goes to is greater
+ * than 4. If he comes from a class with more students to a class with less students it doesn't provoke disequilibrium.\
+ * If he comes from a class with less students to a class with more students it does provoke disequilibrium if the difference of the number of students is 4 or greater.\n
+ * Time complexity: O(nlog n)
+ */
+bool ScheduleManager::requestProvokesDisequilibrium(const Request &request) const {
+    int numFormerClass = getNumberOfStudentsUcClass((getFormerClass(request))) -1;
+    int numNewClass = getNumberOfStudentsUcClass(request.getDesiredUcClass()) + 1;
+
+    return (numNewClass) - (numFormerClass) >= 4;
 }
 
 /**
  * @brief Function that processes the changingRequests in the queue
- * @details Time complexity: O(n³)
+ * @details Time complexity:
  */
 void ScheduleManager::processChangingRequest(const Request &request) {
     if(requestHasCollision(request)){ //O(n³)
         rejectedRequests.emplace_back(request, "Collision in the students' schedule");
     }
-    else if(requestExceedsMaxStudents(request)){ //O(n log n)
-        rejectedRequests.emplace_back(request, "Exceeds maximum number of students in the class");
+    else if(requestExceedsCap(request)){
+        rejectedRequests.emplace_back(request, "Exceeds maximum number of students allowed in the class");
+    }
+    else if(requestProvokesDisequilibrium(request)){ //O(n log n)
+        rejectedRequests.emplace_back(request, "Change provokes disequilibrium between classes");
     }
     else{
         Student* student = findStudent(request.getStudent().getId()); //O(log n)
-        UcClass ucClass = findSchedule(request.getDesiredClass())->getUcClass(); //O(log n)
+        UcClass ucClass = findSchedule(request.getDesiredUcClass())->getUcClass(); //O(log n)
         UcClass oldClass = student->changeClass(ucClass);
-        findSchedule(request.getDesiredClass())->addStudent(*student);
+        findSchedule(request.getDesiredUcClass())->addStudent(*student);
         findSchedule(oldClass)->removeStudent(*student);
         cout << "   "; request.printHeader();
     }
@@ -298,11 +340,12 @@ void ScheduleManager::processChangingRequest(const Request &request) {
 
 /**
  * @brief Function that processes the removalRequests in the queue
- * @details Time complexity: O(n)
+ * @details A Removal request is always accepted\n
+ * Time complexity: O(n)
  */
 void ScheduleManager::processRemovalRequest(const Request &request) {
     Student* student = findStudent(request.getStudent().getId()); //O(log n)
-    UcClass ucClass = findSchedule(request.getDesiredClass())->getUcClass(); //O(log n)
+    UcClass ucClass = findSchedule(request.getDesiredUcClass())->getUcClass(); //O(log n)
     student->removeUc(ucClass.getUcId()); //O(n)
     findSchedule(ucClass)->removeStudent(*student);
     cout << "   "; request.printHeader(); cout << endl;
@@ -316,9 +359,12 @@ void ScheduleManager::processEnrollmentRequest(const Request &request) {
     if(requestHasCollision(request)){
         rejectedRequests.emplace_back(request, "Collision in the students' schedule");
     }
+    else if(requestExceedsCap(request)){
+        rejectedRequests.emplace_back(request, "Exceeds maximum number of students allowed in the class. Choose another class");
+    }
     else{
         Student* student = findStudent(request.getStudent().getId());
-        UcClass ucClass = findSchedule(request.getDesiredClass())->getUcClass();
+        UcClass ucClass = findSchedule(request.getDesiredUcClass())->getUcClass();
         student->addUc(ucClass);
         findSchedule(ucClass)->addStudent(*student);
         cout << "   "; request.printHeader();
@@ -374,6 +420,44 @@ void ScheduleManager::writeFiles() const {
         }
     }
     file.close();
+}
+
+/**
+* @brief Function that prints all changingRequests in the queue
+ * @details Time complexity: O(n log n)
+*/
+void ScheduleManager::printPendingRequests() const {
+    system("clear");
+    queue<Request> pendingRemovalRequests = removalRequests;
+    cout << endl << ">> Pending removal requests:" << endl;
+    while (!pendingRemovalRequests.empty()) {                       //O(n log n)
+        cout << "   "; pendingRemovalRequests.front().printHeader();
+        pendingRemovalRequests.pop(); //O(log n)
+    }
+    queue<Request> pendingChangingRequests = changingRequests;
+    cout << endl << ">> Pending changing requests:" << endl;
+    while (!pendingChangingRequests.empty()) {                      //O(n log n)
+        cout << "   "; pendingChangingRequests.front().printHeader();
+        pendingChangingRequests.pop();
+    }
+    queue<Request> pendingEnrollmentRequests = enrollmentRequests;
+    cout << endl << ">> Pending enrollment requests:" << endl;
+    while (!pendingEnrollmentRequests.empty()) {                    //O(n log n)
+        cout << "   "; pendingEnrollmentRequests.front().printHeader();
+        pendingEnrollmentRequests.pop();
+    }
+}
+
+/**
+ * @brief Function that prints all the rejected changingRequests
+ * @details Time complexity: O(n)
+ */
+void ScheduleManager::printRejectedRequests() const {
+    system("clear");
+    cout << endl << ">> Rejected requests:" << endl;
+    for (const pair<Request, string> &p: rejectedRequests) {
+        cout << "   >> "; p.first.print(); cout <<  "      Reason: " << p.second << endl;
+    }
 }
 
 /**
@@ -598,43 +682,5 @@ void ScheduleManager::printUcStudents(const string &ucId, const string &sortType
     cout << ">> Students:" << endl;
     for (const Student &student: studentsVector) { //O(n)
         cout << "   "; student.printHeader();   //O(1)
-    }
-}
-
-/**
-* @brief Function that prints all changingRequests in the queue
- * @details Time complexity: O(n log n)
-*/
-void ScheduleManager::printPendingRequests() const {
-    system("clear");
-    queue<Request> pendingRemovalRequests = removalRequests;
-    cout << endl << ">> Pending removal requests:" << endl;
-    while (!pendingRemovalRequests.empty()) {                       //O(n log n)
-        cout << "   "; pendingRemovalRequests.front().printHeader();
-        pendingRemovalRequests.pop(); //O(log n)
-    }
-    queue<Request> pendingChangingRequests = changingRequests;
-    cout << endl << ">> Pending changing requests:" << endl;
-    while (!pendingChangingRequests.empty()) {                      //O(n log n)
-        cout << "   "; pendingChangingRequests.front().printHeader();
-        pendingChangingRequests.pop();
-    }
-    queue<Request> pendingEnrollmentRequests = enrollmentRequests;
-    cout << endl << ">> Pending enrollment requests:" << endl;
-    while (!pendingEnrollmentRequests.empty()) {                    //O(n log n)
-        cout << "   "; pendingEnrollmentRequests.front().printHeader();
-        pendingEnrollmentRequests.pop();
-    }
-}
-
-/**
- * @brief Function that prints all the rejected changingRequests
- * @details Time complexity: O(n)
- */
-void ScheduleManager::printRejectedRequests() const {
-    system("clear");
-    cout << endl << ">> Rejected requests:" << endl;
-    for (const pair<Request, string> &p: rejectedRequests) {
-        cout << "   >> "; p.first.print(); cout <<  "      Reason: " << p.second << endl;
     }
 }

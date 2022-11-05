@@ -10,7 +10,7 @@
 Request::Request(const Student &student, const UcClass &desiredClass, const string &type) {
     if(type != "Changing" && type != "Removal" && type != "Enrollment") return;
     this->student = student;
-    this->desiredClass = desiredClass;
+    this->desiredUcClass = desiredClass;
     this->type = type;
 }
 
@@ -21,9 +21,9 @@ Request::Request(const Student &student, const UcClass &desiredClass, const stri
 
 void Request::printHeader() const{
     cout << "Student: " << student.getName() << " - "<< student.getId() <<  "  |  ";
-    if(type == "Removal") cout << "Requested subject: " << desiredClass.getUcId();
+    if(type == "Removal") cout << "Requested subject: " << desiredUcClass.getUcId();
     else{
-        cout << "Requested class: " << desiredClass.getUcId() << " - " << desiredClass.getClassId();
+        cout << "Requested class: " << desiredUcClass.getUcId() << " - " << desiredUcClass.getClassId();
     }
 }
 
@@ -50,6 +50,6 @@ Student Request::getStudent() const {
 * @details Time complexity: O(1)
 * @return Class that the student wants to enroll in
 */
-UcClass Request::getDesiredClass() const {
-    return desiredClass;
+UcClass Request::getDesiredUcClass() const {
+    return desiredUcClass;
 }

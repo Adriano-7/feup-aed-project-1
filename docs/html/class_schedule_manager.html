@@ -97,12 +97,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a00e0f3266ce65286c708e52fd6b20207"><td class="memItemLeft" align="right" valign="top">unsigned long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_schedule_manager.html#a00e0f3266ce65286c708e52fd6b20207">binarySearchSchedules</a> (const <a class="el" href="class_uc_class.html">UcClass</a> &amp;desiredUcCLass) const</td></tr>
 <tr class="memdesc:a00e0f3266ce65286c708e52fd6b20207"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that returns the index of the schedule with the ucClass passed as parameter.  <a href="class_schedule_manager.html#a00e0f3266ce65286c708e52fd6b20207">More...</a><br /></td></tr>
 <tr class="separator:a00e0f3266ce65286c708e52fd6b20207"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3baee18c837ff981d35dc965ba0f4ef2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_schedule_manager.html#a3baee18c837ff981d35dc965ba0f4ef2">classesCollide</a> (const <a class="el" href="class_uc_class.html">UcClass</a> &amp;c1, const <a class="el" href="class_uc_class.html">UcClass</a> &amp;c2) const</td></tr>
-<tr class="memdesc:a3baee18c837ff981d35dc965ba0f4ef2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that verifies if the schedule of two given classes have a conflict.  <a href="class_schedule_manager.html#a3baee18c837ff981d35dc965ba0f4ef2">More...</a><br /></td></tr>
-<tr class="separator:a3baee18c837ff981d35dc965ba0f4ef2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0b8d401656962163906cbbce56d6aaa9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_schedule_manager.html#a0b8d401656962163906cbbce56d6aaa9">requestHasCollision</a> (const <a class="el" href="class_request.html">Request</a> &amp;request) const</td></tr>
-<tr class="memdesc:a0b8d401656962163906cbbce56d6aaa9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that verifies if a given request has a conflict with the schedule of a given student.  <a href="class_schedule_manager.html#a0b8d401656962163906cbbce56d6aaa9">More...</a><br /></td></tr>
-<tr class="separator:a0b8d401656962163906cbbce56d6aaa9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a62ea845de4c37125119cb2dd5d8c9a34"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_student.html">Student</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_schedule_manager.html#a62ea845de4c37125119cb2dd5d8c9a34">findStudent</a> (const string &amp;studentId) const</td></tr>
 <tr class="memdesc:a62ea845de4c37125119cb2dd5d8c9a34"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that returns the student with the ID passed as parameter.  <a href="class_schedule_manager.html#a62ea845de4c37125119cb2dd5d8c9a34">More...</a><br /></td></tr>
 <tr class="separator:a62ea845de4c37125119cb2dd5d8c9a34"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -115,6 +109,15 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a0d9fa79d84f745bdf79c8eb0a775e71f"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="class_student.html">Student</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_schedule_manager.html#a0d9fa79d84f745bdf79c8eb0a775e71f">studentsOfUc</a> (const string &amp;ucId) const</td></tr>
 <tr class="memdesc:a0d9fa79d84f745bdf79c8eb0a775e71f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that gets all students of a given uc.  <a href="class_schedule_manager.html#a0d9fa79d84f745bdf79c8eb0a775e71f">More...</a><br /></td></tr>
 <tr class="separator:a0d9fa79d84f745bdf79c8eb0a775e71f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a084466f8e5168a373882886ec9f3ff1e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_schedule_manager.html#a084466f8e5168a373882886ec9f3ff1e">getNumberOfStudentsUc</a> (const string &amp;ucId) const</td></tr>
+<tr class="memdesc:a084466f8e5168a373882886ec9f3ff1e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that gets the number of students in a given uc.  <a href="class_schedule_manager.html#a084466f8e5168a373882886ec9f3ff1e">More...</a><br /></td></tr>
+<tr class="separator:a084466f8e5168a373882886ec9f3ff1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f33a693d62c8f59e5b76b99ea164f80"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_schedule_manager.html#a0f33a693d62c8f59e5b76b99ea164f80">getNumberOfStudentsUcClass</a> (const <a class="el" href="class_uc_class.html">UcClass</a> &amp;ucClass) const</td></tr>
+<tr class="memdesc:a0f33a693d62c8f59e5b76b99ea164f80"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that gets the number of students in a given class of a given uc.  <a href="class_schedule_manager.html#a0f33a693d62c8f59e5b76b99ea164f80">More...</a><br /></td></tr>
+<tr class="separator:a0f33a693d62c8f59e5b76b99ea164f80"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ce7aac9cb6f3d06850db7907e143ce3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_uc_class.html">UcClass</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_schedule_manager.html#a1ce7aac9cb6f3d06850db7907e143ce3">getFormerClass</a> (const <a class="el" href="class_request.html">Request</a> &amp;request) const</td></tr>
+<tr class="memdesc:a1ce7aac9cb6f3d06850db7907e143ce3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that returns the <a class="el" href="class_uc_class.html" title="Class to store the information about a given class in a UC.">UcClass</a> that the student is currently enrolled in.  <a href="class_schedule_manager.html#a1ce7aac9cb6f3d06850db7907e143ce3">More...</a><br /></td></tr>
+<tr class="separator:a1ce7aac9cb6f3d06850db7907e143ce3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9c637bcbd59985ce9a81ff14a2a15d89"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_schedule_manager.html#a9c637bcbd59985ce9a81ff14a2a15d89">addChangingRequest</a> (const <a class="el" href="class_student.html">Student</a> &amp;student, const <a class="el" href="class_uc_class.html">UcClass</a> &amp;ucClass)</td></tr>
 <tr class="memdesc:a9c637bcbd59985ce9a81ff14a2a15d89"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that given a student and the ucClass he wants to change to, adds the request to the queue of changingRequests.  <a href="class_schedule_manager.html#a9c637bcbd59985ce9a81ff14a2a15d89">More...</a><br /></td></tr>
 <tr class="separator:a9c637bcbd59985ce9a81ff14a2a15d89"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -124,24 +127,39 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a799e7c30e9ddd9da109eee350e2df476"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_schedule_manager.html#a799e7c30e9ddd9da109eee350e2df476">addRemovalRequest</a> (const <a class="el" href="class_student.html">Student</a> &amp;student, const <a class="el" href="class_uc_class.html">UcClass</a> &amp;ucClass)</td></tr>
 <tr class="memdesc:a799e7c30e9ddd9da109eee350e2df476"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that given a student and the ucClass he wants to withdraw from, adds the request to the queue of removalRequests.  <a href="class_schedule_manager.html#a799e7c30e9ddd9da109eee350e2df476">More...</a><br /></td></tr>
 <tr class="separator:a799e7c30e9ddd9da109eee350e2df476"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a178b3aba9dcd016bfa6fbbdfba42dc73"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_schedule_manager.html#a178b3aba9dcd016bfa6fbbdfba42dc73">requestExceedsMaxStudents</a> (const <a class="el" href="class_request.html">Request</a> &amp;request) const</td></tr>
-<tr class="memdesc:a178b3aba9dcd016bfa6fbbdfba42dc73"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that verifies if a request doesn't exceed the maximum number of students which can be enrolled in a given class.  <a href="class_schedule_manager.html#a178b3aba9dcd016bfa6fbbdfba42dc73">More...</a><br /></td></tr>
-<tr class="separator:a178b3aba9dcd016bfa6fbbdfba42dc73"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3baee18c837ff981d35dc965ba0f4ef2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_schedule_manager.html#a3baee18c837ff981d35dc965ba0f4ef2">classesCollide</a> (const <a class="el" href="class_uc_class.html">UcClass</a> &amp;c1, const <a class="el" href="class_uc_class.html">UcClass</a> &amp;c2) const</td></tr>
+<tr class="memdesc:a3baee18c837ff981d35dc965ba0f4ef2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that verifies if the schedule of two given classes have a conflict.  <a href="class_schedule_manager.html#a3baee18c837ff981d35dc965ba0f4ef2">More...</a><br /></td></tr>
+<tr class="separator:a3baee18c837ff981d35dc965ba0f4ef2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0b8d401656962163906cbbce56d6aaa9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_schedule_manager.html#a0b8d401656962163906cbbce56d6aaa9">requestHasCollision</a> (const <a class="el" href="class_request.html">Request</a> &amp;request) const</td></tr>
+<tr class="memdesc:a0b8d401656962163906cbbce56d6aaa9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that verifies if a given request has a conflict with the schedule of a given student.  <a href="class_schedule_manager.html#a0b8d401656962163906cbbce56d6aaa9">More...</a><br /></td></tr>
+<tr class="separator:a0b8d401656962163906cbbce56d6aaa9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa2539531558144899dc072fc928f1aa5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_schedule_manager.html#aa2539531558144899dc072fc928f1aa5">requestExceedsCap</a> (const <a class="el" href="class_request.html">Request</a> &amp;request) const</td></tr>
+<tr class="memdesc:aa2539531558144899dc072fc928f1aa5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that verifies if by changing to the new class, the student will exceed the cap.  <a href="class_schedule_manager.html#aa2539531558144899dc072fc928f1aa5">More...</a><br /></td></tr>
+<tr class="separator:aa2539531558144899dc072fc928f1aa5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abeff6b944ebb843eff462946e83d8a22"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_schedule_manager.html#abeff6b944ebb843eff462946e83d8a22">requestProvokesDisequilibrium</a> (const <a class="el" href="class_request.html">Request</a> &amp;request) const</td></tr>
+<tr class="memdesc:abeff6b944ebb843eff462946e83d8a22"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that verifies if the change to the new class provokes disequilibrium.  <a href="class_schedule_manager.html#abeff6b944ebb843eff462946e83d8a22">More...</a><br /></td></tr>
+<tr class="separator:abeff6b944ebb843eff462946e83d8a22"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6bab908dbff8b7c8c587a3f982f6fea0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_schedule_manager.html#a6bab908dbff8b7c8c587a3f982f6fea0">processChangingRequest</a> (const <a class="el" href="class_request.html">Request</a> &amp;request)</td></tr>
 <tr class="memdesc:a6bab908dbff8b7c8c587a3f982f6fea0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that processes the changingRequests in the queue.  <a href="class_schedule_manager.html#a6bab908dbff8b7c8c587a3f982f6fea0">More...</a><br /></td></tr>
 <tr class="separator:a6bab908dbff8b7c8c587a3f982f6fea0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7c8a16b0fce72728265884559d3264a4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_schedule_manager.html#a7c8a16b0fce72728265884559d3264a4">processEnrollmentRequest</a> (const <a class="el" href="class_request.html">Request</a> &amp;request)</td></tr>
-<tr class="memdesc:a7c8a16b0fce72728265884559d3264a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that processes the enrollmentRequests in the queue.  <a href="class_schedule_manager.html#a7c8a16b0fce72728265884559d3264a4">More...</a><br /></td></tr>
-<tr class="separator:a7c8a16b0fce72728265884559d3264a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a83b6247ce24f4cb73e65b767c7e47f05"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_schedule_manager.html#a83b6247ce24f4cb73e65b767c7e47f05">processRemovalRequest</a> (const <a class="el" href="class_request.html">Request</a> &amp;request)</td></tr>
 <tr class="memdesc:a83b6247ce24f4cb73e65b767c7e47f05"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that processes the removalRequests in the queue.  <a href="class_schedule_manager.html#a83b6247ce24f4cb73e65b767c7e47f05">More...</a><br /></td></tr>
 <tr class="separator:a83b6247ce24f4cb73e65b767c7e47f05"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c8a16b0fce72728265884559d3264a4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_schedule_manager.html#a7c8a16b0fce72728265884559d3264a4">processEnrollmentRequest</a> (const <a class="el" href="class_request.html">Request</a> &amp;request)</td></tr>
+<tr class="memdesc:a7c8a16b0fce72728265884559d3264a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that processes the enrollmentRequests in the queue.  <a href="class_schedule_manager.html#a7c8a16b0fce72728265884559d3264a4">More...</a><br /></td></tr>
+<tr class="separator:a7c8a16b0fce72728265884559d3264a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a79ee65db8004ceaf84b8cc46ba9d22ca"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_schedule_manager.html#a79ee65db8004ceaf84b8cc46ba9d22ca">processRequests</a> ()</td></tr>
 <tr class="memdesc:a79ee65db8004ceaf84b8cc46ba9d22ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that processes all changingRequests in the queue.  <a href="class_schedule_manager.html#a79ee65db8004ceaf84b8cc46ba9d22ca">More...</a><br /></td></tr>
 <tr class="separator:a79ee65db8004ceaf84b8cc46ba9d22ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4f4d6a4b366686c9767f9e227f474ee9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_schedule_manager.html#a4f4d6a4b366686c9767f9e227f474ee9">writeFiles</a> () const</td></tr>
 <tr class="memdesc:a4f4d6a4b366686c9767f9e227f474ee9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that writes all information to the files.  <a href="class_schedule_manager.html#a4f4d6a4b366686c9767f9e227f474ee9">More...</a><br /></td></tr>
 <tr class="separator:a4f4d6a4b366686c9767f9e227f474ee9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f7aaea01f9ef0bf41268439f9f349b3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_schedule_manager.html#a7f7aaea01f9ef0bf41268439f9f349b3">printPendingRequests</a> () const</td></tr>
+<tr class="memdesc:a7f7aaea01f9ef0bf41268439f9f349b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that prints all changingRequests in the queue.  <a href="class_schedule_manager.html#a7f7aaea01f9ef0bf41268439f9f349b3">More...</a><br /></td></tr>
+<tr class="separator:a7f7aaea01f9ef0bf41268439f9f349b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aacf23097e3a0842a70661a610b709c41"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_schedule_manager.html#aacf23097e3a0842a70661a610b709c41">printRejectedRequests</a> () const</td></tr>
+<tr class="memdesc:aacf23097e3a0842a70661a610b709c41"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that prints all the rejected changingRequests.  <a href="class_schedule_manager.html#aacf23097e3a0842a70661a610b709c41">More...</a><br /></td></tr>
+<tr class="separator:aacf23097e3a0842a70661a610b709c41"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a123d9c735c3b5b305675d4a00fcf82c9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_schedule_manager.html#a123d9c735c3b5b305675d4a00fcf82c9">printStudentSchedule</a> (const string &amp;studentId) const</td></tr>
 <tr class="memdesc:a123d9c735c3b5b305675d4a00fcf82c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that prints the schedule of a given student.  <a href="class_schedule_manager.html#a123d9c735c3b5b305675d4a00fcf82c9">More...</a><br /></td></tr>
 <tr class="separator:a123d9c735c3b5b305675d4a00fcf82c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -157,12 +175,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a3eb595f2d2dfe5b2319cb284b5f629ee"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_schedule_manager.html#a3eb595f2d2dfe5b2319cb284b5f629ee">printUcStudents</a> (const string &amp;ucId, const string &amp;sortType) const</td></tr>
 <tr class="memdesc:a3eb595f2d2dfe5b2319cb284b5f629ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that prints the students enrolled a given uc.  <a href="class_schedule_manager.html#a3eb595f2d2dfe5b2319cb284b5f629ee">More...</a><br /></td></tr>
 <tr class="separator:a3eb595f2d2dfe5b2319cb284b5f629ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7f7aaea01f9ef0bf41268439f9f349b3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_schedule_manager.html#a7f7aaea01f9ef0bf41268439f9f349b3">printPendingRequests</a> () const</td></tr>
-<tr class="memdesc:a7f7aaea01f9ef0bf41268439f9f349b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that prints all changingRequests in the queue.  <a href="class_schedule_manager.html#a7f7aaea01f9ef0bf41268439f9f349b3">More...</a><br /></td></tr>
-<tr class="separator:a7f7aaea01f9ef0bf41268439f9f349b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aacf23097e3a0842a70661a610b709c41"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_schedule_manager.html#aacf23097e3a0842a70661a610b709c41">printRejectedRequests</a> () const</td></tr>
-<tr class="memdesc:aacf23097e3a0842a70661a610b709c41"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that prints all the rejected changingRequests.  <a href="class_schedule_manager.html#aacf23097e3a0842a70661a610b709c41">More...</a><br /></td></tr>
-<tr class="separator:aacf23097e3a0842a70661a610b709c41"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -489,6 +501,69 @@ Time complexity: O(n²) </p>
 
 </div>
 </div>
+<a id="a1ce7aac9cb6f3d06850db7907e143ce3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1ce7aac9cb6f3d06850db7907e143ce3">&#9670;&nbsp;</a></span>getFormerClass()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_uc_class.html">UcClass</a> ScheduleManager::getFormerClass </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_request.html">Request</a> &amp;&#160;</td>
+          <td class="paramname"><em>request</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Function that returns the <a class="el" href="class_uc_class.html" title="Class to store the information about a given class in a UC.">UcClass</a> that the student is currently enrolled in. </p>
+<p>Time complexity: O(n) </p>
+
+</div>
+</div>
+<a id="a084466f8e5168a373882886ec9f3ff1e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a084466f8e5168a373882886ec9f3ff1e">&#9670;&nbsp;</a></span>getNumberOfStudentsUc()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int ScheduleManager::getNumberOfStudentsUc </td>
+          <td>(</td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>ucId</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Function that gets the number of students in a given uc. </p>
+<p>Time complexity: O(n²) </p>
+
+</div>
+</div>
+<a id="a0f33a693d62c8f59e5b76b99ea164f80"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f33a693d62c8f59e5b76b99ea164f80">&#9670;&nbsp;</a></span>getNumberOfStudentsUcClass()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int ScheduleManager::getNumberOfStudentsUcClass </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_uc_class.html">UcClass</a> &amp;&#160;</td>
+          <td class="paramname"><em>ucClass</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Function that gets the number of students in a given class of a given uc. </p>
+<p>Time complexity: O(log n) </p>
+
+</div>
+</div>
 <a id="ac73373a2b256ca35e589d2ddd69048d2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac73373a2b256ca35e589d2ddd69048d2">&#9670;&nbsp;</a></span>printClassSchedule()</h2>
 
@@ -691,7 +766,7 @@ Time complexity: O(n²) </p>
 </div><div class="memdoc">
 
 <p>Function that processes the changingRequests in the queue. </p>
-<p>Time complexity: O(n³) </p>
+<p>Time complexity: </p>
 
 </div>
 </div>
@@ -733,7 +808,8 @@ Time complexity: O(n²) </p>
 </div><div class="memdoc">
 
 <p>Function that processes the removalRequests in the queue. </p>
-<p>Time complexity: O(n) </p>
+<p>A Removal request is always accepted<br  />
+Time complexity: O(n) </p>
 
 </div>
 </div>
@@ -777,14 +853,14 @@ Time complexity: O(n²) </p>
 
 </div>
 </div>
-<a id="a178b3aba9dcd016bfa6fbbdfba42dc73"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a178b3aba9dcd016bfa6fbbdfba42dc73">&#9670;&nbsp;</a></span>requestExceedsMaxStudents()</h2>
+<a id="aa2539531558144899dc072fc928f1aa5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa2539531558144899dc072fc928f1aa5">&#9670;&nbsp;</a></span>requestExceedsCap()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool ScheduleManager::requestExceedsMaxStudents </td>
+          <td class="memname">bool ScheduleManager::requestExceedsCap </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="class_request.html">Request</a> &amp;&#160;</td>
           <td class="paramname"><em>request</em></td><td>)</td>
@@ -793,14 +869,9 @@ Time complexity: O(n²) </p>
       </table>
 </div><div class="memdoc">
 
-<p>Function that verifies if a request doesn't exceed the maximum number of students which can be enrolled in a given class. </p>
-<p>Time complexity: O(n) </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">request</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>boolean expression </dd></dl>
+<p>Function that verifies if by changing to the new class, the student will exceed the cap. </p>
+<p>Each Uc has a maximum number of students that can be enrolled in a class(Cap). In our program we set the cap to be the maximum number of students currently enrolled in a single class of a given Uc.<br  />
+ Time complexity: O(nlog n) </p>
 
 </div>
 </div>
@@ -821,13 +892,36 @@ Time complexity: O(n²) </p>
 </div><div class="memdoc">
 
 <p>Function that verifies if a given request has a conflict with the schedule of a given student. </p>
-<p>Time complexity: O(n³) </p><dl class="params"><dt>Parameters</dt><dd>
+<p>A request has a conflict with the schedule if the class of the request has a conflict with any of the current classes of the student<br  />
+ Time complexity: O(n³) </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">request</td><td></td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true if the request has a conflict with the schedule of the student, false otherwise </dd></dl>
+
+</div>
+</div>
+<a id="abeff6b944ebb843eff462946e83d8a22"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abeff6b944ebb843eff462946e83d8a22">&#9670;&nbsp;</a></span>requestProvokesDisequilibrium()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ScheduleManager::requestProvokesDisequilibrium </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_request.html">Request</a> &amp;&#160;</td>
+          <td class="paramname"><em>request</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Function that verifies if the change to the new class provokes disequilibrium. </p>
+<p>In our program we say disequilibrium occurs if by changing to the new class the difference between the number of students of the classes he comes from and goes to is greater than 4. If he comes from a class with more students to a class with less students it doesn't provoke disequilibrium.\ If he comes from a class with less students to a class with more students it does provoke disequilibrium if the difference of the number of students is 4 or greater.<br  />
+Time complexity: O(nlog n) </p>
 
 </div>
 </div>
