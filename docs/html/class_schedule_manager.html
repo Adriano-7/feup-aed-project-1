@@ -523,7 +523,7 @@ Time complexity: O(log n) where n is the number of schedules(lines in the classe
 
 <p>Function that returns the number of students in a given uc. </p>
 <p>returns the size of the vector studentsOfUc <br  />
-Time complexity: O(n) + O(jq) </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="class_schedule_manager.html#a0d9fa79d84f745bdf79c8eb0a775e71f" title="Function that returns a vector with the students of a given class.">studentsOfUc()</a> </dd></dl>
+Time complexity: O(n) + O(jq), where n is the number of schedules(lines in classes_per_uc.csv file), j the number of ClassSchedules with a given ucId and q the number of students in a given <a class="el" href="class_class_schedule.html" title="Class that represents a schedule for a class in a given Course, with a vector of slots and a set of s...">ClassSchedule</a> </p>
 
 </div>
 </div>
@@ -565,7 +565,7 @@ Time complexity: O(n) + O(jq) </p><dl class="section see"><dt>See also</dt><dd><
 </div><div class="memdoc">
 
 <p>Function that prints the schedule of a given class. </p>
-<p>Time complexity: O(n²log n) </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Time complexity: O(n*l*log(r*log(c)) + O(cd) where n is the number of schedules, l is the number of slots in a schedule, c is the number of slots in a weekday, r is the number of weekdays and d is the number of classes in a slot </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">classCode</td><td></td></tr>
   </table>
@@ -601,7 +601,7 @@ Time complexity: O(n) + O(jq) </p><dl class="section see"><dt>See also</dt><dd><
 </div><div class="memdoc">
 
 <p>Function that prints the students of a given class. </p>
-<p>Time complexity: O(n log n) </p>
+<p>Time complexity: O(log n) + O(q log q) where n is the number of schedules(lines classes_per_uc.csv) and q is the number of students in the <a class="el" href="class_class_schedule.html" title="Class that represents a schedule for a class in a given Course, with a vector of slots and a set of s...">ClassSchedule</a> </p>
 
 </div>
 </div>
@@ -662,7 +662,8 @@ Time complexity: O(n) + O(jq) </p><dl class="section see"><dt>See also</dt><dd><
 </div><div class="memdoc">
 
 <p>Function that prints the schedule of a given student. </p>
-<p>Time complexity: O(n²log n) </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Time complexity: O(log p) + O(hlog n) + O(hl*log(r*log(c)) + O(cd) where p is the number of lines in students_classes.csv, h is the number of classes of the student, n is the number of students, l is the number of slots in a given <a class="el" href="class_class_schedule.html" title="Class that represents a schedule for a class in a given Course, with a vector of slots and a set of s...">ClassSchedule</a>, r is the number of slots in a weekday, c is the number of slots in a weekday and d is the number of classes in a slot</p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">studentId</td><td></td></tr>
   </table>
@@ -688,7 +689,7 @@ Time complexity: O(n) + O(jq) </p><dl class="section see"><dt>See also</dt><dd><
 </div><div class="memdoc">
 
 <p>Function that print the schedule of a given uc. </p>
-<p>Time complexity: O(n³) </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Time complexity: O(n*l*log(r*log(c)) + O(cd) where n is the number of schedules, l is the number of slots in a schedule, c is the number of slots in a weekday, r is the number of weekdays and d is the number of classes in a slot </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">ucCode</td><td></td></tr>
   </table>
@@ -724,7 +725,7 @@ Time complexity: O(n) + O(jq) </p><dl class="section see"><dt>See also</dt><dd><
 </div><div class="memdoc">
 
 <p>Function that prints the students enrolled a given uc. </p>
-<p>Time complexity O(n²) </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Time complexity O(n)+ O(jq) + O(d log d) where n is the number of schedules(lines in classes_per_uc.csv file), j the number of ClassSchedules with a given ucId, q the number of students in a given <a class="el" href="class_class_schedule.html" title="Class that represents a schedule for a class in a given Course, with a vector of slots and a set of s...">ClassSchedule</a> cs and d is the number of students in a given uc </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">ucId</td><td></td></tr>
   </table>
@@ -911,7 +912,7 @@ Time complexity: O(nlog n) where n is the number of schedules (lines in the clas
 
 <p>Function that verifies if the change to the new class provokes disequilibrium. </p>
 <p>In our program we say disequilibrium occurs if by changing to the new class the difference between the number of students of the classes he comes from and goes to is greater than 4. If he comes from a class with more students to a class with less students it doesn't provoke disequilibrium.\ If he comes from a class with less students to a class with more students it does provoke disequilibrium if the difference of the number of students is 4 or greater.<br  />
- Time complexity: O(log n) where n is the number of schedules (lines in the classes_per_uc.csv file) </p>
+Time complexity: O(log n) where n is the number of schedules (lines in the classes_per_uc.csv file) </p>
 
 </div>
 </div>
@@ -958,7 +959,7 @@ Time complexity: O(nlog n) where n is the number of schedules (lines in the clas
   </table>
   </dd>
 </dl>
-<p>O(n) + O(jq) where n is the number of schedules(lines in classes_per_uc.csv file), j the number of ClassSchedules with a given ucId and q the number of students in a given <a class="el" href="class_class_schedule.html" title="Class that represents a schedule for a class in a given Course, with a vector of slots and a set of s...">ClassSchedule</a> cs </p><dl class="section return"><dt>Returns</dt><dd>A vector with all the students of a given uc </dd></dl>
+<p>Time Complexity: O(n) + O(jq) where n is the number of schedules(lines in classes_per_uc.csv file), j the number of ClassSchedules with a given ucId and q the number of students in a given <a class="el" href="class_class_schedule.html" title="Class that represents a schedule for a class in a given Course, with a vector of slots and a set of s...">ClassSchedule</a> cs </p><dl class="section return"><dt>Returns</dt><dd>A vector with all the students of a given uc </dd></dl>
 
 </div>
 </div>

@@ -152,7 +152,7 @@ bool Student::operator==(const Student &other) const{
  * @details Time complexity: O(1)
  * @param other Student to compare
  * @return true if it is less than, false otherwise
- */
+ */O(n log n)
 bool Student::operator<(const Student &other) const {
     return this->id < other.getId();
 }

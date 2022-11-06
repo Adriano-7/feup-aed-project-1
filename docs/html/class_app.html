@@ -112,8 +112,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a8456cd592b321c96e23e88cc2b50cd6b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_app.html#a8456cd592b321c96e23e88cc2b50cd6b">checkUcStudents</a> () const</td></tr>
 <tr class="memdesc:a8456cd592b321c96e23e88cc2b50cd6b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that prints the students enrolled in a uc.  <a href="class_app.html#a8456cd592b321c96e23e88cc2b50cd6b">More...</a><br /></td></tr>
 <tr class="separator:a8456cd592b321c96e23e88cc2b50cd6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2e8d791189a2c12508bacdf376c13f39"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_app.html#a2e8d791189a2c12508bacdf376c13f39">submitNewRequest</a> (int option)</td></tr>
-<tr class="memdesc:a2e8d791189a2c12508bacdf376c13f39"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that allows the student to submit a request to change a class.  <a href="class_app.html#a2e8d791189a2c12508bacdf376c13f39">More...</a><br /></td></tr>
+<tr class="memitem:a2e8d791189a2c12508bacdf376c13f39"><td class="memItemLeft" align="right" valign="top"><a id="a2e8d791189a2c12508bacdf376c13f39"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_app.html#a2e8d791189a2c12508bacdf376c13f39">submitNewRequest</a> (int option)</td></tr>
+<tr class="memdesc:a2e8d791189a2c12508bacdf376c13f39"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that allows the student to submit a request to change a class. <br /></td></tr>
 <tr class="separator:a2e8d791189a2c12508bacdf376c13f39"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a57df9e3bf20427a56769ac44f776bd43"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_app.html#a57df9e3bf20427a56769ac44f776bd43">submitChangingRequest</a> (<a class="el" href="class_student.html">Student</a> *student)</td></tr>
 <tr class="memdesc:a57df9e3bf20427a56769ac44f776bd43"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asks the user to insert the class code he wants to change into.  <a href="class_app.html#a57df9e3bf20427a56769ac44f776bd43">More...</a><br /></td></tr>
@@ -199,7 +200,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
 </div><div class="memdoc">
 
 <p>Ask the user to insert the class code and prints the schedule of that class. </p>
-<p>Time complexity: O(n²log n) </p>
+<p>Time complexity: O(n*l*log(r*log(c)) + O(cd) where n is the number of schedules, l is the number of slots in a schedule, c is the number of slots in a weekday, r is the number of weekdays and d is the number of classes in a slot </p>
 
 </div>
 </div>
@@ -219,7 +220,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
 </div><div class="memdoc">
 
 <p>Asks the user to insert the ucCode and classCode and prints the students enrolled. </p>
-<p>Time complexity: O(n log n) </p>
+<p>Time complexity: O(log n) + O(q log q) where n is the number of schedules(lines classes_per_uc.csv) and q is the number of students in the <a class="el" href="class_class_schedule.html" title="Class that represents a schedule for a class in a given Course, with a vector of slots and a set of s...">ClassSchedule</a> </p>
 
 </div>
 </div>
@@ -239,7 +240,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
 </div><div class="memdoc">
 
 <p>Asks the user to input the students's UP number and prints the schedule of that student. </p>
-<p>Time complexity: O(n²log n) </p>
+<p>Time complexity: O(log p) + O(hlog n) + O(hl*log(r*log(c)) + O(cd) where p is the number of lines in students_classes.csv, h is the number of classes of the student, n is the number of students, l is the number of slots in a given <a class="el" href="class_class_schedule.html" title="Class that represents a schedule for a class in a given Course, with a vector of slots and a set of s...">ClassSchedule</a>, r is the number of slots in a weekday, c is the number of slots in a weekday and d is the number of classes in a slot </p>
 
 </div>
 </div>
@@ -259,7 +260,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
 </div><div class="memdoc">
 
 <p>Asks the user to insert the ucId and prints the schedule of that uc. </p>
-<p>Time complexity: O(n³) </p>
+<p>Time complexity: O(n*l*log(r*log(c)) + O(cd) where n is the number of schedules, l is the number of slots in a schedule, c is the number of slots in a weekday, r is the number of weekdays and d is the number of classes in a slot </p>
 
 </div>
 </div>
@@ -279,7 +280,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
 </div><div class="memdoc">
 
 <p>Function that prints the students enrolled in a uc. </p>
-<p>Time complexity: O(n²) </p>
+<p>Time complexity: Time complexity O(n)+ O(jq) + O(d log d) where n is the number of schedules(lines in classes_per_uc.csv file), j the number of ClassSchedules with a given ucId, q the number of students in a given <a class="el" href="class_class_schedule.html" title="Class that represents a schedule for a class in a given Course, with a vector of slots and a set of s...">ClassSchedule</a> cs and d is the number of students in a given uc </p>
 
 </div>
 </div>
@@ -319,7 +320,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
 </div><div class="memdoc">
 
 <p>Function to print the pending requests. </p>
-<p>Time complexity: O(n log n) </p>
+<p>Time complexity: Time complexity: O(v)+O(w)+O(z) where v is the number of removal request, w is the number of changing requests and z is the number of enrollment requests </p>
 
 </div>
 </div>
@@ -339,7 +340,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
 </div><div class="memdoc">
 
 <p>Function that processes all pending changingRequests. </p>
-<p>Time complexity: O(n³) </p>
+<p>Time complexity: Time complexity: O(h) + O(log n * log n) + O(log p) + O(t*log n + t*lr) + O(nlog n) where n is the number of schedules (lines in the classes_per_uc.csv file), p is the number of lines in the students.csv file, h is the number of classes of the student submitting the request and t, l, r are the variables seen in </p><dl class="section see"><dt>See also</dt><dd>requestHasCollision() </dd></dl>
 
 </div>
 </div>
@@ -399,7 +400,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
 </div><div class="memdoc">
 
 <p>Function that writes the information to the files before closing the program. </p>
-<p>Time complexity: O(n²) </p>
+<p>Time complexity: O(O(st) where s is the number of students in the set and t is the number of classes of each student) </p>
 
 </div>
 </div>
@@ -440,7 +441,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
 </div><div class="memdoc">
 
 <p>Asks the user to insert the class code he wants to change into. </p>
-<p>Time complexity: O(n log n) </p>
+<p>Time complexity: O(log n) where n is the number of schedules(lines file classes_per_uc.csv) </p>
 
 </div>
 </div>
@@ -461,28 +462,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
 </div><div class="memdoc">
 
 <p>Asks the user to insert the uc code he wants to enroll into. </p>
-<p>Time complexity: O(log n) </p>
-
-</div>
-</div>
-<a id="a2e8d791189a2c12508bacdf376c13f39"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2e8d791189a2c12508bacdf376c13f39">&#9670;&nbsp;</a></span>submitNewRequest()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void App::submitNewRequest </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>option</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Function that allows the student to submit a request to change a class. </p>
-<p>Time complexity: O(n log n) </p>
+<p>Time complexity: O(log n) where n is the number of schedules(lines file classes_per_uc.csv) </p>
 
 </div>
 </div>
@@ -503,7 +483,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
 </div><div class="memdoc">
 
 <p>Asks the user to insert the uc code he wants to cancel. </p>
-<p>Time complexity: O(log n) </p>
+<p>Time complexity: O(t) where t is the number of UcClasses of the student </p>
 
 </div>
 </div>

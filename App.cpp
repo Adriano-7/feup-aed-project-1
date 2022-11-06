@@ -108,7 +108,10 @@ int App::run() {
 
 /**
 * @brief Asks the user to input the students's UP number and prints the schedule of that student
- * @details Time complexity: O(n²log n)
+ * @details Time complexity: O(log p) + O(hlog n) + O(hl*log(r*log(c)) + O(cd)
+ * where p is the number of lines in students_classes.csv,  h is the number of classes of the student,
+ * n is the number of students, l is the number of slots in a given ClassSchedule, r is the number of slots in a weekday,
+ * c is the number of slots in a weekday and d is the number of classes in a slot
 */
 void App::checkStudentSchedule() const {
     string upNumber;
@@ -118,7 +121,9 @@ void App::checkStudentSchedule() const {
 }
 /**
 * @brief Ask the user to insert the class code and prints the schedule of that class
- * @details Time complexity: O(n²log n)
+ * @details Time complexity: O(n*l*log(r*log(c)) + O(cd) where n is the number of schedules,
+ * l is the number of slots in a schedule, c is the number of slots in a weekday,
+ * r is the number of weekdays and d is the number of classes in a slot
 */
 void App::checkClassSchedule() const{
     string classCode;
@@ -146,7 +151,8 @@ int App::sortingMenu() const {
 }
 /**
 * @brief Asks the user to insert the ucCode and classCode and prints the students enrolled
- * @details Time complexity: O(n log n)
+ * @details Time complexity: O(log n) + O(q log q) where n is the number of schedules(lines classes_per_uc.csv)
+ * and q is the number of students in the ClassSchedule
 */
 void App::checkClassStudents() const {
     int option = sortingMenu();
@@ -177,7 +183,9 @@ void App::checkClassStudents() const {
 
 /**
 * @brief Asks the user to insert the ucId and prints the schedule of that uc
- * @details Time complexity: O(n³)
+ * @details Time complexity: O(n*l*log(r*log(c)) + O(cd) where n is the number of schedules,
+ * l is the number of slots in a schedule, c is the number of slots in a weekday,
+ * r is the number of weekdays and d is the number of classes in a slot
 */
 void App::checkUcSchedule() const {
     string ucCode;
@@ -210,7 +218,7 @@ int App::requestsMenu() const {
 
 /**
  * @brief Asks the user to insert the class code he wants to change into
- * @details Time complexity: O(n log n)
+ * @details Time complexity: O(log n) where n is the number of schedules(lines file classes_per_uc.csv)
  */
 void App::submitChangingRequest(Student* student) {
     string ucCode, classCode;
@@ -238,7 +246,7 @@ void App::submitChangingRequest(Student* student) {
 
 /**
  * @brief Asks the user to insert the uc code he wants to enroll into
- * @details Time complexity: O(log n)
+ * @details Time complexity: O(log n) where n is the number of schedules(lines file classes_per_uc.csv)
  */
 void App::submitEnrollmentRequest(Student *student) {
     string ucCode, classCode;
@@ -265,7 +273,7 @@ void App::submitEnrollmentRequest(Student *student) {
 
 /**
  * @brief Asks the user to insert the uc code he wants to cancel
- * @details Time complexity: O(log n)
+ * @details Time complexity: O(t) where t is the number of UcClasses of the student
  */
 void App::submitRemovalRequest(Student *student) {
     string ucCode;
@@ -291,7 +299,6 @@ void App::submitRemovalRequest(Student *student) {
 
 /**
 * @brief Function that allows the student to submit a request to change a class
- * @details Time complexity: O(n log n)
 */
 void App::submitNewRequest(int option) {
     string upNumber;
@@ -321,7 +328,8 @@ void App::submitNewRequest(int option) {
 }
 /**
 * @brief Function that prints the students enrolled in a uc
- * @details Time complexity: O(n²)
+ * @details Time complexity: Time complexity O(n)+ O(jq) + O(d log d) where n is the number of schedules(lines in classes_per_uc.csv file),
+ * j the number of ClassSchedules with a given ucId, q the number of students in a given ClassSchedule cs and d is the number of students in a given uc
 */
 void App::checkUcStudents() const{
     int option = sortingMenu();
@@ -346,7 +354,8 @@ void App::checkUcStudents() const{
 }
 /**
  * @brief Function that processes all pending changingRequests
- * @details Time complexity: O(n³)
+ * @details Time complexity: Time complexity: O(h) + O(log n * log n) + O(log p) + O(t*log n + t*lr) + O(nlog n) where n is the number of schedules (lines in the classes_per_uc.csv file),
+ * p is the number of lines in the students.csv file, h is the number of classes of the student submitting the request and t, l, r are the variables seen in @see requestHasCollision()
  */
 void App::processPendingRequests() {
     string s;
@@ -360,7 +369,7 @@ void App::processPendingRequests() {
 
 /**
  * @brief Function that writes the information to the files before closing the program
- * @details Time complexity: O(n²)
+ * @details Time complexity: O(O(st) where s is the number of students in the set and t is the number of classes of each student)
  */
 void App::saveInformation() {
     manager.writeFiles();
@@ -381,7 +390,7 @@ void App::waitForInput() const{
 
 /**
  * @brief Function to print the pending requests
- * @details Time complexity: O(n log n)
+ * @details Time complexity: Time complexity: O(v)+O(w)+O(z) where v is the number of removal request, w is the number of changing requests and z is the number of enrollment requests
  */
 void App::printPendingRequests() const {
     manager.printPendingRequests();

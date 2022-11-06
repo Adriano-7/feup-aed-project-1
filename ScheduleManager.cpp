@@ -26,7 +26,8 @@ ScheduleManager::ScheduleManager() {
 
 /**
 *@brief Reads the files and creates the objects
- * @details Time complexity: O(n) + O(m log n) + O(p log n) being n the number of lines in the file classes_per_uc, m the number of lines in the file classes.csv and p the number of lines in the file student_classes.csv
+ * @details Time complexity: O(n) + O(m log n) + O(p log n) being n the number of lines in the file classes_per_uc,
+ * m the number of lines in the file classes.csv and p the number of lines in the file student_classes.csv
  * @see createSchedules()
  * @see setSchedules()
  * @see createStudents()
@@ -87,7 +88,8 @@ void ScheduleManager::setSchedules() {
 
 /**
  * @brief Reads the file "students.csv" and creates/updates the student information and set of students
-* @detailes Reads the students_classes.csv file, adds/updates the student information by adding the UcClass read in the file. It also inserts/updates the student in the set of students\n
+* @detailes Reads the students_classes.csv file, adds/updates the student information by adding the UcClass read in the file.
+* It also inserts/updates the student in the set of students\n
 * Time complexity: O(p log s), being p the number of lines in the file students_classes.csv and s the number of students
 */
 void ScheduleManager::createStudents() {
@@ -188,7 +190,8 @@ vector<ClassSchedule> ScheduleManager::classesOfUc(const string &ucId) const {
 /**
  * @brief Function that returns a vector with the students of a given class
  * @param ucCode
- * @details O(n) + O(jq) where n is the number of schedules(lines in classes_per_uc.csv file), j the number of ClassSchedules with a given ucId and q the number of students in a given ClassSchedule cs
+ * @details Time Complexity: O(n) + O(jq) where n is the number of schedules(lines in classes_per_uc.csv file),
+ * j the number of ClassSchedules with a given ucId and q the number of students in a given ClassSchedule cs
  * @return A vector with all the students of a given uc
  */
 vector<Student> ScheduleManager::studentsOfUc(const string &ucId) const {
@@ -205,7 +208,8 @@ vector<Student> ScheduleManager::studentsOfUc(const string &ucId) const {
 /**
  * @brief Function that returns the number of students in a given uc
  * @details returns the size of the vector studentsOfUc \n
- * Time complexity: O(n) + O(jq), where n is the number of schedules(lines in classes_per_uc.csv file), j the number of ClassSchedules with a given ucId and q the number of students in a given ClassSchedule
+ * Time complexity: O(n) + O(jq), where n is the number of schedules(lines in classes_per_uc.csv file),
+ * j the number of ClassSchedules with a given ucId and q the number of students in a given ClassSchedule
  */
 int ScheduleManager::getNumberOfStudentsUc(const std::string &ucId) const {
     return studentsOfUc(ucId).size();
@@ -254,7 +258,8 @@ void ScheduleManager::addRemovalRequest(const Student &student, const UcClass &u
 /**
 * @brief Function that verifies if the schedule of two given classes have a conflict
 * @details Two UcClasses have a conflict if any pair of slots of the two classes overlap \n
- * Time complexity: O(log n) + O(lr) where n is the number of lines in classes_per_uc.csv, l is the number of slots of the first class and r is the number of slots of the second class
+ * Time complexity: O(log n) + O(lr) where n is the number of lines in classes_per_uc.csv, l is the number of slots of the first class and
+ * r is the number of slots of the second class
 * @return true if the classes have a conflict, false otherwise
 */
 bool ScheduleManager::classesOverlap(const UcClass &c1, const UcClass &c2) const{
@@ -271,7 +276,8 @@ bool ScheduleManager::classesOverlap(const UcClass &c1, const UcClass &c2) const
 
 /**
 * @brief Function that verifies if a given request has a conflict with the schedule of a given student
-* @details A request has a conflict with the schedule if the class that student wants to enroll in causes a conflict with any of the current classes of the student\n
+* @details A request has a conflict with the schedule if the class that student wants to enroll in causes a conflict with any of the current classes
+* of the student\n
  * Time complexity: O(t*log n + t*lr) where t is the number of classes the student is enrolled in, and n, l, r are the variables seen in @see classesOverlap()
 * @param request
 * @return true if the request has a conflict with the schedule of the student, false otherwise
@@ -289,7 +295,8 @@ bool ScheduleManager::requestHasCollision(const Request &request) const{
 /**
  * @brief Function that verifies if by changing to the new class, the student will exceed the max number of students allowed.
  * @details The cap (maximum number of students in a class) is set to be the maximum number of students currently enrolled in q class.
- * If all classes have  the same number of students (and therefor the cap wouldn't  allow a new student to enroll), the cap is set to the maximum number of students in a class + 1.\n
+ * If all classes have  the same number of students (and therefor the cap wouldn't  allow a new student to enroll),
+ * the cap is set to the maximum number of students in a class + 1.\n
  * Time complexity: O(nlog n) where n is the number of schedules (lines in the classes_per_uc.csv file)
  */
 bool ScheduleManager::requestExceedsCap(const Request &request) const{
@@ -310,7 +317,6 @@ bool ScheduleManager::requestExceedsCap(const Request &request) const{
  * difference between the number of students of the classes he comes from and goes to is greater
  * than 4. If he comes from a class with more students to a class with less students it doesn't provoke disequilibrium.\
  * If he comes from a class with less students to a class with more students it does provoke disequilibrium if the difference of the number of students is 4 or greater.\n
- *
  * Time complexity: O(log n) where n is the number of schedules (lines in the classes_per_uc.csv file)
  */
 bool ScheduleManager::requestProvokesDisequilibrium(const Request &request) const {
@@ -348,7 +354,8 @@ void ScheduleManager::processChangingRequest(const Request &request) {
 /**
  * @brief Function that processes the removalRequests in the queue
  * @details A Removal request is always accepted\n
- * Time complexity: O(h) + O(log n * log n) + O(log p) where n is the number of schedules (lines in the classes_per_uc.csv file), p is the number of lines in the students.csv file and h is the number of classes of the student submitting the request
+ * Time complexity: O(h) + O(log n * log n) + O(log p) where n is the number of schedules (lines in the classes_per_uc.csv file),
+ * p is the number of lines in the students.csv file and h is the number of classes of the student submitting the request
  */
 void ScheduleManager::processRemovalRequest(const Request &request) {
     Student* student = findStudent(request.getStudent().getId()); // O(log p)
@@ -360,7 +367,8 @@ void ScheduleManager::processRemovalRequest(const Request &request) {
 
 /**
  * @brief Function that processes the enrollmentRequests in the queue
- * @details Time complexity: O(t*log n + t*lr) + O(nlog n) + O(log p) where n is the number of schedules (lines in the classes_per_uc.csv file), p is the number of lines in the students.csv file and t, l, r are the variables seen in @see requestHasCollision()
+ * @details Time complexity: O(t*log n + t*lr) + O(nlog n) + O(log p) where n is the number of schedules (lines in the classes_per_uc.csv file),
+ * p is the number of lines in the students.csv file and t, l, r are the variables seen in @see requestHasCollision()
  */
 void ScheduleManager::processEnrollmentRequest(const Request &request) {
     if(requestHasCollision(request)){ //O(t*log n + t*lr)
@@ -381,7 +389,8 @@ void ScheduleManager::processEnrollmentRequest(const Request &request) {
 
 /**
  * @brief Function that processes all changingRequests in the queue
- * @details Time complexity: O(h) + O(log n * log n) + O(log p) + O(t*log n + t*lr) + O(nlog n) where n is the number of schedules (lines in the classes_per_uc.csv file), p is the number of lines in the students.csv file, h is the number of classes of the student submitting the request and t, l, r are the variables seen in @see requestHasCollision()
+ * @details Time complexity: O(h) + O(log n * log n) + O(log p) + O(t*log n + t*lr) + O(nlog n) where n is the number of schedules (lines in the classes_per_uc.csv file),
+ * p is the number of lines in the students.csv file, h is the number of classes of the student submitting the request and t, l, r are the variables seen in @see requestHasCollision()
  */
 void ScheduleManager::processRequests() {
     cout << ">> Accepted removal requests:" << endl;
@@ -468,9 +477,8 @@ void ScheduleManager::printRejectedRequests() const {
 }
 
 /**
- * @brief  Function converts decimal time to string
+ * @brief  Function converts the decimal time to string
  * @details Time complexity: O(1)
- * @param weekdays
  */
 string decimalToHours(int decimal){
     double time = decimal;
@@ -484,6 +492,10 @@ string decimalToHours(int decimal){
     return hoursStr + ":" + minutesStr;
 }
 
+/**
+ * @brief Function that given the ucId returns the uc initials
+ * @details Time complexity: O(1)
+ */
 string ucIdToString(string ucId) {
     /** Maps ucId to uc abbreviation */
     map<string, string> name = {{"L.EIC001", "ALGA"}, {"L.EIC002", "AM I"}, {"L.EIC003", "FP"}, {"L.EIC004", "FSC"}, {"L.EIC005", "MD"}, {"L.EIC011", "AED"}, {"L.EIC012", "BD"}, {"L.EIC013", "F II"}, {"L.EIC014", "LDTS"}, {"L.EIC015", "SO"}, {"L.EIC021", "FSI"}, {"L.EIC022", "IPC"}, {"L.EIC023", "LBAW"}, {"L.EIC024", "PFL"}, {"L.EIC025", "RC"}};
@@ -501,13 +513,16 @@ struct compareDayWeek
 
 /**
  * @brief Function that prints the schedule of a given student
- * @details Time complexity: O()
+ * @details Time complexity: O(log p) + O(hlog n) + O(hl*log(r*log(c)) + O(cd)
+ * where p is the number of lines in students_classes.csv,  h is the number of classes of the student,
+ * n is the number of students, l is the number of slots in a given ClassSchedule, r is the number of slots in a weekday,
+ * c is the number of slots in a weekday and d is the number of classes in a slot
+ *
  * @param studentId
  */
-
 void ScheduleManager::printStudentSchedule(const std::string &studentId) const {
     system("clear");
-    Student* student = findStudent(studentId);
+    Student* student = findStudent(studentId); //O(log p)
     if(student == nullptr) {
         cout << "Student not found!" << endl;
         return;
@@ -517,24 +532,25 @@ void ScheduleManager::printStudentSchedule(const std::string &studentId) const {
     map<string, map<Slot, vector<string>>, compareDayWeek> weekdaySlot;
     vector<UcClass> studentClasses = student->getClasses();
 
-    for (const UcClass &ucClass: studentClasses) {
+    for (const UcClass &ucClass: studentClasses) { //O(hlog n) + O(hl*log(r*log(c))
         ClassSchedule *cs = findSchedule(ucClass);
-        for(const Slot &slot: cs->getSlots()){
-            weekdaySlot[slot.getWeekDay()][slot].push_back(ucClass.getUcId());
+        for(const Slot &slot: cs->getSlots()){//O(hl*log(r*log(c))
+            weekdaySlot[slot.getWeekDay()][slot].push_back(ucClass.getUcId()); //number of weekdays is constant
         }
     }
+
     cout << endl <<  ">> The student " << student->getName() << " with UP number " << student->getId()
     << " is enrolled in the following classes:" << endl << "   ";
-    student->printClasses();
+    student->printClasses(); //O(h)
 
     cout << endl << ">> The student's schedule is:" << endl;
 
-    for(const auto &weekday: weekdaySlot) {
+    for(const auto &weekday: weekdaySlot) { //number of weekdays is constant
         cout << "   >> " << weekday.first << ": " << endl;
-        for (const auto &slot: weekday.second) {
+        for (const auto &slot: weekday.second) {//O(c) where c is the number of slots in a weekday
             cout << "      " << decimalToHours(slot.first.getStartTime()) << " to "
                  << decimalToHours(slot.first.getEndTime()) << "\t" << slot.first.getType() << "\t";
-            for (const string &classId: slot.second) {
+            for (const string &classId: slot.second) {//O(d) where d is the number of classes in a slot
                 cout << ucIdToString(classId) << " - "<< classId << " ";
             }
             cout << endl;
@@ -544,7 +560,9 @@ void ScheduleManager::printStudentSchedule(const std::string &studentId) const {
 
 /**
  * @brief Function that prints the schedule of a given class
- * @details Time complexity: O()
+ * @details Time complexity: O(n*l*log(r*log(c)) + O(cd) where n is the number of schedules,
+ * l is the number of slots in a schedule, c is the number of slots in a weekday,
+ * r is the number of weekdays and d is the number of classes in a slot
  * @param classCode
  */
 
@@ -555,7 +573,7 @@ void ScheduleManager::printClassSchedule(const std::string &classCode) const {
 
     map<string, map<Slot, vector<string>>, compareDayWeek> weekdaySlot;
 
-    for(const ClassSchedule &cs: schedules){
+    for(const ClassSchedule &cs: schedules){ //O(n*l*log(r*log(c)) where n is the number of schedules, l is the number of slots in a schedule, c is the number of slots in a weekday and r is the number of weekdays
         if(cs.getUcClass().getClassId() == classCode){
             for(const Slot &slot: cs.getSlots()){
                 weekdaySlot[slot.getWeekDay()][slot].push_back(cs.getUcClass().getUcId());
@@ -566,9 +584,9 @@ void ScheduleManager::printClassSchedule(const std::string &classCode) const {
     if(weekdaySlot.empty()) {cout<<">> Class not found"<<endl; return;}
 
     cout << ">> The schedule for the class " << classCode << " is:" << endl;
-    for(const auto &weekday: weekdaySlot) {
+    for(const auto &weekday: weekdaySlot) { //number of weekdays is constant
         cout << "   >> " << weekday.first << ": " << endl;
-        for (const auto &slot: weekday.second) {
+        for (const auto &slot: weekday.second) { //O(cd) where c is the number of slots in a given weekday and d is the number of classes in a slot
             cout << "      " << decimalToHours(slot.first.getStartTime()) << " to "
                  << decimalToHours(slot.first.getEndTime()) << "\t" << slot.first.getType() << "\t";
             for (const string &classId: slot.second) {
@@ -582,33 +600,37 @@ void ScheduleManager::printClassSchedule(const std::string &classCode) const {
 
 /**
  * @brief Function that print the schedule of a given uc
- * @details Time complexity: O(n³)
+ * @details Time complexity: O(n*l*log(r*log(c)) + O(cd) where n is the number of schedules,
+ * l is the number of slots in a schedule, c is the number of slots in a weekday,
+ * r is the number of weekdays and d is the number of classes in a slot
  * @param ucCode
  */
 void ScheduleManager::printUcSchedule(const string &ucCode) const{
     system("clear");
-    map<string, map<Slot, vector<string>>, compareDayWeek> days; // connects the day of the week with slots (each slot may have different classCode)
 
-    for(const ClassSchedule &cs : schedules){
+    //maps a weekday to a pair Slot/ucId. Because we use a map it automatically sorts the weekdays and slots
+    map<string, map<Slot, vector<string>>, compareDayWeek> weekdaySlot;
+
+    for(const ClassSchedule &cs : schedules){ //O(n*l*log(r*log(c)) where n is the number of schedules, l is the number of slots in a schedule, c is the number of slots in a weekday and r is the number of weekdays
         if(cs.getUcClass().getUcId() == ucCode){
             for(const Slot &slot : cs.getSlots()){
-                days[slot.getWeekDay()][slot].push_back(cs.getUcClass().getClassId());
+                weekdaySlot[slot.getWeekDay()][slot].push_back(cs.getUcClass().getClassId());
             }
         }
     }
 
-    if(days.empty()){
+    if(weekdaySlot.empty()){
         cout << ">> Uc not found" << endl;
         return;
     }
     cout << ">> The schedule for the Uc " << ucCode << " is:" << endl;
-    for(const auto &day: days) {
-        cout << "   >> " << day.first << ": " << endl;
-        for (const auto &slot: day.second) {
+    for(const auto &weekday: weekdaySlot) { //number of weekdays is constant
+        cout << "   >> " << weekday.first << ": " << endl;
+        for (const auto &slot: weekday.second) { //O(cd) where c is the number of slots in a given weekday and d is the number of classes in a slot
             cout << "      " << decimalToHours(slot.first.getStartTime()) << " to "
                  << decimalToHours(slot.first.getEndTime()) << "\t" << slot.first.getType() << "\t";
-            for (const string &classcode: slot.second) {
-                cout << classcode << " ";
+            for (const string &classCode: slot.second) {
+                cout << classCode << " ";
             }
             cout << endl;
         }
@@ -617,49 +639,49 @@ void ScheduleManager::printUcSchedule(const string &ucCode) const{
 
 /**
  * @brief Function that prints the students of a given class
- * @details Time complexity: O(n log n)
+ * @details Time complexity: O(log n) + O(q log q) where n is the number of schedules(lines classes_per_uc.csv)
+ * and q is the number of students in the ClassSchedule
  */
 void ScheduleManager::printClassStudents(const UcClass &ucClass, const string &orderType) const{
-    ClassSchedule* cs = findSchedule(ucClass); //O(n log n)
+    ClassSchedule* cs = findSchedule(ucClass); //O(log n)
     if(cs == nullptr){
         cout << ">> Class not found" << endl;
         return;
     }
     system("clear");
     cout<<">> The students of the class "<<ucClass.getClassId()<<" in the uc " << ucClass.getUcId()<<" are:"<<endl;
-    cs->printStudents(orderType);   //O(n log n)
+    cs->printStudents(orderType); //O(q log q), where q is the number of students in the ClassSchedule
 }
 
 /**
  * @brief Function that prints the students enrolled a given uc
- * @details Time complexity O(n²)
+ * @details Time complexity O(n)+ O(jq) + O(d log d) where n is the number of schedules(lines in classes_per_uc.csv file),
+ * j the number of ClassSchedules with a given ucId, q the number of students in a given ClassSchedule cs and d is the number of students in a given uc
  * @param ucId
  */
 void ScheduleManager::printUcStudents(const string &ucId, const string &sortType) const {
     system("clear");
-    vector<Student> studentsVector = studentsOfUc(ucId);   //O(n²)
+    vector<Student> studentsVector = studentsOfUc(ucId); //O(n) + O(jq) where n is the number of schedules(lines in classes_per_uc.csv file), j the number of ClassSchedules with a given ucId and q the number of students in a given ClassSchedule cs
     if(studentsVector.empty()){
         cout << ">> Uc not found" << endl;
         return;
     }
     if (sortType == "alphabetical") {
-        sort(studentsVector.begin(), studentsVector.end(), [](const Student &a, const Student &b) { return a.getName() < b.getName(); });   //O(n logN)
+        sort(studentsVector.begin(), studentsVector.end(), [](const Student &a, const Student &b) { return a.getName() < b.getName(); });   //O(d log d) where d is the number of students in a given uc
     } else if (sortType == "reverse alphabetical") {
-        sort(studentsVector.rbegin(), studentsVector.rend(), [](const Student &a, const Student &b) { return a.getName() < b.getName(); }); //O(n logN)
+        sort(studentsVector.rbegin(), studentsVector.rend(), [](const Student &a, const Student &b) { return a.getName() < b.getName(); }); //O(d log d)
     } else if (sortType == "numerical") {
-        sort(studentsVector.begin(), studentsVector.end()); //O(n logN)
+        sort(studentsVector.begin(), studentsVector.end()); //O(d log d)
     } else if (sortType == "reverse numerical") {
-        sort(studentsVector.rbegin(), studentsVector.rend()); //O(n logN)
+        sort(studentsVector.rbegin(), studentsVector.rend()); //O(d log d)
     } else {
         cout << "Invalid sortType" << endl;
         return;
     }
-    sort(studentsVector.begin(), studentsVector.end(), [](const Student &s1, const Student &s2) { //O(n logN)
-        return s1.getName() < s2.getName();
-    });
+
     cout << endl << ">> Number of students: " << studentsVector.size() << endl;
     cout << ">> Students:" << endl;
-    for (const Student &student: studentsVector) { //O(n)
+    for (const Student &student: studentsVector) { //O(d)
         cout << "   "; student.printHeader();   //O(1)
     }
 }
