@@ -278,7 +278,8 @@ bool ScheduleManager::classesOverlap(const UcClass &c1, const UcClass &c2) const
 * @brief Function that verifies if a given request has a conflict with the schedule of a given student
 * @details A request has a conflict with the schedule if the class that student wants to enroll in causes a conflict with any of the current classes
 * of the student\n
- * Time complexity: O(t*log n + t*lr) where t is the number of classes the student is enrolled in, and n, l, r are the variables seen in @see classesOverlap()
+ * Time complexity: O(t*log n + t*lr) where t is the number of classes the student is enrolled in, n is the number of lines in classes_per_uc.csv, l is the number of slots of the first class and
+ * r is the number of slots of the second class
 * @param request
 * @return true if the request has a conflict with the schedule of the student, false otherwise
 */
@@ -329,7 +330,9 @@ bool ScheduleManager::requestProvokesDisequilibrium(const Request &request) cons
 /**
  * @brief Function that processes the changingRequests in the queue
  * @details if the request has any problem (conflict, disequilibrium, cap exceeded) it is added to the queue of failedRequests, otherwise it is processed and the student is removed from the former class and added to the new class\n
- * Time complexity: O(t*log n + t*lr) + O(nlog n) where n is the number of schedules (lines in the classes_per_uc.csv file) t, l, r are the variables seen in @see requestHasCollision()
+ * Time complexity: O(t*log n + t*lr) + O(nlog n) where n is the number of schedules (lines in the classes_per_uc.csv file),
+ * t is the number of classes the student is enrolled in, n is the number of lines in classes_per_uc.csv, l is the number of slots of the first class and
+ * r is the number of slots of the second class
  */
 void ScheduleManager::processChangingRequest(const Request &request) {
     if(requestHasCollision(request)){ //O(t*log n + t*lr)
@@ -368,7 +371,8 @@ void ScheduleManager::processRemovalRequest(const Request &request) {
 /**
  * @brief Function that processes the enrollmentRequests in the queue
  * @details Time complexity: O(t*log n + t*lr) + O(nlog n) + O(log p) where n is the number of schedules (lines in the classes_per_uc.csv file),
- * p is the number of lines in the students.csv file and t, l, r are the variables seen in @see requestHasCollision()
+ * p is the number of lines in the students.csv file, t is the number of classes the student is enrolled in, n is the number of lines in classes_per_uc.csv,
+ * l is the number of slots of the first class and r is the number of slots of the second class
  */
 void ScheduleManager::processEnrollmentRequest(const Request &request) {
     if(requestHasCollision(request)){ //O(t*log n + t*lr)
@@ -390,7 +394,8 @@ void ScheduleManager::processEnrollmentRequest(const Request &request) {
 /**
  * @brief Function that processes all changingRequests in the queue
  * @details Time complexity: O(h) + O(log n * log n) + O(log p) + O(t*log n + t*lr) + O(nlog n) where n is the number of schedules (lines in the classes_per_uc.csv file),
- * p is the number of lines in the students.csv file, h is the number of classes of the student submitting the request and t, l, r are the variables seen in @see requestHasCollision()
+ * p is the number of lines in the students.csv file, h is the number of classes of the student submitting the request, t is the number of classes the student is enrolled in,
+ * n is the number of lines in classes_per_uc.csv, l is the number of slots of the first class and r is the number of slots of the second class
  */
 void ScheduleManager::processRequests() {
     cout << ">> Accepted removal requests:" << endl;

@@ -752,7 +752,7 @@ Time complexity: O(n) + O(jq), where n is the number of schedules(lines in class
 
 <p>Function that processes the changingRequests in the queue. </p>
 <p>if the request has any problem (conflict, disequilibrium, cap exceeded) it is added to the queue of failedRequests, otherwise it is processed and the student is removed from the former class and added to the new class<br  />
-Time complexity: O(t*log n + t*lr) + O(nlog n) where n is the number of schedules (lines in the classes_per_uc.csv file) t, l, r are the variables seen in </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="class_schedule_manager.html#a0b8d401656962163906cbbce56d6aaa9" title="Function that verifies if a given request has a conflict with the schedule of a given student.">requestHasCollision()</a> </dd></dl>
+Time complexity: O(t*log n + t*lr) + O(nlog n) where n is the number of schedules (lines in the classes_per_uc.csv file), t is the number of classes the student is enrolled in, n is the number of lines in classes_per_uc.csv, l is the number of slots of the first class and r is the number of slots of the second class </p>
 
 </div>
 </div>
@@ -773,7 +773,7 @@ Time complexity: O(t*log n + t*lr) + O(nlog n) where n is the number of schedule
 </div><div class="memdoc">
 
 <p>Function that processes the enrollmentRequests in the queue. </p>
-<p>Time complexity: O(t*log n + t*lr) + O(nlog n) + O(log p) where n is the number of schedules (lines in the classes_per_uc.csv file), p is the number of lines in the students.csv file and t, l, r are the variables seen in </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="class_schedule_manager.html#a0b8d401656962163906cbbce56d6aaa9" title="Function that verifies if a given request has a conflict with the schedule of a given student.">requestHasCollision()</a> </dd></dl>
+<p>Time complexity: O(t*log n + t*lr) + O(nlog n) + O(log p) where n is the number of schedules (lines in the classes_per_uc.csv file), p is the number of lines in the students.csv file, t is the number of classes the student is enrolled in, n is the number of lines in classes_per_uc.csv, l is the number of slots of the first class and r is the number of slots of the second class </p>
 
 </div>
 </div>
@@ -815,7 +815,7 @@ Time complexity: O(h) + O(log n * log n) + O(log p) where n is the number of sch
 </div><div class="memdoc">
 
 <p>Function that processes all changingRequests in the queue. </p>
-<p>Time complexity: O(h) + O(log n * log n) + O(log p) + O(t*log n + t*lr) + O(nlog n) where n is the number of schedules (lines in the classes_per_uc.csv file), p is the number of lines in the students.csv file, h is the number of classes of the student submitting the request and t, l, r are the variables seen in </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="class_schedule_manager.html#a0b8d401656962163906cbbce56d6aaa9" title="Function that verifies if a given request has a conflict with the schedule of a given student.">requestHasCollision()</a> </dd></dl>
+<p>Time complexity: O(h) + O(log n * log n) + O(log p) + O(t*log n + t*lr) + O(nlog n) where n is the number of schedules (lines in the classes_per_uc.csv file), p is the number of lines in the students.csv file, h is the number of classes of the student submitting the request, t is the number of classes the student is enrolled in, n is the number of lines in classes_per_uc.csv, l is the number of slots of the first class and r is the number of slots of the second class </p>
 
 </div>
 </div>
@@ -883,8 +883,7 @@ Time complexity: O(nlog n) where n is the number of schedules (lines in the clas
 
 <p>Function that verifies if a given request has a conflict with the schedule of a given student. </p>
 <p>A request has a conflict with the schedule if the class that student wants to enroll in causes a conflict with any of the current classes of the student<br  />
- Time complexity: O(t*log n + t*lr) where t is the number of classes the student is enrolled in, and n, l, r are the variables seen in </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="class_schedule_manager.html#a06b376824c01bf9727025ac878f3506d" title="Function that verifies if the schedule of two given classes have a conflict.">classesOverlap()</a> </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
+ Time complexity: O(t*log n + t*lr) where t is the number of classes the student is enrolled in, n is the number of lines in classes_per_uc.csv, l is the number of slots of the first class and r is the number of slots of the second class </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">request</td><td></td></tr>
   </table>

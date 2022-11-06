@@ -355,7 +355,8 @@ void App::checkUcStudents() const{
 /**
  * @brief Function that processes all pending changingRequests
  * @details Time complexity: Time complexity: O(h) + O(log n * log n) + O(log p) + O(t*log n + t*lr) + O(nlog n) where n is the number of schedules (lines in the classes_per_uc.csv file),
- * p is the number of lines in the students.csv file, h is the number of classes of the student submitting the request and t, l, r are the variables seen in @see requestHasCollision()
+ * p is the number of lines in the students.csv file, h is the number of classes of the student submitting the request,
+ * t is the number of classes the student is enrolled in, n is the number of lines in classes_per_uc.csv, l is the number of slots of the first class
  */
 void App::processPendingRequests() {
     string s;
