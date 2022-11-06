@@ -223,7 +223,11 @@ int ScheduleManager::getNumberOfStudentsUcClass(const UcClass &ucClass) const{
     return findSchedule(ucClass)->getStudents().size();
 }
 
-int ScheduleManager::getNumberOfRequests() const {
+/**
+ * @brief Function that returns the number of pending requests
+ * @details Time complexity: O(1)
+ */
+int ScheduleManager::getNumberOfPendingRequests() const {
     return changingRequests.size() + enrollmentRequests.size() + removalRequests.size();
 }
 

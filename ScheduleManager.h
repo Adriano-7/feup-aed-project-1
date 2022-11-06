@@ -27,7 +27,7 @@ class ScheduleManager {
         vector<Student> studentsOfUc(const string &ucId) const;
         int getNumberOfStudentsUc(const string &ucId) const;
         int getNumberOfStudentsUcClass(const UcClass &ucClass) const;
-        int getNumberOfRequests() const;
+        int getNumberOfPendingRequests() const;
         UcClass getFormerClass(const Request &request) const;
 
         void addChangingRequest(const Student &student, const UcClass &ucClass);
