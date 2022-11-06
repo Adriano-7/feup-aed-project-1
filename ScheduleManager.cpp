@@ -468,29 +468,6 @@ void ScheduleManager::printRejectedRequests() const {
 }
 
 /**
- * @brief Function the organizes the slots in weekdays
- * @details The slots are organized in a vector in which the index is associated with the weekday.
- * The index 0 is associated with Monday, 1 with Tuesday, 2 with Wednesday...
- * Time complexity: O(n)
- */
-void insertIntoWeek(vector<vector<pair<string, Slot>>> &weekdays , const vector<pair<string, Slot>> &slots) {
-    for (const pair<string, Slot> &slot: slots) {
-        if (slot.second.getWeekDay() == "Monday") {
-            weekdays[0].push_back(slot);
-        } else if (slot.second.getWeekDay() == "Tuesday") {
-            weekdays[1].push_back(slot);
-        } else if (slot.second.getWeekDay() == "Wednesday") {
-            weekdays[2].push_back(slot);
-        } else if (slot.second.getWeekDay() == "Thursday") {
-            weekdays[3].push_back(slot);
-        } else if (slot.second.getWeekDay() == "Friday") {
-            weekdays[4].push_back(slot);
-        }
-    }
-}
-
-
-/**
  * @brief  Function converts decimal time to string
  * @details Time complexity: O(1)
  * @param weekdays
@@ -513,54 +490,6 @@ string ucIdToString(string ucId) {
     return name[ucId];
 }
 
-
-/**
- * @brief Function that prints the schedule of a given student
- * @details Time complexity: O(n²log n)
- * @param studentId
- */
-void ScheduleManager::printStudentSchedule(const string &studentId) const {
-    system("clear");
-    Student* student = findStudent(studentId);  // O(log n)
-
-    if(student == nullptr){
-        cout << ">> Student not found" << endl;
-        return;
-    }
-    vector<vector<pair<string, Slot>>> weekdays(5);
-    vector<UcClass> studentClasses = student->getClasses();
-
-    vector<string> weekdaysNames = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday"};
-
-    cout << endl <<  ">> The student " << student->getName() << " with UP number " << student->getId()
-         << " is enrolled in the following classes:" << endl << "   ";
-
-    student->printClasses();        // O(n)
-
-    for (const UcClass &ucClass: studentClasses) { // O(n²)
-        ClassSchedule *cs = findSchedule(ucClass); // O(log n)
-        vector<pair<string, Slot>> slots;
-        for (const Slot &slot: cs->getSlots()) {
-            slots.emplace_back(cs->getUcClass().getUcId(), slot);
-        }
-        insertIntoWeek(weekdays, slots);
-    }
-
-    cout << endl << ">> The student's schedule is:" << endl;
-    for (int i = 0; i < weekdays.size(); i++) { // O(n²log n)
-        sort(weekdays[i].begin(), weekdays[i].end(), [](const pair<string, Slot> &a, const pair<string, Slot> &b) { // O(n log n)
-            return a.second.getStartTime() < b.second.getStartTime();
-        });
-        cout << "   >> " << weekdaysNames[i] << ": " << endl;
-
-        for (const pair<string, Slot> &slot: weekdays[i]) { // O(n)
-            cout << "      " << slot.first<< " - " << ucIdToString(slot.first) << "   " << decimalToHours(slot.second.getStartTime()) << " to "
-                 << decimalToHours(slot.second.getEndTime())
-                 << "   " << slot.second.getType() << endl;
-        }
-    }
-}
-
 struct compareDayWeek
 {
     bool operator()(const string d1, const string d2) const
@@ -569,6 +498,49 @@ struct compareDayWeek
         return days[d1] < days[d2];
     }
 };
+
+/**
+ * @brief Function that prints the schedule of a given student
+ * @details Time complexity: O()
+ * @param studentId
+ */
+
+void ScheduleManager::printStudentSchedule(const std::string &studentId) const {
+    system("clear");
+    Student* student = findStudent(studentId);
+    if(student == nullptr) {
+        cout << "Student not found!" << endl;
+        return;
+    }
+
+    //Maps a weekday to a pair of slot/ucId (weekdays and slots are ordered because of map)
+    map<string, map<Slot, vector<string>>, compareDayWeek> weekdaySlot;
+    vector<UcClass> studentClasses = student->getClasses();
+
+    for (const UcClass &ucClass: studentClasses) {
+        ClassSchedule *cs = findSchedule(ucClass);
+        for(const Slot &slot: cs->getSlots()){
+            weekdaySlot[slot.getWeekDay()][slot].push_back(ucClass.getUcId());
+        }
+    }
+    cout << endl <<  ">> The student " << student->getName() << " with UP number " << student->getId()
+    << " is enrolled in the following classes:" << endl << "   ";
+    student->printClasses();
+
+    cout << endl << ">> The student's schedule is:" << endl;
+
+    for(const auto &weekday: weekdaySlot) {
+        cout << "   >> " << weekday.first << ": " << endl;
+        for (const auto &slot: weekday.second) {
+            cout << "      " << decimalToHours(slot.first.getStartTime()) << " to "
+                 << decimalToHours(slot.first.getEndTime()) << "\t" << slot.first.getType() << "\t";
+            for (const string &classId: slot.second) {
+                cout << ucIdToString(classId) << " - "<< classId << " ";
+            }
+            cout << endl;
+        }
+    }
+}
 
 /**
  * @brief Function that prints the schedule of a given class

@@ -4,6 +4,13 @@
 
 using namespace std;
 
+Slot::Slot(){
+    weekDay = "";
+    startTime = 0;
+    endTime = 0;
+    type = "";
+}
+
 /**
  * @brief Class constructor that sets weekDay, startTime, endtime(startTime+duration) and type
  * @details Time complexity: O(1)
