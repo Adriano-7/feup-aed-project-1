@@ -27,6 +27,7 @@ class ScheduleManager {
         vector<Student> studentsOfUc(const string &ucId) const;
         int getNumberOfStudentsUc(const string &ucId) const;
         int getNumberOfStudentsUcClass(const UcClass &ucClass) const;
+        int getNumberOfPendingRequests() const;
         UcClass getFormerClass(const Request &request) const;
 
         void addChangingRequest(const Student &student, const UcClass &ucClass);
@@ -50,8 +51,7 @@ class ScheduleManager {
         void printClassStudents(const UcClass &ucClass, const string &orderType) const;
         void printUcStudents(const string &ucId,  const string &sortType) const;
 
-
-private:
+    private:
         /** @brief Set that stores all the students */
         set<Student> students;
         /** @brief Vector that stores all the schedules */

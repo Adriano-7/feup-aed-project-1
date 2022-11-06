@@ -224,6 +224,14 @@ int ScheduleManager::getNumberOfStudentsUcClass(const UcClass &ucClass) const{
 }
 
 /**
+ * @brief Function that returns the number of pending requests
+ * @details Time complexity: O(1)
+ */
+int ScheduleManager::getNumberOfPendingRequests() const {
+    return changingRequests.size() + enrollmentRequests.size() + removalRequests.size();
+}
+
+/**
  * @brief Function that returns the UcClass that the student is currently enrolled in
  * @details Time complexity: O(h) where h is the number of classes the student is enrolled in @see Student::findUcClass()
  */
@@ -450,19 +458,19 @@ void ScheduleManager::writeFiles() const {
 void ScheduleManager::printPendingRequests() const {
     system("clear");
     queue<Request> pendingRemovalRequests = removalRequests;
-    cout << endl << ">> Pending removal requests:" << endl;
+    cout << endl << ">> Removal requests (" << pendingRemovalRequests.size() << "):" << endl;
     while (!pendingRemovalRequests.empty()) { //O(v)
         cout << "   "; pendingRemovalRequests.front().printHeader();
         pendingRemovalRequests.pop();
     }
     queue<Request> pendingChangingRequests = changingRequests;
-    cout << endl << ">> Pending changing requests:" << endl;
+    cout << endl << ">> Changing requests (" << pendingChangingRequests.size() << "):" << endl;
     while (!pendingChangingRequests.empty()) { //O(w)
         cout << "   "; pendingChangingRequests.front().printHeader();
         pendingChangingRequests.pop();
     }
     queue<Request> pendingEnrollmentRequests = enrollmentRequests;
-    cout << endl << ">> Pending enrollment requests:" << endl;
+    cout << endl << ">> Enrollment requests (" << pendingEnrollmentRequests.size() << "):" << endl;
     while (!pendingEnrollmentRequests.empty()) { //O(z)
         cout << "   "; pendingEnrollmentRequests.front().printHeader();
         pendingEnrollmentRequests.pop();
@@ -501,7 +509,7 @@ string decimalToHours(int decimal){
  * @brief Function that given the ucId returns the uc initials
  * @details Time complexity: O(1)
  */
-string ucIdToString(string ucId) {
+string ucIdToString(const string &ucId) {
     /** Maps ucId to uc abbreviation */
     map<string, string> name = {{"L.EIC001", "ALGA"}, {"L.EIC002", "AM I"}, {"L.EIC003", "FP"}, {"L.EIC004", "FSC"}, {"L.EIC005", "MD"}, {"L.EIC011", "AED"}, {"L.EIC012", "BD"}, {"L.EIC013", "F II"}, {"L.EIC014", "LDTS"}, {"L.EIC015", "SO"}, {"L.EIC021", "FSI"}, {"L.EIC022", "IPC"}, {"L.EIC023", "LBAW"}, {"L.EIC024", "PFL"}, {"L.EIC025", "RC"}};
     return name[ucId];
@@ -509,7 +517,7 @@ string ucIdToString(string ucId) {
 
 struct compareDayWeek
 {
-    bool operator()(const string d1, const string d2) const
+    bool operator()(const string &d1, const string &d2) const
     {
         map <string, int> days = {{"Monday", 1}, {"Tuesday", 2}, {"Wednesday", 3}, {"Thursday", 4}, {"Friday", 5}, {"Saturday", 6}, {"Sunday", 7}};
         return days[d1] < days[d2];
