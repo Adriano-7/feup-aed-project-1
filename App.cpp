@@ -359,6 +359,11 @@ void App::checkUcStudents() const{
  * t is the number of classes the student is enrolled in, n is the number of lines in classes_per_uc.csv, l is the number of slots of the first class
  */
 void App::processPendingRequests() {
+    if(manager.getNumberOfRequests() == 0){
+        cout << ">> There are no pending requests." << endl;
+        waitForInput();
+        return;
+    }
     string s;
     cout << "Do you want to see all pending changingRequests first? (y/n) "; cin >> s; cout << endl;
     if(s == "y" || s == "Y"){
@@ -394,6 +399,11 @@ void App::waitForInput() const{
  * @details Time complexity: Time complexity: O(v)+O(w)+O(z) where v is the number of removal request, w is the number of changing requests and z is the number of enrollment requests
  */
 void App::printPendingRequests() const {
+    if(manager.getNumberOfRequests() == 0){
+        cout << ">> There are no pending requests." << endl;
+        waitForInput();
+        return;
+    }
     manager.printPendingRequests();
     waitForInput();
 }
