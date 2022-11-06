@@ -544,41 +544,41 @@ void ScheduleManager::printStudentSchedule(const std::string &studentId) const {
 
 /**
  * @brief Function that prints the schedule of a given class
- * @details Time complexity: O(n²log n)
+ * @details Time complexity: O()
  * @param classCode
  */
-void ScheduleManager::printClassSchedule(const string &classCode) const{
+
+void ScheduleManager::printClassSchedule(const std::string &classCode) const {
     system("clear");
-    struct slotUcID{Slot slot; string ucID;};
-    map<string, vector<slotUcID>, compareDayWeek> slots;
-    for(const ClassSchedule &cs : schedules){   // O(n²)
+
+    //maps a weekday to a pair Slot/ucId. Because we use a map it automatically sorts the weekdays and slots
+
+    map<string, map<Slot, vector<string>>, compareDayWeek> weekdaySlot;
+
+    for(const ClassSchedule &cs: schedules){
         if(cs.getUcClass().getClassId() == classCode){
-            for(const Slot &slot : cs.getSlots()){
-                slotUcID hey = {slot, cs.getUcClass().getUcId()};
-                slots[slot.getWeekDay()].push_back(hey);
+            for(const Slot &slot: cs.getSlots()){
+                weekdaySlot[slot.getWeekDay()][slot].push_back(cs.getUcClass().getUcId());
             }
         }
     }
 
-    if(slots.empty()){
-        cout<<">> Class not found"<<endl;
-        return;
-    }
+    if(weekdaySlot.empty()) {cout<<">> Class not found"<<endl; return;}
 
     cout << ">> The schedule for the class " << classCode << " is:" << endl;
-    vector<string> weekdays {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday"};
-    for(const string &weekday : weekdays){
-        cout << "   >> " << weekday << ": " << endl;
-        vector<slotUcID> slotsWeekday = slots[weekday];
-        sort(slotsWeekday.begin(),slotsWeekday.end(), [](const slotUcID &s1, const slotUcID &s2){       // O(n log n)
-                                                        return s1.slot.getStartTime() < s2.slot.getStartTime();
-        });
-        for(const slotUcID &slotId : slotsWeekday){
-            cout << "      " << decimalToHours(slotId.slot.getStartTime()) << " to " << decimalToHours(slotId.slot.getEndTime()) << "\t" << slotId.ucID <<  "\t" << slotId.slot.getType() << endl;
+    for(const auto &weekday: weekdaySlot) {
+        cout << "   >> " << weekday.first << ": " << endl;
+        for (const auto &slot: weekday.second) {
+            cout << "      " << decimalToHours(slot.first.getStartTime()) << " to "
+                 << decimalToHours(slot.first.getEndTime()) << "\t" << slot.first.getType() << "\t";
+            for (const string &classId: slot.second) {
+                cout << ucIdToString(classId) << " - "<< classId << " ";
+            }
+            cout << endl;
         }
     }
-}
 
+}
 
 /**
  * @brief Function that print the schedule of a given uc
