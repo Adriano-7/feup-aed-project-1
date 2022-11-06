@@ -32,7 +32,7 @@ class ScheduleManager {
         void addChangingRequest(const Student &student, const UcClass &ucClass);
         void addEnrollmentRequest(const Student &student, const UcClass &ucClass);
         void addRemovalRequest(const Student &student, const UcClass &ucClass);
-        bool classesCollide(const UcClass &c1, const UcClass &c2) const;
+        bool classesOverlap(const UcClass &c1, const UcClass &c2) const;
         bool requestHasCollision(const Request &request) const;
         bool requestExceedsCap(const Request &request) const;
         bool requestProvokesDisequilibrium(const Request &request) const;

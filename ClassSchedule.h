@@ -19,7 +19,7 @@ class ClassSchedule {
         void addSlot(const Slot &slot);
         void addStudent(const Student &student);
         void removeStudent(const Student &student);
-        bool sameUC(const ClassSchedule &other) const;
+        bool sameUcId(const ClassSchedule &other) const;
 
         void printHeader() const;
         void printSlots() const;

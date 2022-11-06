@@ -12,7 +12,7 @@ class UcClass{
     public:
         UcClass();
         UcClass(const string &ucId, const string &classId);
-        bool sameUC(const UcClass &other) const;
+        bool sameUcId(const UcClass &other) const;
         string getUcId() const;
         string getClassId() const;
         string ucIdToString() const;

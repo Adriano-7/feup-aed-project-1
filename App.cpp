@@ -233,6 +233,7 @@ void App::submitChangingRequest(Student* student) {
     }
     manager.addChangingRequest(*student, UcClass(ucCode, classCode));
     cout << ">> Request submitted successfully." << endl;
+    waitForInput();
 }
 
 /**
@@ -259,6 +260,7 @@ void App::submitEnrollmentRequest(Student *student) {
     }
     manager.addEnrollmentRequest(*student, UcClass(ucCode, classCode));
     cout << ">> Request submitted successfully." << endl;
+    waitForInput();
 }
 
 /**
@@ -283,6 +285,7 @@ void App::submitRemovalRequest(Student *student) {
         }
     }
     cout << ">> Request submitted successfully." << endl;
+    waitForInput();
 }
 
 

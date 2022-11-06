@@ -8,7 +8,7 @@ digraph "Request"
   Node2 -> Node1 [color="grey25",fontsize="10",style="solid",label=" -type" ,arrowhead="odiamond",fontname="Helvetica"];
   Node2 [label="{string\n||}",height=0.2,width=0.4,color="grey75",tooltip=" "];
   Node3 -> Node1 [color="grey25",fontsize="10",style="solid",label=" -desiredUcClass" ,arrowhead="odiamond",fontname="Helvetica"];
-  Node3 [label="{UcClass\n||+ UcClass()\l+ UcClass()\l+ sameUC()\l+ getUcId()\l+ getClassId()\l+ operator==()\l+ operator\<()\l+ operator\>()\l}",height=0.2,width=0.4,color="black",URL="$class_uc_class.html",tooltip="Class to store the information about a given class in a UC."];
+  Node3 [label="{UcClass\n||+ UcClass()\l+ UcClass()\l+ sameUcId()\l+ getUcId()\l+ getClassId()\l+ operator==()\l+ operator\<()\l+ operator\>()\l}",height=0.2,width=0.4,color="black",URL="$class_uc_class.html",tooltip="Class to store the information about a given class in a UC."];
   Node2 -> Node3 [color="grey25",fontsize="10",style="solid",label=" -classId\n-ucId" ,arrowhead="odiamond",fontname="Helvetica"];
   Node4 -> Node1 [color="grey25",fontsize="10",style="solid",label=" -student" ,arrowhead="odiamond",fontname="Helvetica"];
   Node4 [label="{Student\n||+ Student()\l+ Student()\l+ addClass()\l+ changeClass()\l+ removeSubject()\l+ addSubject()\l+ isEnrolled()\l+ printHeader()\l+ printClasses()\l+ print()\l+ getId()\l+ getName()\l+ getClasses()\l+ operator==()\l+ operator\<()\l+ operator\>()\l}",height=0.2,width=0.4,color="black",URL="$class_student.html",tooltip="Class to store the information about a given student."];

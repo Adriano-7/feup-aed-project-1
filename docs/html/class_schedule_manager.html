@@ -86,13 +86,15 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:ac323a75c9918f4c429cde88103f99ad0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads the files and creates the objects.  <a href="class_schedule_manager.html#ac323a75c9918f4c429cde88103f99ad0">More...</a><br /></td></tr>
 <tr class="separator:ac323a75c9918f4c429cde88103f99ad0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a730be2ab6c4e3f1bc7ba3d11ba75018f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_schedule_manager.html#a730be2ab6c4e3f1bc7ba3d11ba75018f">createSchedules</a> ()</td></tr>
-<tr class="memdesc:a730be2ab6c4e3f1bc7ba3d11ba75018f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads the file "classes_per_uc.csv" and creates a vector of schedules with only the uc code and the class code.  <a href="class_schedule_manager.html#a730be2ab6c4e3f1bc7ba3d11ba75018f">More...</a><br /></td></tr>
+<tr class="memdesc:a730be2ab6c4e3f1bc7ba3d11ba75018f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads the file "classes_per_uc.csv" and creates a vector of schedules with only UcCLass (without students or slots)  <a href="class_schedule_manager.html#a730be2ab6c4e3f1bc7ba3d11ba75018f">More...</a><br /></td></tr>
 <tr class="separator:a730be2ab6c4e3f1bc7ba3d11ba75018f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa9cd7c49b7db003fdec970845b7c72bf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_schedule_manager.html#aa9cd7c49b7db003fdec970845b7c72bf">setSchedules</a> ()</td></tr>
-<tr class="memdesc:aa9cd7c49b7db003fdec970845b7c72bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads the file "classes.csv" and adds the slots to the schedules created in the previous function.  <a href="class_schedule_manager.html#aa9cd7c49b7db003fdec970845b7c72bf">More...</a><br /></td></tr>
+<tr class="memdesc:aa9cd7c49b7db003fdec970845b7c72bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads the file "classes.csv" and updates the vector schedules with information about the slots.  <a href="class_schedule_manager.html#aa9cd7c49b7db003fdec970845b7c72bf">More...</a><br /></td></tr>
 <tr class="separator:aa9cd7c49b7db003fdec970845b7c72bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7af2b6012df3cf98a4828a3ab26cd067"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_schedule_manager.html#a7af2b6012df3cf98a4828a3ab26cd067">createStudents</a> ()</td></tr>
-<tr class="memdesc:a7af2b6012df3cf98a4828a3ab26cd067"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads the students_classes.csv file and creates the students set.  <a href="class_schedule_manager.html#a7af2b6012df3cf98a4828a3ab26cd067">More...</a><br /></td></tr>
+<tr class="memitem:a7af2b6012df3cf98a4828a3ab26cd067"><td class="memItemLeft" align="right" valign="top"><a id="a7af2b6012df3cf98a4828a3ab26cd067"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_schedule_manager.html#a7af2b6012df3cf98a4828a3ab26cd067">createStudents</a> ()</td></tr>
+<tr class="memdesc:a7af2b6012df3cf98a4828a3ab26cd067"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads the file "students.csv" and creates/updates the student information and set of students @detailes Reads the students_classes.csv file, adds/updates the student information by adding the <a class="el" href="class_uc_class.html" title="Class to store the information about a given class in a UC.">UcClass</a> read in the file. It also inserts/updates the student in the set of students<br  />
+Time complexity: O(p log s), being p the number of lines in the file students_classes.csv and s the number of students. <br /></td></tr>
 <tr class="separator:a7af2b6012df3cf98a4828a3ab26cd067"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a00e0f3266ce65286c708e52fd6b20207"><td class="memItemLeft" align="right" valign="top">unsigned long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_schedule_manager.html#a00e0f3266ce65286c708e52fd6b20207">binarySearchSchedules</a> (const <a class="el" href="class_uc_class.html">UcClass</a> &amp;desiredUcCLass) const</td></tr>
 <tr class="memdesc:a00e0f3266ce65286c708e52fd6b20207"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that returns the index of the schedule with the ucClass passed as parameter.  <a href="class_schedule_manager.html#a00e0f3266ce65286c708e52fd6b20207">More...</a><br /></td></tr>
@@ -104,13 +106,13 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a6dc5261286d89b133d71d7f948c214da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that returns the schedule with the ucClass passed as parameter.  <a href="class_schedule_manager.html#a6dc5261286d89b133d71d7f948c214da">More...</a><br /></td></tr>
 <tr class="separator:a6dc5261286d89b133d71d7f948c214da"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a75eacc548d27f7eca10630a3da004e8b"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="class_class_schedule.html">ClassSchedule</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_schedule_manager.html#a75eacc548d27f7eca10630a3da004e8b">classesOfUc</a> (const string &amp;ucId) const</td></tr>
-<tr class="memdesc:a75eacc548d27f7eca10630a3da004e8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that gets all classes of a given uc.  <a href="class_schedule_manager.html#a75eacc548d27f7eca10630a3da004e8b">More...</a><br /></td></tr>
+<tr class="memdesc:a75eacc548d27f7eca10630a3da004e8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that returns a vector with the ClassSchedules of a given class.  <a href="class_schedule_manager.html#a75eacc548d27f7eca10630a3da004e8b">More...</a><br /></td></tr>
 <tr class="separator:a75eacc548d27f7eca10630a3da004e8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0d9fa79d84f745bdf79c8eb0a775e71f"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="class_student.html">Student</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_schedule_manager.html#a0d9fa79d84f745bdf79c8eb0a775e71f">studentsOfUc</a> (const string &amp;ucId) const</td></tr>
-<tr class="memdesc:a0d9fa79d84f745bdf79c8eb0a775e71f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that gets all students of a given uc.  <a href="class_schedule_manager.html#a0d9fa79d84f745bdf79c8eb0a775e71f">More...</a><br /></td></tr>
+<tr class="memdesc:a0d9fa79d84f745bdf79c8eb0a775e71f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that returns a vector with the students of a given class.  <a href="class_schedule_manager.html#a0d9fa79d84f745bdf79c8eb0a775e71f">More...</a><br /></td></tr>
 <tr class="separator:a0d9fa79d84f745bdf79c8eb0a775e71f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a084466f8e5168a373882886ec9f3ff1e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_schedule_manager.html#a084466f8e5168a373882886ec9f3ff1e">getNumberOfStudentsUc</a> (const string &amp;ucId) const</td></tr>
-<tr class="memdesc:a084466f8e5168a373882886ec9f3ff1e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that gets the number of students in a given uc.  <a href="class_schedule_manager.html#a084466f8e5168a373882886ec9f3ff1e">More...</a><br /></td></tr>
+<tr class="memdesc:a084466f8e5168a373882886ec9f3ff1e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that returns the number of students in a given uc.  <a href="class_schedule_manager.html#a084466f8e5168a373882886ec9f3ff1e">More...</a><br /></td></tr>
 <tr class="separator:a084466f8e5168a373882886ec9f3ff1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0f33a693d62c8f59e5b76b99ea164f80"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_schedule_manager.html#a0f33a693d62c8f59e5b76b99ea164f80">getNumberOfStudentsUcClass</a> (const <a class="el" href="class_uc_class.html">UcClass</a> &amp;ucClass) const</td></tr>
 <tr class="memdesc:a0f33a693d62c8f59e5b76b99ea164f80"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that gets the number of students in a given class of a given uc.  <a href="class_schedule_manager.html#a0f33a693d62c8f59e5b76b99ea164f80">More...</a><br /></td></tr>
@@ -127,14 +129,14 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a799e7c30e9ddd9da109eee350e2df476"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_schedule_manager.html#a799e7c30e9ddd9da109eee350e2df476">addRemovalRequest</a> (const <a class="el" href="class_student.html">Student</a> &amp;student, const <a class="el" href="class_uc_class.html">UcClass</a> &amp;ucClass)</td></tr>
 <tr class="memdesc:a799e7c30e9ddd9da109eee350e2df476"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that given a student and the ucClass he wants to withdraw from, adds the request to the queue of removalRequests.  <a href="class_schedule_manager.html#a799e7c30e9ddd9da109eee350e2df476">More...</a><br /></td></tr>
 <tr class="separator:a799e7c30e9ddd9da109eee350e2df476"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3baee18c837ff981d35dc965ba0f4ef2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_schedule_manager.html#a3baee18c837ff981d35dc965ba0f4ef2">classesCollide</a> (const <a class="el" href="class_uc_class.html">UcClass</a> &amp;c1, const <a class="el" href="class_uc_class.html">UcClass</a> &amp;c2) const</td></tr>
-<tr class="memdesc:a3baee18c837ff981d35dc965ba0f4ef2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that verifies if the schedule of two given classes have a conflict.  <a href="class_schedule_manager.html#a3baee18c837ff981d35dc965ba0f4ef2">More...</a><br /></td></tr>
-<tr class="separator:a3baee18c837ff981d35dc965ba0f4ef2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a06b376824c01bf9727025ac878f3506d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_schedule_manager.html#a06b376824c01bf9727025ac878f3506d">classesOverlap</a> (const <a class="el" href="class_uc_class.html">UcClass</a> &amp;c1, const <a class="el" href="class_uc_class.html">UcClass</a> &amp;c2) const</td></tr>
+<tr class="memdesc:a06b376824c01bf9727025ac878f3506d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that verifies if the schedule of two given classes have a conflict.  <a href="class_schedule_manager.html#a06b376824c01bf9727025ac878f3506d">More...</a><br /></td></tr>
+<tr class="separator:a06b376824c01bf9727025ac878f3506d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0b8d401656962163906cbbce56d6aaa9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_schedule_manager.html#a0b8d401656962163906cbbce56d6aaa9">requestHasCollision</a> (const <a class="el" href="class_request.html">Request</a> &amp;request) const</td></tr>
 <tr class="memdesc:a0b8d401656962163906cbbce56d6aaa9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that verifies if a given request has a conflict with the schedule of a given student.  <a href="class_schedule_manager.html#a0b8d401656962163906cbbce56d6aaa9">More...</a><br /></td></tr>
 <tr class="separator:a0b8d401656962163906cbbce56d6aaa9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa2539531558144899dc072fc928f1aa5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_schedule_manager.html#aa2539531558144899dc072fc928f1aa5">requestExceedsCap</a> (const <a class="el" href="class_request.html">Request</a> &amp;request) const</td></tr>
-<tr class="memdesc:aa2539531558144899dc072fc928f1aa5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that verifies if by changing to the new class, the student will exceed the cap.  <a href="class_schedule_manager.html#aa2539531558144899dc072fc928f1aa5">More...</a><br /></td></tr>
+<tr class="memdesc:aa2539531558144899dc072fc928f1aa5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that verifies if by changing to the new class, the student will exceed the max number of students allowed.  <a href="class_schedule_manager.html#aa2539531558144899dc072fc928f1aa5">More...</a><br /></td></tr>
 <tr class="separator:aa2539531558144899dc072fc928f1aa5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abeff6b944ebb843eff462946e83d8a22"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_schedule_manager.html#abeff6b944ebb843eff462946e83d8a22">requestProvokesDisequilibrium</a> (const <a class="el" href="class_request.html">Request</a> &amp;request) const</td></tr>
 <tr class="memdesc:abeff6b944ebb843eff462946e83d8a22"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that verifies if the change to the new class provokes disequilibrium.  <a href="class_schedule_manager.html#abeff6b944ebb843eff462946e83d8a22">More...</a><br /></td></tr>
@@ -222,7 +224,7 @@ vector&lt; pair&lt; <a class="el" href="class_request.html">Request</a>, string 
 </div><div class="memdoc">
 
 <p>Schedule Manager constructor. </p>
-<p>Creates a Schedule Manager with an empty set of students, a empty vector of schedules and empty queues<br  />
+<p>Creates a Schedule Manager with an empty set of students, a empty vector of schedules, empty queues of requests and an empty vector of rejectedRequests<br  />
 Time complexity: O(1) </p>
 
 </div>
@@ -255,7 +257,7 @@ Time complexity: O(1) </p>
 </div><div class="memdoc">
 
 <p>Function that given a student and the ucClass he wants to change to, adds the request to the queue of changingRequests. </p>
-<p>Time complexity: O(log n) </p>
+<p>Time complexity: O(1) </p>
 
 </div>
 </div>
@@ -286,7 +288,7 @@ Time complexity: O(1) </p>
 </div><div class="memdoc">
 
 <p>Function that given a student and the ucClass he wants to enroll in, adds the request to the queue of enrollmentRequests. </p>
-<p>Time complexity: O(log n) </p>
+<p>Time complexity: O(1) </p>
 
 </div>
 </div>
@@ -317,7 +319,7 @@ Time complexity: O(1) </p>
 </div><div class="memdoc">
 
 <p>Function that given a student and the ucClass he wants to withdraw from, adds the request to the queue of removalRequests. </p>
-<p>Time complexity: O(log n) </p>
+<p>Time complexity: O(1) </p>
 
 </div>
 </div>
@@ -345,39 +347,8 @@ Time complexity: O(1) </p>
   </dd>
 </dl>
 <p>Uses binary search to find the schedules <br  />
-Time complexity: O(log n) </p><dl class="section return"><dt>Returns</dt><dd>The index of the schedule with the ucClass passed as parameter </dd></dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="class_slot.html#a37f6b9454cc33928f757960ca5c45617" title="Checks if there is a conflict between two slots.">Slot::collides()</a> </dd></dl>
-
-</div>
-</div>
-<a id="a3baee18c837ff981d35dc965ba0f4ef2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3baee18c837ff981d35dc965ba0f4ef2">&#9670;&nbsp;</a></span>classesCollide()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool ScheduleManager::classesCollide </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="class_uc_class.html">UcClass</a> &amp;&#160;</td>
-          <td class="paramname"><em>c1</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="class_uc_class.html">UcClass</a> &amp;&#160;</td>
-          <td class="paramname"><em>c2</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Function that verifies if the schedule of two given classes have a conflict. </p>
-<p>Time complexity: O(n²) </p><dl class="section return"><dt>Returns</dt><dd>true if the classes have a conflict, false otherwise </dd></dl>
+Time complexity: O(log n) where n is the number of schedules(lines in the classes_per_uc.csv file) </p><dl class="section return"><dt>Returns</dt><dd>The index of the schedule with the ucClass passed as parameter </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="class_slot.html#a96e361b630aa3cd91e5f96c58267b183" title="Checks if two slots overlap.">Slot::overlaps()</a> </dd></dl>
 
 </div>
 </div>
@@ -397,14 +368,46 @@ Time complexity: O(log n) </p><dl class="section return"><dt>Returns</dt><dd>The
       </table>
 </div><div class="memdoc">
 
-<p>Function that gets all classes of a given uc. </p>
-<p>Time complexity: O(n) </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Function that returns a vector with the ClassSchedules of a given class. </p>
+<p>Time complexity: O(n) where n is the number of schedules(lines in the classes_per_uc.csv file) </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">ucCode</td><td></td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A vector with all the classes of a given uc </dd></dl>
+
+</div>
+</div>
+<a id="a06b376824c01bf9727025ac878f3506d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a06b376824c01bf9727025ac878f3506d">&#9670;&nbsp;</a></span>classesOverlap()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ScheduleManager::classesOverlap </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_uc_class.html">UcClass</a> &amp;&#160;</td>
+          <td class="paramname"><em>c1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_uc_class.html">UcClass</a> &amp;&#160;</td>
+          <td class="paramname"><em>c2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Function that verifies if the schedule of two given classes have a conflict. </p>
+<p>Two UcClasses have a conflict if any pair of slots of the two classes overlap <br  />
+ Time complexity: O(log n) + O(lr) where n is the number of lines in classes_per_uc.csv, l is the number of slots of the first class and r is the number of slots of the second class </p><dl class="section return"><dt>Returns</dt><dd>true if the classes have a conflict, false otherwise </dd></dl>
 
 </div>
 </div>
@@ -423,29 +426,8 @@ Time complexity: O(log n) </p><dl class="section return"><dt>Returns</dt><dd>The
       </table>
 </div><div class="memdoc">
 
-<p>Reads the file "classes_per_uc.csv" and creates a vector of schedules with only the uc code and the class code. </p>
-<p>Time complexity: O(n²) </p>
-
-</div>
-</div>
-<a id="a7af2b6012df3cf98a4828a3ab26cd067"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7af2b6012df3cf98a4828a3ab26cd067">&#9670;&nbsp;</a></span>createStudents()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void ScheduleManager::createStudents </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Reads the students_classes.csv file and creates the students set. </p>
-<p>The students are created with the student id, name and the classes they are enrolled in<br  />
-Time complexity: O(n²) </p>
+<p>Reads the file "classes_per_uc.csv" and creates a vector of schedules with only UcCLass (without students or slots) </p>
+<p>Time complexity: O(n), being n the number of lines in the file "classes_per_uc.csv" (which happens to be the number of schedules) </p>
 
 </div>
 </div>
@@ -466,7 +448,8 @@ Time complexity: O(n²) </p>
 </div><div class="memdoc">
 
 <p>Function that returns the schedule with the ucClass passed as parameter. </p>
-<p>Time complexity: O(log n) </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Time complexity: O(log n) where n is the number of schedules(lines file classes_per_uc.csv) </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="class_schedule_manager.html#a00e0f3266ce65286c708e52fd6b20207" title="Function that returns the index of the schedule with the ucClass passed as parameter.">binarySearchSchedules()</a> </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">ucClass</td><td></td></tr>
   </table>
@@ -492,7 +475,7 @@ Time complexity: O(n²) </p>
 </div><div class="memdoc">
 
 <p>Function that returns the student with the ID passed as parameter. </p>
-<p>Time complexity: O(log n) </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Time complexity: O(log p) where p is the number of students in the set of students </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">studentId</td><td></td></tr>
   </table>
@@ -518,7 +501,7 @@ Time complexity: O(n²) </p>
 </div><div class="memdoc">
 
 <p>Function that returns the <a class="el" href="class_uc_class.html" title="Class to store the information about a given class in a UC.">UcClass</a> that the student is currently enrolled in. </p>
-<p>Time complexity: O(n) </p>
+<p>Time complexity: O(h) where h is the number of classes the student is enrolled in </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="class_student.html#ab69cb3eb50c79c250528bda863428fa0" title="Given a Uc finds the pair UcClass of the student.">Student::findUcClass()</a> </dd></dl>
 
 </div>
 </div>
@@ -538,8 +521,9 @@ Time complexity: O(n²) </p>
       </table>
 </div><div class="memdoc">
 
-<p>Function that gets the number of students in a given uc. </p>
-<p>Time complexity: O(n²) </p>
+<p>Function that returns the number of students in a given uc. </p>
+<p>returns the size of the vector studentsOfUc <br  />
+Time complexity: O(n) + O(jq) </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="class_schedule_manager.html#a0d9fa79d84f745bdf79c8eb0a775e71f" title="Function that returns a vector with the students of a given class.">studentsOfUc()</a> </dd></dl>
 
 </div>
 </div>
@@ -560,7 +544,7 @@ Time complexity: O(n²) </p>
 </div><div class="memdoc">
 
 <p>Function that gets the number of students in a given class of a given uc. </p>
-<p>Time complexity: O(log n) </p>
+<p>Time complexity: O(log n) being n the number of schedules, </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="class_schedule_manager.html#a6dc5261286d89b133d71d7f948c214da" title="Function that returns the schedule with the ucClass passed as parameter.">findSchedule()</a> </dd></dl>
 
 </div>
 </div>
@@ -637,7 +621,7 @@ Time complexity: O(n²) </p>
 </div><div class="memdoc">
 
 <p>Function that prints all changingRequests in the queue. </p>
-<p>Time complexity: O(n log n) </p>
+<p>Time complexity: O(v)+O(w)+O(z) where v is the number of removal request, w is the number of changing requests and z is the number of enrollment requests </p>
 
 </div>
 </div>
@@ -657,7 +641,7 @@ Time complexity: O(n²) </p>
 </div><div class="memdoc">
 
 <p>Function that prints all the rejected changingRequests. </p>
-<p>Time complexity: O(n) </p>
+<p>Time complexity: O(a) where a is the number of rejected requests </p>
 
 </div>
 </div>
@@ -766,7 +750,8 @@ Time complexity: O(n²) </p>
 </div><div class="memdoc">
 
 <p>Function that processes the changingRequests in the queue. </p>
-<p>Time complexity: </p>
+<p>if the request has any problem (conflict, disequilibrium, cap exceeded) it is added to the queue of failedRequests, otherwise it is processed and the student is removed from the former class and added to the new class<br  />
+Time complexity: O(t*log n + t*lr) + O(nlog n) where n is the number of schedules (lines in the classes_per_uc.csv file) t, l, r are the variables seen in </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="class_schedule_manager.html#a0b8d401656962163906cbbce56d6aaa9" title="Function that verifies if a given request has a conflict with the schedule of a given student.">requestHasCollision()</a> </dd></dl>
 
 </div>
 </div>
@@ -787,7 +772,7 @@ Time complexity: O(n²) </p>
 </div><div class="memdoc">
 
 <p>Function that processes the enrollmentRequests in the queue. </p>
-<p>Time complexity: O(n³) </p>
+<p>Time complexity: O(t*log n + t*lr) + O(nlog n) + O(log p) where n is the number of schedules (lines in the classes_per_uc.csv file), p is the number of lines in the students.csv file and t, l, r are the variables seen in </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="class_schedule_manager.html#a0b8d401656962163906cbbce56d6aaa9" title="Function that verifies if a given request has a conflict with the schedule of a given student.">requestHasCollision()</a> </dd></dl>
 
 </div>
 </div>
@@ -809,7 +794,7 @@ Time complexity: O(n²) </p>
 
 <p>Function that processes the removalRequests in the queue. </p>
 <p>A Removal request is always accepted<br  />
-Time complexity: O(n) </p>
+Time complexity: O(h) + O(log n * log n) + O(log p) where n is the number of schedules (lines in the classes_per_uc.csv file), p is the number of lines in the students.csv file and h is the number of classes of the student submitting the request </p>
 
 </div>
 </div>
@@ -829,7 +814,7 @@ Time complexity: O(n) </p>
 </div><div class="memdoc">
 
 <p>Function that processes all changingRequests in the queue. </p>
-<p>Time complexity: O(n³) </p>
+<p>Time complexity: O(h) + O(log n * log n) + O(log p) + O(t*log n + t*lr) + O(nlog n) where n is the number of schedules (lines in the classes_per_uc.csv file), p is the number of lines in the students.csv file, h is the number of classes of the student submitting the request and t, l, r are the variables seen in </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="class_schedule_manager.html#a0b8d401656962163906cbbce56d6aaa9" title="Function that verifies if a given request has a conflict with the schedule of a given student.">requestHasCollision()</a> </dd></dl>
 
 </div>
 </div>
@@ -849,7 +834,11 @@ Time complexity: O(n) </p>
 </div><div class="memdoc">
 
 <p>Reads the files and creates the objects. </p>
-<p>Time complexity: O(n²) </p>
+<p>Time complexity: O(n) + O(m log n) + O(p log n) being n the number of lines in the file classes_per_uc, m the number of lines in the file classes.csv and p the number of lines in the file student_classes.csv </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="class_schedule_manager.html#a730be2ab6c4e3f1bc7ba3d11ba75018f" title="Reads the file &quot;classes_per_uc.csv&quot; and creates a vector of schedules with only UcCLass (without stud...">createSchedules()</a> </dd>
+<dd>
+<a class="el" href="class_schedule_manager.html#aa9cd7c49b7db003fdec970845b7c72bf" title="Reads the file &quot;classes.csv&quot; and updates the vector schedules with information about the slots.">setSchedules()</a> </dd>
+<dd>
+<a class="el" href="class_schedule_manager.html#a7af2b6012df3cf98a4828a3ab26cd067" title="Reads the file &quot;students.csv&quot; and creates/updates the student information and set of students @detail...">createStudents()</a> </dd></dl>
 
 </div>
 </div>
@@ -869,9 +858,9 @@ Time complexity: O(n) </p>
       </table>
 </div><div class="memdoc">
 
-<p>Function that verifies if by changing to the new class, the student will exceed the cap. </p>
-<p>Each Uc has a maximum number of students that can be enrolled in a class(Cap). In our program we set the cap to be the maximum number of students currently enrolled in a single class of a given Uc.<br  />
- Time complexity: O(nlog n) </p>
+<p>Function that verifies if by changing to the new class, the student will exceed the max number of students allowed. </p>
+<p>The cap (maximum number of students in a class) is set to be the maximum number of students currently enrolled in q class. If all classes have the same number of students (and therefor the cap wouldn't allow a new student to enroll), the cap is set to the maximum number of students in a class + 1.<br  />
+Time complexity: O(nlog n) where n is the number of schedules (lines in the classes_per_uc.csv file) </p>
 
 </div>
 </div>
@@ -892,8 +881,9 @@ Time complexity: O(n) </p>
 </div><div class="memdoc">
 
 <p>Function that verifies if a given request has a conflict with the schedule of a given student. </p>
-<p>A request has a conflict with the schedule if the class of the request has a conflict with any of the current classes of the student<br  />
- Time complexity: O(n³) </p><dl class="params"><dt>Parameters</dt><dd>
+<p>A request has a conflict with the schedule if the class that student wants to enroll in causes a conflict with any of the current classes of the student<br  />
+ Time complexity: O(t*log n + t*lr) where t is the number of classes the student is enrolled in, and n, l, r are the variables seen in </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="class_schedule_manager.html#a06b376824c01bf9727025ac878f3506d" title="Function that verifies if the schedule of two given classes have a conflict.">classesOverlap()</a> </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">request</td><td></td></tr>
   </table>
@@ -921,7 +911,7 @@ Time complexity: O(n) </p>
 
 <p>Function that verifies if the change to the new class provokes disequilibrium. </p>
 <p>In our program we say disequilibrium occurs if by changing to the new class the difference between the number of students of the classes he comes from and goes to is greater than 4. If he comes from a class with more students to a class with less students it doesn't provoke disequilibrium.\ If he comes from a class with less students to a class with more students it does provoke disequilibrium if the difference of the number of students is 4 or greater.<br  />
-Time complexity: O(nlog n) </p>
+ Time complexity: O(log n) where n is the number of schedules (lines in the classes_per_uc.csv file) </p>
 
 </div>
 </div>
@@ -940,8 +930,8 @@ Time complexity: O(nlog n) </p>
       </table>
 </div><div class="memdoc">
 
-<p>Reads the file "classes.csv" and adds the slots to the schedules created in the previous function. </p>
-<p>Time complexity: O(n²) </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="class_schedule_manager.html#a730be2ab6c4e3f1bc7ba3d11ba75018f" title="Reads the file &quot;classes_per_uc.csv&quot; and creates a vector of schedules with only the uc code and the c...">createSchedules()</a> </dd></dl>
+<p>Reads the file "classes.csv" and updates the vector schedules with information about the slots. </p>
+<p>Time complexity: O(m log n), being m the number of lines in the file classes.csv (number of slots) and n the number of schedules as seen previously </p>
 
 </div>
 </div>
@@ -961,14 +951,14 @@ Time complexity: O(nlog n) </p>
       </table>
 </div><div class="memdoc">
 
-<p>Function that gets all students of a given uc. </p>
-<p>Time complexity: O(n²) </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Function that returns a vector with the students of a given class. </p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">ucCode</td><td></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>A vector with all the students of a given uc </dd></dl>
+<p>O(n) + O(jq) where n is the number of schedules(lines in classes_per_uc.csv file), j the number of ClassSchedules with a given ucId and q the number of students in a given <a class="el" href="class_class_schedule.html" title="Class that represents a schedule for a class in a given Course, with a vector of slots and a set of s...">ClassSchedule</a> cs </p><dl class="section return"><dt>Returns</dt><dd>A vector with all the students of a given uc </dd></dl>
 
 </div>
 </div>
@@ -988,7 +978,7 @@ Time complexity: O(nlog n) </p>
 </div><div class="memdoc">
 
 <p>Function that writes all information to the files. </p>
-<p>Time complexity: O(n²) </p>
+<p>Time complexity: O(st) where s is the number of students in the set and t is the number of classes of each student </p>
 
 </div>
 </div>

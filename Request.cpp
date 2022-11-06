@@ -2,7 +2,7 @@
 
 
 /**
-* @brief Constructor of the Request class
+* @brief Constructor of the Request class. If the type of Request is not valid, it type is set to be empty string.
 * @details Time complexity: O(1)
 * @param student Student that made the request
 * @param desiredClass Class that the student wants to enroll in
@@ -15,13 +15,13 @@ Request::Request(const Student &student, const UcClass &desiredClass, const stri
 }
 
 /**
- * @brief Prints the header of the request (student name, student number, if type is removal -> Requested subject, else requested class)
+ * @brief Prints the header of the request (student name, student number, if type is removal -> Requested Uc, else requested class)
  * @details Time complexity: O(1)
  */
 
 void Request::printHeader() const{
     cout << "Student: " << student.getName() << " - "<< student.getId() <<  "  |  ";
-    if(type == "Removal") cout << "Requested subject: " << desiredUcClass.getUcId();
+    if(type == "Removal") cout << "Requested Uc: " << desiredUcClass.getUcId();
     else{
         cout << "Requested class: " << desiredUcClass.getUcId() << " - " << desiredUcClass.getClassId();
     }
@@ -29,7 +29,8 @@ void Request::printHeader() const{
 
 /**
  * @brief Prints the request
- * @details Time complexity: O(1)
+ * @details calls printHeader() and then prints the type of the request
+ * Time complexity: O(1)
  */
 void Request::print() const {
     printHeader();
@@ -37,7 +38,7 @@ void Request::print() const {
 }
 
 /**
-* @brief Getter of the student that made the request
+* @brief Returns the student that made the request
 * @details Time complexity: O(1)
 * @return Student that made the request
 */
@@ -46,7 +47,7 @@ Student Request::getStudent() const {
 }
 
 /**
-* @brief Getter of the class that the student wants to enroll in
+* @brief Returns the UcClass that the student wants to enroll in
 * @details Time complexity: O(1)
 * @return Class that the student wants to enroll in
 */

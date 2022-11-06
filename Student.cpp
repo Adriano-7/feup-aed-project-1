@@ -5,7 +5,7 @@
 
 using namespace std;
 /**
- * @brief Class constructor that sets the id, name of the student and classes vector empty
+ * @brief Constructor that sets the id, name of the student to be an empty string. Vector of classes is empty
  * @details Time complexity: O(1)
  */
 Student::Student() {
@@ -14,7 +14,7 @@ Student::Student() {
     this->classes = vector<UcClass>();
 }
 /**
- * @brief Class constructor that receives all the parameters
+ * @brief Class constructor that receives the id and name of the student. Vector of classes is empty
  * @details Time complexity: O(1)
  */
 Student::Student(const string &id, const string &name) {
@@ -22,15 +22,15 @@ Student::Student(const string &id, const string &name) {
     this->name = name;
     this->classes = vector<UcClass>();
 }
-/** @brief Adds a class to the student
+/** @brief Adds a class to the student.
  *  @details Time complexity: O(1)
  */
 void Student::addClass(const UcClass &newClass) {
     classes.push_back(newClass);
 }
-/** @brief Changes a class of the student
- *  @details Time complexity: O(n)
- *  @return The class that was changed
+/** @brief Changes a class of the student. If the student was not enrolled in the class, nothing changes and it returns an empty UcClass
+ *  @details Time complexity: O(h) where h is the number of classes the student is enrolled
+ *  @return The oldClass if the student was enrolled in the uc, an empty UcClass otherwise.
  */
 UcClass Student::changeClass(const UcClass &newClass) {
     for (int i = 0; i < classes.size(); i++) {
@@ -43,8 +43,8 @@ UcClass Student::changeClass(const UcClass &newClass) {
     return {};
 }
 
-/** @brief Removes a uc from the student
- *  @details Time complexity: O(n)
+/** @brief Removes a uc from the student classes.
+ *  @details Time complexity: O(h) where h is the number of classes the student is currently enrolled in
  */
 void Student::removeUc(const string &ucCode) {
     for (int i = 0; i < classes.size(); i++) {
@@ -55,31 +55,32 @@ void Student::removeUc(const string &ucCode) {
     }
 }
 
-/** @brief Adds a uc to the student
- *  @details Time complexity: O(nlogN)
+/** @brief Adds a ucClass to the student. And then sorts the vector of classes
+ *  @details Time complexity: O(hlog h) where h is the number of classes the student is currently enrolled in
  */
 void Student::addUc(const UcClass &newClass) {
-    classes.push_back(newClass);
+    classes.push_back(newClass); // O(1)
     sort(classes.begin(), classes.end());
 }
 
 /** @brief Checks if the student is enrolled in a given UC
- * @details Time complexity: O(n)
- * @param ucCode UC code to check
+ * @details Time complexity: O(h) where h is the number of classes the student is currently enrolled in
+ * @param ucCode UcCode to check
  * @return true if the student is enrolled, false otherwise
  */
 bool Student::isEnrolled(const string &ucCode) const {
-    for (auto &i : classes) {
+    for (const UcClass &i : classes) {
         if (i.getUcId() == ucCode) {
             return true;
         }
     }
     return false;
 }
-/** @brief Given a UC finds the pair Uc / class of the student
- * @details Time complexity: O(n)
+
+/** @brief Given a Uc finds the pair UcClass of the student
+ * @details Time complexity: O(h) where h is the number of classes of the student
  * @param ucCode UC code to check
- * @return The class of the UC
+ * @return The UcClass of the student if the student is enrolled in the UC, an empty UcClass otherwise
  */
 UcClass Student::findUcClass(const string &ucCode) const {
     for (const UcClass &i : classes) {
@@ -90,7 +91,7 @@ UcClass Student::findUcClass(const string &ucCode) const {
     return {};
 }
 
-/** @brief Prints the header of the student
+/** @brief Prints the header of the student (Name and ID)
  * @details Time complexity: O(1)
  */
 void Student::printHeader() const {
@@ -98,7 +99,7 @@ void Student::printHeader() const {
 }
 
 /** @brief Prints the classes of the student
- * @details Time complexity: O(n)
+ * @details Time complexity: O(h) where h is the number of classes the student is currently enrolled in
  */
 void Student::printClasses() const {
     int i = 0;
@@ -109,29 +110,29 @@ void Student::printClasses() const {
     cout << classes[i].getUcId() << " " << classes[i].getClassId() << endl;
 }
 
-/** @brief Prints the student
- * @details Time complexity: O(n)
+/** @brief Prints the name of the student and the classes he's enrolled in (calls printHeader and printClasses)
+ * @details Time complexity: O(h) where h is the number of classes the student is currently enrolled in
  */
 void Student::print() const {
     cout << "Student: "; printHeader();
     cout << "Classes: "; printClasses();
 }
 
-/** @brief Getter of the id
+/** @brief Returns the id of the student
  * @details Time complexity: O(1)
- * @return id
+ * @return The id of the student
  */
 string Student::getId() const {
     return id;
 }
-/** @brief Getter of the name
+/** @brief Returns the name of the student
  * @details Time complexity: O(1)
- * @return name
+ * @return The name of the student
  */
 string Student::getName() const {
     return name;
 }
-/** @brief Getter of the classes
+/** @brief Returns the vector of classes of the student
  * @details Time complexity: O(1)
  * @return classes
  */
@@ -142,12 +143,12 @@ vector <UcClass> Student::getClasses() const {
 /** @brief Checks if two students have the same ID
  * @details Time complexity: O(1)
  * @param other Student to compare
- * @return true if they have, false otherwise
+ * @return true if they have the same id, false otherwise
  */
 bool Student::operator==(const Student &other) const{
     return this->id == other.getId();
 }
-/** @brief Checks if a student id is less than another
+/** @brief Checks if the student has a smaller ID than the other student
  * @details Time complexity: O(1)
  * @param other Student to compare
  * @return true if it is less than, false otherwise
@@ -155,7 +156,7 @@ bool Student::operator==(const Student &other) const{
 bool Student::operator<(const Student &other) const {
     return this->id < other.getId();
 }
-/** @brief Checks if a student id is greater than another
+/** @brief Checks if the student has a bigger ID than the other student
  * @details Time complexity: O(1)
  * @param other Student to compare
  * @return true if it is greater than, false otherwise

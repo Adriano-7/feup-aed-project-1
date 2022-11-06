@@ -1,7 +1,7 @@
 #include <map>
 #include "UcClass.h"
 
-/** @brief Standard constructor of the UcClass class
+/** @brief Standard constructor of the UcClass class. ucId and classId are set to empty strings
  * @details Time complexity: O(1)
  */
 UcClass::UcClass() {
@@ -10,12 +10,10 @@ UcClass::UcClass() {
 }
 
 /**
- * @brief Constructor of the UcClass class
+ * @brief Constructor of the UcClass class. ucId and classId are set to the given values
  * @details Time complexity: O(1)
  * @param ucId Id of the UC
  * @param classId Id of the class
- * @param capacity Capacity of the class
- * @param enrolled Number of students enrolled in the class
  */
 UcClass::UcClass(const string &ucId, const string &classId) {
     this->ucId = ucId;
@@ -23,25 +21,25 @@ UcClass::UcClass(const string &ucId, const string &classId) {
 }
 
 /**
- * @brief Checks if two classes have the same UC
+ * @brief Checks if two classes have the same UcId
  * @details Time complexity: O(1)
  * @param other Class to compare
- * @return true if they have the same UC, false otherwise
+ * @return true if they have the same UcId, false otherwise
  */
-bool UcClass::sameUC(const UcClass &other) const {
+bool UcClass::sameUcId(const UcClass &other) const {
     return this->ucId == other.ucId;
 }
 
 /**
- * @brief Getter of the UC id
+ * @brief Returns the UcId of the class
  * @details Time complexity: O(1)
- * @return ucId
+ * @return The UcId of the UcClass
  */
 string UcClass::getUcId() const {
     return ucId;
 }
 /**
- * @brief Getter of the class id
+ * @brief Returns the classId of the class
  * @details Time complexity: O(1)
  * @return classId
  */
@@ -50,16 +48,16 @@ string UcClass::getClassId() const {
 }
 
 /**
- * @brief Checks if two classes are equal
+ * @brief Checks if two UcClasses have the same UcId and classId
  * @details Time complexity: O(1)
  * @param other Class to compare
- * @return true if they are equal, false otherwise
+ * @return true if they have the same UcId and ClassId, false otherwise
  */
 bool UcClass::operator == (const UcClass &other) const {
     return this->ucId == other.ucId && this->classId == other.classId;
 }
 /**
- * @brief Checks if a class ID is less than another
+ * @brief Checks if a UcId is less than another. If they have the same UcId, it compares the ClassId.
  * @details Time complexity: O(1)
  * @param other Class to compare
  * @return true if it is less than, false otherwise
@@ -69,7 +67,7 @@ bool UcClass::operator < (const UcClass &other) const {
     return this->ucId < other.ucId;
 }
 /**
- * @brief Checks if a class ID is greater than another
+ * @brief Checks if a UcId is greater than another. If they have the same UcId, it compares the ClassId.
  * @details Time complexity: O(1)
  * @param other Class to compare
  * @return true if it is greater than, false otherwise

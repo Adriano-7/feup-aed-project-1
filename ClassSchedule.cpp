@@ -4,7 +4,7 @@
 
 using namespace std;
 
-/**@brief Default Constructor, initialized with an empty vector of slots and students
+/**@brief Default Constructor, calls the UcClass default constructor and initializes the slots vector as empty
  * @details Time complexity: O(1)
  */
 ClassSchedule::ClassSchedule() {
@@ -12,7 +12,7 @@ ClassSchedule::ClassSchedule() {
     this->slots = vector<Slot>();
 }
 
-/**@brief Constructor, sets ucClass to the given one. The vector of slots is set to empty
+/**@brief Constructor, sets ucClass to the given one. The vector of slots is initialized as empty
 * @details Time complexity: O(1)
 * @param UcClass the UcClass of the schedule
 */
@@ -21,7 +21,7 @@ ClassSchedule::ClassSchedule(const UcClass &ucClass) {
     this->slots = vector<Slot>();
 }
 
-/**@brief Constructor, given a ucId and a classId, creates a ClassSchedule with the the vector of slots empty
+/**@brief Constructor, given a ucId and a classId, creates a UcClass and  the vector of slots is initialized as empty
  * @details Time complexity: O(1)
  * @param ucId
  * @param classId
@@ -39,28 +39,28 @@ void ClassSchedule::addSlot(const Slot &slot) {
     slots.push_back(slot);
 }
 
-/** @brief Add a student to the set of students
- * @details Time complexity: O(log n)
+/** @brief Inserts a student in the set of students
+ * @details Time complexity: O(log q), where q is the number of students in the ClassSchedules set of students
  * @param student the student to add
  */
 void ClassSchedule::addStudent(const Student &student) {
     students.insert(student);
 }
 
-/** @brief Remove a student from the set of students
- * @details Time complexity: O(log n)
+/** @brief Removes a student from the set of students
+ * @details Time complexity: O(log q), where q is the number of students in the ClassSchedules set of students
  * @param student the student to remove
  */
 void ClassSchedule::removeStudent(const Student &student) {
     students.erase(student);
 }
 
-/** @brief Bolean function that returns true if both ClassSchedule have the same UcId, false otherwise
+/** @brief Boolean function that returns true if the ClassSchedules have the same UcId, false otherwise
  * @details Time complexity: O(1)
  * @param other the other ClassSchedule
  */
-bool ClassSchedule::sameUC(const ClassSchedule &other) const {
-    return ucClass.sameUC(other.getUcClass());
+bool ClassSchedule::sameUcId(const ClassSchedule &other) const {
+    return ucClass.sameUcId(other.getUcClass());
 }
 
 /**@brief Prints the ucId and classId
@@ -71,59 +71,63 @@ void ClassSchedule::printHeader() const {
 }
 
 /**@brief Prints each slot (Weekday, Start time, End time, Type)
- * @details Time complexity: O(n)
+ * @details Time complexity: O(l), where l is the number of slots in the ClassSchedule
  */
 void ClassSchedule::printSlots() const {
     cout << ">> Slots:" << endl;
-    for (const auto &slot : slots) {
+    for (const Slot &slot : slots) {
         cout << "   " << slot.getWeekDay() << "   " << slot.getStartTime() << " - " << slot.getEndTime() << "   " << slot.getType() << endl;
     }
 }
 
 /**@brief Prints the students in a given sortType
- * @details Time complexity: O(n log n)
+ * @details Prints the number of students, then the students in the given sortType\n
+ * Time complexity: O(q log q), where q is the number of students in the ClassSchedule
  * @param sortType the type of sort, it can be alphabetical, reverse alphabetical, numerical, reverse numerical
  */
 void ClassSchedule::printStudents(const string &sortType) const{
-    auto studentsVector = new vector<Student>(students.begin(), students.end());            //O(n)
+    auto studentsVector = new vector<Student>(students.begin(), students.end()); //O(q)
     if (sortType == "alphabetical") {
-        sort(studentsVector->begin(), studentsVector->end(), [](const Student &a, const Student &b) { return a.getName() < b.getName(); }); //O(n logN)
+        sort(studentsVector->begin(), studentsVector->end(), [](const Student &a, const Student &b) { return a.getName() < b.getName(); }); //O(q logQ)
     } else if (sortType == "reverse alphabetical") {
-        sort(studentsVector->rbegin(), studentsVector->rend(), [](const Student &a, const Student &b) { return a.getName() < b.getName(); }); //O(n logN)
+        sort(studentsVector->rbegin(), studentsVector->rend(), [](const Student &a, const Student &b) { return a.getName() < b.getName(); }); //O(q logQ)
     } else if (sortType == "numerical") {
-        sort(studentsVector->begin(), studentsVector->end());   //O(n logN)
+        sort(studentsVector->begin(), studentsVector->end());
     } else if (sortType == "reverse numerical") {
-        sort(studentsVector->rbegin(), studentsVector->rend()); //O(n logN)
+        sort(studentsVector->rbegin(), studentsVector->rend());
     } else {
         cout << "Invalid sortType" << endl;
         return;
     }
     cout << ">> Number of students: " << students.size() << endl;
     cout << ">> Students:" << endl;
-    for(const Student &student: *studentsVector){   //O(n)
+    for(const Student &student: *studentsVector){   //O(q)
         cout << "   "; student.printHeader();
     }
     delete studentsVector;
 }
 
-/**@brief Prints the ClassSchedule(calls printHeader, printSlots and printStudents)
- * @details Time complexity: O(n log n)
+/**@brief Prints the ClassSchedule (calls printHeader(), printSlots() and printStudents())
+ * @details Time complexity: O(l) + O(q log q), where l is the number of slots in the ClassSchedule and q is the number of students in the ClassSchedule
+ * @see printHeader()
+ * @see printSlots()
+ * @see printStudents()
 */
 void ClassSchedule::print() const {
     printHeader();  //O(1)
-    printSlots();   //O(n)
-    printStudents();    //O(n log n)
+    printSlots();   //O(l)
+    printStudents();    //O(q log q)
     cout << endl;
 }
 
-/**@brief Get the UcClass
+/**@brief Returns the UcClass of the ClassSchedule
  * @details Time complexity: O(1)
 */
 UcClass ClassSchedule::getUcClass() const {
     return ucClass;
 }
 
-/** @brief Get the number of students in the class
+/** @brief Returns the number of students enrolled in the class
  * @details Time complexity: O(1)
  * @return the number of students
  */
@@ -132,22 +136,21 @@ int ClassSchedule::getNumStudents() const {
 }
 
 /**
- * @brief Get the slots
+ * @brief Returns a reference to the vector of slots
  * @details Time complexity: O(1)
- * @return the reference to the vector of slots
 */
 const vector<Slot> &ClassSchedule::getSlots() const {
     return slots;
 }
 
-/**@brief Get students
+/**@brief Returns the set of students
  * @details Time complexity: O(1)
 */
 set<Student> ClassSchedule::getStudents() const {
     return students;
 }
 
-/** @brief Minor operator
+/** @brief Minor operator. Compares two ClassSchedules by their UcId, then by their classId
  * @details Time complexity: O(1)
  * @param other The ClassSchedule to compare to
  * @return true if the UcClass is smaller, false otherwise

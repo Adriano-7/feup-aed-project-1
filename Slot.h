@@ -16,7 +16,7 @@ class Slot {
         string getType() const;
         float getStartTime() const;
         float getEndTime() const;
-        bool collides(const Slot &other) const;
+        bool overlaps(const Slot &other) const;
         bool operator !=(const Slot &other) const;
         bool operator ==(const Slot &other) const;
         bool operator < (const Slot &other) const;

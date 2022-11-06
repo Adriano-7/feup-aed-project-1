@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['sameuc_187',['sameUC',['../class_class_schedule.html#ac50e4034853f1693e43775c1055fd04b',1,'ClassSchedule::sameUC()'],['../class_uc_class.html#ad9a17a3bb33b701aee967f94e5bec861',1,'UcClass::sameUC()']]],
+  ['sameucid_187',['sameUcId',['../class_class_schedule.html#abb91767d25c42dcf124a63d7c2d24f0e',1,'ClassSchedule::sameUcId()'],['../class_uc_class.html#a89fbd9f4d9a5a3fcc266341b5d987d41',1,'UcClass::sameUcId()']]],
   ['saveinformation_188',['saveInformation',['../class_app.html#a3849ad0c655f662f2307317649be53aa',1,'App']]],
   ['schedulemanager_189',['ScheduleManager',['../class_schedule_manager.html#a01e612817374dc034ba3869d5ab38afb',1,'ScheduleManager']]],
   ['setschedules_190',['setSchedules',['../class_schedule_manager.html#aa9cd7c49b7db003fdec970845b7c72bf',1,'ScheduleManager']]],
